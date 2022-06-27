@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        background: radial-gradient(black, rgb(48, 46, 46));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card {
+        height: 65%;
+        width: 65%;
+        border-radius: 50%;
+        background: white;
+        overflow: auto;
+        position: relative;
+      }
+
+      .sky {
+        height: 100%;
+        position: relative;
+        background: rgb(13, 68, 139);
+      }
+
+      .moon {
+        border-radius: 50%;
+        height: 105px;
+        width: 105px;
+        background: white;
+        position: absolute;
+        z-index: 2;
+        top: -5%;
+        left: 22%;
+        overflow: hidden;
+      }
+
+      .moon::after {
+        content: "";
+        border-radius: 50%;
+        background: black;
+        width: 100%;
+        height: 100%;
+        opacity: 10%;
+        position: absolute;
+        left: -30%;
+      }
+
+      .hill {
+        height: 100%;
+        width: 200%;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 5;
+        background: rgb(3, 82, 42);
+        bottom: -50%;
+        left: 10%;
+      }
+
+      .dimple {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        position: absolute;
+        /* border: 1px solid black; */
+        left: 25%;
+        top: 35%;
+        overflow: hidden;
+      }
+
+      .dimple::after {
+        content: "";
+        border-radius: 50%;
+        background: black;
+        clip-path: polygon(
+          49% 2%,
+          31% 18%,
+          22% 35%,
+          21% 69%,
+          30% 82%,
+          50% 100%,
+          13% 94%,
+          0% 70%,
+          0% 35%,
+          16% 8%
+        );
+
+        width: 100%;
+        height: 100%;
+        opacity: 10%;
+        position: absolute;
+        /* left: -70%; */
+      }
+
+      .d-2 {
+        left: 75%;
+        top: 45%;
+      }
+
+      .d-3 {
+        left: 50%;
+        top: 75%;
+        height: 15px;
+        width: 15px;
+      }
+
+      .tree {
+        height: 200px;
+        width: 85px;
+        /* border: 1px solid black; */
+        position: absolute;
+        bottom: 25%;
+        left: 30%;
+        z-index: 5;
+      }
+
+      .t-2 {
+        left: 65%;
+        bottom: 35%;
+      }
+
+      .top {
+        height: 85%;
+        width: 100%;
+        background: green;
+        box-shadow: 200px -11px 275px -144px rgba(0, 0, 0, 0.24) inset;
+
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        /* box-shadow: -200px -200px 187px -133px rgba(0, 0, 0, 0.71) inset; */
+      }
+
+      .stump {
+        width: 10px;
+        height: 38px;
+        background: rgb(122, 75, 4);
+        bottom: 0;
+        left: 40%;
+        position: absolute;
+      }
+
+      .star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 7px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        opacity: 35%;
+        transition: 2s ease;
+      }
+
+      .flash {
+        animation: glow 2s;
+      }
+
+      .star1 {
+        left: 65%;
+        top: 20%;
+      }
+
+      .star2 {
+        left: 40%;
+        top: 30%;
+      }
+
+      .star3 {
+        left: 15%;
+        top: 65%;
+      }
+
+      .star4 {
+        left: 65%;
+        top: 20%;
+      }
+
+      .star5 {
+        left: 15%;
+        top: 20%;
+      }
+
+      .firepit {
+        position: absolute;
+        left: 40%;
+        bottom: 5%;
+        /* border: 2px solid black; */
+        z-index: 5;
+        width: 35%;
+        height: 200px;
+        transform: scale(75%);
+        /* background: white; */
+      }
+
+      .log {
+        height: 50px;
+        width: 30px;
+        position: absolute;
+        bottom: 0;
+        left: 35%;
+        background: brown;
+      }
+
+      .log::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        box-shadow: 3px 3px 8px black inset;
+      }
+
+      .log-end {
+        border: 1px solid black;
+        border-radius: 50%;
+        height: 20px;
+        width: 100%;
+        bottom: -20%;
+        position: absolute;
+        background: tan;
+        transform-origin: top;
+        z-index: 10;
+      }
+
+      .log:first-child {
+        z-index: 15;
+      }
+
+      .log:nth-child(2) {
+        transform-origin: top;
+        z-index: 9;
+
+        transform: rotate(35deg);
+      }
+
+      .log:nth-child(3) {
+        transform-origin: top;
+        z-index: 8;
+
+        transform: rotate(-35deg);
+      }
+
+      .log:nth-child(4) {
+        transform-origin: top;
+        z-index: 7;
+
+        transform: rotate(90deg) translateX(20%);
+      }
+
+      .log:nth-child(5) {
+        transform-origin: top;
+        z-index: 6;
+
+        transform: rotate(-90deg) translateX(-20%);
+      }
+
+      .fire {
+        position: absolute;
+        height: 100px;
+        width: 120px;
+        left: 10%;
+        top: 25%;
+        z-index: 20;
+        /* overflow: hidden; */
+        /* animation: burn 3s infinite; */
+        /* border: 2px solid black; */
+      }
+
+      .flame-div {
+        height: 100px;
+        width: 80px;
+        position: relative;
+        margin: 0 auto;
+        /* border: 3px solid red; */
+        text-align: center;
+      }
+
+      .firepit::after {
+        position: absolute;
+        width: 100%;
+        height: 20%;
+        background: rgb(51, 49, 49);
+        content: "";
+        border-radius: 50%;
+        left: -10%;
+        bottom: -5%;
+        padding: 0.5em;
+        opacity: 50%;
+      }
+
+      @keyframes glow {
+        25% {
+          box-shadow: 1px 2px 3px white;
+          opacity: 75%;
+        }
+        75% {
+          box-shadow: 3px 3px 10px white;
+          opacity: 100%;
+        }
+
+        100% {
+          box-shadow: 0px 0px 0px white;
+          opacity: 35%;
+        }
+      }
+
+      @keyframes burn {
+        10% {
+          opacity: 75%;
+        }
+        20% {
+          opacity: 100%;
+        }
+
+        30% {
+          opacity: 35%;
+        }
+
+        100% {
+          opacity: 100%;
+        }
+      }
+
+      .fancy-f-div {
+        width: 50%;
+        height: 100%;
+        /* border: 2px solid black; */
+        position: absolute;
+        left: 25%;
+        transform-origin: bottom;
+      }
+
+      .f-div-0 {
+        animation: growflame1 2s forwards;
+      }
+
+      .f-div-1 {
+        animation: growflame2 2s forwards;
+      }
+
+      .f-div-2 {
+        animation: growflame3 2s forwards;
+      }
+
+      .f-top {
+        height: 30%;
+        width: 100%;
+        /* border: 2px solid black; */
+        background: radial-gradient(rgb(235, 134, 19), rgb(235, 23, 8));
+        clip-path: polygon(51% 45%, 5% 100%, 91% 100%);
+      }
+
+      .f-bottom {
+        height: 70%;
+        width: 100%;
+        /* border: 2px solid black; */
+        position: relative;
+        background: radial-gradient(rgb(235, 134, 19), red);
+        z-index: 15;
+      }
+
+      .f-bottom::before {
+        content: "";
+        position: absolute;
+        left: -30%;
+        height: 100%;
+        width: 100%;
+        background: radial-gradient(rgb(235, 134, 19), red);
+        border-radius: 50%;
+      }
+
+      .f-bottom::after {
+        content: "";
+        position: absolute;
+        right: -30%;
+        height: 100%;
+        width: 100%;
+        background: radial-gradient(rgb(235, 134, 19), red);
+        border-radius: 50%;
+      }
+
+      @keyframes growflame1 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(100%) rotate(-30deg);
+        }
+      }
+
+      @keyframes growflame2 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(100%) rotate(0deg);
+        }
+      }
+
+      @keyframes growflame3 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(100%) rotate(30deg);
+        }
+      }
+
+      .shooting-star {
+        /* width: 5px; */
+        height: 5px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        left: 5%;
+        /* top: 20%; */
+      }
+
+      .shoot {
+        animation: shoot 3s;
+      }
+
+      @keyframes shoot {
+        0% {
+          left: 0%;
+        }
+
+        100% {
+          left: 125%;
+          top: 5%;
+        }
+      }
+    </style>
+    <title>Snowy Fire</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="sky">
+          <div class="moon">
+            <div class="dimple d-1"></div>
+            <div class="dimple d-2"></div>
+            <div class="dimple d-3"></div>
+          </div>
+          <div class="star star1"></div>
+          <div class="star star2"></div>
+          <div class="star star3"></div>
+          <div class="star star4"></div>
+          <div class="star star5"></div>
+        </div>
+        <div class="hill"></div>
+        <div class="tree t-1">
+          <div class="top"></div>
+          <div class="stump"></div>
+        </div>
+
+        <div class="tree t-2">
+          <div class="top"></div>
+          <div class="stump"></div>
+        </div>
+        <div class="firepit">
+          <div class="fire">
+            <div class="flame-div">
+              <!-- <div class="flame flame-0"></div>
+              <div class="flame flame-1"></div>
+              <div class="flame flame-2"></div> -->
+              <div class="fancy-flame"></div>
+              <div class="fancy-f-div f-div-0">
+                <div class="f-top"></div>
+                <div class="f-bottom"></div>
+              </div>
+              <div class="fancy-f-div f-div-1">
+                <div class="f-top"></div>
+                <div class="f-bottom"></div>
+              </div>
+              <div class="fancy-f-div f-div-2">
+                <div class="f-top"></div>
+                <div class="f-bottom"></div>
+              </div>
+            </div>
+          </div>
+          <div class="log">
+            <div class="log-end"></div>
+          </div>
+          <div class="log">
+            <div class="log-end"></div>
+          </div>
+          <div class="log">
+            <div class="log-end"></div>
+          </div>
+          <div class="log">
+            <div class="log-end"></div>
+          </div>
+          <div class="log">
+            <div class="log-end"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var stars = document.querySelectorAll(".star");
+      let counter = 0;
+      //   var shootingStar = document.querySelector(".shooting-star");
+
+      function flashStar() {
+        let num = (Math.random() * stars.length) | 0;
+        stars[num].classList.add("flash");
+        counter++;
+        if (counter > 3) {
+          var shootingStar = document.createElement("div");
+          shootingStar.className = "shooting-star shoot";
+          shootingStar.style.width = ((Math.random() * 7) | (0 + 5)) + "px";
+          let px = ((Math.random() * 265) | 0) + "px";
+          console.log(px);
+          shootingStar.style.top = px;
+          document.querySelector(".sky").append(shootingStar);
+        }
+
+        setTimeout(() => {
+          stars[num].classList.remove("flash");
+          //   shootingStar.style.left = 0;
+          if (counter > 3) {
+            document.querySelector(".sky").removeChild(shootingStar);
+            console.log(shootingStar);
+            counter = 0;
+          }
+
+          flashStar();
+        }, 3500);
+      }
+
+      flashStar();
+    </script>
+  </body>
+</html>

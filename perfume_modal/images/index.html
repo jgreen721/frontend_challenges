@@ -39,7 +39,6 @@
         flex-direction: column;
         font-family: "Montserrat", sans-serif;
         background: var(--cream);
-        overflow: auto;
       }
 
       .card {
@@ -54,14 +53,13 @@
       .card-column {
         width: 50%;
         height: 100%;
-        /* overflow: hidden; */
+        overflow: hidden;
       }
 
       .card-column:first-child {
         animation: fall 1s forwards;
         border-top-left-radius: 0.5em;
         border-bottom-left-radius: 0.5em;
-        overflow: hidden;
       }
 
       .card-column:nth-child(2) {
@@ -194,8 +192,7 @@
       @media screen and (max-width: 450px) {
         .card {
           flex-direction: column;
-          height: 100%;
-          /* min-height: 700px; */
+          height: 95%;
         }
 
         .card-column {
@@ -209,10 +206,10 @@
           border-bottom-left-radius: 0em;
           height: 40%;
           min-height: 200px;
+          min-width: 200px;
         }
 
         .card-column:nth-child(2) {
-          background: white;
           border-bottom-right-radius: 0.5em;
           border-bottom-left-radius: 0.5em;
           height: 60%;
@@ -273,7 +270,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="https://github.io/jgreen721">JGreen721</a>.
+      >. Coded by <a href="#">Your Name Here</a>.
     </div>
 
     <script>
@@ -281,15 +278,22 @@
         console.log("resize!", e.target.innerWidth);
         if (e.target.innerWidth < 450) {
           document.querySelector(".attribution").style.display = "none";
+
           document
             .querySelector(".image")
-            .setAttribute("src", "/images/image-product-mobile.jpg");
+            .setAttribute(
+              "src",
+              "/frontend_challenges/perfume_modal/images/image-product-mobile.jpg"
+            );
         } else {
           document.querySelector(".attribution").style.display = "block";
 
           document
             .querySelector(".image")
-            .setAttribute("src", "/images/image-product-desktop.jpg");
+            .setAttribute(
+              "src",
+              "/frontend_challenges/perfume_modal/images/image-product-desktop.jpg"
+            );
         }
       };
 
