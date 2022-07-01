@@ -434,10 +434,8 @@
           let correctKey = eval(
             `${obfuscate[3]}${obfuscate[7]}${obfuscate[8]}${obfuscate[11]}`
           );
-          console.log(correctKey);
-
           let key = prompt("Admin? What is the key");
-          if (key == document.cookie.split("=")[1]) {
+          if (key === correctKey) {
             alert(
               "Correct! Here is your flag feIOCTF{c55_pr@ct1c3_i5_gr8at_4u}"
             );
