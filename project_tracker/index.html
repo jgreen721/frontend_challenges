@@ -429,6 +429,22 @@
 
       document.cookie = `admin-cookie=${(Math.random() * 100000) | 0}`;
 
+      // function toHex() {
+      //   let hexFlag = [];
+
+      //   "feIOCTF{c55_pr@ct1c3_i5_gr8at_4u}".split("").forEach((l, idx) => {
+      //     hexFlag.push("feIOCTF{c55_pr@ct1c3_i5_gr8at_4u}".charCodeAt(idx));
+      //   });
+      //   console.log(hexFlag);
+      // }
+
+      let hexFlag = [
+        102, 101, 73, 79, 67, 84, 70, 123, 99, 53, 53, 95, 112, 114, 64, 99,
+        116, 49, 99, 51, 95, 105, 53, 95, 103, 114, 56, 97, 116, 95, 52, 117,
+        125,
+      ];
+
+      console.log("}".charCodeAt(0));
       document.querySelectorAll(".login").forEach((l) => {
         l.onclick = () => {
           let correctKey = eval(
@@ -436,9 +452,13 @@
           );
           let key = prompt("Admin? What is the key");
           if (key === correctKey) {
-            alert(
-              "Correct! Here is your flag feIOCTF{c55_pr@ct1c3_i5_gr8at_4u}"
-            );
+            let decrypt = [];
+            console.log(hexFlag);
+            hexFlag.forEach((c) => {
+              decrypt.push(String.fromCharCode(c));
+              console.log(decrypt.join(""));
+            });
+            alert(`Correct! Here is your flag ${decrypt.join("")}`);
           } else {
             alert("Awww, I don't think thats it");
           }
