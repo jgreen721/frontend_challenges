@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Project tracking intro component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --red: hsl(0, 100%, 68%);
+        --darkblue: hsl(230, 29%, 20%);
+        --darkgray: hsl(230, 11%, 40%);
+        --grayblue: hsl(231, 7%, 65%);
+        --lightgray: hsl(207, 33%, 95%);
+      }
+
+      li {
+        list-style: none;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: "Bai Jamjuree", sans-serif;
+      }
+
+      .app {
+        height: 100%;
+        width: 100%;
+        padding: 1em;
+        /* border: 2px solid black; */
+        overflow: hidden;
+        position: relative;
+        opacity: 0;
+        animation: fadein 1s forwards;
+      }
+
+      .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* border: 2px solid blue; */
+        height: 10%;
+      }
+
+      .light {
+        color: var(--grayblue);
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-item {
+        list-style: none;
+        margin: 0px 1em;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .nav-item:hover::after {
+        background: var(--grayblue);
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -10px;
+        left: 0;
+        transform-origin: center;
+        scale: 0;
+        animation: hover 0.2s forwards;
+      }
+
+      @keyframes hover {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        opacity: 85%;
+      }
+
+      .flex-row {
+        display: flex;
+        width: 100%;
+        /* border: 2px solid red; */
+        height: 90%;
+      }
+
+      .flex-col {
+        width: 50%;
+        height: 100%;
+      }
+
+      header,
+      .content-item,
+      .btn-row {
+        margin: 0.5em 0px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+      }
+
+      .new {
+        background: black;
+        border-radius: 100px;
+        color: white;
+        padding: 0.25em;
+        margin-right: 1em;
+        width: 75px;
+        text-align: center;
+      }
+
+      .illustration-img {
+        height: 65%;
+        transform: translateY(20%);
+      }
+
+      .mobile-menu {
+        width: 85%;
+        height: 200px;
+        text-align: center;
+        background: white;
+        /* border: 2px solid orange; */
+        position: absolute;
+        left: 7%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        transform: translateY(-350px);
+        z-index: 5;
+        box-shadow: 2px 3px 8px gray;
+      }
+
+      .show-menu {
+        animation: drop 0.5s forwards;
+      }
+
+      .mobile-item {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .mobile-item:hover::after {
+        background: var(--grayblue);
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -10px;
+        left: 0;
+        transform-origin: center;
+        scale: 0;
+        animation: hover 0.2s forwards;
+      }
+
+      @keyframes hover {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* .mobile-item:hover::after {
+        border: 2px solid black;
+      } */
+
+      .login-mobile {
+        position: relative;
+        width: 85%;
+        transform: translateY(0.5em);
+        list-style: none;
+        text-decoration: none;
+        color: black;
+      }
+
+      .login-mobile::before {
+        content: "";
+        position: absolute;
+        border-top: 1px solid gray;
+        width: 100%;
+        height: 2px;
+        top: -0.5rem;
+        left: 0;
+      }
+
+      .login-mobile:hover {
+        color: var(--darkgray);
+      }
+
+      .content-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 1em;
+      }
+
+      .app::after {
+        content: "";
+        position: absolute;
+        background: var(--lightgray);
+        width: 50%;
+        height: 400px;
+        top: -25px;
+        right: 0px;
+        z-index: -1;
+        border-radius: 25px;
+        opacity: 0;
+        animation: fadein 1s 0.5s forwards;
+      }
+
+      .btn {
+        padding: 0.5em;
+        border-radius: 2px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        opacity: 75%;
+      }
+
+      .schedule-btn {
+        background: var(--red);
+        color: white;
+      }
+
+      @media screen and (max-width: 550px) {
+        .app {
+          height: 650px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: block;
+        }
+
+        .flex-row {
+          flex-direction: column;
+        }
+
+        .light {
+          font-size: 18px;
+        }
+
+        .flex-col {
+          width: 100%;
+          height: 50%;
+        }
+
+        .content-col {
+          animation: slidedown 1s forwards;
+        }
+        .img-col {
+          animation: slideup 1s forwards;
+        }
+
+        .illustration-img {
+          height: 85%;
+          transform: translateY(-15px);
+        }
+      }
+
+      @keyframes slidedown {
+        0% {
+          transform: translateY(0%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+
+      @keyframes slideup {
+        0% {
+          transform: translateY(0%);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      @keyframes drop {
+        0% {
+          transform: translateY(-350px);
+        }
+
+        100% {
+          transform: translateY(65px);
+        }
+      }
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="mobile-menu">
+      <a class="mobile-item" href="#"><h2>PRODUCT</h2></a>
+      <a class="mobile-item" href="#"><h2>FEATURES</h2></a>
+      <a class="mobile-item" href="#"><h2>PRICING</h2></a>
+      <a class="login-mobile login" href="#"><h2>LOGIN</h2></a>
+    </div>
+    <div class="app">
+      <div class="top-row">
+        <img class="logo" src="./images/logo.svg" alt="logo" />
+        <ul class="nav-links">
+          <li class="nav-item">Product</li>
+          <li class="nav-item">Features</li>
+          <li class="nav-item">Pricing</li>
+          <li>-</li>
+          <li class="nav-item login">Login</li>
+        </ul>
+        <img
+          onclick="toggleMenu()"
+          class="burger"
+          src="./images/icon-hamburger.svg"
+          alt="img"
+        />
+      </div>
+      <div class="flex-row">
+        <div class="flex-col content-col">
+          <header>
+            <span class="new">NEW</span>
+            <h3 class="light">Mongraph Dashboard</h3>
+          </header>
+          <h1 class="content-item">POWERFUL INSIGHTS INTO YOUR TEAM</h1>
+          <h4 class="content-item">
+            Project planning and time tracking for agile teams
+          </h4>
+          <div class="button-row">
+            <button class="btn schedule-btn">Schedule a Demo</button>
+            <button class="btn preview-btn">To see a preview</button>
+          </div>
+        </div>
+        <div class="flex-col img-col">
+          <img
+            class="illustration-img"
+            src="./images/illustration-devices.svg"
+            alt="devices"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer> -->
+
+    <script>
+      var icons = ["./images/icon-hamburger.svg", "./images/icon-close.svg"];
+      var obfuscate = [
+        "javascript",
+        "frontendio",
+        "DOM",
+        "document.",
+        "localStorage",
+        "session",
+        "ccrf",
+        "cookie",
+        ".",
+        "splice",
+        "reduce",
+        "split('=')[1]",
+        "=",
+        "+",
+      ];
+      function toggleMenu() {
+        document.querySelector(".mobile-menu").classList.toggle("show-menu");
+        if (
+          document.querySelector(".mobile-menu").classList.contains("show-menu")
+        ) {
+          document.querySelector(".burger").setAttribute("src", icons[1]);
+        } else {
+          document.querySelector(".burger").setAttribute("src", icons[0]);
+        }
+      }
+
+      document.cookie = `admin-cookie=${(Math.random() * 100000) | 0}`;
+
+      document.querySelectorAll(".login").forEach((l) => {
+        l.onclick = () => {
+          let correctKey = eval(
+            `${obfuscate[3]}${obfuscate[7]}${obfuscate[8]}${obfuscate[11]}`
+          );
+          console.log(correctKey);
+
+          let key = prompt("Admin? What is the key");
+          if (key == document.cookie.split("=")[1]) {
+            alert(
+              "Correct! Here is your flag feIOCTF{c55_pr@ct1c3_i5_gr8at_4u}"
+            );
+          } else {
+            alert("Awww, I don't think thats it");
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
