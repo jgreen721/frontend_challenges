@@ -446,6 +446,16 @@
           }
         };
       });
+
+      window.onresize = (e) => {
+        console.log(e.target);
+        if (
+          e.target.innerWidth > 550 &&
+          document.querySelector(".mobile-menu").classList.contains("show-menu")
+        ) {
+          document.querySelector(".mobile-menu").classList.remove("show-menu");
+        }
+      };
     </script>
   </body>
 </html>
