@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Single Price Grid Component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;400;700&display=swap');
+      /* Cyan: hsl(179, 62%, 43%)
+- Bright Yellow: hsl(71, 73%, 54%)
+
+### Neutral
+
+- Light Gray: hsl(204, 43%, 93%)
+- Grayish Blue: hsl(218, 22%, 67%) */
+
+      :root{
+        --cyan:hsl(179,62%,43%);
+        --byellow:hsl(71,73%,54%);
+        --lgray:hsl(204,43%,93%);
+        --gblue:hsl(218,22%,67%)
+      }
+
+      li {
+        list-style: none;
+        font-size:13px;
+        line-height:17px;
+        transition:ease-in;
+        transform:translateX(-300px);
+        font-weight:200px;
+      }
+
+      li:first-child{
+        animation:slide .3s .3 forwards;
+      }
+
+      li:nth-child(2){
+        animation:slide .3s .6s forwards;
+      }
+
+      li:nth-child(3){
+        animation:slide .3s  .8s forwards;
+      }
+
+      li:nth-child(4){
+        animation:slide .3s  1s forwards;
+      }
+
+      li:nth-child(5){
+        animation:slide .3s  1.1s forwards;
+      }
+
+      li:nth-child(6){
+        animation:slide .3s 1.2s forwards;
+      }
+
+
+      li:nth-child(7){
+        animation:slide .3s 1.4s forwards;
+      }
+
+      /* li:hover{
+        transform:scale(1.1);
+        text-shadow:2px 2px 9px white;
+      } */
+
+
+      @keyframes slide{
+        0%{
+          transform:translateX(-1000px)
+        }
+
+        100%{
+          transform:translateX(0px)
+        }
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        background:var(--lgray);
+      }
+
+      .app {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Karla', sans-serif;
+      }
+
+      .card {
+        width: clamp(40%, 550px, 90%);
+        height: 400px;
+        background:white;
+        display: flex;
+        border-radius:10px;
+        box-shadow:2px 3px 8px gray;
+        flex-direction: column;
+        animation:slide 1s;
+      }
+
+      .col {
+        width: 100%;
+        height: 50%;
+        /* border: 2px solid red; */
+      }
+
+
+      .small-col{
+        height:100%;
+        width:50%;
+        /* border:1px solid blue; */
+        padding:1.5em;
+        background:var(--cyan);
+        color:white;
+        overflow:hidden;
+      }
+
+      .small-col:first-child{
+        background:rgb(18, 161, 161)
+
+      }
+
+      .col-one {
+        padding: 1em;
+      }
+
+      .col-one p {
+        width: 85%;
+        line-height: 1.5rem;
+        font-size:13px;
+      }
+
+      .m-5 {
+        margin: .85em 0;
+        margin-left: 10px;
+      }
+
+      .flex-col {
+        display: flex;
+      }
+
+      .title-h3{
+        letter-spacing:2px;
+        font-weight:400;
+      }
+
+      ul{
+        margin-top:1rem;
+      }
+
+      .teal{
+        color:var(--cyan);
+
+      }
+
+      .light{
+        color:var(--gblue);
+      }
+
+      .green{
+        color:var(--byellow);
+      }
+
+      .signup-btn{
+        width:100%;
+        /* padding:.65em; */
+        height:40px;
+        background:var(--byellow);
+        color:white;
+        border-radius:5px;
+        border:none;
+        cursor:pointer;
+        transform:translateY(10px);
+        box-shadow:2px 1px 4px gray;
+
+      }
+
+      .h4-thin{
+        font-weight:400;
+        text-shadow:2px 2px 7px gray;
+      }
+
+      .p-thin{
+        font-weight:400;
+      }
+
+      .signup-btn:hover{
+        opacity:75%;
+      }
+
+      .evenly{
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+        align-items:flex-start;
+      }
+
+       @media screen and (max-width:500px){
+
+        .app{
+          display:block;
+        }
+
+         .card{
+           /* height:750px; */
+           height:95%;
+           margin:0 auto;
+           margin-top:1em;
+         }
+
+         .col:first-child{
+           height:35%;
+         }
+
+         .col:nth-child(2){
+           height:65%;
+         }
+
+         .m-5{
+          margin: .35em 0;
+        margin-left: 10px;
+      }         
+            .flex-col{
+              flex-direction:column;
+            }
+
+            .small-col{
+              height:50%;
+              width:100%;
+            }
+
+            .evenly{
+              justify-content: space-evenly;
+            }
+          }
+
+
+
+      .thin{
+        font-weight:200;
+        opacity:75%;
+        font-size:1rem;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="card">
+        <div class="col col-one">
+          <h3 class="teal m-5">Join our community</h3>
+          <h5 class="green m-5">30-day, hassle-free money back guarantee</h5>
+          <p class="light m-5">
+            Gain access to our full library of tutorials along with expert code
+            reviews. Perfect for any developers who are serious about honing
+            their skills.
+          </p>
+        </div>
+        <div class="col flex-col">
+          <div class="small-col evenly">
+            <h3 class="title-h3">Monthly Subscription</h3>
+            <h2>
+              &dollar;29  <span class="thin">per month</span>
+              </h2>
+           
+            <p class="p-thin">Full access for less than &dollar;1 a day</p>
+            <button class="signup-btn">Sign Up</button>
+          </div>
+          <div class="small-col">
+            <h4 class="h4-thin">Why Us</h4>
+            <ul>
+              <li>Tutorials by industry experts</li>
+              <li>Peer &amp; expert code review</li>
+              <li>Coding Exercises</li>
+              <li>Access to our Github repos</li>
+              <li>Community forum</li>
+              <li>FLashcard decks</li>
+              <li>New videos every week</li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+  </body>
+</html>
