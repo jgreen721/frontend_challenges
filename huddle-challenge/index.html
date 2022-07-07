@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Huddle landing page with curved sections</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css"
+      integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body theme="light">
+    <div class="app">
+      <!--HEADER-->
+
+      <header>
+        <img class="logo-img" src="./images/logo.svg" alt="logo" />
+        <div class="flex">
+          <button class="header-btn btn">Try it Free</button>
+          <span class="theme" onclick="toggleTheme()">🌙</span>
+        </div>
+      </header>
+
+      <!--BANNER-->
+
+      <div class="banner">
+        <h1 class="banner-h1 mb-5">Build the Community Your Fans Will Love</h1>
+        <p class="banner-p mb-5">
+          Huddle re-imagines the way we build communities. You have a voice, but
+          so does your audience. Create connections with your users as you
+          engage in genuine discussion.
+        </p>
+        <button class="banner-btn btn mt-5">Get Started For Free</button>
+      </div>
+
+      <!--IMAGE-CARD-->
+      <div class="image-card">
+        <img class="mockup-img" src="./images/screen-mockups.svg" alt="img" />
+      </div>
+
+      <!--DATA-ROW-->
+      <div class="data-row">
+        <div class="data-col">
+          <div class="flex-start">
+            <img
+              class="communities-img data-img"
+              src="./images/icon-communities.svg"
+              alt="img"
+            />
+            <h1 class="data-h1">1.4k+</h1>
+            <p>Communities Formed</p>
+          </div>
+        </div>
+        <div class="data-col">
+          <div class="flex-start">
+            <img
+              class="messages-img data-img"
+              src="./images/icon-messages.svg"
+              alt="img"
+            />
+
+            <h1 class="data-h1">2.7m+</h1>
+            <p>Messages Sent</p>
+          </div>
+        </div>
+      </div>
+
+      <!--SECTION1-->
+
+      <section class="section section-1">
+        <div class="section-overlay">
+          <img
+            class="section-img"
+            src="./images/bg-section-top-desktop-1.svg"
+            alt="section-overlay"
+          />
+        </div>
+        <div class="section-col section-content-col">
+          <div class="section-content">
+            <h2 class="section-h3">Grow Together</h2>
+            <p class="section-p">
+              Generate meaningful discussions with your audience and build a
+              strong, loyal community. Think of the insightful conversations you
+              miss out on with a feedback form.
+            </p>
+          </div>
+        </div>
+        <div class="section-col section-img-col">
+          <img
+            class="section-img"
+            src="./images/illustration-grow-together.svg"
+            alt="img"
+          />
+        </div>
+      </section>
+
+      <!-- SECTION 2-->
+
+      <section class="section section-2">
+        <div class="section-col">
+          <img
+            class="section-img"
+            src="./images/illustration-flowing-conversation.svg"
+            alt="img"
+          />
+        </div>
+
+        <div class="section-col">
+          <div class="section-content">
+            <h2 class="section-h3">Flowing Conversations</h2>
+            <p class="section-p">
+              You wouldn't paginate a conversation in real life, so why do it
+              online? Our threads have just-in-time loading for a more natural
+              flow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3-->
+
+      <section class="section section-3">
+        <div class="section-overlay">
+          <img
+            class="section-img"
+            src="./images/bg-section-bottom-desktop-1.svg"
+            alt="section-overlay"
+          />
+        </div>
+        <div class="section-col section-content-col">
+          <div class="section-content">
+            <h2 class="section-h3">Your Users</h2>
+            <p class="section-p">
+              It takes no time at all to integrate Huddle with your app's
+              authentication solution. This means, once signed in to your app,
+              your users can start chatting immediately.
+            </p>
+          </div>
+        </div>
+        <div class="section-col section-img-col">
+          <img
+            class="section-img"
+            src="./images/illustration-your-users.svg"
+            alt="img"
+          />
+        </div>
+      </section>
+
+      <!-- LOWER-SECTION-->
+      <div class="lower-section">
+        <h1>Ready to Build Your Community?</h1>
+        <button class="btn started-btn">Get Started for Free</button>
+      </div>
+
+      <!-- END SECTION -->
+      <div class="end-section">
+        <div class="end-overlay">
+          <img class="footer-img" src="./images/overlay.svg" alt="img" />
+          <!-- <img
+            class="footer-img-2"
+            src="./images/bg-footer-top-desktop.svg"
+            alt="img"
+          /> -->
+        </div>
+        <div class="end-col">
+          <img
+            class="bottom-logo"
+            src="./images/whitelogo.svg"
+            fill="white"
+            alt="logo"
+          />
+          <p class="end-p">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.
+          </p>
+
+          <li class="contact-item">
+            <img
+              class="contact-img"
+              alt="image"
+              src="./images/icon-phone.svg"
+            />
+            <h5>Phone:+1-543-123-4567</h5>
+          </li>
+
+          <li class="contact-item">
+            <img class="contact-img" src="./images/icon-email.svg" alt="img" />
+
+            <h5>Email:example@huddle.com</h5>
+          </li>
+
+          <ul class="media-links">
+            <li class="media-item">
+              <i class="fab fa-facebook"></i>
+            </li>
+            <li class="media-item">
+              <i class="fab fa-instagram"></i>
+            </li>
+            <li class="media-item">
+              <i class="fab fa-twitter"></i>
+            </li>
+          </ul>
+        </div>
+
+        <div class="end-col">
+          <h4 class="end-h4">Newsletter</h4>
+          <p class="end-p">
+            To recieve tips on how to grow your community, sign up to our weekly
+            newsletter. We’ll never send you spam or pass on your email address.
+          </p>
+          <div class="form-div">
+            <input
+              type="text"
+              name="name"
+              placeholder="Sign Up..."
+              class="form-control"
+            />
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer> -->
+
+    <script>
+      // document.body.dataset.theme = "dark";
+
+      function toggleTheme() {
+        console.log(document.body.dataset.theme);
+        if (document.body.dataset.theme === "dark") {
+          document.body.dataset.theme = "light";
+          document.querySelector(".theme").innerHTML = "🌙";
+          document
+            .querySelector(".logo-img")
+            .setAttribute("src", "/images/logo.svg");
+        } else {
+          document.body.dataset.theme = "dark";
+          document.querySelector(".theme").innerHTML = "☀️";
+          document
+            .querySelector(".logo-img")
+            .setAttribute("src", "/images/whitelogo.svg");
+        }
+      }
+    </script>
+  </body>
+</html>
