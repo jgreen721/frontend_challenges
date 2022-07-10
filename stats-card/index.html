@@ -41,6 +41,8 @@
         height: 500px;
         /* border: 2px solid red; */
         display: flex;
+        border-radius: 5px;
+        overflow: hidden;
       }
 
       .card-col {
@@ -143,9 +145,13 @@
       }
 
       @media screen and (max-width: 550px) {
+        body {
+          height: 125vh;
+        }
         .card {
           height: 950px;
           flex-direction: column;
+          transform: translateY(0rem);
         }
 
         .card-col {
@@ -242,10 +248,10 @@
         <div class="overlay"></div>
         <picture>
           <source
-            srcset="/images/image-header-mobile.jpg"
+            srcset="./images/image-header-mobile.jpg"
             media="(max-width: 550px)"
           />
-          <source srcset="/images/image-header-desktop.jpg" />
+          <source srcset="./images/image-header-desktop.jpg" />
 
           <img
             class="card-img"
