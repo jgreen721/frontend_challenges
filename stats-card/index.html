@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New FrontEnd</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca:wght@100;400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --darkblue: hsl(233, 47%, 7%);
+        --satblue: hsl(244, 38%, 16%);
+        --violet: hsl(277, 64%, 61%);
+        --white: hsl(0, 0%, 100%);
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        background: var(--darkblue);
+        font-family: "Lexend Deca", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+      }
+
+      li {
+        list-style: none;
+      }
+
+      .card {
+        width: clamp(50%, 750px, 90%);
+        height: 500px;
+        /* border: 2px solid red; */
+        display: flex;
+      }
+
+      .card-col {
+        width: 50%;
+        height: 100%;
+        /* border: 2px solid blue; */
+      }
+
+      .content-col {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding: 2em;
+        background: var(--satblue);
+        overflow: hidden;
+        /* animation: slidedown 2s forwards; */
+      }
+
+      .slide1 {
+        animation: slidedown 2s forwards;
+      }
+
+      .content-p {
+        font-weight: 200;
+      }
+
+      .stat-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        transform: translateY(2rem);
+      }
+
+      .stat-item {
+        transform: translateX(-500px);
+      }
+
+      .stat-item:first-child {
+        animation: slideover 2s 1s forwards;
+      }
+
+      .stat-item:nth-child(2) {
+        animation: slideover 2.5s 1s forwards;
+      }
+
+      .stat-item:nth-child(3) {
+        animation: slideover 3s 1s forwards;
+      }
+
+      .img-col {
+        position: relative;
+        /* animation: slideup 2s forwards; */
+      }
+
+      .slide2 {
+        animation: slideup 2s forwards;
+      }
+
+      .overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: var(--violet);
+        opacity: 65%;
+        transition: 2s ease;
+      }
+
+      .card-img {
+        height: 100%;
+        width: 100%;
+      }
+
+      .purple {
+        animation: fadein 2s 1s forwards;
+      }
+
+      .faded {
+        font-weight: 200;
+        opacity: 75%;
+      }
+
+      @keyframes slidedown {
+        0% {
+          transform: translateY(-200%);
+        }
+        100% {
+          transform: translateY(0%);
+        }
+      }
+
+      @keyframes slideup {
+        0% {
+          transform: translateY(200%);
+        }
+        100% {
+          transform: translateY(0%);
+        }
+      }
+
+      @media screen and (max-width: 550px) {
+        .card {
+          height: 950px;
+          flex-direction: column;
+        }
+
+        .card-col {
+          width: 100%;
+        }
+
+        .img-col {
+          height: 35%;
+          transform: translateY(-180%);
+          /* animation: slideleft 1s forwards; */
+        }
+
+        .slide2 {
+          animation: slideleft 1s forwards;
+        }
+
+        .content-col {
+          height: 65%;
+          transform: translateY(55%);
+          text-align: center;
+          /* animation: slideright 1s forwards; */
+        }
+
+        .slide1 {
+          animation: slideright 1s forwards;
+        }
+
+        .stat-list {
+          flex-direction: column;
+          height: 50%;
+        }
+      }
+
+      @keyframes slideleft {
+        0% {
+          transform: translateX(-200%) translateY(-180%);
+        }
+        100% {
+          transform: translateX(0%) translateY(-180%);
+        }
+      }
+
+      @keyframes slideright {
+        0% {
+          transform: translateX(200%) translateY(55%);
+        }
+        100% {
+          transform: translateX(0%) translateY(55%);
+        }
+      }
+
+      @keyframes fadein {
+        100% {
+          color: var(--violet);
+        }
+      }
+
+      @keyframes slideover {
+        0% {
+          transform: translateX(-500px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-col col-1 content-col slide1">
+        <h1 class="content-h1">
+          Get <span class="purple">insights</span> that help your business grow.
+        </h1>
+        <p class="content-p">
+          Discover the benefit of data analytics and make better decisions
+          regarding revenue, customer experience, and over all efficiency.
+        </p>
+        <ul class="stat-list">
+          <li class="stat-item">
+            <h1 class="bold"><span class="company-count">10k</span>+</h1>
+            <h4 class="faded">companies</h4>
+          </li>
+          <li class="stat-item">
+            <h1 class="bold"><span class="company-count">314</span></h1>
+            <h4 class="faded">templates</h4>
+          </li>
+          <li class="stat-item">
+            <h1 class="bold"><span class="company-count">12M</span>+</h1>
+            <h4 class="faded">queries</h4>
+          </li>
+        </ul>
+      </div>
+      <div class="card-col col-2 img-col slide2">
+        <div class="overlay"></div>
+        <picture>
+          <source
+            srcset="/images/image-header-mobile.jpg"
+            media="(max-width: 550px)"
+          />
+          <source srcset="/images/image-header-desktop.jpg" />
+
+          <img
+            class="card-img"
+            src="./images/image-header-desktop.jpg"
+            alt="img"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <script>
+      setTimeout(() => {
+        console.log("remove classes");
+        document.querySelector(".img-col").classList.remove("slide2");
+        document.querySelector(".content-col").classList.remove("slide1");
+      }, 2000);
+    </script>
+  </body>
+</html>
