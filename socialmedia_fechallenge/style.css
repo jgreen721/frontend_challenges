@@ -17,11 +17,10 @@
 
 body,
 body[data-theme="dark"] {
-  --textcolor: hsl(230, 17%, 14%);
-  --verydarkblue: hsl(232, 47%, 66%);
-  --darksatblue: hsl(230, 57%, 27%);
-  --satblue: hsl(228, 34%, 66%);
-  --shadecolor: white;
+  --shadecolor: black;
+  --cardbg: hsl(228, 28%, 20%);
+  --mainbg: hsl(230, 17%, 14%);
+  --maintext: white;
 }
 
 /* body,
@@ -34,11 +33,11 @@ body[data-theme="dark"] {
 
 body,
 body[data-theme="light"] {
-  --textcolor: hsl(225, 100%, 98%);
-  --lightgrayblue: hsl(227, 47%, 96%);
-  --darksatblue: hsl(229, 48%, 32%);
-  --verydarkblue: hsl(232, 44%, 27%);
-  --shadecolor: black;
+  --shadecolor: white;
+  --cardbg: hsl(227, 47%, 96%);
+
+  --mainbg: white;
+  --maintext: hsl(230, 17%, 14%);
 }
 
 body {
@@ -46,8 +45,8 @@ body {
   width: 100vw;
   /* border: 2px solid red; */
   overflow: auto;
-  background: var(--verydarkblue);
-  color: var(--paleblue);
+  background: var(--mainbg);
+  color: var(--maintext);
   font-family: "Inter", sans-serif;
   animation: fallin 1s forwards;
 }
@@ -56,7 +55,6 @@ body {
   height: 100%;
   width: 100%;
   padding: 1.5em;
-  color: var(--textcolor);
   /* border: 2px solid blue; */
 }
 
@@ -96,7 +94,7 @@ body {
   position: absolute;
   transition: 1s ease;
   left: 3px;
-  background: var(--textcolor);
+  background: var(--mainbg);
   pointer-events: none;
 }
 
@@ -164,8 +162,8 @@ body {
 }
 
 .content {
-  background: var(--darksatblue);
-  color: var(--textcolor);
+  background: var(--cardbg);
+  color: var(--maintext);
   height: 98%;
   width: 100%;
   padding: 2em;
@@ -204,8 +202,8 @@ body {
   border-radius: 5px;
   display: inline-block;
   padding: 1em;
-  background: var(--darksatblue);
-  color: var(--textcolor);
+  background: var(--cardbg);
+  color: var(--maintext);
   text-shadow: 1px 1px 20px var(--shadecolor);
 }
 
