@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --limegreen: hsl(163, 72%, 41%);
+  --brightred: hsl(356, 69%, 56%);
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --ig: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+  --yt: hsl(348, 97%, 39%);
+}
+
+body,
+body[data-theme="dark"] {
+  --textcolor: hsl(230, 17%, 14%);
+  --verydarkblue: hsl(232, 47%, 66%);
+  --darksatblue: hsl(230, 57%, 27%);
+  --satblue: hsl(228, 34%, 66%);
+  --shadecolor: white;
+}
+
+/* body,
+body[data-theme="dark"] {
+  --darkblue: hsl(230, 17%, 14%);
+  --verydarkblue: hsl(230, 19%, 15%);
+  --darksatblue: hsl(228, 28%, 20%);
+  --satblue: hsl(228, 34%, 66%);
+} */
+
+body,
+body[data-theme="light"] {
+  --textcolor: hsl(225, 100%, 98%);
+  --lightgrayblue: hsl(227, 47%, 96%);
+  --darksatblue: hsl(229, 48%, 32%);
+  --verydarkblue: hsl(232, 44%, 27%);
+  --shadecolor: black;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  /* border: 2px solid red; */
+  overflow: auto;
+  background: var(--verydarkblue);
+  color: var(--paleblue);
+  font-family: "Inter", sans-serif;
+  animation: fallin 1s forwards;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  padding: 1.5em;
+  color: var(--textcolor);
+  /* border: 2px solid blue; */
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-right-col {
+  display: flex;
+}
+
+.theme-p {
+  margin-right: 0.5em;
+  margin-top: 4px;
+  font-weight: 700px;
+}
+
+.toggle-container {
+  width: 4rem;
+  height: 2rem;
+  position: relative;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.25em;
+  cursor: pointer;
+  background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.toggle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  transition: 1s ease;
+  left: 3px;
+  background: var(--textcolor);
+  pointer-events: none;
+}
+
+.dark {
+  left: 32px;
+}
+
+.maincard-row {
+  display: flex;
+}
+
+.main-card {
+  flex: 1;
+  /* border: 2px solid black; */
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  min-width: 225px;
+  /* padding: 2em; */
+}
+
+.main-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.light {
+  opacity: 65%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5em;
+}
+
+.my-2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.fb {
+  background: var(--facebook);
+}
+
+.ig {
+  background: linear-gradient(
+    to right,
+    hsl(37, 97%, 70%),
+    hsl(329, 70%, 58%),
+    hsl(348, 97%, 39%)
+  );
+}
+
+.yt {
+  background: var(--yt);
+}
+
+.content {
+  background: var(--darksatblue);
+  color: var(--textcolor);
+  height: 98%;
+  width: 100%;
+  padding: 2em;
+  position: relative;
+  transform: translateY(2%);
+  text-shadow: 1px 1px 1px var(--shadecolor);
+}
+
+.followers {
+  font-size: 3.5rem;
+}
+
+.green {
+  color: green;
+  font-weight: 700;
+}
+
+.red {
+  color: red;
+  font-weight: 700;
+}
+
+.main-arrow {
+  margin-right: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+.smallcard-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.small-card {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 1em;
+  background: var(--darksatblue);
+  color: var(--textcolor);
+  text-shadow: 1px 1px 20px var(--shadecolor);
+}
+
+.top-small-row,
+.bottom-small-row {
+  display: flex;
+  /* border: 3px solid green; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-small-row {
+  margin-bottom: 2rem;
+}
+
+/* .bottom-small-row {
+  margin-top: 1rem;
+} */
+
+@media screen and (max-width: 850px) {
+  .top-row {
+    flex-direction: column;
+  }
+
+  .top-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 2em;
+  }
+
+  .top-right-col {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .maincard-row {
+    flex-direction: column;
+  }
+
+  .smallcard-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .smallcard-row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+@keyframes fallin {
+  0% {
+    transform: translateY(-150%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* #### Dark Theme
+
+- Toggle: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%)
+
+#### Light Theme
+
+- Toggle: hsl(230, 22%, 74%) */

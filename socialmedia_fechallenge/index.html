@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Social Media Dashbaord</title>
+  </head>
+  <body>
+    <div class="app">
+      
+        <!-- HEADER -->
+      <header class="top-row">
+        <div class="top-left-col">
+          <h1 class="top-h1">Social Media Dashboard</h1>
+          <p class="light">Total Followers: 23,004</p>
+        </div>
+        <div class="top-right-col">
+            <p class="theme-p"><strong><span id="theme-mode">Dark</span></span> Mode</strong></p>
+            <div class="toggle-container">
+                <div class="toggle"></div>
+            </div>
+        </div>
+</header>
+            <!-- MAIN-CARD-ROW -->
+
+    <div class="maincard-row"></div>
+
+<h1 class="my-2">Overview - Today</h1>
+
+<div class="smallcard-row"></div>
+    </div>
+
+    <script>
+        document.querySelector(".toggle-container").onclick=(e)=>{
+            e.target.querySelector(".toggle").classList.toggle('dark')
+
+            if(document.body.dataset['theme'] === "dark"){
+                document.body.dataset.theme = "light"
+                document.querySelector("#theme-mode").innerHTML ="Light"
+            }
+            else{
+                document.body.dataset.theme = "dark"
+                document.querySelector("#theme-mode").innerHTML ="Dark"
+
+
+            }
+        }
+    </script>
+
+
+<script>
+    var mainCardData = [
+        {
+          id: 1,
+          icon: "./images/icon-facebook.svg",
+          email: "@nathanf",
+          followers: 1987,
+          days: 12,
+          arrow: "./images/icon-up.svg",
+          status:"up",
+          borderColor: "fb",
+        },
+        {
+          id: 2,
+          icon: "./images/icon-twitter.svg",
+          email: "@nathanf",
+          followers: 1044,
+          days: 99,
+          arrow: "./images/icon-up.svg",
+          status:"up",
+
+          borderColor: "fb",
+        },
+        {
+          id: 3,
+          icon: "./images/icon-instagram.svg",
+          email: "@realnathanf",
+          followers: "11k",
+          days: 1099,
+          arrow: "./images/icon-up.svg",
+          status:"up",
+
+          borderColor: "ig",
+        },
+        {
+          id: 4,
+          icon: "./images/icon-youtube.svg",
+          email: "@Nathan F.",
+          followers: 8239,
+          days: 144,
+          arrow: "./images/icon-down.svg",
+          status:"down",
+
+          borderColor: "yt",
+        },
+      ];
+
+      mainCardData.forEach(printMainCard);
+
+      function printMainCard(item) {
+        var mainCard = document.createElement("div");
+        mainCard.className =
+          "main-card";
+        mainCard.classList.add(item.borderColor);
+        mainCard.innerHTML = `<div class="content"><div class="main-top"><img class="main-icon" style="height:1rem;" src=${item.icon} alt="icon"/><p class="light ml-2"><strong>${item.email}</strong></p></div><div class="text-center"><h1 class="m-0 followers">${item.followers}</h1><p class="light uppercase">Followers</p></div><div><span><img class="main-arrow" src=${item.arrow} alt="arrow"/><span class=${item.status === "up" ? "green ms-2" : "red ms-2"}>${item.days} Today</span></span></div>`;
+        document.querySelector(".maincard-row").append(mainCard);
+      }
+
+      var smallCardData = [
+        {
+          id: 1,
+          title: "Page Views",
+          pageViews: 87,
+          icon: "./images/icon-facebook.svg",
+          stock: "3%",
+          arrow: "./images/icon-up.svg",
+          status: "up",
+        },
+        {
+          id: 2,
+          title: "Likes",
+
+          pageViews: 52,
+          icon: "./images/icon-facebook.svg",
+          stock: "2%",
+          arrow: "./images/icon-down.svg",
+          status: "down",
+        },
+        {
+          id: 3,
+          title: "Likes",
+
+          pageViews: 5462,
+          icon: "./images/icon-instagram.svg",
+          stock: "2257%",
+          arrow: "./images/icon-up.svg",
+          status: "up",
+        },
+        {
+          id: 4,
+          title: "Profile Views",
+
+          pageViews: "52k",
+          icon: "./images/icon-instagram.svg",
+          stock: "1375%",
+          arrow: "./images/icon-up.svg",
+          status: "up",
+        },
+        {
+          id: 5,
+          title: "Retweets",
+          pageViews: 117,
+          icon: "./images/icon-twitter.svg",
+          stock: "3%",
+          arrow: "./images/icon-up.svg",
+          status: "up",
+        },
+        {
+          id: 6,
+          title: "Likes",
+          pageViews: 507,
+          icon: "./images/icon-twitter.svg",
+          stock: "3%",
+          arrow: "./images/icon-up.svg",
+          status: "up",
+        },
+        {
+          id: 7,
+          title: "Likes",
+          pageViews: 107,
+          icon: "./images/icon-youtube.svg",
+          stock: "303%",
+          arrow: "./images/icon-down.svg",
+          status: "down",
+        },
+        {
+          id: 8,
+          title: "Total Views",
+          pageViews: 1407,
+          icon: "./images/icon-youtube.svg",
+          stock: "553%",
+          arrow: "./images/icon-down.svg",
+          status: "down",
+        },
+      ];
+
+
+      smallCardData.forEach(printSmallCard)
+
+
+
+      function printSmallCard(item) {
+        var mainCard = document.createElement("div");
+        mainCard.className =
+          "small-card";
+        mainCard.classList.add(item.borderColor);
+        console.log("ITEM",item)
+        mainCard.innerHTML = `<div class="top-small-row"><p>${item.title}</p><div><img class="small-icon" style="height:1rem;" src=${item.icon} alt="icon"/></div></div><div class="bottom-small-row"><h3>${item.pageViews}</h3><div><span><img class="main-arrow" src=${item.arrow} alt="arrow"/><span class=${item.status === "up" ? "green ms-2" : "red ms-2"}>${item.stock}</span></span></div>`;
+        document.querySelector(".smallcard-row").append(mainCard);
+      }
+
+</script>
+  </body>
+</html>
