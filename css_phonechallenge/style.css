@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --paleviolet: hsl(276, 100%, 81%);
+  --modviolet: hsl(276, 55%, 52%);
+  --satviolet: hsl(271, 15%, 43%);
+  --grayblue: hsl(200, 10%, 94%);
+  --darkviolet: hsl(271, 36%, 24%);
+  --textparagraph: hsl(270, 7%, 64%);
+  --magenta: hsl(293, 100%, 63%);
+  --btncolor: hsl(271, 36%, 24%);
+  --btnoutline: hsl(289, 100%, 72%);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.overlay-parent {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay-parent::before {
+  content: "";
+  height: 85%;
+  width: clamp(500px, 45%, 50%);
+  position: absolute;
+  left: -150px;
+  border-bottom-left-radius: 350px;
+  border-bottom-right-radius: 350px;
+  background: linear-gradient(var(--magenta), var(--modviolet));
+}
+
+.overlay-parent::after {
+  content: "";
+  height: 85%;
+  width: clamp(500px, 45%, 50%);
+  position: absolute;
+  top: 15%;
+  right: -15%;
+  opacity: 50%;
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  background: linear-gradient(var(--grayblue), white);
+}
+
+.content-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+
+.col {
+  height: 100%;
+  width: 50%;
+}
+
+.col-two {
+  padding: 2em;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.col-one {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.phone-parent {
+  height: 625px;
+  width: 300px;
+  min-width: 300px;
+  border-radius: 20px;
+  background: white;
+  overflow: hidden;
+  padding: 1em;
+  box-shadow: 2px 3px 8px gray;
+}
+
+.phone-top {
+  background: linear-gradient(var(--magenta), var(--modviolet));
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 1.5rem;
+  position: relative;
+}
+
+.phone-top::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  top: 0;
+  height: 1.5rem;
+  border-radius: 100px;
+  background: white;
+  left: 20%;
+  top: -15%;
+}
+
+.phone-col {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.arrow-div {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  top: 5px;
+  left: 2px;
+}
+
+.arrow-div::after {
+  width: 2px;
+  height: 10px;
+  transform: rotate(40deg) translate(5px, -10px);
+  background: white;
+  content: "";
+  position: absolute;
+}
+
+.arrow-div::before {
+  width: 2px;
+  height: 10px;
+  background: white;
+  transform: rotate(-40deg) translate(5px, 8px);
+  content: "";
+  position: absolute;
+}
+
+.avatar-img {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 2px solid white;
+  transform: translate(-2rem, -5px);
+}
+
+.phone-header-info {
+  transform: translate(-3rem, -5px);
+}
+
+.menu-icon {
+  padding: 0.5em;
+  margin-right: 0.25em;
+}
+
+.dot {
+  margin-bottom: 2px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+.phone-header-p {
+  transform: translateY(-4px);
+  font-size: 0.75rem;
+  opacity: 75%;
+}
+
+/*PHONEBODY */
+
+.phone-body {
+  height: 90%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+  background: var(--grayblue);
+  position: relative;
+  overflow-x: hidden;
+  /* border: 2px solid red; */
+}
+
+.phone-body-main {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* border: 2px solid blue; */
+}
+
+.phone-img-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  /* border: 2px solid red; */
+  height: 100%;
+}
+
+.phone-img {
+  height: 3.25rem;
+  border-radius: 10px;
+  margin: 0.35rem;
+}
+
+.filename {
+  font-size: 6px;
+  transform: translateY(-0.35rem);
+}
+
+.phone-body-bottom {
+  height: 10%;
+  padding: 0.25em;
+  position: relative;
+  /* border: 2px solid green; */
+}
+
+.send-btn-div {
+  position: absolute;
+  right: 7px;
+  top: 8px;
+}
+
+.send-btn {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  background: black;
+  border: none;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  opacity: 75%;
+}
+
+.send-btn::before {
+  position: absolute;
+  width: 10px;
+  height: 3px;
+  border-radius: 100px;
+  background: white;
+  content: "";
+  top: 45%;
+  right: 35%;
+  transform-origin: right;
+  transform: rotate(-25deg);
+}
+
+.send-btn::after {
+  position: absolute;
+  width: 10px;
+  height: 3px;
+  border-radius: 100px;
+  background: white;
+  content: "";
+  top: 45%;
+  right: 35%;
+  transform-origin: right;
+
+  transform: rotate(25deg);
+}
+
+.message-input {
+  width: 100%;
+  /* height: 100%; */
+  padding: 0.55em;
+  transform: translateY(0.25rem);
+  border-radius: 100px;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+}
+
+/*MESSAGES */
+
+.message-parent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 2px solid blue; */
+  margin: 0.25em;
+}
+
+.message-div {
+  max-width: 75%;
+  background: var(--paleviolet);
+
+  line-height: 15px;
+
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.small-padding {
+  padding: 0.5em;
+}
+
+.purple-text {
+  color: purple;
+}
+
+.end {
+  justify-content: flex-end;
+  transform: translateX(-0.5em);
+}
+
+.white {
+  background: white;
+}
+
+.option-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 6px 5px;
+  width: 85%;
+  padding-left: 0.5rem;
+  padding-right: 2rem;
+  color: white;
+  background: linear-gradient(var(--magenta), var(--modviolet));
+}
+
+.white {
+  background: white;
+}
+
+.option-p {
+  transform: translate(8px, 8px);
+  font-size: 0.75rem;
+}
+
+.price-h2 {
+  transform: translate(6px, 5px);
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.circle:hover {
+  opacity: 75%;
+}
+
+.selected {
+  background: linear-gradient(var(--modviolet), var(--btncolor));
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* border: 3px solid red; */
+}
+
+@media screen and (max-width: 775px) {
+  .overlay-parent::before {
+    left: -300px;
+  }
+  .overlay-parent::after {
+    right: -300px;
+  }
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  .col-one {
+    justify-content: center;
+  }
+
+  .col-two {
+    text-align: center;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .overlay-parent::before {
+    left: -350px;
+    top: -100px;
+  }
+
+  .overlay-parent::after {
+    right: -365px;
+  }
+}

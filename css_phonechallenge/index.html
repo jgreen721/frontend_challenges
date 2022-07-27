@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <title>Frontend Mentor | [Challenge Name Here]</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="overlay-parent">
+        <!-- <div class="white-block"></div> -->
+      </div>
+      <div class="content-container">
+        <div class="col col-one">
+          <div class="phone-parent">
+            <div class="phone-top">
+              <!--LEFT-TOP-COL-->
+              <div class="phone-col">
+                <div class="arrow-div"></div>
+                <img
+                  class="avatar-img"
+                  src="./images/avatar.jpg"
+                  alt="avatar"
+                />
+                <div class="phone-header-info">
+                  <p class="m-0"><strong>Samuel Green</strong></p>
+                  <p class="m-0 phone-header-p">Available to work</p>
+                </div>
+              </div>
+
+              <!--RIGHT-TOP-COL-->
+              <div>
+                <div class="menu-icon">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="phone-body">
+              <div class="phone-body-main"></div>
+              <div class="phone-body-bottom">
+                <input
+                  type="text"
+                  class="message-input"
+                  autocomplete="off"
+                  placeholder="Type a message"
+                />
+                <div class="send-btn-div">
+                  <button class="send-btn"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-two">
+          <h1 class="header-h1">Simple booking</h1>
+          <p>
+            Stay in touch with our dog walkers through the chat interface. This
+            makes it easy to discuss arrangements and make bookings. Once the
+            walk has been completed you can rate your walker and book again all
+            through the chat.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Samuel Green Available to Walk That sounds great. I’d be happy with that.
+    Could you send over some pictures of your dog, please? Here are a few
+    pictures. She’s a happy girl! Can you make it? She looks so happy! The time
+    we discussed works. How long shall I take her out for? 30 minute walk $29 1
+    hour walk $49 Type a message… Simple booking Stay in touch with our dog
+    walkers through the chat interface. This makes it easy to discuss
+    arrangements and make bookings. Once the walk has been completed you can
+    rate your walker and book again all through the chat. -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var messages = [
+        {
+          id: 1,
+          isOption: false,
+
+          isUser: false,
+          msg: "That sounds great. I’d be happy with that.",
+          images: [],
+        },
+        {
+          id: 2,
+          isOption: false,
+
+          isUser: false,
+          msg: "Could you send over some pictures of your dog, please?",
+          images: [],
+        },
+        {
+          id: 3,
+          isOption: false,
+
+          isUser: true,
+          msg: "",
+          images: [
+            "./images/dog-image-1.jpg",
+            "./images/dog-image-2.jpg",
+            "./images/dog-image-3.jpg",
+          ],
+        },
+        {
+          id: 4,
+          isOption: false,
+
+          isUser: true,
+          msg: "Here are a few pictures. She’s a happy girl!",
+          images: [],
+        },
+        {
+          id: 5,
+          isOption: false,
+
+          isUser: true,
+          msg: "Can you make it?",
+          images: [],
+        },
+        {
+          id: 6,
+          isOption: false,
+
+          isUser: false,
+          msg: "She looks so happy! The time we discussed works. How long shall I take her out for?",
+          images: [],
+        },
+        {
+          id: 7,
+          isOption: true,
+          price: "$29",
+          isUser: false,
+          data_msg: "You selected 30 minute plan! 🐶",
+          msg: "30 minute walk",
+        },
+        {
+          id: 8,
+          isOption: true,
+          price: "$49",
+          data_msg: "You selected 1hr plan! 🐾",
+
+          isUser: false,
+          msg: "1 hour walk",
+        },
+      ];
+
+      messages.forEach(printMessage);
+
+      function printMessage(msg) {
+        var messageDiv = document.createElement("div");
+        messageDiv.className = "message-parent";
+
+        // handle walk-options
+        if (msg.isOption) {
+          console.log("option");
+          messageDiv.className = "option-parent";
+          messageDiv.innerHTML = `<div class="flex">
+      
+          <div data-msg='${msg.data_msg}' class="circle"></div>
+          <p class="option-p">${msg.msg}</p>
+          </div>
+          <h2 class="price-h2">${msg.price}</h2>`;
+        } else {
+          //handle images
+          if (msg.images.length) {
+            messageDiv.innerHTML = "<div class='message-div'>";
+            messageDiv.style.padding = "0em";
+            msg.images.map(
+              (i, idx) =>
+                (messageDiv.innerHTML += `<div><img class="phone-img" src=${i} alt="img" class="image"/><p class="filename">dog/img/dog${
+                  idx + 1
+                }.jpg</p></div>`)
+            );
+            messageDiv.innerHTML += "</div>";
+            //handle regular msg
+          } else {
+            messageDiv.innerHTML = `<div class="message-div small-padding">${msg.msg}</div>`;
+          }
+        }
+
+        document.querySelector(".phone-body-main").append(messageDiv);
+        if (!msg.isOption) {
+          //check source of msg sender
+          // - determine flex-start/end positioning/ text/bg color
+
+          if (msg.isUser) {
+            messageDiv.querySelector(".message-div").classList.add("white");
+            messageDiv.classList.add("end");
+          } else {
+            messageDiv
+              .querySelector(".message-div")
+              .classList.add("purple-text");
+          }
+        }
+      }
+
+      var circleBtns = document.querySelectorAll(".circle");
+
+      circleBtns.forEach((btn, idx) => {
+        btn.onclick = (e) => {
+          circleBtns[0].className = "circle";
+          circleBtns[1].className = "circle";
+          e.target.classList.add("selected");
+
+          document.querySelector("input").value =
+            e.target.getAttribute("data-msg");
+        };
+      });
+
+      let counter = messages.length + 1;
+
+      document.querySelector(".send-btn").onclick = (e) => {
+        let newMessage = {
+          id: counter,
+          isOption: false,
+
+          isUser: true,
+          msg: document.querySelector("input").value,
+          images: [],
+        };
+        document.querySelector("input").value = "";
+        document.querySelector(".phone-body-main").innerHTML = "";
+        messages.push(newMessage);
+        if (messages.length >= 11) {
+          messages.shift();
+        }
+        messages.forEach(printMessage);
+        document.querySelectorAll(".circle").forEach((btn) => {
+          btn.onclick = (e) => {
+            document.querySelector("input").value =
+              e.target.getAttribute("data-msg");
+          };
+        });
+      };
+    </script>
+  </body>
+</html>
