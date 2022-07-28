@@ -45,6 +45,7 @@ body {
   border-bottom-left-radius: 350px;
   border-bottom-right-radius: 350px;
   background: linear-gradient(var(--magenta), var(--modviolet));
+  animation: fadein 1s forwards;
 }
 
 .overlay-parent::after {
@@ -58,6 +59,16 @@ body {
   border-top-left-radius: 350px;
   border-top-right-radius: 350px;
   background: linear-gradient(var(--grayblue), white);
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .content-container {
@@ -82,6 +93,23 @@ body {
   flex-direction: column;
 }
 
+.color-picker {
+  display: flex;
+  background: linear-gradient(var(--magenta), var(--modviolet));
+  padding: 0.5em;
+  padding-right: 3.25rem;
+  border-radius: 12px;
+  border-top-right-radius: 100px;
+}
+
+.picker {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin: 0px 4px;
+  cursor: pointer;
+}
+
 .col-one {
   height: 100%;
   width: 100%;
@@ -101,6 +129,48 @@ body {
   overflow: hidden;
   padding: 1em;
   box-shadow: 2px 3px 8px gray;
+  animation: slidein 1s forwards;
+}
+
+.black {
+  background: rgb(51, 49, 49);
+}
+
+.black:hover {
+  box-shadow: 2px 3px 9px black;
+}
+
+.white {
+  background: white;
+}
+
+.white:hover {
+  box-shadow: 2px 3px 9px white;
+}
+
+.neon-green {
+  background-color: rgb(163, 243, 87);
+}
+
+.neon-green:hover {
+  box-shadow: 2px 3px 9px rgb(163, 243, 87);
+}
+
+.neon-blue {
+  background-color: rgb(60, 214, 241);
+}
+
+.neon-blue:hover {
+  box-shadow: 2px 3px 10px rgb(60, 214, 241);
+}
+
+@keyframes slidein {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .phone-top {
@@ -416,6 +486,9 @@ body {
     text-align: center;
     align-items: center;
     justify-content: flex-end;
+  }
+  .color-picker {
+    transform: translateY(-2rem);
   }
 }
 

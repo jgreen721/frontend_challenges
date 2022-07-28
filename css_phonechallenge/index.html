@@ -82,6 +82,12 @@
           </div>
         </div>
         <div class="col col-two">
+          <div class="color-picker">
+            <div class="picker black" data-color="black"></div>
+            <div class="picker neon-green" data-color="neon-green"></div>
+            <div class="picker neon-blue" data-color="neon-blue"></div>
+            <div class="picker white" data-color="white"></div>
+          </div>
           <h1 class="header-h1">Simple booking</h1>
           <p>
             Stay in touch with our dog walkers through the chat interface. This
@@ -198,11 +204,11 @@
           console.log("option");
           messageDiv.className = "option-parent";
           messageDiv.innerHTML = `<div class="flex">
-      
-          <div data-msg='${msg.data_msg}' class="circle"></div>
-          <p class="option-p">${msg.msg}</p>
-          </div>
-          <h2 class="price-h2">${msg.price}</h2>`;
+
+                <div data-msg='${msg.data_msg}' class="circle"></div>
+                <p class="option-p">${msg.msg}</p>
+                </div>
+                <h2 class="price-h2">${msg.price}</h2>`;
         } else {
           //handle images
           if (msg.images.length) {
@@ -275,6 +281,47 @@
           };
         });
       };
+
+      document.querySelectorAll(".picker").forEach((p) => {
+        p.onclick = (e) => {
+          console.log(e.target.getAttribute("data-color"));
+          document
+            .querySelector(".phone-parent")
+            .classList.add(e.target.getAttribute("data-color"));
+          console.log(document.querySelector(".phone-parent"));
+
+          var test = "wowzer";
+
+          switch (e.target.getAttribute("data-color")) {
+            case "white":
+              document.querySelector(
+                ".phone-parent"
+              ).style.backgroundColor = `white`;
+              break;
+
+            case "black":
+              document.querySelector(
+                ".phone-parent"
+              ).style.backgroundColor = `rgb(51, 49, 49)`;
+              break;
+
+            case "neon-green":
+              document.querySelector(
+                ".phone-parent"
+              ).style.backgroundColor = `rgb(163, 243, 87)`;
+              break;
+
+            case "neon-blue":
+              document.querySelector(
+                ".phone-parent"
+              ).style.backgroundColor = `rgb(60, 214, 241)`;
+              break;
+
+            default:
+              console.log("unknown selection");
+          }
+        };
+      });
     </script>
   </body>
 </html>
