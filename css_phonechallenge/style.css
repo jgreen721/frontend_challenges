@@ -137,7 +137,7 @@ body {
 }
 
 .black:hover {
-  box-shadow: 2px 3px 9px black;
+  box-shadow: 2px 3px 9px rgb(51, 49, 49);
 }
 
 .white {

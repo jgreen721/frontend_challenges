@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+      :root {
+        --cyan: hsl(172, 67%, 45%);
+        --darkcyan: hsl(183, 100%, 15%);
+        --graycyan: hsl(186, 14%, 43%);
+        --lightcyan: hsl(185, 41%, 84%);
+        --verylightcyan: hsl(189, 41%, 97%);
+        --white: white;
+      }
+
+      body {
+        background: var(--lightcyan);
+        font-family: "Space Mono", monospace;
+        animation:slideup 1s forwards;
+      }
+
+      @keyframes slideup{
+        0%{
+          transform:translateY(125%)
+        }
+
+        100%{
+          transform:translateY(0%)
+        }
+      }
+
+
+.calc{
+  transform:scale(0);
+      animation:grow 1.25s .5s forwards;
+      }
+
+      @keyframes grow{
+        0%{
+          transform:scale(0)
+        }
+
+        100%{
+          transform:scale(1)
+        }
+      }
+
+      .ls-2{
+        letter-spacing:.35em;
+      }
+
+      .white {
+        background: white;
+      }
+
+      .lightcyan {
+        background: var(--lightcyan);
+      }
+
+      .verylightcyan {
+        background: var(--verylightcyan);
+      }
+
+      .verylightcyan-btn{
+        background: var(--verylightcyan);
+        color:var(--graycyan);
+
+      }
+
+      .text-darkcyan {
+        color: var(--darkcyan);
+      }
+
+      .darkcyan {
+        background: var(--darkcyan);
+      }
+
+      .darkcyan-btn {
+        background: var(--darkcyan);
+        color:var(--white);
+      }
+
+      /* .darkcyan-btn:hover {
+        background: var(--lightcyan);
+      } */
+
+      .graycyan {
+        background: var(--graycyan);
+      }
+
+      .cyan {
+        background: var(--cyan);
+      }
+
+      .tip-btn{
+        padding:.5em;
+        border-radius:10px;
+        border:none;
+      }
+
+      .tip-btn:hover {
+        background: var(--lightcyan);
+      }
+
+
+      .btn-cyan {
+        background: var(--cyan);
+        color: var(--darkcyan);
+        text-transform: uppercase;
+      }
+
+      .text-cyan {
+        color: var(--cyan);
+      }
+
+      .selected{
+        background:var(--cyan);
+        color:var(--darkcyan);
+      }
+
+      .selected:hover{
+        background:var(--cyan)
+      }
+
+      .dollar-input {
+        position: relative;
+        /* border: 4px solid red; */
+      }
+
+      .dollar-input::after {
+        content: "";
+        position: absolute;
+        top: 55%;
+        left: 5%;
+        width: 75px;
+        height: 35px;
+        background-image: url("./images/icon-dollar.svg");
+        background-repeat: no-repeat;
+        /* bottom: -1.25rem; */
+      }
+
+      .person-input {
+        position: relative;
+        /* border: 4px solid red; */
+      }
+
+      .person-input::after {
+        content: "";
+        position: absolute;
+        top: 55%;
+        left: 5%;
+        width: 75px;
+        height: 35px;
+        background-image: url("./images/icon-person.svg");
+        background-repeat: no-repeat;
+        /* bottom: -1.25rem; */
+      }
+
+      /*
+
+### Neutral
+
+ - Strong cyan: hsl(172, 67%, 45%)
+
+- Very dark cyan: hsl(183, 100%, 15%)
+- Dark grayish cyan: hsl(186, 14%, 43%)
+- Grayish cyan: hsl(184, 14%, 56%)
+- Light grayish cyan: hsl(185, 41%, 84%)
+- Very light grayish cyan: hsl(189, 41%, 97%)
+- White: hsl(0, 0%, 100%) */
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pt-5 pb-3 header text-center">
+        <h1 class="text-darkcyan ls-2">SPLI</h1>
+        <h1 class="text-darkcyan ls-2">TTER</h1>
+      </div>
+      <h3 class="text-danger text-center my-2 error"></h3>
+
+      <div class="row">
+        <div
+          class="calc col-8 col-md-10 border border-2 border-black offset-2 offset-md-1 white"
+        >
+          <div class="row">
+            <div class="col-md-6 p-3">
+              <!-- FIRST ROW -->
+              <div class="form-group py-3 dollar-input">
+                <label for="bill">Bill</label>
+                <input
+                  type="text"
+                  name="bill-total"
+                  placeholder="Your bill total..."
+                  autocomplete="off"
+                  class="form-control rounded text-end verylightcyan"
+                />
+              </div>
+
+              <!-- SECOND ROW-->
+              <div class="p-1 pb-4">
+                <h5>Select Tip %</h5>
+                <div class="row">
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="5" class="w-100 darkcyan-btn  tip-btn">
+                      5%
+                    </button>
+                  </div>
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="10" class="w-100 darkcyan-btn tip-btn">
+                      10%
+                    </button>
+                  </div>
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="15" class="w-100 darkcyan-btn tip-btn">
+                      15%
+                    </button>
+                  </div>
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="25" class="w-100 darkcyan-btn  tip-btn">
+                      25%
+                    </button>
+                  </div>
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="50" class="w-100 darkcyan-btn  tip-btn">
+                      50%
+                    </button>
+                  </div>
+                  <div class="col-6 col-md-4 p-2">
+                    <button data-percent="custom" class="w-100 verylightcyan-btn tip-btn">Custom</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- THIRD ROW-->
+
+              <div class="form-group py-3 person-input">
+                <label for="partysize">Number of People</label>
+                <input
+                  type="text"
+                  name="partysize"
+                  placeholder="Party size..."
+                  autocomplete="off"
+                  class="form-control text-end verylightcyan"
+                />
+              </div>
+            </div>
+            <!-- SECOND COLUMN -->
+            <div class="col-md-6 p-4">
+              <div class="container darkcyan rounded p-4">
+              <div
+                class="d-flex align-items-center justify-content-between py-3"
+              >
+                <div>
+                  <p class="text-light mb-0">Tip Amount</p>
+                  <h5 class="text-fade text-light opacity-50">/person</h5>
+                </div>
+                <h1 class="text-cyan">$<span id="tip-total"></span></h1>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between py-3"
+              >
+                <div>
+                  <p class="text-light mb-0">Total</p>
+                  <h5 class="text-fade text-light opacity-50">/person</h5>
+                </div>
+                <h1 class="text-cyan">$<span id="meal-total"></span></h1>
+              </div>
+              <div class="pt-1 pt-md-5">
+                <button class="btn w-100 btn-cyan mt-5">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+
+    <script>
+      var tipBtns = document.querySelectorAll('.tip-btn');
+      var mealTotalEl = document.querySelector('#meal-total');
+      var tipTotalEl = document.querySelector('#tip-total');
+      let PARTYSIZE;
+      let MEALTOTAL;
+      let TIP_PERCENT;
+      const CHARSIZE =15
+
+      tipBtns.forEach(btn=>{
+        btn.onclick=(e)=>selectTip(e)
+      })
+
+
+      function selectTip(e){
+        tipBtns.forEach(b=>{
+          if(b.classList.contains("selected")){
+            b.classList.remove("selected");
+          }
+        })
+        e.target.classList.add("selected")
+        if(e.target.getAttribute("data-percent") !== "custom"){
+        TIP_PERCENT = parseInt(e.target.getAttribute("data-percent"))/100
+        }
+        else{
+          let percent = prompt("What percent?");
+          if(isNaN(percent)){
+            askAgain()
+          }
+          else{
+            TIP_PERCENT=parseInt(percent)/100
+          }
+        }
+
+
+        if(PARTYSIZE && MEALTOTAL && TIP_PERCENT){
+        calcTips()
+        }
+
+      }
+
+
+      function askAgain(){
+        let percent = prompt("Please supply a number \n Or enter q to quit.");
+        if(percent === "quit" || percent === "q"){
+          tipBtns.forEach(b=>{
+          if(b.classList.contains("selected")){
+            b.classList.remove("selected");
+          }
+        })
+        TIP_PERCENT= undefined;
+          return;
+
+        }
+          if(isNaN(percent)){
+            askAgain()
+          }
+          else{
+            TIP_PERCENT = percent/100
+          }
+      }
+
+
+      document.querySelectorAll("input").forEach(input=>{
+        input.oninput=(e)=>enterTotalVal(e)
+      })
+
+
+      function enterTotalVal(e){
+        let total = e.target.value;
+        // console.log(e.target.name)
+        if(isNaN(e.target.value)){
+          console.log("exiting function");
+          document.querySelector(".error").innerHTML = "Error -- Invalid input! :/"
+          return;
+        }
+if(!isNaN(document.querySelector("input[name='bill-total']").value) && !isNaN(document.querySelector("input[name='partysize']").value) )
+        document.querySelector(".error").innerHTML = "";
+
+        switch(e.target.name){
+
+          case "bill-total":
+            MEALTOTAL = parseInt(e.target.value)
+            console.log("MealTotal",MEALTOTAL)
+            break;
+
+
+          case "partysize": 
+            PARTYSIZE = parseInt(e.target.value);
+            console.log("MealTotal",PARTYSIZE)
+            break;
+
+          default: 
+          console.log("unknown action!")
+        }
+        // console.log("Total",total)
+
+        if(PARTYSIZE && MEALTOTAL && TIP_PERCENT){
+        calcTips()
+        }
+
+        console.log('SIZZZEE',PARTYSIZE )
+        if(JSON.stringify(PARTYSIZE)?.length > CHARSIZE && JSON.stringify(MEALTOTAL)?.length > CHARSIZE){
+          console.log("seg-fault!")
+          document.querySelector(".error").innerHTML = '0x2939f9e - SEG_FAULT'
+          tipTotalEl.innerHTML =`<span style="height:10px;color:red">fe_mCTF{p@y_u7</span>`
+            mealTotalEl.innerHTML =`<span style="height:10px;color:red">_p30pl3_239fi}</span>`
+        }
+      }
+
+
+      function calcTips(){
+        console.log(MEALTOTAL,TIP_PERCENT,PARTYSIZE)
+            let tipTotal = (MEALTOTAL * TIP_PERCENT).toFixed(2)
+                tipTotal = parseFloat(tipTotal);
+            let mealTipTotal = tipTotal + MEALTOTAL;
+            console.log("MealTipTotal",tipTotal,mealTipTotal)
+            tipTotalEl.innerHTML = (tipTotal/PARTYSIZE).toFixed(2);
+            mealTotalEl.innerHTML = (mealTipTotal/PARTYSIZE).toFixed(2)
+      }
+    </script>
+  </body>
+</html>
