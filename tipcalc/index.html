@@ -204,9 +204,9 @@
       </div>
       <h3 class="text-danger text-center my-2 error"></h3>
 
-      <div class="row">
+      <div class="row p-4">
         <div
-          class="calc col-8 col-md-10 border border-2 border-black offset-2 offset-md-1 white"
+          class="calc col-12 col-md-8 offset-md-2 border border-2 border-black white"
         >
           <div class="row">
             <div class="col-md-6 p-3">
@@ -292,7 +292,7 @@
                 <h1 class="text-cyan">$<span id="meal-total"></span></h1>
               </div>
               <div class="pt-1 pt-md-5">
-                <button class="btn w-100 btn-cyan mt-5">Reset</button>
+                <button class="btn w-100 btn-cyan mt-5 reset-btn">Reset</button>
               </div>
             </div>
           </div>
@@ -324,11 +324,7 @@
 
 
       function selectTip(e){
-        tipBtns.forEach(b=>{
-          if(b.classList.contains("selected")){
-            b.classList.remove("selected");
-          }
-        })
+    clearButtons()
         e.target.classList.add("selected")
         if(e.target.getAttribute("data-percent") !== "custom"){
         TIP_PERCENT = parseInt(e.target.getAttribute("data-percent"))/100
@@ -354,11 +350,7 @@
       function askAgain(){
         let percent = prompt("Please supply a number \n Or enter q to quit.");
         if(percent === "quit" || percent === "q"){
-          tipBtns.forEach(b=>{
-          if(b.classList.contains("selected")){
-            b.classList.remove("selected");
-          }
-        })
+     clearButtons()
         TIP_PERCENT= undefined;
           return;
 
@@ -428,6 +420,25 @@ if(!isNaN(document.querySelector("input[name='bill-total']").value) && !isNaN(do
             console.log("MealTipTotal",tipTotal,mealTipTotal)
             tipTotalEl.innerHTML = (tipTotal/PARTYSIZE).toFixed(2);
             mealTotalEl.innerHTML = (mealTipTotal/PARTYSIZE).toFixed(2)
+      }
+
+      function clearButtons(){
+        tipBtns.forEach(b=>{
+          if(b.classList.contains("selected")){
+            b.classList.remove("selected");
+          }
+        })
+      }
+
+
+      document.querySelector(".reset-btn").onclick=()=>{
+        PARTYSIZE=undefined;
+        MEALTOTAL=undefined;
+        TIP_PERCENT=undefined;
+        clearButtons();
+        document.querySelectorAll("input").forEach(i=>i.value = "")
+        tipTotalEl.innerHTML = ""
+        mealTotalEl.innerHTML = ""
       }
     </script>
   </body>
