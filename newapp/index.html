@@ -44,7 +44,7 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        animation: dropin 2s forwards;
+        /* animation: dropin 2s forwards; */
         /* background: blue; */
       }
 
@@ -60,11 +60,15 @@
       footer {
         position: absolute;
         margin: 0 auto;
-        width: 75%;
+        /* width: 75%; */
         /* border: 2px solid red; */
-        left: 12%;
+        /* left: 12%; */
         bottom: 0;
         text-align: center;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .attribution {
@@ -76,6 +80,9 @@
         padding: 0.25em;
         border-top-left-radius: 45px;
         border-bottom-right-radius: 45px;
+        width: 50%;
+        max-width: 575px;
+        min-width: 300px;
         color: black;
       }
 
@@ -193,7 +200,9 @@
         }
         .custom-row {
           flex-direction: column;
-          transform: translateY(7rem);
+          /* transform: translateY(7rem); */
+          height: 85%;
+          transform: translateY(15%);
         }
 
         .logo-div {
@@ -232,12 +241,17 @@
         footer {
           font-size: 0.75rem;
           color: white;
+          /* transform: translateY(3rem); */
         }
       }
 
       @media screen and (max-width: 500px) {
         body {
-          height: 155vh;
+          height: 135vh;
+        }
+
+        p {
+          line-height: 1.3rem;
         }
 
         .col1 {
@@ -247,14 +261,11 @@
       }
 
       @media screen and (max-width: 375px) {
-        body {
-          height: 165vh;
-        }
+        /* body {
+          height: 135vh;
+        } */
         h1 {
           font-size: 3rem;
-        }
-        p {
-          line-height: 1.3rem;
         }
       }
 
