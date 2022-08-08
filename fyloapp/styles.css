@@ -12,7 +12,8 @@ li {
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
 
-:root {
+body,
+body[data-theme="dark"] {
   --primfont: "Open Sans", sans-serif;
   --ralefont: "Raleway", sans-serif;
   --darkblue: hsl(217, 28%, 15%);
@@ -22,12 +23,27 @@ li {
   --cyan: hsl(176, 68%, 64%);
   --blue: hsl(198, 60%, 50%);
   --lred: hsl(0, 100%, 63%);
+  --primtext: white;
+}
+
+body,
+body[data-theme="light"] {
+  --primfont: "Open Sans", sans-serif;
+  --ralefont: "Raleway", sans-serif;
+  --darkblue: white;
+  --maindark: white;
+  --footerdark: lightgray;
+  --testdark: lightgray;
+  --cyan: hsl(176, 68%, 64%);
+  --blue: hsl(198, 60%, 50%);
+  --lred: hsl(0, 100%, 63%);
+  --primtext: hsl(217, 28%, 15%);
 }
 
 .app {
   background: var(--maindark);
   font-family: var(--primfont);
-  color: white;
+  color: var(--primtext);
   width: 100vw;
   overflow-x: hidden;
   animation: dropin 2s forwards;
@@ -37,6 +53,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--footerdark);
   padding: 2em;
 }
 
@@ -220,7 +237,8 @@ li {
 
 .footer {
   background: var(--footerdark);
-  padding: 2em;
+  padding: 1.5em;
+  padding-top: 3.25em;
 }
 
 .footer-content {
@@ -257,7 +275,7 @@ li {
 }
 
 .icon {
-  margin: 0 1rem;
+  margin: 0.25em 0.25rem;
   border: 1px solid white;
   border-radius: 50%;
   padding: 0.5em;

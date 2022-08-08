@@ -41,6 +41,7 @@
           <li class="nav-item">Features</li>
           <li class="nav-item">Team</li>
           <li class="nav-item">Sign In</li>
+          <li class="theme-mode">🌕</li>
         </ul>
       </nav>
       <header class="hero">
@@ -305,5 +306,15 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </p>
     </footer>
+
+    <script>
+      let theme = "dark";
+
+      document.querySelector(".theme-mode").onclick = (e) => {
+        theme = theme === "dark" ? "light" : "dark";
+        e.target.innerHTML = theme === "dark" ? "☀️" : "🌕";
+        document.body.dataset.theme = theme;
+      };
+    </script>
   </body>
 </html>
