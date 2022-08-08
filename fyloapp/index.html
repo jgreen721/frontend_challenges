@@ -310,6 +310,7 @@
     <script>
       let theme = "dark";
 
+      document.body.dataset.theme = theme;
       document.querySelector(".theme-mode").onclick = (e) => {
         theme = theme === "dark" ? "light" : "dark";
         e.target.innerHTML = theme === "dark" ? "☀️" : "🌕";
