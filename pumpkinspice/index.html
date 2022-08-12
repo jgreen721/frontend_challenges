@@ -16,6 +16,7 @@
       .app {
         height: 100vh;
         width: 100vw;
+        overflow: hidden;
       }
 
       .center {
@@ -48,8 +49,9 @@
       }
 
       .sun-pumpkin-parent {
-        width: 50%;
-        height: 60%;
+        width: clamp(50%, 500px, 95%);
+        height: 50%;
+        min-height: 300px;
         border-radius: 50%;
         /* border: 2px solid black; */
         transition: 3s ease;
@@ -134,13 +136,13 @@
         justify-content: space-between;
         position: absolute;
         top: 25%;
-        width: 50%;
-        left: 25%;
+        width: 65%;
+        left: 18%;
       }
 
       .eye {
-        height: 5rem;
-        width: 5rem;
+        height: 3rem;
+        width: 3.5rem;
         background: black;
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         transition: 4s ease;
@@ -176,11 +178,11 @@
       }
 
       .mouth {
-        width: 50%;
+        width: 65%;
         height: 3rem;
         background: black;
         position: absolute;
-        left: 25%;
+        left: 17%;
         top: 60%;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
@@ -207,12 +209,12 @@
       }
 
       .stem {
-        width: 5rem;
-        height: 5rem;
+        width: 2rem;
+        height: 2rem;
         background: rgb(110, 69, 15);
         clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
         position: absolute;
-        top: -5rem;
+        top: -1rem;
         left: 45%;
       }
 
@@ -232,8 +234,9 @@
 
       .h1-title {
         margin-top: 2.5rem;
-        font-size: 3rem;
-        letter-spacing: 0.5rem;
+        font-size: 1.25rem;
+        letter-spacing: 0.15rem;
+        text-align: center;
       }
 
       /* clip-path: polygon(50% 0%, 0% 100%, 100% 100%); */
