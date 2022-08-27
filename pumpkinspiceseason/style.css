@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.delay {
+  transform: scale(0);
+  position: relative;
+  top: -85px;
+  transition: 2s ease;
+}
+
+.summer-scene,
+.pumpkin-scene {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: 1s ease;
+  inset: 0;
+}
+
+.pumpkin-scene {
+  background: black;
+  color: white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Dancing Script", cursive;
+  position: relative;
+}
+
+.pumpkin-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  /* background-image: url("./assets/haunted.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain; */
+  opacity: 25%;
+}
+
+.overlay-img {
+  height: 100%;
+  width: 100%;
+}
+
+.summer-scene {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.pumpkin-div {
+  height: 250px;
+  width: 85%;
+  position: relative;
+  /* border: 2px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pumpkin-stem {
+  width: 30px;
+  height: 55px;
+  position: relative;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 35px;
+  /* left: 45%; */
+  background: radial-gradient(green, green);
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.pumpkin {
+  height: 200px;
+  width: 85%;
+  max-width: 300px;
+  /* position: absolute; */
+  border-radius: 100px;
+  transform: translateY(-15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(to right, rgb(255, 115, 0), orange);
+}
+
+.pumpkin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 150%;
+  border-radius: 50%;
+  border: 2px solid black;
+  opacity: 10%;
+  /* box-shadow: 5px 33px 90px black; */
+  width: 105%;
+  left: 18%;
+  top: -25%;
+}
+
+.pumpkin::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 150%;
+  border-radius: 50%;
+  border: 2px solid black;
+  opacity: 10%;
+  width: 105%;
+  left: -18%;
+  top: -25%;
+}
+
+.pumpkin-row {
+  width: 75%;
+  height: 50px;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.eye {
+  height: 85%;
+  width: 3rem;
+  background: black;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transition: 2s ease;
+  animation: glow 10s infinite;
+}
+
+.pumpkin-mouth {
+  margin-top: 1.5rem;
+  width: 55%;
+  height: 40px;
+  position: relative;
+  /* border: 3px solid black; */
+  /* display: grid; */
+  border-radius: 100px;
+  overflow: hidden;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* animation: glow 5s infinite;
+  background: linear-gradient(
+    to right,
+    yellow,
+    rgb(240, 240, 103),
+    rgb(156, 156, 52)
+  ); */
+}
+
+.mouth-glow,
+.mouth-teeth {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* .mouth-glow {
+  animation: glow 5s infinite;
+  background: linear-gradient(
+    to right,
+    yellow,
+    rgb(240, 240, 103),
+    rgb(156, 156, 52)
+  );
+} */
+
+.mouth-teeth {
+  display: grid;
+  border-radius: 100px;
+  overflow: hidden;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tooth {
+  height: 101%;
+  border: none;
+  outline: none;
+  width: 100%;
+  background: black;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transition: 2s ease;
+  animation: glow 10s infinite;
+  /* background: linear-gradient(
+    to right,
+    yellow,
+    rgb(240, 240, 103),
+    rgb(156, 156, 52)
+  ); */
+}
+
+.shift {
+  transform: translateX(50%) rotate(180deg);
+}
+
+/* .rotate {
+  transform: rotate(180deg);
+} */
+
+.top-row {
+  height: 75%;
+  width: 100%;
+  background: linear-gradient(skyblue, lightblue);
+}
+
+.caption {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+}
+
+.sun {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to right, yellow, orange);
+  box-shadow: 3px 5px 9px yellow;
+}
+
+.drop-letter {
+  color: rgb(255, 115, 0);
+  display: inline-block;
+  text-shadow: 3px 5px 8px yellow;
+  animation: dropletter 4s forwards;
+  transition: 1s ease;
+}
+
+.vanish {
+  animation: vanishletter 1s 2s forwards;
+  transform: translateY(100px);
+
+  transition: 1s ease;
+}
+
+@keyframes glow {
+  0% {
+    background-color: yellow;
+    opacity: 50%;
+  }
+  25% {
+    background-color: black;
+  }
+
+  50% {
+    background-color: yellow;
+    opacity: 50%;
+  }
+
+  75% {
+    background-color: black;
+  }
+
+  100% {
+    background-color: yellow;
+    opacity: 50%;
+  }
+}
+
+@keyframes dropletter {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+@keyframes vanishletter {
+  0% {
+    opacity: 1;
+    /* transform: translateY(100px); */
+  }
+
+  100% {
+    opacity: 0;
+    /* transform: translateY(100px); */
+  }
+}
+
+.bottom-row {
+  height: 25%;
+  width: 100%;
+  position: relative;
+  /* transform-style: preserve-3d; */
+  background: linear-gradient(to right, tan, rgb(245, 186, 109));
+}
+
+.ocean-div {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background: linear-gradient(to right, rgb(61, 61, 245), rgb(38, 38, 231));
+  top: -15%;
+}
+/* 
+.ocean-div::before {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 50px;
+  border-radius: 20px;
+  border: 2px solid rgb(15, 15, 250);
+  clip-path: circle(50% at 52% 0);
+  transform: rotate(180deg);
+  top: -55%;
+  left: 25%;
+  opacity: 50%;
+}
+
+.ocean-div::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 50px;
+  border-radius: 20px;
+  border: 2px solid rgb(15, 15, 250);
+  clip-path: circle(50% at 52% 0);
+  transform: rotate(180deg);
+  top: -55%;
+  left: 40%;
+  opacity: 50%;
+} */
+
+.umbrella-div {
+  height: 175px;
+  width: 100px;
+  /* border: 2px solid black; */
+  position: absolute;
+  left: 15%;
+  top: -65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-15deg);
+}
+
+.umbrella-rod {
+  height: 75%;
+  width: 5%;
+  background: black;
+}
+
+.umbrella {
+  height: 100px;
+  width: 100%;
+  border-radius: 50%;
+  background: red;
+  clip-path: polygon(
+    28% 6%,
+    69% 6%,
+    97% 30%,
+    100% 70%,
+    72% 63%,
+    26% 63%,
+    0% 70%,
+    3% 30%
+  );
+  position: absolute;
+  top: 5%;
+  box-shadow: 70px -5px 87px -42px rgba(41, 33, 33, 0.5) inset;
+}
+
+.towel-div {
+  width: 150px;
+  height: 100px;
+  /* border: 2px solid red; */
+  position: absolute;
+  left: 45%;
+  display: flex;
+  top: 15%;
+  align-items: center;
+  justify-content: center;
+  /* transform: rotateX(112deg); */
+  /* animation: spintowels 2s infinite; */
+}
+
+@keyframes spintowels {
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+.towel {
+  height: 80%;
+  width: 35%;
+  border: 1px solid gray;
+  margin: 0.5em;
+  border-radius: 3px;
+}
+
+.towel-one {
+  background: red;
+}
+
+.towel-two {
+  background: purple;
+}
