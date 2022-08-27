@@ -25,7 +25,7 @@ function letterDrop() {
       console.log("fired", i);
       document.querySelector(".caption-h1").append(spanLetter);
       if (i == captionText.length - 1) {
-        setTimeout(() => vanishLetters(), 1500);
+        setTimeout(() => vanishLetters(), 250);
       }
     }, i * 200);
   }
@@ -47,10 +47,10 @@ function vanishLetters() {
             pumpkinScene.style.opacity = 1;
             setTimeout(() => {
               document.querySelector(".delay").style.transform = "scale(1)";
-            }, 1500);
+            }, 1000);
           }, 1000);
-        }, 3500);
+        }, 1000);
       }
-    }, i * 200);
+    }, i * 100);
   }
 }
