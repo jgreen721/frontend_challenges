@@ -32,6 +32,8 @@ body {
 .app {
   transition: 2s ease;
   animation: focusapp 2s forwards;
+    width: 100vw;
+  overflow-x: hidden;
 }
 
 @keyframes focusapp {
