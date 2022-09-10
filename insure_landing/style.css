@@ -33,6 +33,8 @@ body {
   transition: 2s ease;
   animation: focusapp 2s forwards;
   width: 100vw;
+  max-width: 1440px;
+  margin: 0 auto;
 
   overflow-x: hidden;
 }
