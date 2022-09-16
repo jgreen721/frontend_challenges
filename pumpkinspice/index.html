@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌞 Pumpkin Spice 🎃</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+
+      .app {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+      }
+
+      .mural {
+        height: 100%;
+        width: 100%;
+        background: skyblue;
+        transition: 2s ease;
+      }
+
+      .nighttime {
+        animation: nighttime 2s forwards;
+      }
+
+      @keyframes nighttime {
+        0% {
+          background: skyblue;
+        }
+
+        100% {
+          background: black;
+        }
+      }
+
+      .sun-pumpkin-parent {
+        width: clamp(50%, 500px, 85%);
+        height: 50%;
+        /* min-height: 300px; */
+        border-radius: 50%;
+        /* border: 2px solid black; */
+        transition: 3s ease;
+      }
+
+      .color-pumpkin {
+        animation: pumpkin 2s forwards;
+      }
+
+      .shape-shift {
+        animation: shapeshift 2s forwards;
+      }
+
+      @keyframes shapeshift {
+        0% {
+          border-radius: 50%;
+        }
+
+        100% {
+          border-radius: 500px;
+          background: red;
+        }
+      }
+
+      @keyframes pumpkin {
+        0% {
+          background: none;
+          border-radius: 50%;
+        }
+
+        100% {
+          background: orange;
+          border-radius: 300px;
+        }
+      }
+
+      .sun {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background: linear-gradient(to right, yellow, rgb(236, 222, 23));
+        box-shadow: 3px 5px 45px yellow;
+        transition: 1s ease;
+      }
+
+      .pumpkin {
+        height: 100%;
+        width: 100%;
+        background: orange;
+        border-radius: 180px;
+        position: relative;
+        box-shadow: 48px 10px 77px 0px rgba(0, 0, 0, 0.75) inset;
+        -webkit-box-shadow: 48px 10px 77px 0px rgba(0, 0, 0, 0.75) inset;
+        -moz-box-shadow: 48px 10px 77px 0px rgba(0, 0, 0, 0.75) inset;
+        opacity: 0;
+      }
+
+      .pumpkin::before {
+        border-radius: 50%;
+        height: 100%;
+        width: 50%;
+        border-right: 2px solid black;
+        content: "";
+        position: absolute;
+        left: 35%;
+        opacity: 40%;
+      }
+
+      .pumpkin::after {
+        border-radius: 50%;
+        height: 100%;
+        width: 50%;
+        border-left: 2px solid black;
+        content: "";
+        position: absolute;
+        left: 15%;
+        opacity: 20%;
+      }
+
+      .eye-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 25%;
+        width: 65%;
+        left: 18%;
+      }
+
+      .eye {
+        height: 3rem;
+        width: 3.5rem;
+        background: black;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transition: 4s ease;
+        animation: groworange 2s 2s forwards;
+      }
+
+      @keyframes groworange {
+        0% {
+          transform: scale(0);
+        }
+        /* 25% {
+          background: orange;
+          clip-path: polygon(00% 0%, 0% 0%, 0% 0%);
+          transform: scale(0.5);
+        }
+
+        50% {
+          background: rgb(168, 116, 19);
+          clip-path: polygon(25% 0%, 0% 100%, 0% 100%);
+          transform: scale(0.75);
+        }
+
+        75% {
+          background: rgb(168, 116, 19);
+          clip-path: polygon(25% 0%, 0% 100%, 0% 100%);
+          transform: scale(0.75);
+        } */
+
+        100% {
+          background: black;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+      }
+
+      .mouth {
+        width: 65%;
+        height: 3rem;
+        background: black;
+        position: absolute;
+        left: 17%;
+        top: 60%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        border-radius: 45%;
+        overflow: hidden;
+        border: none;
+        transition: 1s ease;
+        outline: none;
+        /* animation: speak 2s infinite; */
+      }
+
+      .teeth {
+        background: orange;
+        height: 1.85rem;
+        width: 1.85rem;
+        outline: none;
+        border: none;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        /* transform: translateY(5px); */
+      }
+
+      .rotate {
+        transform: rotate(180deg) translateX(1rem);
+      }
+
+      .stem {
+        width: 2rem;
+        height: 2rem;
+        background: rgb(110, 69, 15);
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        position: absolute;
+        top: -1rem;
+        left: 45%;
+      }
+
+      @keyframes speak {
+        0% {
+          height: 0px;
+        }
+
+        50% {
+          height: 3rem;
+        }
+
+        100% {
+          height: 0rem;
+        }
+      }
+
+      .h1-title {
+        margin-top: 2.5rem;
+        font-size: 1.25rem;
+        letter-spacing: 0.15rem;
+        text-align: center;
+      }
+
+      /* clip-path: polygon(50% 0%, 0% 100%, 100% 100%); */
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="mural center">
+        <div class="sun-pumpkin-parent">
+          <div class="sun"></div>
+          <div class="pumpkin">
+            <div class="stem">
+              <div class="leaf"></div>
+            </div>
+            <div class="eye-row">
+              <div class="eye eye1"></div>
+              <div class="eye eye2"></div>
+            </div>
+            <div class="mouth">
+              <div class="teeth teeth1 rotate"></div>
+              <div class="teeth teeth2 rotate"></div>
+              <div class="teeth teeth3 rotate"></div>
+              <div class="teeth teeth4 rotate"></div>
+              <div class="teeth teeth5 rotate"></div>
+              <div class="teeth teeth6 rotate"></div>
+              <div class="teeth teeth7 rotate"></div>
+              <div class="teeth teeth8"></div>
+              <div class="teeth teeth9"></div>
+              <div class="teeth teeth10"></div>
+              <div class="teeth teeth11"></div>
+              <div class="teeth teeth12"></div>
+              <div class="teeth teeth13"></div>
+              <div class="teeth teeth14"></div>
+            </div>
+          </div>
+        </div>
+        <h1 class="h1-title">SUMMAH TIME<span class="delay"></span></h1>
+      </div>
+    </div>
+
+    <script>
+      onload = () => {
+        setMessages(0);
+      };
+
+      function setMessages(counter = 0) {
+        document.querySelector(".h1-title").innerHTML = messages[counter];
+        if (counter <= 3) {
+          setTimeout(() => setMessages(counter + 1), 1500);
+        } else {
+          setTimeout(() => {
+            document.querySelector(".sun").classList.add("shape-shift");
+          }, 2000);
+          setTimeout(() => {
+            document.querySelector(".mural").classList.add("nighttime");
+            document.querySelector(".sun").style.opacity = "0";
+            document.querySelector(".sun").style.display = "none";
+            document.querySelector(".pumpkin").style.opacity = "1";
+            document.querySelector(".h1-title").innerHTML = "ENJOY! 😎   🦇 👻";
+          }, 5000);
+        }
+      }
+
+      let messages = [
+        "SummahTime",
+        "Welcomes",
+        "Its new beloved sponsor",
+        "Of...",
+        "Pumpkin Spice",
+      ];
+    </script>
+  </body>
+</html>

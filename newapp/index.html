@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    /> -->
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --softred: hsl(0, 93%, 68%);
+        --satred: hsl(0, 36%, 70%);
+        --grayred: hsl(0, 6%, 24%);
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: "Josefin Sans", sans-serif;
+      }
+
+      .app {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        animation: dropin 2s forwards;
+        /* background: blue; */
+      }
+
+      @keyframes dropin {
+        0% {
+          transform: translate(-150%, 100%) rotate(90deg);
+        }
+        100% {
+          transform: translate(0%, 0%) rotate(0deg);
+        }
+      }
+
+      footer {
+        position: absolute;
+        margin: 0 auto;
+        /* width: 75%; */
+        /* border: 2px solid red; */
+        /* left: 12%; */
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .attribution {
+        background: linear-gradient(
+          to right,
+          rgb(248, 167, 167),
+          var(--softred)
+        );
+        padding: 0.25em;
+        border-top-left-radius: 45px;
+        border-bottom-right-radius: 45px;
+        width: 50%;
+        max-width: 575px;
+        min-width: 300px;
+        color: black;
+      }
+
+      /* footer p {
+        transform: translateY(0.75rem);
+      } */
+
+      .custom-row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* border: 2px solid black; */
+        /* background: orange; */
+      }
+
+      p {
+        margin: 1rem 0;
+        color: var(--satred);
+        line-height: 1.75rem;
+        animation: showcolor 2s 2s forwards;
+        filter: grayscale(100%);
+      }
+
+      .col1 {
+        width: 50%;
+        height: 100%;
+        padding: 4em;
+      }
+
+      .col2 {
+        width: 50%;
+        height: 100%;
+      }
+
+      .logo-div {
+        position: absolute;
+        padding: 4rem;
+        filter: grayscale(100%);
+        animation: showcolor 2s 2s forwards;
+      }
+
+      .content-col {
+        padding-top: 6rem;
+      }
+
+      .header {
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 600;
+      }
+
+      .redh1 {
+        color: var(--softred);
+        opacity: 85%;
+        font-weight: 300;
+        animation: showcolor 2s 2s forwards;
+        filter: grayscale(100%);
+      }
+
+      .ad-img {
+        height: 100%;
+        width: 100%;
+        animation: showcolor 2s 2s forwards;
+        filter: grayscale(100%);
+      }
+
+      @keyframes showcolor {
+        0% {
+          filter: grayscale(100%);
+        }
+        100% {
+          filter: grayscale(0%);
+        }
+      }
+
+      .form-div {
+        /* margin: 1rem 0; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .send-btn {
+        /* position: absolute; */
+        transform: translateX(-3rem);
+        animation: showcolor 2s 2s forwards;
+
+        background: linear-gradient(
+          to right,
+          rgb(248, 167, 167),
+          var(--softred)
+        );
+        border: none;
+        border-radius: 100px;
+        min-width: 60px;
+        padding: 0.35em;
+        cursor: pointer;
+        filter: grayscale(100%);
+      }
+
+      .email-input {
+        width: 100%;
+        min-width: 200px;
+        border-radius: 10px;
+        padding: 0.5em;
+      }
+
+      @media screen and (max-width: 850px) {
+        body {
+          height: 145vh;
+        }
+        .custom-row {
+          flex-direction: column;
+          /* transform: translateY(7rem); */
+          height: 85%;
+          transform: translateY(15%);
+        }
+
+        .logo-div {
+          padding: 2em;
+        }
+
+        .col1 {
+          transform: translateY(70%);
+          width: 100%;
+          height: 50%;
+          padding: 0;
+          /* border: 4px solid blue; */
+          padding: 4em;
+        }
+
+        .email-input {
+          transform: translateX(1.5rem);
+        }
+
+        .send-btn {
+          transform: translateX(-0.5rem);
+        }
+
+        .col2 {
+          transform: translateY(-145%);
+          width: 100%;
+          height: 35%;
+          /* border: 5px solid red; */
+        }
+
+        .content-col {
+          text-align: center;
+          padding-top: 0rem;
+        }
+
+        footer {
+          font-size: 0.75rem;
+          color: white;
+          /* transform: translateY(3rem); */
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        body {
+          height: 135vh;
+        }
+
+        p {
+          line-height: 1.3rem;
+        }
+
+        .col1 {
+          padding-left: 2em;
+          padding-right: 2em;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        /* body {
+          height: 135vh;
+        } */
+        h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @keyframes showcolor {
+        0% {
+          filter: grayscale(100%);
+        }
+        100% {
+          filter: grayscale(0%);
+        }
+      }
+    </style>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <div class="app">
+      <div class="logo-div">
+        <img src="./images/logo.svg" alt="" />
+      </div>
+      <div class="custom-row">
+        <div class="col col1">
+          <div class="content-col">
+            <div class="header">
+              <h1 class="redh1">We're</h1>
+              <h1>Coming</h1>
+              <h1>Soon</h1>
+            </div>
+            <p>
+              Hello fellow shoppers! We're currently building our new fashion
+              store. Add your email below to stay up-to-date with announcements
+              and our launch deals.
+            </p>
+            <div class="form-div">
+              <input
+                class="email-input"
+                type="text"
+                placeholder="Email"
+                autocomplete="off"
+                name="email"
+              />
+              <button class="send-btn">
+                <img src="./images/icon-arrow.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col col2">
+          <picture>
+            <source
+              srcset="./images/hero-desktop.jpg"
+              media="(min-width: 850px)"
+            />
+            <img class="ad-img" src="./images/hero-mobile.jpg" alt="" />
+          </picture>
+        </div>
+      </div>
+      <footer>
+        <p class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Justin G</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
