@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="left-col">
+        <div class="overlay">
+          <img class="overlay-img" src="./images/bg-main-desktop.png" alt="">
+        </div>
+        <div class="card card-front">
+          <img class="card-img" src="./images/bg-card-front.png" alt="" />
+          <img class="logo-img" src="./images/card-logo.svg" alt="logo">
+          <div class="card-info-row">
+            <div class="cc-number-row">
+              <div class="cc-col cc-one">1234</div>
+              <div class="cc-col cc-two">1234</div>
+              <div class="cc-col cc-three">1234</div>
+              <div class="cc-col cc-four">1234</div>
+            </div>
+            <div class="cc-info-row">
+              <div class="name-div">
+              <h5 class="firstname">Jane</h5>
+              <h5 class="lastname">Appleseed</h5>
+              </div>
+              <div class="cc-date">
+                <h5 class="expire"><span class="month">00</span>/<span class="year">00</span></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-back">
+          <img class="card-img" src="./images/bg-card-back.png" alt="" />
+          <h4 class="cvc" id="cvc">123</h4>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="right-overlay"></div>
+        <div class="card-parent-container">
+          
+          <div class="card-form">
+            <div class="form-div">
+              <label for="cardholder"><h5>Cardholder Name</h5></label>
+              <input
+                type="text"
+                name="cardholder"
+                placeholder="e.g Jane Appleseed"
+                autocomplete="off"
+                class="form-control"
+                autofocus
+              />
+              <h4 class="error cardholder-error"></h4>
+            </div>
+
+            <div class="form-div">
+              <label for="cardnumber"><h5>Card Number</h5></label>
+              <input
+                type="text"
+                name="cardnumber"
+                placeholder="e.g 1234 5678 9123 0000"
+                autocomplete="off"
+                class="form-control"
+              />
+              <h4 class="error cardnumber-error"></h4>
+            </div>
+            <div class="form-row">
+              <div class="small-form-row">
+                
+                <!-- <div class="small-form-div"> -->
+                  <label for="card-date"><h5>Exp. Date (MM/YY)</h5></label>
+                  <div class="small-form-bottom-row">
+                  <div class="small-form-div">
+                  <input
+                    type="text"
+                    name="month"
+                    class="small-input"
+                    placeholder="MM"
+                  />
+                  <h4 class="error month-error"></h4>
+                </div>
+                <div class="small-form-div">
+                  <input
+                    type="text"
+                    name="year"
+                    class="small-input"
+                    placeholder="YY"
+                  />
+                  <h4 class="error year-error"></h4>
+                </div>
+              </div>
+              </div>
+
+              <div class="form-div cc-div">
+                <label for="cvc"><h5>CVC</h5></label>
+                
+                <input
+                  type="text"
+                  name="cvc"
+                  placeholder="e.g 123"
+                  class="small-input"
+                />
+                <h4 class="error cvc-error"></h4>
+              </div>
+            </div>
+            <button class="confirm-btn">Confirm</button>
+            <h3 class="overall-error"></h3>
+          </div>
+        
+
+        <div class="thank-you-modal">
+          <img src="./images/icon-complete.svg" alt="">
+          <h1 class="thanks-h1">Thank You</h1>
+          <p class="thanks-p">We've added your card details</p>
+          <button class="btn continue-btn">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completed state start -->
+
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+
+    <script>
+      var cardholderInput = document.querySelector("input[name='cardholder']");
+      var cardholderError = document.querySelector(".cardholder-error")
+      var cardnumberInput = document.querySelector("input[name='cardnumber']");
+      var cardnumberError = document.querySelector(".cardnumber-error")
+      var monthInput = document.querySelector("input[name='month']")
+      var monthError = document.querySelector(".month-error")
+      var yearInput = document.querySelector("input[name='year']")
+      var yearError = document.querySelector(".year-error")
+      var errors={
+        cardholder:false,
+        cardnumber:false,
+        month:false,
+        year:false,
+        cvc:false,
+      }
+
+      var cvcInput = document.querySelector("input[name='cvc']");
+      var cvcError = document.querySelector(".cvc-error")
+
+
+      cardholderInput.oninput=(e)=>{
+        console.log(e)
+        let key = JSON.stringify(e.data).toUpperCase()
+        let ascii = key.charCodeAt(1)
+
+
+        console.log("ASCII",key,ascii)
+       
+        // var validCharcodes = [65-90,97-122]
+        if(ascii < 65 && ascii !== 32 || ascii > 90 && ascii !== 32){
+        // if(!isNaN(e.data) && e.data != null){
+          let msg = "Error: Invalid name character!"
+          renderError(cardholderError,msg)
+          errors['cardholder'] = true;
+          return;
+        }
+        let cardholderName = e.target.value;
+
+        if(cardholderName.split(" ").length > 3){
+          let msg = "Error: Invalid name length!"
+          renderError(cardholderError,msg)
+          errors['cardholder'] = true;
+
+          return;
+        }
+
+
+        if(cardholderName.split(" ").length > 1){
+              let lastName = cardholderName.split(" ")[1];
+              document.querySelector(".lastname").innerHTML = lastName
+              errors['cardholder'] = false;
+
+
+        }
+        else{
+          
+          document.querySelector(".firstname").innerHTML = e.target.value
+          errors['cardholder'] = false;
+
+        
+      }
+    }
+
+      cvcInput.oninput=(e)=>{
+        let cc = e.target.value;
+        console.log(e.target.value)
+
+        console.log(cc)
+        if(isNaN(cc)){
+          console.log("not a number")
+          let msg = 'Error: CVC must be a 3 digit number!'
+          renderError(cvcError,msg)
+                    errors['cvc'] = true;
+
+          return;
+        }
+        if(cc >= 1000){
+          console.log(JSON.stringify(cc).length)
+                    errors['cvc'] = true;
+
+          return;
+        }
+        document.querySelector("#cvc").innerHTML = cc
+        errors['cvc'] = false;
+      }
+
+
+      cardnumberInput.oninput=(e)=>{
+        let ccnum = e.target.value;
+        console.log(e.target.value,ccnum.length)
+
+        console.log(ccnum)
+        if(isNaN(ccnum)){
+          console.log("not a number")
+          let msg = 'Error: Invalid CC number!'
+          renderError(cardnumberError,msg)
+          errors['cardnumber']=true
+          return;
+        }
+
+        if(ccnum.length > 16){
+          let msg = 'Error: Invalid CC length. Must be 16 digits'
+
+          renderError(cardnumberError,msg)
+          errors['cardnumber']=true
+          return;
+        }
+
+        if(ccnum.length <= 4){
+          document.querySelector('.cc-one').innerHTML = ccnum;
+          document.querySelector('.cc-two').innerHTML = ""
+          errors['cardnumber']=false
+          return;
+        }
+        if(ccnum.length > 4 && ccnum.length <= 8){
+          document.querySelector('.cc-two').innerHTML = ccnum.slice(4,9)
+          document.querySelector('.cc-three').innerHTML = ""
+          errors['cardnumber']=false
+          return;
+        }
+        if(ccnum.length > 8 && ccnum.length <= 12){
+          document.querySelector('.cc-three').innerHTML = ccnum.slice(8,12)
+          document.querySelector('.cc-four').innerHTML = ""
+          errors['cardnumber']=false
+          return;
+        }
+        if(ccnum.length > 12){
+          document.querySelector('.cc-four').innerHTML = ccnum.slice(12,16)
+          errors['cardnumber']=false
+          return;
+        }
+      }
+
+
+      monthInput.oninput=(e)=>{
+        let month = e.target.value;
+        if(isNaN(month)){
+          let msg = "Invalid monthly input!"
+          renderError(monthError,msg)
+          errors['month']=true
+          return;
+        }
+        if(month > 12){
+          let msg = "Invalid monthly input!"
+          renderError(monthError,msg)
+          errors['month']=true
+          return;
+        }
+        if(month < 10){
+          document.querySelector(".month").innerHTML = '0' + month;
+          errors['month']=false
+        }
+        else if(month >9 && month < 13){
+          document.querySelector(".month").innerHTML = month;
+          errors['month']=false
+
+        }
+      }
+
+
+      yearInput.oninput=(e)=>{
+        let year = e.target.value;
+        if(e.data == null && e.target.value.length == 0){
+          console.log("NO INPUT")
+          document.querySelector(".year").innerHTML = "00";
+          errors['year']=true
+          return;
+
+        }
+        if(isNaN(year)){
+          let msg = "Invalid yearly input!"
+          renderError(yearError,msg)
+          errors['year']=true
+          return;
+        }
+        if(year > 99){
+          let msg = "Invalid yearly input!"
+          renderError(yearError,msg)
+          errors['year']=true
+          return;
+        }
+        if(year < 23){
+          let msg = "Invalid expiration date!"
+          renderError(yearError,msg)
+          errors['year']=true
+          return;
+        }
+        if(year < 10){
+          document.querySelector(".year").innerHTML = '0' + year;
+          errors['year']=false
+        }
+       
+        else {
+          document.querySelector(".year").innerHTML = year;
+          errors['year']=false
+
+        }
+   
+
+      }
+
+
+      document.querySelector(".confirm-btn").onclick=(e)=>{
+          document.querySelectorAll("input").forEach(i=>{
+            console.log(i)
+            let info={
+              cardholder:document.querySelectorAll("input")[0].value,
+              cardnumber:document.querySelectorAll("input")[1].value,
+              month:document.querySelectorAll("input")[2].value,
+              year:document.querySelectorAll("input")[3].value,
+              cvc:document.querySelectorAll("input")[4].value,
+            }
+         for(let i in errors){
+           if(errors[i]){
+             console.log("INPUT ERROR!!")
+             renderError(document.querySelector(".overall-error"),"Error 🤨, please check your inputs!")
+             return;
+           }
+         }
+             console.log("Valid Input :)",info)
+             toggleModals()
+          })
+      }
+
+
+
+
+
+      function renderError(err,msg){
+        err.innerHTML = msg;
+        setTimeout(()=>{
+          err.innerHTML = ""
+        },2000)
+      }
+
+
+      function toggleModals(){
+        document.querySelector(".card-form").classList.add("hide-card")
+         document.querySelector(".thank-you-modal").classList.add("show-modal")
+      }
+
+    </script>
+  </body>
+</html>
