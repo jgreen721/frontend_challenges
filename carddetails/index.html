@@ -208,11 +208,11 @@
     }
 
       cvcInput.oninput=(e)=>{
-        let cc = e.target.value;
-        console.log(e.target.value)
+        let cvc = e.target.value
+        // console.log(cc)
 
-        console.log(cc)
-        if(isNaN(cc)){
+        console.log(cvc)
+        if(isNaN(cvc)){
           console.log("not a number")
           let msg = 'Error: CVC must be a 3 digit number!'
           renderError(cvcError,msg)
@@ -220,20 +220,21 @@
 
           return;
         }
-        if(cc >= 1000){
+        if(cvc >= 1000){
           console.log(JSON.stringify(cc).length)
                     errors['cvc'] = true;
 
           return;
         }
-        document.querySelector("#cvc").innerHTML = cc
+     
+        document.querySelector("#cvc").innerHTML = cvc
         errors['cvc'] = false;
       }
 
 
       cardnumberInput.oninput=(e)=>{
-        let ccnum = e.target.value;
-        console.log(e.target.value,ccnum.length)
+        let ccnum = e.target.value.replaceAll(' ','')
+        console.log(ccnum)
 
         console.log(ccnum)
         if(isNaN(ccnum)){
@@ -249,32 +250,46 @@
 
           renderError(cardnumberError,msg)
           errors['cardnumber']=true
-          return;
+           return;
         }
 
         if(ccnum.length <= 4){
           document.querySelector('.cc-one').innerHTML = ccnum;
           document.querySelector('.cc-two').innerHTML = ""
           errors['cardnumber']=false
-          return;
+          // return;
         }
         if(ccnum.length > 4 && ccnum.length <= 8){
           document.querySelector('.cc-two').innerHTML = ccnum.slice(4,9)
           document.querySelector('.cc-three').innerHTML = ""
           errors['cardnumber']=false
-          return;
+          // return;
         }
         if(ccnum.length > 8 && ccnum.length <= 12){
           document.querySelector('.cc-three').innerHTML = ccnum.slice(8,12)
           document.querySelector('.cc-four').innerHTML = ""
           errors['cardnumber']=false
-          return;
+          // return;
         }
         if(ccnum.length > 12){
           document.querySelector('.cc-four').innerHTML = ccnum.slice(12,16)
           errors['cardnumber']=false
-          return;
+          // return;
         }
+
+        console.log(ccnum.length)
+        let ccOutput = ""
+        for(let i=0;i<ccnum.length;i++){
+
+          if(i%4 == 0){
+            console.log("add space!")
+            ccOutput+= " "
+          }
+          ccOutput += ccnum[i]
+
+        }
+        console.log("OUTPUT",ccOutput)
+        e.target.value = ccOutput 
       }
 
 
@@ -347,8 +362,7 @@
 
 
       document.querySelector(".confirm-btn").onclick=(e)=>{
-          document.querySelectorAll("input").forEach(i=>{
-            console.log(i)
+          // document.querySelectorAll("input").forEach(i=>{
             let info={
               cardholder:document.querySelectorAll("input")[0].value,
               cardnumber:document.querySelectorAll("input")[1].value,
@@ -356,16 +370,55 @@
               year:document.querySelectorAll("input")[3].value,
               cvc:document.querySelectorAll("input")[4].value,
             }
-         for(let i in errors){
-           if(errors[i]){
-             console.log("INPUT ERROR!!")
-             renderError(document.querySelector(".overall-error"),"Error 🤨, please check your inputs!")
-             return;
-           }
-         }
+        //  for(let i in errors){
+        //    if(errors[i]){
+        //      console.log("INPUT ERROR!!")
+        //      renderError(document.querySelector(".overall-error"),"Error 🤨, please check your inputs!")
+        //      return;
+        //    }
+        //  }
+        let hasError = false;
+
+        if(!info.cardholder){
+          renderError(cardholderError,"Invalid cardholder name")
+
+          hasError = true;
+        }
+        if(cvcInput.value < 100 || cvcInput.value > 999){
+          console.log("CVC ERROR!");
+          renderError(cvcError,"Invalid CVC Number")
+          hasError = true;
+          
+        }
+
+        if(monthInput.value < 1 || monthInput > 12){
+          console.log("MONTH ERROR");
+          renderError(monthError,"Invalid Month")
+          hasError = true;
+
+          
+        }
+
+        if(yearInput.value > 100 || yearInput.value < 22){
+          console.log("YEAR ERROR");
+          renderError(yearError,"Invalid Year")
+          hasError = true;
+
+          
+        }
+
+        if(cardnumberInput.value.replaceAll(" ","").length !== 16){
+          console.log("CARDNUMBER ERROR");
+          renderError(cardnumberError,"Invalid Card number")
+          hasError = true;
+
+          
+        }
+        if(!hasError){
              console.log("Valid Input :)",info)
              toggleModals()
-          })
+        }
+          // })
       }
 
 
