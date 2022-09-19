@@ -98,6 +98,7 @@ a {
 
 .top-section {
   display: flex;
+  padding: 5em 0;
 }
 
 .col {
@@ -169,6 +170,20 @@ a {
 .middle-section {
   display: flex;
   background: var(--lightgray);
+  position: relative;
+}
+
+.middle-section::after {
+  height: 500px;
+  width: 175%;
+  position: absolute;
+  top: -10%;
+  left: -35%;
+  content: "";
+  background: var(--lightgray);
+  /* background: red; */
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .middle-col {
@@ -199,15 +214,15 @@ a {
   }
 
   20% {
-    filter: hue-rotate(20deg) blur(2px);
+    filter: hue-rotate(20deg);
   }
 
   40% {
-    filter: hue-rotate(60deg) blur(5px);
+    filter: hue-rotate(60deg);
   }
 
   60% {
-    filter: hue-rotate(20deg) blur(0px);
+    filter: hue-rotate(20deg);
   }
 
   80% {
