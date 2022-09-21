@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+  --lightgrayblue: hsl(210, 60%, 98%);
+  --verylightone: hsl(211, 68%, 94%);
+  --verylighttwo: hsl(205, 33%, 90%);
+  --grayblue: hsl(219, 14%, 63%);
+  --lightgrayblue: hsl(215, 33%, 93%);
+  --darkgray: hsl(219, 12%, 42%);
+  --verydark: hsl(224, 21%, 14%);
+  /* --mainfont: url("./assets/fonts/static/PlusJakartaSans-Medium.ttf");
+  --secondfont: url("static/PlusJakartaSans-ExtraBold.ttf"); */
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("./assets/fonts/static/PlusJakartaSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: boldFont;
+  src: url("./assets/fonts/static/PlusJakartaSans-ExtraBold.ttf");
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  /* border: 2px solid blue; */
+  font-family: myFirstFont;
+  position: relative;
+  overflow: auto;
+  filter: blur(5px);
+
+  background: radial-gradient(white, whitesmoke);
+  animation: loseblur 0.5s forwards;
+}
+
+@keyframes loseblur {
+  0% {
+    filter: blur(5px);
+    transform: rotate(90deg) scale(0);
+  }
+  100% {
+    filter: blur(0px);
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+small {
+  margin: 2rem;
+  padding: 1em;
+  opacity: 50%;
+}
+
+.notifications {
+  margin: 1em;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
+}
+
+.header h3 {
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0.25em;
+  position: relative;
+}
+
+.refresh-btn {
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+}
+
+.header h3:hover::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  transition: 0.5s ease;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to right, lightgray, white);
+  opacity: 35%;
+  padding: 0.25em;
+  border-radius: 5px;
+}
+
+.notification-total {
+  background: var(--blue);
+  color: white;
+  padding: 0 0.5em;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 0.5em;
+}
+
+.notification-num {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* top: 75px; */
+
+  /* animation: growup 0.5s forwards; */
+}
+
+.growup {
+  /* top: 75px; */
+  /* position: absolute; */
+  animation: growup 0.5s forwards;
+}
+
+@keyframes growup {
+  0% {
+    opacity: 0;
+    top: 75px;
+  }
+  100% {
+    opacity: 1;
+    top: -7px;
+    left: -3px;
+    /* color: red; */
+  }
+}
+
+.alert-card {
+  width: clamp(40%, 400px, 98%);
+  /* border: 2px solid black; */
+  margin: 0 auto;
+  margin-bottom: 0.75rem;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.unread {
+  transition: 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.unread:hover {
+  transform: scale(1.01);
+}
+
+.unread:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: lightgray;
+  top: 0;
+  left: 0;
+  opacity: 10%;
+}
+
+.remove-alert {
+  animation: removealert 0.5s forwards;
+}
+
+@keyframes removealert {
+  0% {
+    transform: translateX(0);
+  }
+  95% {
+    transform: translateX(-650px);
+  }
+  100% {
+    transform: translateX(-800px);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.grabbable {
+  cursor: grab;
+}
+
+.lightblue {
+  background: var(--lightgrayblue);
+}
+
+.white {
+  background: white;
+}
+
+.alert-flex {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.content-div {
+  margin-left: 0.5em;
+}
+strong {
+  font-family: boldFont;
+}
+
+.time-p {
+  opacity: 50%;
+  margin-top: 0.25em;
+}
+
+.club-h5 {
+  color: var(--blue);
+}
+
+.red-dot {
+  width: 10px;
+  height: 10px;
+  margin-left: 0.35em;
+  margin-top: 0.25em;
+  position: absolute;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.avatar-img {
+  height: 50px;
+}
+
+.message {
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  margin: 1em 0em;
+  padding: 1em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 450px) {
+  .header-h1 {
+    font-size: 1rem;
+  }
+
+  .readall-btn {
+    font-size: 1rem;
+  }
+
+  .growup {
+    animation: growsmall 0.5s forwards;
+  }
+
+  small {
+    display: none;
+  }
+}
+
+@keyframes growsmall {
+  0% {
+    opacity: 0;
+    top: 75px;
+  }
+  100% {
+    opacity: 1;
+    top: -3px;
+    left: -1px;
+    /* color: red; */
+  }
+}

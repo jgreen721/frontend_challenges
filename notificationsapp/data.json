@@ -1,0 +1,11 @@
+{
+    "alerts":[
+        {"id":1,"content":"reacted to your recent post My first tournament today!","from":"Mark Webber","avatar":"./assets/images/avatar-mark-webber.webp","isRead":false,"cite_club":true,"time_stamp":"1m ago"},
+        {"id":2,"content":"followed you","from":"Angela Gray","avatar":"./assets/images/avatar-angela-gray.webp","isRead":false,"cite_club":false,"time_stamp":"5m ago"},
+        {"id":3,"content":"has joined your group!","from":"Jacob Thompson","avatar":"./assets/images/avatar-jacob-thompson.webp","isRead":false,"cite_club":true,"time_stamp":"1day ago"},
+        {"id":4,"content":"sent you a private message","from":"Rizky Hasanuddin","avatar":"./assets/images/avatar-rizky-hasanuddin.webp","isRead":true, "cite_club":false,"time_stamp":"5days ago","message":"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game."},
+        {"id":5,"content":"commented on your picture","from":"Kimberly Smith","avatar":"./assets/images/avatar-kimberly-smith.webp","isRead":true, "cite_club":false,"time_stamp":"1 week ago","commented_on":"./assets/images/image-chess.webp"},
+        {"id":6,"content":"reacted to your recent post 5 end-game strategies to increase your win rate ","from":"Nathan Peterson","avatar":"./assets/images/avatar-nathan-peterson.webp","isRead":true, "cite_club":false,"time_stamp":"2 weeks ago"},
+        {"id":7,"content":"left the group","from":"Anna Kim","avatar":"./assets/images/avatar-anna-kim.webp","isRead":true, "cite_club":true,"time_stamp":"2 weeks ago"}
+    ]
+}
