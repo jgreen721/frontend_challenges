@@ -28,13 +28,18 @@
   src: url("./assets/fonts/static/PlusJakartaSans-ExtraBold.ttf");
 }
 
+body {
+  background: radial-gradient(white, whitesmoke);
+  animation: loseblur 0.5s forwards;
+}
+
 .app {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   /* border: 2px solid blue; */
   font-family: myFirstFont;
   position: relative;
-  overflow: auto;
+  /* overflow: auto; */
   filter: blur(5px);
 
   background: radial-gradient(white, whitesmoke);

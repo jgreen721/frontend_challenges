@@ -12,7 +12,7 @@
       href="./images/favicon-32x32.png"
     />
     <script s></script>
-    <title>Frontend Mentor | Notifications page</title>
+    <title>Notifications page 🚨</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style></style>
@@ -32,16 +32,17 @@
           <h5 class="refresh-btn">(Refresh)</h5>
         </div>
       </div>
-      <small>(drag left to remove -- desktop only)</small>
+      <small
+        >(drag left to remove <strong>old/read</strong> -- desktop only)</small
+      >
 
       <div class="notifications"></div>
-    </div>
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
     </div>
 
     <script>
@@ -63,6 +64,7 @@
         notificationEl.innerHTML = "";
         notificationEl.classList.remove("growup");
         notificationEl.classList.add("growup");
+
         var h3 = document.createElement("h3");
         h3.classList.add("growup");
         h3.innerHTML = notifications.filter((n) => !n.isRead).length;
