@@ -24,7 +24,7 @@
         <h1 class="header-h1">
           Notifications:
           <span class="notification-total"
-            ><span class="notification-num"></span
+            ><span class="notification-num growup"></span
           ></span>
         </h1>
         <div>
@@ -49,6 +49,7 @@
       var readallBtn = document.querySelector(".readall-btn");
       var notificationEl = document.querySelector(".notification-num");
       var notifications = [];
+
       fetch("data.json")
         .then((res) => res.json())
         .then((res) => {
@@ -61,20 +62,23 @@
       function printNotificatons(notifications) {
         document.querySelector(".notifications").innerHTML = "";
 
-        notificationEl.innerHTML = "";
-        notificationEl.classList.remove("growup");
-        notificationEl.classList.add("growup");
-
+        // some messy logic to prevent unnecessary animations upon
+        // a DOM reprint after dragging an item off screen
+        // won't animate when count is at 0
         var h3 = document.createElement("h3");
-        h3.classList.add("growup");
+        if (parseInt(notificationEl.textContent) > 0) {
+          h3.classList.add("growup");
+        } else {
+          h3.classList.add("reg");
+        }
+
         h3.innerHTML = notifications.filter((n) => !n.isRead).length;
+        notificationEl.innerHTML = "";
 
         notificationEl.append(h3);
+        console.log(parseInt(notificationEl.textContent));
 
-        // notificationEl.innerHTML = notifications.filter(
-        //   (n) => !n.isRead
-        // ).length;
-
+        //create card
         notifications.forEach((a, idx) => {
           var alertCard = document.createElement("div");
           alertCard.className = "alert-card";
