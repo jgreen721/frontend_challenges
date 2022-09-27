@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Crowdfunding product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="hero">
+        <div class="hero-banner">
+          <picture>
+            <source
+              srcset="./images/image-hero-desktop.jpg"
+              media="(min-width: 800px)"
+            />
+            <img
+              class="hero-img"
+              src="./images/image-hero-mobile.jpg"
+              alt="img"
+            />
+          </picture>
+        </div>
+        <div class="menu-row">
+          <div class="logo-div">
+            <img class="logo-img" src="./images/logo.svg" alt="img" />
+          </div>
+          <ul class="nav-links">
+            <li class="nav-item">About</li>
+            <li class="nav-item">Discovery</li>
+            <li class="nav-item">Get Started</li>
+          </ul>
+          <img
+            class="burger-icon"
+            src="./images/icon-hamburger.svg"
+            alt="img"
+          />
+          <div class="mobile-menu hide-mobile">
+            <li class="mobile-item">About</li>
+            <li class="mobile-item">Discovery</li>
+            <li class="mobile-item">Get Started</li>
+          </div>
+        </div>
+      </div>
+      <div class="main-card-parent">
+        <div class="thank-you-modal hide-thankyoumodal">
+          <img class="check-img" src="./images/icon-check.svg" alt="" />
+          <h1 class="thankyou-h1">Thanks for your support</h1>
+          <p class="thankyou-p">
+            Your pledge <span class="amount"></span> brings us one step closer
+            to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+            an email once our campaign is completed.
+          </p>
+          <button class="gotit-btn">Got it!</button>
+        </div>
+
+        <!--MODAL PARENT-->
+        <div class="modal-parent hide-modal">
+          <div class="modal-header">
+            <div class="header-row">
+              <h2 class="header-title">Back this project</h2>
+              <img
+                class="close-icon"
+                src="./images/icon-close-modal.svg"
+                alt="close"
+              />
+            </div>
+            <p class="header-p">
+              Want to support us in bringing Mastercraft Bamboo Monitor Riser
+              out in the world?
+            </p>
+          </div>
+
+          <div class="newmodal-card">
+            <div class="top-modal-row">
+              <div class="top-col">
+                <div class="click-div"></div>
+                <div class="small-flex">
+                  <h3 class="">Pledge with no reward</h3>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+            <p class="selection-p">
+              Choose to support us without a reward if you simply believe in our
+              project. As a backer, you will be signed up to receive product
+              updates via email.
+            </p>
+            <div class="payment-row">
+              <div class="payment-col">
+                <!-- <span class="dollar-span">$</span
+                ><input
+                  class="number-input"
+                  placeholder="5"
+                  type="number"
+                  min="5"
+                  max="100"
+                  step="5"
+                /> -->
+                <button class="continue-btn">Continue</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="newmodal-card">
+            <div class="top-modal-card">
+              <div class="top-modal-row">
+                <div class="top-col">
+                  <div class="click-div"></div>
+                  <div class="small-flex">
+                    <h3>Bamboo Stand</h3>
+                    <h5 class="cyan">Pledge $25 or more</h5>
+                  </div>
+                </div>
+                <div class="left-div">
+                  <h4>101</h4>
+                  <div class="small">left</div>
+                </div>
+              </div>
+              <p class="selection-p">
+                You get an ergonomic stand made of natural bamboo. You've helped
+                us launch our promotional campaign, and you’ll be added to a
+                special Backer member list.
+              </p>
+            </div>
+            <!-- </div> -->
+            <div class="payment-row">
+              <div class="payment-col">Enter your pledge</div>
+              <div class="payment-col">
+                <!-- <div class="payment-col"> -->
+                <span class="dollar-span">$</span
+                ><input
+                  class="number-input"
+                  placeholder="25"
+                  type="number"
+                  min="25"
+                  max="75"
+                  step="5"
+                />
+                <!-- </div> -->
+                <button class="continue-btn">Continue</button>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+
+          <div class="newmodal-card">
+            <div class="top-modal-card">
+              <div class="top-modal-row">
+                <div class="top-col">
+                  <div class="click-div"></div>
+                  <div class="small-flex">
+                    <h3>Black Edition Stand</h3>
+                    <h5 class="cyan">Pledge $75 or more</h5>
+                  </div>
+                </div>
+                <div class="left-div">
+                  <h4>64</h4>
+                  <div class="small">left</div>
+                </div>
+              </div>
+              <p class="modal-p">
+                You get a Black Special Edition computer stand and a personal
+                thank you. You'll be added to our Backer member list. Shipping
+                is included.
+              </p>
+            </div>
+            <div class="payment-row">
+              <div class="payment-col">Enter your pledge</div>
+              <div class="payment-col">
+                <!-- <div class="payment-col"> -->
+                <span class="dollar-span">$</span
+                ><input
+                  class="number-input"
+                  placeholder="75"
+                  type="number"
+                  min="75"
+                  max="200"
+                  step="15"
+                />
+                <!-- </div> -->
+                <button class="continue-btn">Continue</button>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+
+          <div class="newmodal-card outofstock-card">
+            <div class="top-modal-row">
+              <div class="top-col">
+                <div class="click-div"></div>
+                <div class="small-flex">
+                  <h3>Mahogan Special Stand</h3>
+                  <h5 class="cyan">Pledge $200 or more</h5>
+                </div>
+              </div>
+              <div class="left-div last-left">
+                <h4>0</h4>
+                <div class="small">left</div>
+              </div>
+            </div>
+            <p class="modal-p">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and
+              a personal thank you. You’ll be added to our Backer member list.
+              Shipping is included.
+            </p>
+
+            <!-- </div> -->
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="top-card card-child">
+          <img class="card-logo" src="./images/logo-mastercraft.svg" alt="" />
+          <h1 class="card-h1">Mastercraft Bamboo Monitor Riser</h1>
+          <p class="card-header-caption">
+            A beautiful & handcrafted monitor stand to reduce neck and eye
+            strain.
+          </p>
+          <div class="btn-row">
+            <button class="back-btn">Back this project</button>
+            <button class="bookmark-btn">
+              <img
+                class="bookmark-img"
+                src="./images/icon-bookmark.svg"
+                alt=""
+              />
+              <h5>Bookmark</h5>
+            </button>
+          </div>
+        </div>
+        <div class="data-card">
+          <div class="data-row">
+            <div class="data-col">
+              <h1 class="data-h1">$89,914</h1>
+              <p class="data-light">of $100,000 backend</p>
+            </div>
+            <div class="data-col">
+              <h1 class="data-h1">5,0007</h1>
+              <p class="data-light">total backers</p>
+            </div>
+            <div class="data-col">
+              <h1 class="data-h1">56</h1>
+              <p class="data-light">days left</p>
+            </div>
+          </div>
+          <div class="data-bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2 class="info-header">About this project</h2>
+          <p class="info-p">
+            The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
+            platform that elevates your screen to a more comfortable viewing
+            height. Placing your monitor at eye level has the potential to
+            improve your posture and make you more comfortable while at work,
+            helping you stay focused on the task at hand.
+          </p>
+          <div class="info-p">
+            Featuring artisan craftsmanship, the simplicity of design creates
+            extra desk space below your computer to allow notepads, pens, and
+            USB sticks to be stored under the stand.
+          </div>
+          <!-- </div> -->
+          <div class="selection-card">
+            <div class="selection-row">
+              <h4 class="selection-title">Bamboo Stand</h4>
+              <h4 class="teal-h4">Pledge $25 or more</h4>
+            </div>
+            <p class="selection-p">
+              You get an ergonomic stand made of natural bamboo. You've helped
+              us launch our promotional campaign, and you’ll be added to a
+              special Backer member list.
+            </p>
+            <div class="selection-row">
+              <div class="quantity-row">
+                <h2 class="selection-h2">101</h2>
+                <span class="small">left</span>
+              </div>
+              <div data-pledge="1" class="select-btn">Select Reward</div>
+            </div>
+          </div>
+
+          <div class="selection-card">
+            <div class="selection-row">
+              <h4 class="selection-title">Black Edition Stand</h4>
+              <h4 class="teal-h4">Pledge $75 or more</h4>
+            </div>
+            <p class="selection-p">
+              You get a Black Special Edition computer stand and a personal
+              thank you. You’ll be added to our Backer member list. Shipping is
+              included.
+            </p>
+            <div class="selection-row">
+              <div class="quantity-row">
+                <h2 class="selection-h2">64</h2>
+                <span class="small">left</span>
+              </div>
+              <div data-pledge="2" class="select-btn">Select Reward</div>
+            </div>
+          </div>
+
+          <div class="selection-card outofstock-card">
+            <div class="selection-row">
+              <h4 class="selection-title">Mahogeny Special Edition</h4>
+              <h4 class="teal-h4">Pledge $200 or more</h4>
+            </div>
+            <p class="selection-p">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and
+              a personal thank you. You’ll be added to our Backer member list.
+              Shipping is included.
+            </p>
+            <div class="selection-row">
+              <div class="quantity-row">
+                <h2 class="selection-h2">0</h2>
+                <span class="small">left</span>
+              </div>
+              <div disabled class="select-btn outofstock">Out of stock</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var backBtn = document.querySelector(".back-btn");
+      var closeBtn = document.querySelector(".close-icon");
+      var gotItBtn = document.querySelector(".gotit-btn");
+      var paymentRows = document.querySelectorAll(".payment-row");
+
+      console.log(paymentRows);
+
+      paymentRows.forEach((p) => (p.style.display = "none"));
+
+      backBtn.onclick = () => {
+        document.querySelector(".modal-parent").classList.toggle("hide-modal");
+
+        document.querySelectorAll(".newmodal-card")[0].style.border =
+          "2px solid hsl(176, 50%, 47%)";
+        document.querySelectorAll(".newmodal-card")[0].style.boxShadow =
+          "1px 3px 29px hsl(176, 50%, 47%)";
+
+        document.querySelectorAll(".click-div")[0].style.background =
+          "hsl(176, 50%, 47%)";
+        paymentRows[0].style.display = "flex";
+      };
+
+      document.querySelectorAll(".select-btn").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.target.closest(".selection-card").style.border =
+            "2px solid hsl(176, 50%, 47%)";
+          e.target.closest(".selection-card").style.boxShadow =
+            "1px 3px 29px hsl(176, 50%, 47%)";
+
+          document
+            .querySelector(".modal-parent")
+            .classList.remove("hide-modal");
+
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          let pledgeId = e.target.getAttribute("data-pledge");
+          console.log("PlegeId", pledgeId);
+          document.querySelectorAll(".newmodal-card")[pledgeId].style.border =
+            "2px solid hsl(176, 50%, 47%)";
+          document.querySelectorAll(".newmodal-card")[
+            pledgeId
+          ].style.boxShadow = "1px 3px 29px hsl(176, 50%, 47%)";
+
+          document.querySelectorAll(".click-div")[pledgeId].style.background =
+            "hsl(176, 50%, 47%)";
+          paymentRows[pledgeId].style.display = "flex";
+        };
+      });
+
+      closeBtn.onclick = () => {
+        document.querySelector(".modal-parent").classList.toggle("hide-modal");
+      };
+
+      gotItBtn.onclick = () => {
+        document
+          .querySelector(".thank-you-modal")
+          .classList.add("hide-thankyoumodal");
+      };
+
+      var selectionCards = document.querySelectorAll(".selection-card");
+
+      selectionCards.forEach(
+        (c) =>
+          (c.onclick = (e) => {
+            selectionCards.forEach((c) => {
+              c.style.border = "2px solid lightgray";
+              c.style.boxShadow = "none";
+            });
+            if (
+              e.target
+                .closest(".selection-card")
+                .classList.contains("outofstock-card")
+            )
+              return;
+            e.target.closest(".selection-card").style.border =
+              "2px solid hsl(176, 50%, 47%)";
+            e.target.closest(".selection-card").style.boxShadow =
+              "1px 3px 29px hsl(176, 50%, 47%)";
+          })
+      );
+
+      // document.querySelectorAll(".select-btn").forEach(
+      //   (btn) =>
+      //     (btn.onclick = (e) => {
+      //       document
+      //         .querySelector(".thank-you-modal")
+      //         .classList.remove("hide-thankyoumodal");
+      //       window.scroll({
+      //         top: 0,
+      //         left: 0,
+      //         behavior: "smooth",
+      //       });
+      //     })
+      // );
+
+      document.querySelectorAll(".newmodal-card").forEach(
+        (c, idx) =>
+          (c.onclick = (e) => {
+            document.querySelectorAll(".newmodal-card").forEach((c) => {
+              c.style.border = "2px solid lightgray";
+              c.style.boxShadow = "none";
+              document.querySelectorAll(".click-div")[0].style.background =
+                document.querySelectorAll(".click-div")[1].style.background =
+                document.querySelectorAll(".click-div")[2].style.background =
+                  "none";
+              paymentRows[0].style.display = "none";
+              paymentRows[1].style.display = "none";
+              paymentRows[2].style.display = "none";
+
+              console.log("WTF?", c);
+              // c.querySelector(".payment-row").style.display = "none";
+            });
+            e.target.closest(".newmodal-card").style.border =
+              "2px solid hsl(176, 50%, 47%)";
+            e.target.closest(".newmodal-card").style.boxShadow =
+              "1px 3px 29px hsl(176, 50%, 47%)";
+            document.querySelectorAll(".click-div")[idx].style.background =
+              "hsl(176, 50%, 47%)";
+            // e.target
+            //   .closest(".newmodal-card")
+            //   .querySelector(".payment-row").style.display = "flex";
+            paymentRows[idx].style.display = "flex";
+          })
+      );
+
+      document.querySelector(".burger-icon").onclick = (e) => {
+        document.querySelector(".mobile-menu").classList.toggle("hide-mobile");
+      };
+
+      onclick = (e) => {
+        console.log("generic click!");
+        if (e.target.classList.contains("burger-icon")) return;
+        if (
+          e.target.classList.contains("mobile-menu") ||
+          e.target.closest(".mobile-menu")
+        )
+          return;
+        if (
+          !document
+            .querySelector(".mobile-menu")
+            .classList.contains("hide-mobile")
+        ) {
+          document.querySelector(".mobile-menu").classList.add("hide-mobile");
+        }
+      };
+
+      document.querySelectorAll(".continue-btn").forEach((btn) => {
+        btn.onclick = (e) => {
+          document
+            .querySelector(".thank-you-modal")
+            .classList.remove("hide-thankyoumodal");
+
+          document.querySelector(".modal-parent").classList.add("hide-modal");
+
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+
+          document.querySelector(".amount").innerHTML = `of $${
+            btn.closest(".payment-row").querySelector("input").value
+          }`;
+        };
+      });
+    </script>
+  </body>
+</html>
