@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script s></script>
+    <title>Notifications page 🚨</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style></style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="header">
+        <h1 class="header-h1">
+          Notifications:
+          <span class="notification-total"
+            ><span class="notification-num growup"></span
+          ></span>
+        </h1>
+        <div>
+          <h3 class="readall-btn">Mark all as Read</h3>
+          <h5 class="refresh-btn">(Refresh)</h5>
+        </div>
+      </div>
+      <small
+        >(drag left to remove <strong>old/read</strong> -- desktop only)</small
+      >
+
+      <div class="notifications"></div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </div>
+
+    <script>
+      var readallBtn = document.querySelector(".readall-btn");
+      var notificationEl = document.querySelector(".notification-num");
+      var notifications = [];
+
+      fetch("data.json")
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res.alerts);
+          notifications = res.alerts;
+
+          printNotificatons(notifications);
+        });
+
+      function printNotificatons(notifications) {
+        document.querySelector(".notifications").innerHTML = "";
+
+        // some messy logic to prevent unnecessary animations upon
+        // a DOM reprint after dragging an item off screen
+        // won't animate when count is at 0
+        var h3 = document.createElement("h3");
+        if (parseInt(notificationEl.textContent) > 0) {
+          h3.classList.add("growup");
+        } else {
+          h3.classList.add("reg");
+        }
+
+        h3.innerHTML = notifications.filter((n) => !n.isRead).length;
+        notificationEl.innerHTML = "";
+
+        notificationEl.append(h3);
+        console.log(parseInt(notificationEl.textContent));
+
+        //create card
+        notifications.forEach((a, idx) => {
+          var alertCard = document.createElement("div");
+          alertCard.className = "alert-card";
+          if (a.isRead) {
+            alertCard.draggable = true;
+            alertCard.classList.add("grabbable");
+          } else {
+            alertCard.classList.add("unread");
+          }
+
+          alertCard.ondragstart = (e) => dragStart(e);
+          alertCard.ondragend = (e) => dragEnd(e, idx);
+          alertCard.onclick = (e) => toggleStatus(e, idx);
+
+          !a.isRead === true
+            ? alertCard.classList.add("lightblue")
+            : alertCard.classList.add("white");
+          alertCard.innerHTML = `<div class="alert-flex">
+            <img src=${a.avatar} class="avatar-img">
+            <div class="content-div">
+            <p><strong>${a.from} </strong><span class="light"> ${
+            a.content
+          }</span>
+              ${
+                a.cite_club ? "<strong class='club-h5'>Chess Club</strong>" : ""
+              }
+              ${!a.isRead ? "<span class='red-dot'></span>" : ""}</p>
+            <p class="time-p">${a.time_stamp}</p>
+            ${a.message ? `<p class='message'>${a.message}</p>` : ""}
+
+            </div>
+            ${
+              a.commented_on
+                ? `<img src=${a.commented_on} class='avatar-img'>`
+                : ""
+            }
+            </div>
+          `;
+          document.querySelector(".notifications").append(alertCard);
+        });
+      }
+
+      readallBtn.onclick = () => {
+        notifications = notifications.map((c) =>
+          !c.isRead ? { ...c, isRead: true } : c
+        );
+        printNotificatons(notifications);
+      };
+
+      var cardStartX;
+      var cardEndX;
+
+      function dragStart(e) {
+        console.log("dragStart:", e);
+        cardStartX = e.screenX;
+      }
+
+      function dragEnd(e, idx) {
+        console.log("dragEnd:", e);
+        cardEndX = e.screenX;
+        let diff = cardStartX - cardEndX;
+        console.log("Diff", diff);
+        if (diff > 75) {
+          e.target.classList.add("remove-alert");
+          notifications = notifications.filter((el, i) => i !== idx);
+          if (!notifications.length) {
+            document.querySelector(".refresh-btn").style.opacity = 1;
+            document.querySelector(".readall-btn").style.opacity = 0;
+          }
+          setTimeout(() => {
+            printNotificatons(notifications);
+          }, 1000);
+        }
+      }
+
+      function toggleStatus(e, i) {
+        notifications[i].isRead = !notifications[i].isRead;
+        printNotificatons(notifications);
+      }
+
+      document.querySelector(".refresh-btn").onclick = () => {
+        fetch("data.json")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res.alerts);
+            notifications = res.alerts;
+
+            printNotificatons(notifications);
+
+            document.querySelector(".refresh-btn").style.opacity = 0;
+            document.querySelector(".readall-btn").style.opacity = 1;
+          });
+      };
+    </script>
+  </body>
+</html>
