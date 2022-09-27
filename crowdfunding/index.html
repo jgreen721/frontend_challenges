@@ -403,6 +403,12 @@
         document
           .querySelector(".thank-you-modal")
           .classList.add("hide-thankyoumodal");
+        console.log("clear all modal cards");
+        document.querySelectorAll(".newmodal-card").forEach((s, i) => {
+          s.style.border = "2px solid lightgray";
+          s.style.boxShadow = "none";
+          document.querySelectorAll(".click-div")[i].style.background = "none";
+        });
       };
 
       var selectionCards = document.querySelectorAll(".selection-card");
