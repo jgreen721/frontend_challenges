@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="faq-parent">
+        <div class="faq-col">
+          <img
+            class="box-img"
+            src="./images/illustration-box-desktop.svg"
+            alt=""
+          />
+
+          <div class="no-overflow-overlay">
+            <picture class="bg-img">
+              <source
+                srcset="./images/bg-pattern-desktop.svg"
+                media="(min-width: 800px)"
+              />
+              <img src="./images/bg-pattern-mobile.svg" alt="img" />
+            </picture>
+
+            <picture class="faq-img">
+              <source
+                srcset="./images/illustration-woman-online-desktop.svg"
+                media="(min-width: 800px)"
+              />
+              <img
+                src="./images/illustration-woman-online-mobile.svg"
+                alt="img"
+              />
+            </picture>
+          </div>
+        </div>
+        <div class="faq-col content-column">
+          <h1>FAQ</h1>
+
+          <div class="questions-parent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+
+    <script>
+      // <picture class="faq-img">
+      //   <source
+      //     srcset="./images/illustration-woman-online-desktop.svg"
+      //     media="(min-width: 800px)"
+      //   />
+      //   <img src="./images/illustration-woman-online-mobile.svg" alt="img" />
+      // </picture>;
+
+      var data = [
+        {
+          question: "How many team members can I invite?",
+          answer:
+            "You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.",
+        },
+        {
+          question: "What is the maximum file upload size?",
+          answer:
+            "No more than 2GB. All files in your account must fit your allotted storage space.",
+        },
+        {
+          question: "How do I reset my password?",
+          answer:
+            "Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.",
+        },
+        {
+          question: "Can I cancel my subscription?",
+          answer:
+            "Yes! Send us a message and we’ll process your request no questions asked.",
+        },
+        {
+          question: "Do you provide additional support?",
+          answer:
+            "Chat and email support is available 24/7. Phone lines are open during normal business hours.",
+        },
+      ];
+
+      data.forEach((d) => {
+        var questionDiv = document.createElement("div");
+        questionDiv.className = "question-card";
+        questionDiv.innerHTML = `<div class="question-row">
+            <p class='question-p'>${d.question}</p>
+            <img class="arrow-img" src="./images/icon-arrow-down.svg">
+            </div>
+            <p class='answer'>${d.answer}</p>`;
+        document.querySelector(".questions-parent").append(questionDiv);
+        questionDiv.querySelector(".arrow-img").onclick = (e) =>
+          toggleAnswer(e);
+      });
+
+      function toggleAnswer(e) {
+        if (e.target.classList.contains("rotate-arrow")) {
+          e.target.classList.remove("rotate-arrow");
+          e.target
+            .closest(".question-card")
+            .querySelector(".answer")
+            .classList.remove("show-answer");
+
+          return;
+        }
+        document.querySelectorAll(".arrow-img").forEach((c, idx) => {
+          c.classList.remove("rotate-arrow");
+          document
+            .querySelectorAll(".answer")
+            [idx].classList.remove("show-answer");
+          c.parentElement.classList.remove("strong");
+        });
+        e.target.classList.add("rotate-arrow");
+        e.target.parentElement.classList.add("strong");
+        e.target
+          .closest(".question-card")
+          .querySelector(".answer")
+          .classList.add("show-answer");
+        console.log("no problem that time!");
+      }
+    </script>
+  </body>
+</html>
