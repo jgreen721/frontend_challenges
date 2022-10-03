@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Frontend Mentor | Ping coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <div class="app">
+      <h1 class="header-h1">Ping.</h1>
+      <h1 class="banner">
+        <span class="light">We are launching</span>
+        <strong class="strong">soon!</strong>
+      </h1>
+      <p class="caption-p">Subscribe and get notified</p>
+      <div class="form-div">
+        <div class="form-column">
+          <input
+            type="text"
+            class="form-input"
+            name="subscribe"
+            placeholder="Your email address.."
+          />
+          <h5 class="error"></h5>
+        </div>
+        <button class="btn notify-btn">Notify Me</button>
+      </div>
+      <div class="img-div">
+        <img
+          class="chart-img"
+          src="./images/illustration-dashboard.png"
+          alt=""
+        />
+      </div>
+
+      <ul class="media-links">
+        <li class="media-item">
+          <i class="fab fa-facebook"></i>
+        </li>
+        <li class="media-item">
+          <i class="fab fa-twitter"></i>
+        </li>
+        <li class="media-item">
+          <i class="fab fa-instagram"></i>
+        </li>
+      </ul>
+      <div class="footer">
+        <p class="footer-p">&copy;Copyright Ping. All rights reserved.</p>
+      </div>
+
+      <footer>
+        <p class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Your Name Here</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      document.querySelector(".notify-btn").onclick = (e) => {
+        console.log("hello?");
+        console.log();
+        if (!document.querySelector("input").value) toggleError();
+        if (document.querySelector("input").value.split("").indexOf("@") == -1)
+          toggleError();
+        document.querySelector("input").value = "";
+      };
+
+      function toggleError() {
+        document.querySelector(".error").innerHTML =
+          "Error -- invalid email input!";
+        setTimeout(() => {
+          document.querySelector(".error").innerHTML = "";
+        }, 2000);
+      }
+
+      var canvas = document.querySelector("canvas");
+      var ctx = canvas.getContext("2d");
+
+      class Star {
+        constructor(x, y, r, color, vel) {
+          this.x = x;
+          this.y = y;
+          this.r = r;
+          this.color = color;
+          this.vel = vel;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.x, this.y, this.r, Math.PI * 2, false);
+          ctx.fill();
+        }
+
+        update() {
+          this.x += this.vel.x;
+          this.y += this.vel.y;
+
+          if (this.x < -10) {
+            this.x = innerWidth;
+            Math.random() > 0.5 ? (this.vel.y *= -1) : (this.vel.x *= -1);
+          }
+          if (this.x > innerWidth + 20) {
+            this.x = 0;
+            Math.random() > 0.5 ? (this.vel.y *= -1) : (this.vel.x *= -1);
+          }
+
+          if (this.y < -10) {
+            this.y = innerHeight;
+            Math.random() > 0.5 ? (this.vel.y *= -1) : (this.vel.x *= -1);
+          }
+          if (this.y > innerHeight + 20) {
+            this.y = 0;
+            Math.random() > 0.5 ? (this.vel.y *= -1) : (this.vel.x *= -1);
+          }
+        }
+      }
+
+      let stars = [];
+      for (let i = 0; i < 150; i++) {
+        let randomX = (Math.random() * innerWidth) | 0;
+        let randomY = (Math.random() * innerHeight) | 0;
+        let radius = ((Math.random() * 2) | 0) + 1;
+        stars.push(
+          new Star(randomX, randomY, radius, "white", {
+            x: Math.random() * 1,
+            y: Math.random() * 1,
+          })
+        );
+      }
+
+      function animate() {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, innerWidth, innerHeight);
+        stars.forEach((s) => {
+          s.draw();
+          s.update();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
