@@ -17,7 +17,11 @@
 body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+canvas {
+  min-height: 950px;
 }
 
 li {
@@ -25,7 +29,7 @@ li {
 }
 
 .app {
-  padding: 2em;
+  padding: 2.5em 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +41,7 @@ li {
   background: white;
   transition: 0.2s ease;
   height: 100vh;
+  min-height: 950px;
 }
 
 .app:hover {
@@ -54,7 +59,6 @@ canvas {
 
 .header-h1 {
   text-transform: uppercase;
-  margin: 0em 0;
   transform: translateY(-600px);
   animation: fall 0.5s 1.2s forwards;
 }
@@ -237,6 +241,7 @@ canvas {
 @media screen and (max-width: 550px) {
   .form-div {
     flex-direction: column;
+    min-height: 100px;
   }
 
   .error {
