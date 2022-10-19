@@ -29,13 +29,14 @@
 }
 
 .app {
-  min-height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   position: relative;
   color: var(--maincolor);
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .overlay {
@@ -76,9 +77,17 @@
   /* border: 2px solid black; */
   height: 100%;
   z-index: 2;
-}
-.col {
   padding: 2em;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateY(150px);
+  /* border: 2px solid blue; */
 }
 
 .content-h1 {
@@ -209,8 +218,12 @@
     height: 50%;
     min-width: 350px;
   }
+  .content {
+    transform: translateY(0);
+  }
   .content-parent {
     flex-direction: column;
     max-height: 1200px;
+    /* min-height: 100vh; */
   }
 }
