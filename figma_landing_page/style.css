@@ -1,0 +1,535 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;500;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --teal: hsl(177, 68%, 64%);
+  --tomato: hsl(12, 94%, 65%);
+  --orange: hsl(33, 100%, 70%);
+  --white: hsl(20, 33%, 98%);
+  --dark: hsl(244, 23%, 12%);
+  --mainfont: "IBM Plex Sans", sans-serif;
+}
+
+.app {
+  height: 1832px;
+  width: 1440px;
+  position: relative;
+  /* border: 3px solid red; */
+  overflow: hidden;
+  margin: 0 auto;
+  font-family: var(--mainfont);
+}
+
+.main-logo {
+  position: absolute;
+  left: 166.15px;
+  top: 61.99px;
+}
+
+.group-copy {
+  height: 468px;
+  width: 312px;
+  position: absolute;
+  left: 1128px;
+  top: -40px;
+  /* border: 2px solid blue; */
+}
+
+.bg-img {
+  height: 100%;
+}
+
+.blurb-text {
+  position: absolute;
+  left: 164.5px;
+  top: 437px;
+  width: 825px;
+  height: 102px;
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 500;
+}
+
+.header-h1 {
+  position: absolute;
+  left: 165px;
+  top: 221px;
+  width: 1015px;
+  height: 176px;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 88px;
+  letter-spacing: -1px;
+}
+
+.phone-div {
+  position: absolute;
+  height: 642px;
+  width: 312px;
+  left: 267px;
+  top: 647px;
+  z-index: 1;
+  /* border: 2px solid orange; */
+}
+
+.phone-img {
+  height: 100%;
+  width: 100%;
+}
+
+.sales-card {
+  position: absolute;
+  left: 734px;
+  top: 950px;
+  width: 446px;
+  height: 625px;
+  /* border: 3px solid green; */
+  z-index: 2;
+  background: var(--tomato);
+  border-radius: 12px;
+}
+
+.btn {
+  position: absolute;
+  width: 333px;
+  height: 61px;
+  z-index: 5;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.button-txt {
+  font-weight: 700;
+  margin-left: 0.5em;
+}
+
+.apple-btn {
+  background: var(--dark);
+  color: white;
+  left: 788px;
+  top: 1389px;
+}
+
+.apple-btn:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.android-btn {
+  left: 788px;
+  top: 1466px;
+}
+
+.android-btn:hover {
+  background: var(--orange);
+  color: var(--dark);
+}
+
+.sales-blurb {
+  position: absolute;
+  width: 333px;
+  height: 170px;
+  top: 1082px;
+  left: 788px;
+  font-size: 20px;
+  line-height: 34px;
+  color: var(--white);
+  z-index: 5;
+}
+
+.monthly-rate-row {
+  position: absolute;
+  width: 165px;
+  height: 52px;
+  top: 1291px;
+  left: 788px;
+  z-index: 5;
+  color: var(--white);
+}
+
+.monthly-h3 {
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 52px;
+}
+
+.light {
+  position: absolute;
+  left: 95px;
+  top: 9px;
+  width: 70px;
+  height: 32px;
+  opacity: 75%;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+}
+
+.salescard-h1 {
+  position: absolute;
+  width: 333px;
+  height: 52px;
+  top: 1008px;
+  left: 788px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  z-index: 5;
+}
+
+.bg-main-card {
+  position: absolute;
+  left: 165px;
+  top: 860px;
+  width: 1110px;
+  height: 600px;
+  background: var(--dark);
+  /* border: 3px solid red; */
+}
+
+.maincard-bg {
+  position: absolute;
+  left: 501px;
+  height: 468px;
+  width: 312px;
+  top: 820px;
+}
+
+.footer-box {
+  /* border: 2px solid yellow; */
+  position: absolute;
+  width: 1110px;
+  height: 79px;
+  left: 165px;
+  top: 1662px;
+}
+
+.footer-logo {
+  position: absolute;
+  left: 1.15px;
+}
+
+.rights-p {
+  width: 366px;
+  position: absolute;
+  left: 285px;
+  top: 0;
+}
+
+.medialinks-div {
+  position: absolute;
+  left: 1010px;
+  top: 29px;
+  width: 100px;
+  height: 20px;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.media-link {
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.media-link:hover {
+  transform: scale(1.1) translateY(-0.5em);
+}
+
+.overlay {
+  position: absolute;
+  width: 1613px;
+  height: 1758px;
+  top: -112px;
+  left: -146px;
+  /* border: 3px dotted salmon; */
+}
+
+.overlay-img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  .app {
+    height: 1781px;
+    width: 768px;
+    /* background: orange; */
+  }
+
+  .main-logo {
+    top: 61.99px;
+    left: 39.15px;
+  }
+
+  .group-copy {
+    top: -32px;
+    left: 537px;
+    width: 266.67px;
+    height: 400px;
+  }
+
+  .blurb-text {
+    left: 39px;
+    top: 409px;
+    width: 514px;
+    height: 112px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .header-h1 {
+    left: 39px;
+    top: 189px;
+    width: 520px;
+    height: 192px;
+    line-height: 64px;
+    letter-spacing: -0.73px;
+    font-size: 64px;
+  }
+
+  .phone-div {
+    left: 97px;
+    height: 556px;
+    width: 270.21px;
+    top: 632px;
+  }
+
+  .sales-card {
+    width: 399px;
+    height: 546px;
+    left: 272px;
+    top: 920px;
+    border-radius: 5px;
+  }
+
+  .salescard-h1 {
+    width: 302px;
+    height: 40px;
+    top: 968px;
+    left: 320px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .sales-blurb {
+    width: 302px;
+    height: 140px;
+    top: 1020px;
+    left: 320px;
+    size: 18px;
+    line-height: 28px;
+  }
+
+  .monthly-rate-row {
+    width: 165px;
+    height: 52px;
+    top: 1196px;
+    left: 326px;
+  }
+
+  .monthly-h3 {
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 52px;
+  }
+
+  .light {
+    position: absolute;
+    left: 95px;
+    top: 9px;
+    width: 70px;
+    height: 32px;
+    opacity: 75%;
+    font-size: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .btn {
+    position: absolute;
+    width: 296px;
+    height: 61px;
+  }
+
+  .apple-btn {
+    background: var(--dark);
+    color: white;
+    left: 326px;
+    top: 1280px;
+    color: var(--white);
+  }
+
+  .android-btn {
+    left: 326px;
+    top: 1357px;
+    color: var(--dark);
+  }
+
+  .bg-main-card {
+    position: absolute;
+    left: 33px;
+    top: 770px;
+    width: 696px;
+    height: 600px;
+    border-radius: 5px;
+  }
+
+  .footer-box {
+    left: 33px;
+    top: 1553px;
+    width: 696px;
+    height: 143px;
+  }
+
+  .rights-p {
+    left: 0;
+    top: 64px;
+  }
+
+  .medialinks-div {
+    left: 596px;
+    top: 94px;
+    width: 100px;
+  }
+
+  .overlay {
+    width: 983px;
+    height: 808px;
+    top: -112px;
+    left: -254px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .app {
+    height: 1945px;
+    width: 375px;
+    /* background: green; */
+  }
+
+  .main-logo {
+    width: 146.09px;
+    height: 32px;
+    left: 24.15px;
+    top: 39.99px;
+  }
+
+  .group-copy {
+    /* top: -32px;
+    left: 537px;
+    width: 266.67px;
+    height: 400px; */
+    display: none;
+  }
+
+  .blurb-text {
+    left: 24px;
+    top: 300px;
+    width: 327px;
+    height: 156px;
+    font-size: 16px;
+  }
+  .header-h1 {
+    left: 24px;
+    top: 136px;
+    width: 327px;
+    height: 144px;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.45px;
+  }
+
+  .phone-div {
+    left: 80.67px;
+    height: 430px;
+    width: 208.97px;
+    top: 524px;
+  }
+
+  .sales-card {
+    width: 375px;
+    height: 546px;
+    left: 0px;
+    top: 1002px;
+  }
+
+  .salescard-h1 {
+    width: 302px;
+    height: 40px;
+    top: 1050px;
+    left: 36px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .sales-blurb {
+    width: 302px;
+    height: 140px;
+    top: 1102px;
+    left: 36px;
+    size: 18px;
+    line-height: 28px;
+  }
+
+  .monthly-rate-row {
+    width: 165px;
+    height: 52px;
+    top: 1278px;
+    left: 42px;
+  }
+
+  .btn {
+    position: absolute;
+    width: 296px;
+    height: 61px;
+  }
+
+  .apple-btn {
+    background: var(--dark);
+    color: white;
+    left: 42px;
+    top: 1362px;
+  }
+
+  .android-btn {
+    left: 42px;
+    top: 1439px;
+  }
+
+  .bg-main-card {
+    position: absolute;
+    left: 0px;
+    top: 622px;
+    width: 375px;
+    height: 600px;
+  }
+
+  .footer-box {
+    width: 327px;
+    height: 169px;
+    left: 24px;
+    top: 1612px;
+  }
+
+  .medialinks-div {
+    top: 205px;
+    left: 24px;
+  }
+
+  .overlay {
+    width: 281.4px;
+    height: 480px;
+    top: -104px;
+    left: 159px;
+  }
+}
