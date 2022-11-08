@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <div class="app">
+      <div class="overlay">
+        <div class="lens"></div>
+      </div>
+      <div class="content-parent">
+        <div class="col">
+          <div class="content">
+            <h1 class="content-h1">Learn to code by watching others</h1>
+            <p class="content-p">
+              See how experienced developers solve problems in real-time.
+              Watching scripted tutorials is great, but understanding how
+              developers think is invaluable.
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-parent">
+            <div class="form-ad">
+              <p class="form-ad-p">
+                <strong>Try it free 7 days</strong>
+                then $20/mo. thereafter
+              </p>
+            </div>
+            <div class="form-card">
+              <div class="form-div">
+                <input
+                  type="text"
+                  name="firstname"
+                  data-msg="Your Firstname"
+                  placeholder="First Name"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-div">
+                <input
+                  type="text"
+                  name="lastname"
+                  data-msg="Your Lastname"
+                  placeholder="Last Name"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-div">
+                <input
+                  type="text"
+                  name="email"
+                  data-msg="Your email"
+                  placeholder="Email Address"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-div">
+                <input
+                  type="text"
+                  name="password"
+                  data-msg="Your password"
+                  placeholder="Password"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-div">
+                <button class="btn form-btn">Claim your free trial</button>
+              </div>
+              <div class="form-caption">
+                <small class="muted"
+                  >By click the button you are agreeing to our
+                  <span class="red">Terms and Services</span></small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+
+    <script>
+      document.querySelectorAll("input").forEach((i) => {
+        i.onclick = (e) => {
+          document.querySelectorAll("input").forEach((input) => {
+            let caption = input.nextElementSibling || null;
+            if (caption) input.parentElement.removeChild(caption);
+          });
+          let floatingMsg = e.target.getAttribute("data-msg");
+          let p = document.createElement("p");
+          p.style.color = "red";
+          p.className = "caption";
+          p.innerHTML = floatingMsg;
+          e.target.parentElement.append(p);
+        };
+      });
+
+      document.querySelector("button").onclick = (e) => {
+        console.log("hello");
+        document.querySelector(".form-card").style.transform =
+          "rotateY(720deg)";
+
+        document.querySelector(".form-card").innerHTML =
+          "<h1 style='text-shadow:2px 3px 20px black'>Thanks for Signing Up! 😎</h1>";
+      };
+    </script>
+  </body>
+</html>

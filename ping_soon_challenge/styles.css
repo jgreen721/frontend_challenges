@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: hsl(223, 87%, 63%);
+  --paleblue: hsl(223, 100%, 88%);
+  --lightred: hsl(354, 100%, 66%);
+  --gray: hsl(0, 0, 59%);
+  --darkblue: hsl(209, 33%, 12%);
+  --mainfont: "Libre Franklin", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  /* overflow: hidden; */
+}
+
+canvas {
+  min-height: 950px;
+}
+
+li {
+  list-style: none;
+}
+
+.app {
+  padding: 2.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: var(--mainfont);
+  width: clamp(45%, 600px, 85%);
+  margin: 0 auto;
+  position: relative;
+  background: white;
+  transition: 0.2s ease;
+  height: 100vh;
+  min-height: 950px;
+}
+
+.app:hover {
+  box-shadow: 3px 3px 8px white;
+  background: whitesmoke;
+}
+
+canvas {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  opacity: 100%;
+}
+
+.header-h1 {
+  text-transform: uppercase;
+  transform: translateY(-600px);
+  animation: fall 0.5s 1.2s forwards;
+}
+
+.banner {
+  margin: 0.5em 0;
+  transform: translateY(-600px);
+  animation: fall 0.5s 1s forwards;
+}
+
+@keyframes fall {
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.light {
+  font-weight: 100;
+  opacity: 50%;
+}
+
+.strong {
+  opacity: 1;
+  font-weight: 900;
+  font-size: 0em;
+  animation: grow 1s 1.5s forwards;
+}
+
+@keyframes grow {
+  100% {
+    font-size: 1em;
+  }
+}
+
+.caption-p {
+  margin-bottom: 1.5rem;
+}
+
+.form-div {
+  display: flex;
+  /* border: 2px solid red; */
+  width: 100%;
+  /* padding: 0.25em; */
+  justify-content: space-between;
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+
+.form-column {
+  width: 65%;
+  /* text-align: start; */
+  animation: slideright 1.2s 0.5s forwards;
+  transform: translateX(-200%);
+  position: relative;
+  height: 65px;
+}
+
+.error {
+  margin-top: 0.5em;
+  margin-left: 1.5em;
+  color: var(--lightred);
+  position: absolute;
+  top: 60%;
+  left: 15%;
+}
+
+@keyframes slideright {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75em;
+  border-radius: 100px;
+  border: 2px solid lightgray;
+}
+
+.notify-btn {
+  /* padding: 0.5em; */
+  width: 30%;
+  border-radius: 100px;
+  background: var(--blue);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(200%);
+  transition: 0.2s ease;
+  margin-right: 0.5em;
+
+  animation: slideleft 2s 0.3s forwards;
+}
+
+.notify-btn:hover {
+  background: darkblue;
+  box-shadow: 5px 13px 8px var(--paleblue);
+}
+
+@keyframes slideleft {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.img-div {
+  height: 300px;
+  width: 100%;
+}
+
+.chart-img {
+  height: 100%;
+  width: 100%;
+  filter: blur(5px);
+  transform: scale(4);
+  transition: 4s ease;
+  animation: clearup 2.5s forwards;
+}
+
+@keyframes clearup {
+  0% {
+    filter: blur(5px);
+    transform: scale(4);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}
+
+.media-links {
+  margin-top: 4rem;
+  display: flex;
+}
+
+.media-item {
+  margin: 1em 1em;
+  color: var(--paleblue);
+  border: 2px solid whitesmoke;
+  border-radius: 50%;
+  padding: 0.25em;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.media-item:hover {
+  filter: hue-rotate(70deg);
+  border: 2px solid var(--paleblue);
+}
+
+.footer {
+  opacity: 50%;
+  font-size: 0.75em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 1rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 550px) {
+  .form-div {
+    flex-direction: column;
+    min-height: 100px;
+  }
+
+  .error {
+    left: 25%;
+  }
+
+  .form-column {
+    text-align: center;
+    width: 100%;
+  }
+
+  .notify-btn {
+    width: 100%;
+    margin: 0em 0;
+  }
+}
