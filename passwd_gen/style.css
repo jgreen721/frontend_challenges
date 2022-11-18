@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;800&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --lightblack: hsl(248, 10%, 15%);
+  --lightgray: hsl(251, 9%, 53%);
+  --whitegray: hsl(252, 11%, 91%);
+  --mintgreen: hsl(127, 100%, 82%);
+  --red: hsl(0, 91%, 63%);
+  --orange: hsl(13, 95%, 66%);
+  --black: hsl(248, 15%, 11%);
+  --yellow: hsl(42, 91%, 68%);
+  --mainfont: "JetBrains Mono", monospace;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: var(--mainfont);
+  /* height: 1024px; */
+  max-width: 144rem;
+  /* border: 1px solid pink; */
+  margin: 0 auto;
+  background: var(--black);
+}
+
+li {
+  list-style: none;
+}
+
+.password-header {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--lightgray);
+  letter-spacing: 2px;
+  /* text-shadow: 0px -20px 100px white; */
+}
+
+.copy-msg {
+  position: absolute;
+  right: 5%;
+  top: 80%;
+  color: white;
+}
+
+.password-parent {
+  height: 63rem;
+  width: 54rem;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.password-display-div {
+  height: 8rem;
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  background: var(--lightblack);
+  position: relative;
+}
+
+.display-h1 {
+  font-size: 3.2rem;
+  color: var(--whitegray);
+  font-weight: 200;
+  letter-spacing: 2px;
+  overflow-x: hidden;
+  position: relative;
+  width: 85%;
+  white-space: nowrap;
+}
+
+.copy-img {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.copy-img:hover {
+  opacity: 75%;
+}
+
+.options-body {
+  height: 52rem;
+  width: 100%;
+  /* border: 1px solid blue; */
+  padding: 2em;
+  background: var(--lightblack);
+}
+
+.options-list {
+  height: 15.2rem;
+  width: 34rem;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 3.2rem;
+}
+
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 2.3rem;
+}
+
+.option-input {
+  -webkit-appearance: none !important;
+
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  border: 2px solid var(--whitegray);
+  background: transparent;
+  position: relative;
+}
+
+.option-input:enabled:checked {
+  background-color: var(--mintgreen) !important;
+  /* border: 2px solid var(--black); */
+  /* color: white; */
+}
+
+.option-input:enabled:checked::after {
+  content: url("./assets/images/icon-check.svg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: white; */
+}
+
+.option-text {
+  margin-left: 4rem;
+  font-size: 1.8rem;
+  color: var(--whitegray);
+  /* border: 2px solid purple; */
+}
+
+.generate-btn {
+  width: 100%;
+  height: 6.5rem;
+  background: var(--mintgreen);
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.arrow-right-img {
+  margin-left: 2.4rem;
+}
+
+.generate-btn:hover {
+  opacity: 75%;
+}
+
+.strength-card {
+  height: 6.5rem;
+  width: 100%;
+  background: var(--black);
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.2rem;
+}
+
+.strength-meter-div {
+  /* border: 2px solid yellow; */
+  /* width: 17rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.strength-h5 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--lightgray);
+}
+
+.strength-level-display {
+  color: var(--whitegray);
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  font-weight: 200;
+  margin-right: 1rem;
+}
+
+.strength-bars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+.bar {
+  height: 2.8rem;
+  width: 1rem;
+  border: 2px solid var(--lightblack);
+  border: 2px solid white;
+  transition: 0.5s ease;
+}
+
+.character-length-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.3rem;
+  /* border: 2px solid red; */
+  margin-bottom: 2rem;
+}
+
+.character-header {
+  color: var(--whitegray);
+}
+
+.character-count {
+  color: var(--mintgreen);
+  font-weight: 300;
+  font-size: 4.2rem;
+}
+
+.password-range-div {
+  width: 100%;
+  height: 2.8rem;
+  /* border: 1px solid white; */
+  margin-bottom: 3.2em;
+  position: relative;
+}
+
+.password-range {
+  -webkit-appearance: none;
+  background: var(--black);
+  color: var(--mintgreen);
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 15px;
+  /* overflow: hidden; */
+}
+
+.password-range::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: var(--whitegray);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  z-index: 5;
+  position: relative;
+}
+
+.mint-filler {
+  height: 1.5rem;
+  background: var(--mintgreen);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  border-radius: 100px;
+}
+
+.filler-row {
+  height: 1.55rem;
+  width: 100%;
+  /* width: 75%; */
+  /* background:var(--mintgreen) */
+  position: absolute;
+  top: 0;
+}
+
+@media screen and (max-width: 750px) {
+  /* .app {
+    width: 76rem;
+    height: 103rem;
+  } */
+
+  /* .password-parent {
+    height: 69rem;
+    width: 54rem;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .options-body {
+    height: 53rem;
+  } */
+}
+
+@media screen and (max-width: 450px) {
+  /* .app {
+    width: 37em;
+    height: 67rem;
+  } */
+
+  .password-parent {
+    /* height: 54rem; */
+    width: 95%;
+  }
+
+  .password-display-div,
+  .options-body,
+  .strength-card,
+  .generate-btn {
+    padding: 1em;
+  }
+}

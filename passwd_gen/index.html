@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="password-header">Password Generator</header>
+      <main class="password-parent">
+        <div class="password-display-div">
+          <h1 id="password-output" class="display-h1">P4$5W0rD!</h1>
+          <img class="copy-img" src="./assets/images/icon-copy.svg" alt="" />
+          <span class="copy-msg"></span>
+        </div>
+
+        <div class="options-body">
+          <div class="character-length-row">
+            <h2 class="character-header">Character Length</h2>
+            <h2 id="password-length-count" class="character-count">20</h2>
+          </div>
+
+          <!-- <div class="strength-meter"> -->
+          <div class="password-range-div">
+            <input
+              type="range"
+              class="password-range"
+              min="5"
+              max="100"
+              value="20"
+              id="password-slider"
+            />
+            <div class="filler-row">
+              <!-- <div class="filler-row"> -->
+              <div class="mint-filler"></div>
+              <!-- </div> -->
+            </div>
+          </div>
+
+          <ul class="options-list">
+            <li class="option-item">
+              <input
+                checked
+                type="checkbox"
+                class="option-input"
+                name="uppercase"
+              />
+              <h5 class="option-text">Include Uppercase Letters</h5>
+            </li>
+            <li class="option-item">
+              <input type="checkbox" class="option-input" name="lowercase" />
+              <h5 class="option-text">Include Lowercase Letters</h5>
+            </li>
+            <li class="option-item">
+              <input type="checkbox" class="option-input" name="numbers" />
+              <h5 class="option-text">Include Numbers</h5>
+            </li>
+            <li class="option-item">
+              <input type="checkbox" class="option-input" name="symbols" />
+              <h5 class="option-text">Include Symbols</h5>
+            </li>
+          </ul>
+
+          <div class="strength-card">
+            <h5 class="strength-h5">Strength</h5>
+            <div class="strength-meter-div">
+              <h5 id="strength-level" class="strength-level-display">MEDIUM</h5>
+              <div class="strength-bars">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar4"></div>
+              </div>
+            </div>
+          </div>
+
+          <button class="generate-btn">
+            Generate
+            <img
+              class="arrow-right-img"
+              src="./assets/images/icon-arrow-right.svg"
+              alt=""
+            />
+          </button>
+        </div>
+      </main>
+    </div>
+    <!-- P4$5W0rD! Character Length Include Uppercase Letters
+    Include Lowercase Letters Include Numbers Include Symbols Strength Generate -->
+
+    <script>
+      var sliderInput = document.querySelector(".password-range");
+      var charCountEl = document.querySelector(".character-count");
+      var passwdDisplay = document.querySelector(".display-h1");
+      var copyBtn = document.querySelector(".copy-img");
+
+      sliderInput.oninput = (e) => {
+        console.log("fx firing", e.target.value);
+        var mintDiv = document.createElement("div");
+        mintDiv.className = "mint-filler";
+        mintDiv.style.width = `${e.target.value}%`;
+        console.log("PERCENT", `${e.target.value}%`);
+        document.querySelector(".filler-row").innerHTML = "";
+        // .removeChild(document.querySelector(".mint-filler"));
+        document.querySelector(".filler-row").append(mintDiv);
+        charCountEl.innerHTML = e.target.value;
+      };
+
+      var optionsItems = document.querySelectorAll(".option-input");
+
+      optionsItems.forEach((option) => {
+        option.onclick = () => {
+          adjustPWStrength();
+        };
+      });
+
+      var pwKeys = {
+        0: {
+          name: "Too Weak",
+          color: "hsl(0, 91%, 63%)",
+        },
+
+        1: {
+          name: "Too Weak",
+          color: "hsl(0, 91%, 63%)",
+        },
+        2: {
+          name: "Weak",
+          color: "hsl(13, 95%, 66%)",
+        },
+        3: {
+          name: "Medium",
+          color: "hsl(42, 91%, 68%)",
+        },
+        4: {
+          name: "Strong",
+          color: "hsl(127, 100%, 82%)",
+        },
+      };
+
+      function adjustPWStrength() {
+        console.log("adjustPW started--");
+        let checked = Array.from(optionsItems).filter((o) => o.checked);
+        let secureBoxes = document.querySelectorAll(".bar");
+        secureBoxes.forEach((s) => (s.style.backgroundColor = "transparent"));
+        for (let i = 0; i < checked.length; i++) {
+          secureBoxes[i].style.backgroundColor = pwKeys[checked.length].color;
+        }
+        document.querySelector("#strength-level").innerHTML =
+          pwKeys[checked.length].name;
+      }
+
+      adjustPWStrength();
+
+      let letters = [];
+      for (let i = 65; i < 91; i++) {
+        letters.push(String.fromCharCode(i));
+      }
+      let numbers = [];
+      for (let i = 48; i < 58; i++) {
+        numbers.push(String.fromCharCode(i));
+      }
+      console.log(numbers);
+      let symbols = ["@", "!", "?", "#", "%", "&", "*"];
+
+      document.querySelector(".generate-btn").onclick = () => {
+        let passwd_length = charCountEl.innerHTML;
+        console.log("LENGTH", passwd_length);
+        let checkedBoxes = Array.from(optionsItems).filter((o) => o.checked);
+        if (checkedBoxes.length < 2) {
+          return alert("Sorry, you need at least 2 box checked!");
+        }
+        let keyNames = checkedBoxes.map((c) => c.getAttribute("name"));
+        console.log(keyNames);
+
+        let possibleKeys = [];
+        keyNames.forEach((n) => {
+          if (n === "lowercase") {
+            possibleKeys = [
+              ...possibleKeys,
+              ...letters.map((l) => l.toLowerCase()),
+            ];
+          }
+          if (n === "uppercase") {
+            possibleKeys = [
+              ...possibleKeys,
+              ...letters.map((l) => l.toUpperCase()),
+            ];
+          }
+          if (n === "numbers") {
+            possibleKeys = [...possibleKeys, ...numbers];
+          }
+          if (n === "symbols") {
+            possibleKeys = [...possibleKeys, ...symbols];
+          }
+          if (possibleKeys.length > 50) {
+            possibleKeys = [...possibleKeys, ...symbols];
+          }
+
+          let password = "";
+
+          for (let i = 0; i < passwd_length; i++) {
+            password += possibleKeys[(Math.random() * possibleKeys.length) | 0];
+          }
+          console.log(possibleKeys);
+          passwdDisplay.innerHTML = password;
+          if (password.length > 32) {
+            passwdDisplay.style.fontSize = "1.25rem";
+          }
+          if (password.length > 52) {
+            passwdDisplay.style.fontSize = "1rem";
+          } else {
+            passwdDisplay.style.fontSize = "3.2rem";
+          }
+        });
+      };
+
+      copyBtn.onclick = () => {
+        if (document.querySelector(".copy-msg").innerHTML != "") return;
+
+        console.log("copy that!! :)");
+        navigator.clipboard.writeText(passwdDisplay.innerHTML);
+        document.querySelector(".copy-msg").innerHTML = "Passwd Copied! :)";
+        setTimeout(() => {
+          document.querySelector(".copy-msg").innerHTML = "";
+        }, 1750);
+      };
+    </script>
+  </body>
+</html>
