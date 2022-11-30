@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Suite landing page</title>
+  </head>
+  <body>
+    <div class="parent-app">
+      <div class="app">
+        <header>
+          <img src="./assets/logo.svg" alt="" />
+          <button class="btn secondary">Request Beta Access</button>
+        </header>
+        <section class="top-section">
+          <div class="large-col">
+            <div class="top-info-col">
+              <div class="top-info-card">
+                <h1 class="header-h1">
+                  A <span class="bold">super solution</span> for your
+                  <span class="bold">business.</span>
+                </h1>
+                <p class="top-blurb">
+                  Our marketing and sales automations help you scale your
+                  outreach to get more leads for your company
+                </p>
+                <button class="btn secondary">Request Beta Access</button>
+              </div>
+            </div>
+            <div class="top-bg-div">
+              <picture>
+                <source
+                  media="(min-width:650px)"
+                  srcset="./assets/image-hero-portrait.webp"
+                />
+                <source
+                  media="(min-width:465px)"
+                  srcset="./assets/image-hero-portrait.webp"
+                />
+                <img
+                  class="landscape-img"
+                  src="./assets/image-hero-landscape.webp"
+                  alt="landscape-img"
+                />
+              </picture>
+            </div>
+          </div>
+          <div class="small-col">
+            <ul class="category-list">
+              <li class="category-item">
+                <h1 class="category-h1">2K+</h1>
+                <h3 class="category-h4">Companies</h3>
+              </li>
+              <li class="category-item">
+                <h1 class="category-h1">8</h1>
+                <h3 class="category-h4">Languages</h3>
+              </li>
+              <li class="category-item">
+                <h1 class="category-h1">1.2M</h1>
+                <h3 class="category-h4">Leads</h3>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="bottom-section">
+          <div class="bottom-bg"></div>
+          <div class="bottom-img-container">
+            <picture>
+              <source
+                media="(min-width:650px)"
+                srcset="./assets/image-jeremy-large.webp"
+              />
+              <source
+                media="(min-width:465px)"
+                srcset="./assets/image-jeremy-large.webp"
+              />
+              <img
+                class="bottom-img"
+                src="./assets/image-jeremy-small.webp"
+                alt="Flowers"
+                style="width: auto"
+              />
+            </picture>
+          </div>
+          <img
+            class="bottom-svg"
+            src="./assets/pattern-curved-line-2.svg"
+            alt="wave-svg"
+          />
+          <div class="bottom-info-card">
+            <h1 class="bottom-h1">It just <span class="bold">works.</span></h1>
+            <p class="bottom-blurb">
+              "I really like how it is an all-in-one solution that handle many
+              of the tasks that you world normally need seperate tools to do the
+              same job. This thing is a miracle worker."
+            </p>
+            <div class="bottom-sig-div">
+              <strong class="blurb name">Jeremy Robinson</strong>
+              <p class="blurb thin">CMO, FYLO</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="parent-footer">
+        <footer class="footer">
+          <img class="footer-logo" src="./assets/logo.svg" alt="footer-logo" />
+          <p class="footer-blurb blurb">Copyright - Suite</p>
+          <ul class="footer-links">
+            <li class="footer-item">
+              <img src="./assets/icon-facebook.svg" alt="media-icon" />
+            </li>
+            <li class="footer-item">
+              <img src="./assets/icon-twitter.svg" alt="media-icon" />
+            </li>
+            <li class="footer-item">
+              <img src="./assets/icon-instagram.svg" alt="media-icon" />
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
