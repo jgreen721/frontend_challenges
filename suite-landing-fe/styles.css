@@ -26,7 +26,6 @@ li {
 
 .btn {
   cursor: pointer;
-  transition: 0.5s ease;
   width: 21.9rem;
   height: 5.6rem;
   font-size: 1.6rem;
@@ -34,6 +33,7 @@ li {
   /* border: none; */
   border-radius: 5px;
   outline: none;
+  transition: 0.5s ease;
 }
 
 .primary {
@@ -41,9 +41,9 @@ li {
   color: var(--white);
 }
 
-.primary:hover {
+/* .primary:hover {
   opacity: 75%;
-}
+} */
 
 .secondary {
   background: var(--white);
@@ -58,13 +58,20 @@ li {
 }
 
 .blend {
-  background: linear-gradient(to right, var(--magenta), var(--orange));
+  background: var(--maindark);
   color: var(--white);
+  border: none;
+  transition: none;
+}
+
+.blend:hover {
+  background: linear-gradient(to right, var(--magenta), var(--orange));
+  /* border: none; */
 }
 
 .parent-app {
   width: 144rem;
-  height: 176rem;
+  height: 156rem;
   margin: 0 auto;
   /* border: 5px solid black; */
   font-family: var(--mainfont);
@@ -134,13 +141,13 @@ header {
   /* border: 2px dotted brown; */
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .category-list {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   flex-direction: column;
   height: 37.5rem;
@@ -169,12 +176,14 @@ header {
   width: 100%;
   height: 58.9rem;
   /* border: 3px dotted green; */
-  transform: translateY(28rem);
+  /* transform: translateY(28rem); */
+  transform: translateY(8rem);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
   color: white;
+  z-index: 5;
 }
 
 .bottom-bg {
@@ -204,9 +213,11 @@ header {
 
 .bottom-h1 {
   font-size: 4.8rem;
-  line-height: 5.6rem;
+  /* line-height: 5.6rem; */
   letter-spacing: -0.5px;
   font-weight: 300;
+  /* color: red; */
+  margin-bottom: -2em;
 }
 
 .bold {
@@ -222,6 +233,7 @@ header {
   font-size: 2rem;
   line-height: 3.5rem;
   font-weight: 400;
+  /* border: 2px solid white; */
 }
 
 .thin {
@@ -235,7 +247,7 @@ header {
   z-index: 5;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -245,6 +257,7 @@ header {
   background: var(--lightgray);
   /* background: red; */
   padding: 5rem 16rem;
+  transform: translateY(-20rem);
   /* border: 5px dotted red; */
   display: flex;
   align-items: flex-end;
@@ -278,7 +291,8 @@ header {
 
 @media screen and (max-width: 775px) {
   .parent-app {
-    height: 196rem;
+    /* height: 196rem; */
+    height: 166rem;
     width: 76.8rem;
   }
 
@@ -336,6 +350,10 @@ header {
     width: 100%;
   }
 
+  .bottom-img-container {
+    height: 40rem;
+  }
+
   .bottom-svg {
     padding: 1em 0;
   }
@@ -344,8 +362,10 @@ header {
     width: 100%;
     height: 86.5rem;
     /* border: 3px dotted green; */
-    transform: translateY(50rem);
+    /* transform: translateY(50rem); */
+    transform: translateY(10rem);
     flex-direction: column;
+
     /* padding: 0 2em; */
     /* padding-bottom: 5em; */
   }
@@ -353,15 +373,21 @@ header {
   .bottom-info-card {
     width: 57.3rem;
     height: 28.2rem;
+    /* border: 2px solid red; */
     align-items: center;
   }
 
+  .bottom-blurb {
+    height: 1.7rem;
+    line-height: 3.1rem;
+  }
+  /* 
   .bottom-h1 {
     padding-bottom: 0.5em;
-  }
+  } */
 
   .bottom-sig-div {
-    padding: 2em 0;
+    /* padding: 2em 0; */
     text-align: center;
   }
 
@@ -369,12 +395,14 @@ header {
     height: 64rem;
     width: 76.8rem;
     padding: 5rem 2rem;
+    transform: translateY(-40em);
   }
 }
 
 @media screen and (max-width: 425px) {
   .parent-app {
-    height: 238.9rem;
+    /* height: 238.9rem; */
+    height: 218.9rem;
     width: 37.5rem;
     padding: 0em;
   }
@@ -434,7 +462,7 @@ header {
     width: 100%;
     height: 92.5rem;
     /* border: 3px dotted green; */
-    transform: translateY(18rem);
+    transform: translateY(0rem);
   }
 
   .bottom-info-card {
@@ -446,6 +474,7 @@ header {
     height: 42rem;
     width: 37rem;
     padding: 5rem 2rem;
+    transform: translateY(-19rem);
   }
 
   .footer {
