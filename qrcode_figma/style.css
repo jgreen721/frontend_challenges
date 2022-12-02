@@ -1,0 +1,82 @@
+html {
+  font-size: 62.5%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --lightgray: hsl(212, 45%, 89%);
+  --grayblue: hsl(220, 15%, 55%);
+  --darkblue: hsl(218, 44%, 22%);
+  --mainfont: "Outfit", sans-serif;
+}
+
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--lightgray);
+  font-family: var(--mainfont);
+}
+
+.qr-card {
+  height: 49rem;
+  width: 32rem;
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  padding: 1.6rem;
+  background: var(--white);
+}
+
+.qr-img-container {
+  height: 28.8rem;
+  width: 28.8rem;
+  /* padding: 1.6rem; */
+}
+
+.qr-img {
+  height: 28.8rem;
+  width: 28.8rem;
+  border-radius: 5px;
+}
+
+.content-card {
+  text-align: center;
+  /* border: 2px solid black; */
+  margin-top: 2.4rem;
+}
+
+.caption-h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.blurb {
+  font-size: 1.5rem;
+  line-height: 1.89rem;
+  letter-spacing: 0.19px;
+  color: var(--grayblue);
+  width: 25.6rem;
+  margin: 0 auto;
+  margin-top: 1.6rem;
+}
+
+.attribution {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 375px) {
+}

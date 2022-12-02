@@ -380,6 +380,7 @@ header {
   .bottom-blurb {
     height: 1.7rem;
     line-height: 3.1rem;
+    text-align: center;
   }
   /* 
   .bottom-h1 {
