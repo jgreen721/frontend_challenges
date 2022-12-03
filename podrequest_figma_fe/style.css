@@ -154,6 +154,7 @@ li {
   .app {
     height: 102.4em;
     width: 76.8em;
+    overflow: hidden;
   }
 
   .parent-container {
@@ -189,17 +190,16 @@ li {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 385px) {
   .app {
     height: 66.7rem;
     width: 37.5rem;
     /* border: 5px solid red; */
-    overflow: hidden;
   }
 
   .parent-container {
-    height: 100%;
-    width: 100%;
+    height: 0%;
+    width: 0%;
     display: none;
   }
 
@@ -214,6 +214,7 @@ li {
     font-family: var(--mainfont);
     color: white;
     position: relative;
+    overflow: hidden;
   }
 
   .mobile-logo {
