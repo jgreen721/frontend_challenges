@@ -152,9 +152,15 @@ li {
 
 @media screen and (max-width: 850px) {
   .app {
-    height: 102.4em;
-    width: 76.8em;
+    /* height: 102.4em;
+    width: 76.8em; */
+    /* position: relative;
+    overflow: hidden; */
+    height: 100vh;
+    width: 100vw;
+    max-height: 102.4rem;
     overflow: hidden;
+    position: relative;
   }
 
   .parent-container {
@@ -192,8 +198,13 @@ li {
 
 @media screen and (max-width: 385px) {
   .app {
-    height: 66.7rem;
-    width: 37.5rem;
+    /* height: 66.7rem;
+    width: 37.5rem; */
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    max-height: 66.7rem;
     /* border: 5px solid red; */
   }
 
