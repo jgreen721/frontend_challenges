@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Pod request access landing page</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="mobile-app">
+        <div class="mobile-overlay">
+          <img src="./assets/mobile/image-host.jpg" alt="">
+        </div>
+        <img class="mobile-logo" src="./assets/desktop/logo.svg" alt="">
+        <h1 class="mobile-h1"><span class="green">Publish your podcasts</span> everywhere</h1>
+        <p class="mobile-blurb">
+          Upload your audio to Pod with a single click. We’ll then distribute
+          your podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket
+          Casts and more!
+        </p>
+
+        <ul class="mobile-media-links">
+          <li class="media-item">
+            <img class="mobile-icon" src="./assets/desktop/spotify.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img class="mobile-icon" src="./assets/desktop/apple-podcast.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img class="mobile-icon" src="./assets/desktop/google-podcasts.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img class="mobile-icon" src="./assets/desktop/pocket-casts.svg" alt="">
+          </li>
+        </ul>
+        <div class="mobile-form-div">
+          <input type="text" placeholder="Email Address" name="email" class="mobile-form-input">
+          <button class="mobile-btn">Request Access</button>
+        </div>
+      </div>
+      <div class="parent-container">
+        <div class="info-card">
+          <div class="info-content-card">
+          <h1 class="header-h1">
+            <span class="green">Publish your podcasts</span> everywhere.
+          </h1>
+          <p class="blurb">
+            Upload your audio to Pod with a single click. We’ll then distribute
+            your podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket
+            Casts and more!
+          </p>
+
+
+          <div class="form-btn-div">
+            <input type="text" name="request" placeholder="Email Address" class="form-input">
+          <button class="btn">Request Access</button>
+        </div>
+        <ul class="media-links">
+          <li class="media-item">
+            <img src="./assets/desktop/spotify.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img src="./assets/desktop/apple-podcast.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img src="./assets/desktop/google-podcasts.svg" alt="">
+          </li>
+          <li class="media-item">
+            <img src="./assets/desktop/pocket-casts.svg" alt="">
+          </li>
+        </ul>
+        </div>
+        </div>
+        <img
+          class="dots-img"
+          src="./assets/desktop/bg-pattern-dots.svg"
+          alt=""
+        />
+        <img class="logo-img" src="./assets/desktop/logo.svg" alt="" />
+        <picture>
+          <source media="(min-width:850px)" srcset="./assets/desktop/image-host.jpg">
+          <source media="(min-width:465px)" srcset="./assets/tablet/image-host.jpg">
+          <img class="main-bg-img" src="./assets/mobile/image-host.jpg" alt="Flowers" style="width:auto;">
+        </picture>
+    </div>
+
+  </body>
+</html>
