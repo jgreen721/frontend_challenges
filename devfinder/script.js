@@ -52,6 +52,7 @@ function fetchData(username = "greenie62") {
       document
         .querySelectorAll(".link-item")
         .forEach((el) => el.classList.remove("mute"));
+      let liItems = document.querySelectorAll(".link-item");
       document.querySelector(".username").innerHTML = res.login;
       document.querySelector(".avatar").setAttribute("src", res.avatar_url);
       document.querySelector(".email").innerHTML = `@${res.login}`;
@@ -67,21 +68,20 @@ function fetchData(username = "greenie62") {
       document.querySelector("#city").innerHTML = res.location
         ? `${res.location}`
         : "Not available";
-      if (!res.location) document.querySelector("#city").classList.add("mute");
+      if (!res.location) liItems[0].classList.add("mute");
       document.querySelector("#twitter").innerHTML = res.twitter_username
         ? `${res.twitter_username}`
         : "Not available";
-      if (!res.twitter_username)
-        document.querySelector("#twitter").classList.add("mute");
+      if (!res.twitter_username) liItems[1].classList.add("mute");
       document.querySelector("#website").innerHTML = res.blog
         ? `${res.blog}`
         : "Not available";
-      if (!res.blog) document.querySelector("#website").classList.add("mute");
+      if (!res.blog) liItems[2].classList.add("mute");
 
       document.querySelector(".org").innerHTML = res.company
         ? `${res.company}`
         : "Not available";
-      if (!res.company) document.querySelector("#.org").classList.add("mute");
+      if (!res.company) liItems[3].classList.add("mute");
     });
 }
 
