@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>~ DevFinder ~</title>
+  </head>
+  <body>
+    <div class="app" data-theme="light">
+      <main class="main-card">
+        <!-- HEADER ROW -->
+        <header class="header">
+          <h1 class="header-h1 primary">devfinder</h1>
+
+          <div class="toggle-div">
+            <h4 class="theme-h5">Dark</h4>
+            <img class="theme-icon" src="./assets/icon-moon.svg" alt="" />
+          </div>
+        </header>
+
+        <!-- SEARCH ROW -->
+        <div class="search-row">
+          <img class="search-icon" src="./assets/icon-search.svg" alt="" />
+          <input
+            type="text"
+            class="search-input"
+            name="search-input"
+            placeholder="Search GitHub username..."
+            autocomplete="off"
+          />
+          <h5 class="error"></h5>
+          <button class="btn search-btn">Search</button>
+        </div>
+        <!-- CONTENT SECTION -->
+
+        <section class="section">
+          <div class="section-header">
+            <div class="header-main-col">
+              <div class="avatar-div">
+                <img class="avatar" src="#" alt="avatar" id="avatar" />
+              </div>
+              <div class="user-title-div">
+                <h1 class="username primary" id="username">The Octocat</h1>
+                <h4 class="email" id="email">@octocat</h4>
+                <h4 class="join textcolor tablet-join" id="join">
+                  Joined 25 Jan 2018
+                </h4>
+
+                <p class="bio desktop textcolor">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+              </div>
+            </div>
+            <div class="join-col">
+              <h4 class="join textcolor desktop" id="join">
+                Joined 25 Jan 2018
+              </h4>
+            </div>
+          </div>
+          <p class="bio tablet textcolor">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio neque
+            harum blanditiis illum nisi id.
+          </p>
+          <ul class="stats-row">
+            <li class="stat-col">
+              <div>
+                <h5 class="stat-title">Repos</h5>
+                <h2 class="stat-h2 primary" id="repos">8</h2>
+              </div>
+            </li>
+            <li class="stat-col">
+              <div>
+                <h5 class="stat-title">Followers</h5>
+                <h2 class="stat-h2 primary" id="followers">3982</h2>
+              </div>
+            </li>
+            <li class="stat-col">
+              <div>
+                <h5 class="stat-title">Following</h5>
+                <h2 class="stat-h2 primary" id="following">9</h2>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="links-grid">
+            <li class="link-item textcolor">
+              <img class="link-icon" src="./assets/icon-location.svg" alt="" />
+              <span id="city">San Francisco</span>
+            </li>
+            <li class="link-item textcolor">
+              <img class="link-icon" src="./assets/icon-twitter.svg" alt="" />
+              <span id="twitter">Not Available</span>
+            </li>
+            <li class="link-item textcolor">
+              <img class="link-icon" src="./assets/icon-website.svg" alt="" />
+              <span id="website">https://jgreen721.com</span>
+            </li>
+            <li class="link-item textcolor">
+              <img class="link-icon" src="./assets/icon-company.svg" alt="" />
+              <span id="email" class="org">@github</span>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
