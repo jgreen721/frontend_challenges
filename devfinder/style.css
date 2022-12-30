@@ -66,6 +66,7 @@ li {
 .main-card {
   height: calc((41.9 + 2.4 + 6.9 + 3.6 + 3.8) * 1rem);
   width: 73rem;
+
   /* border: 2px dotted blue; */
 }
 
@@ -169,13 +170,17 @@ li {
   /* border: 3px dotted purple; */
   background: var(--cardbg);
   border-radius: 8px;
+  margin-top: 4.8rem;
+
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
 }
 
 .section-header {
   display: flex;
-  margin-left: 6.4rem;
-  margin-top: 4.8rem;
+  padding-left: 6.4rem;
+  padding-top: 4.8rem;
+  /* margin-top: 4.8rem; */
+  /* border: 3px solid red; */
   /* border: 3px dotted peachpuff; */
   justify-content: space-between;
 }
