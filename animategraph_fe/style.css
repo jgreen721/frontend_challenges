@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --softred: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --darkbrown: hsl(25, 47%, 15%);
+  --medbrown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --paleorange: hsl(33, 100%, 98%);
+  --mainfont: "DM Sans", sans-serif;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mainfont);
+  background: var(--cream);
+}
+
+.main-card {
+  height: 66rem;
+  width: 54rem;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-header {
+  height: 12.5rem;
+  width: 100%;
+  /* border: 2px solid red; */
+  background: var(--softred);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 2px 3px 5px lightgray;
+}
+
+.header-col {
+  margin-left: 3.2rem;
+  overflow: hidden;
+}
+
+.header-h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 200;
+  transform: translateX(-200px);
+  animation: leftslide 1s 0.5s forwards;
+}
+
+@keyframes leftslide {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.header-h1 {
+  font-size: 3.2rem;
+  transform: scale(0);
+  animation: riseup 1s 1s forwards;
+}
+
+@keyframes riseup {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo-col {
+  margin: 3.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.white-circle {
+  height: 4.8rem;
+  width: 5.5rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  transform: translateX(2.75rem);
+  animation: slideleft 2s 1s forwards;
+  z-index: 5;
+}
+
+.black-dot {
+  height: 4.8rem;
+  width: 5.5rem;
+  background: black;
+  border-radius: 50%;
+  transform: translateX(-2.75rem);
+  animation: slideright 2s 1s forwards;
+}
+
+@keyframes slideleft {
+  100% {
+    transform: translateX(2.4rem);
+  }
+}
+
+@keyframes slideright {
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+.main-chart-parent {
+  height: 51.1rem;
+  width: 100%;
+  /* border: 2px dotted blue; */
+  border-radius: 20px;
+  padding: 3.2rem 4rem;
+  background: var(--paleorange);
+  box-shadow: 2px 3px 5px lightgray;
+}
+
+.spending-h1 {
+  font-size: 3.2rem;
+  margin-bottom: 6.6rem;
+}
+
+.chart {
+  height: 17.8rem;
+  /* border: 2px dotted purple; */
+  margin-bottom: 6.6rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.chart-col {
+  text-align: center;
+}
+
+.chart-p {
+  font-size: 1.5rem;
+  color: var(--medbrown);
+}
+
+.chart-div {
+  width: 5.03rem;
+  /* border: 1px solid black; */
+  height: 0px;
+  border-radius: 5px;
+  background: var(--softred);
+  transform-origin: bottom;
+  transform: scale(0);
+  /* animation: growchart 2s var(--i) forwards; */
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.chart-div:hover::after {
+  content: attr(data-val);
+  width: 7.1rem;
+  height: 4rem;
+  background: var(--darkbrown);
+  color: white;
+  position: absolute;
+  left: -1rem;
+  top: -5rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadein 1s forwards;
+  opacity: 0;
+}
+
+.chart-div:hover {
+  opacity: 75%;
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes growchart {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.blue {
+  background: var(--cyan);
+}
+
+.chart-bottom-info::after {
+  width: 100%;
+  height: 2px;
+  background: var(--cream);
+  content: "";
+  position: absolute;
+  top: -3.3rem;
+}
+
+.chart-bottom-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+  position: relative;
+  height: 8.7rem;
+}
+
+.bottom-p {
+  font-size: 1.8rem;
+  color: var(--medbrown);
+}
+
+.bottom-h1 {
+  font-size: 4.8rem;
+  color: var(--darkbrown);
+}
+
+.bottom-h5 {
+  font-size: 1.8rem;
+  color: var(--darkbrown);
+  text-align: end;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 375px) {
+  .main-card {
+    height: 53.4rem;
+    width: 34.3rem;
+  }
+
+  .main-chart-parent {
+    padding: 2.4rem 2rem;
+  }
+
+  .chart-div {
+    width: 3.3rem;
+  }
+
+  .bottom-h1,
+  .spending-h1 {
+    font-size: 3rem;
+  }
+
+  .spending-h1,
+  .header-h1 {
+    font-size: 2.4rem;
+  }
+
+  .chart-div:hover::after {
+    width: 4rem;
+    font-size: 1rem;
+    height: 3rem;
+    left: -0.5rem;
+    top: -3.75rem;
+  }
+}

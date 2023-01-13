@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Expenses chart component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="main-card">
+        <div class="main-header">
+          <div class="header-col">
+            <h4 class="header-h4">My balance</h4>
+            <h1 class="header-h1">$921.48</h1>
+          </div>
+          <div class="logo-col">
+            <!-- <img src="images/logo.svg" alt="" /> -->
+            <div class="white-circle"></div>
+            <div class="black-dot"></div>
+          </div>
+        </div>
+
+        <div class="main-chart-parent">
+          <h1 class="spending-h1">Spending - Last 7 days</h1>
+          <div class="chart">
+            <!-- mon tue wed thu fri sat sun -->
+          </div>
+          <div class="chart-bottom-info">
+            <div class="bottom-col">
+              <p class="bottom-p">Total this month</p>
+              <h1 class="bottom-h1">$478.33</h1>
+            </div>
+            <div class="bottom-col">
+              <h5 class="bottom-h5">+2.4%</h5>
+              <p class="bottom-p">from last month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </div>
+
+    <script>
+      let stagger = 0.5;
+      fetch("data.json")
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          res.forEach((data) => {
+            let chartCol = document.createElement("div");
+            let chart = document.createElement("div");
+            let chartP = document.createElement("p");
+            chartP.innerHTML = data.day;
+            chartCol.className = "chart-col";
+            chartP.className = "chart-p";
+            chart.className = "chart-div";
+            chart.style.animation = `growchart 1s ${stagger}s forwards`;
+            chart.setAttribute("data-val", `$${data.amount}`);
+            stagger += 0.25;
+            if (data.amount > 50) chart.classList.add("blue");
+            chart.style.height = `${data.amount * 3}px`;
+            chartCol.appendChild(chart);
+            chartCol.appendChild(chartP);
+            document.querySelector(".chart").append(chartCol);
+          });
+        });
+    </script>
+  </body>
+</html>
