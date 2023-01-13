@@ -257,12 +257,26 @@ html {
     width: 34.3rem;
   }
 
+  .main-header {
+    height: 9.7rem;
+  }
+
   .main-chart-parent {
     padding: 2.4rem 2rem;
+    height: 42.1rem;
+  }
+
+  .chart {
+    height: 17.7rem;
+    margin-bottom: 5rem;
   }
 
   .chart-div {
     width: 3.3rem;
+  }
+
+  .chart-bottom-info::after {
+    top: -2rem;
   }
 
   .bottom-h1,
@@ -273,6 +287,10 @@ html {
   .spending-h1,
   .header-h1 {
     font-size: 2.4rem;
+  }
+
+  .spending-h1 {
+    margin-bottom: 5.2rem;
   }
 
   .chart-div:hover::after {
