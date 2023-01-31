@@ -250,6 +250,10 @@ a {
     padding: 0rem;
   }
 
+  .back-card {
+    padding: 0rem;
+  }
+
   .rating-item,
   .star-div {
     height: 4.2rem;
@@ -257,7 +261,7 @@ a {
   }
 
   .front-card,
-  .back-blurb {
+  .back-card {
     padding: 2.4rem;
   }
 
