@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Rating state start -->
+    <div class="rating-card">
+      <div class="front-card">
+        <div class="front-content">
+          <div style="--i: 0.25s" class="star-div">
+            <img class="star-logo" src="./images/icon-star.svg" alt="" />
+          </div>
+          <h1 style="--i: 0.5s" class="card-h1">How did we do?</h1>
+          <p style="--i: 1s" class="card-blurb">
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+          <ul class="rating-row">
+            <li style="--i: 0.25s" class="rating-item">1</li>
+            <li style="--i: 0.5s" class="rating-item">2</li>
+            <li style="--i: 0.85s" class="rating-item">3</li>
+            <li style="--i: 1.25s" class="rating-item">4</li>
+            <li style="--i: 1.6s" class="rating-item">5</li>
+          </ul>
+          <!-- <div class="btn-container"> -->
+          <button onclick="submitRating()" disabled class="submit-btn">
+            Submit
+          </button>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="back-card">
+        <div class="back-container">
+          <img
+            class="back-logo"
+            src="images/illustration-thank-you.svg"
+            alt=""
+          />
+          <h3 class="user-output">
+            You selected <span class="user-rating">1</span> out of 5
+          </h3>
+          <h1 class="thank-you">Thank you!</h1>
+          <p class="back-blurb">
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don’t hesitate to get in touch!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating state end -->
+
+    <!-- Thank you state start -->
+
+    <!-- Add rating here -->
+
+    <!-- Thank you state end -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Justin Green</a>.
+    </div>
+
+    <script>
+      // UI buttons
+      let ratingBtns = document.querySelectorAll(".rating-item");
+      let submitBtn = document.querySelector(".submit-btn");
+
+      // rating initial state
+      var userInput = JSON.parse(localStorage.getItem("userInput")) || {
+        curr: null,
+        prev: null,
+        rating: null,
+      };
+
+      console.log(userInput);
+
+      // onrender adjustments depending on localStorage
+      if (userInput.curr != null) {
+        ratingBtns[userInput.curr].classList.add("active");
+        submitBtn.disabled = false;
+      }
+
+      ratingBtns.forEach((r, idx) => {
+        r.onclick = (e) => {
+          if (submitBtn.disabled) submitBtn.disabled = false;
+
+          //update state
+          userInput.prev = userInput.curr;
+          userInput.curr = idx;
+          userInput.rating = idx + 1;
+
+          //update ls
+          localStorage.setItem("userInput", JSON.stringify(userInput));
+
+          //remove class from prev_idx
+          if (userInput.prev != null) {
+            ratingBtns[userInput.prev].classList.remove("active");
+          }
+
+          //toggle active class
+          e.target.classList.add("active");
+        };
+      });
+
+      submitBtn.onclick = () => {
+        console.log("save rating!!");
+      };
+
+      let angle = 540;
+
+      submitBtn.onclick = (e) => {
+        console.log("click");
+        document.querySelector(".user-rating").innerHTML = userInput.rating;
+        document.querySelector(
+          ".rating-card"
+        ).style.transform = `rotateY(${angle}deg)`;
+        document.querySelector(
+          ".front-card"
+        ).style.transform = `rotateY(180deg)`;
+        document.querySelector(".back-card").style.transform = `rotateY(0deg)`;
+        document.querySelector(
+          ".back-container"
+        ).style.transform = `rotateY(180deg)`;
+        localStorage.clear();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --lightgray: hsl(217, 12%, 63%);
+  --medgray: hsl(216, 12%, 54%);
+  --darkblue: hsl(213, 19%, 18%);
+  --verydark: hsl(216, 12%, 8%);
+  --mainfont: "Overpass", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: var(--verydark);
+  animation: glow 35s infinite;
+}
+
+@keyframes glow {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    background: hsl(216, 12%, 8%);
+  }
+  10%,
+  25%,
+  55%,
+  65%,
+  87% {
+    background: hsl(200, 9%, 2%);
+  }
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.rating-card {
+  font-family: var(--mainfont);
+  height: 41.6rem;
+  width: 41.2rem;
+  background: linear-gradient(to right, var(--verydark), var(--darkblue));
+  position: relative;
+  box-shadow: 1px 1px 40px black;
+  border-radius: 3rem;
+  /* backface-visibility: hidden; */
+  overflow: hidden;
+}
+
+.front-card,
+.back-card {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3.2rem;
+}
+
+.rating-card .front-card,
+.rating-card .back-card {
+  backface-visibility: hidden;
+}
+
+.front-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* border: 2px dotted white; */
+}
+
+.star-div,
+.rating-item {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  background: var(--darkblue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medgray);
+}
+
+.star-div,
+.card-h1,
+.card-blurb {
+  animation: slideover 1s var(--i) forwards;
+  transform: translateX(-800px);
+}
+
+@keyframes slideover {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.rating-item {
+  transition: 0.3s ease;
+  cursor: pointer;
+  font-size: 1.6rem;
+  animation: popup 1s var(--i) forwards;
+  transform: translateY(200px);
+}
+
+@keyframes popup {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.rating-item:hover {
+  background: var(--orange);
+  color: var(--white);
+  transform: translateY(-1rem);
+}
+
+.active {
+  background: var(--lightgray);
+  color: var(--white);
+}
+
+.card-h1,
+.thank-you {
+  font-size: 2.8rem;
+  color: var(--white);
+  /* margin-top: 3rem; */
+}
+
+.card-blurb,
+.back-blurb {
+  /* margin-top: 0.3rem; */
+  font-size: 1.5rem;
+  color: var(--medgray);
+  line-height: 2.4rem;
+}
+
+.rating-row {
+  /* margin-top: 2.4rem; */
+  display: flex;
+  width: 100%;
+  height: 5.1rem;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.submit-btn,
+.submit-btn[disabled] {
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  height: 4.5rem;
+  background: var(--orange);
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  transform: translateY(0px);
+  transition: 0.5s ease;
+}
+
+.submit-btn[disabled] {
+  opacity: 75%;
+  transform: translateY(200px);
+}
+
+.btn-container {
+  border: 3px dotted red;
+}
+
+.rating-card {
+  transition: 0.5s ease;
+}
+
+.back-card {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  transform: rotateY(180deg);
+  /* display: none; */
+  padding: 4.5rem;
+}
+
+.back-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  /* transform: rotateY(180deg); */
+}
+
+.user-output {
+  background: var(--darkblue);
+  padding: 1rem 2rem;
+  font-weight: 200;
+  color: var(--orange);
+  font-size: 1.4rem;
+  border-radius: 100px;
+}
+
+.thank-you {
+  font-weight: 300;
+}
+
+.attribution {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  color: var(--white);
+}
+
+a {
+  font-size: 1.5rem;
+  color: var(--orange);
+}
+
+@media screen and (max-width: 415px) {
+  .rating-card {
+    width: 32.7rem;
+    height: 36rem;
+    padding: 0rem;
+  }
+
+  .rating-item,
+  .star-div {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+
+  .front-card,
+  .back-blurb {
+    padding: 2.4rem;
+  }
+
+  .back-blurb,
+  .card-blurb {
+    font-size: 1.4rem;
+  }
+
+  /* .rating-row {
+    margin-bottom: 2.4rem;
+  } */
+}
