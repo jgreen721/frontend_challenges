@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --darkblue: hsl(234, 12%, 34%);
+  --grayblue: hsl(229, 6%, 66%);
+  --lightgray: hsl(0, 0%, 98%);
+  --mainFont: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--mainFont);
+  text-align: center;
+  padding-top: 6.5rem;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+body::before {
+  content: "";
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(to right, var(--blue), transparent);
+  opacity: 35%;
+  position: absolute;
+  border-radius: 45%;
+  top: 30%;
+  animation: glow 25s infinite;
+}
+
+@keyframes glow {
+  10%,
+  25%,
+  41%,
+  65%,
+  80% {
+    opacity: 42%;
+    transform: scale(0.99);
+  }
+
+  18%,
+  33%,
+  50%,
+  73%,
+  90% {
+    opacity: 48%;
+    transform: scale(1.02);
+  }
+}
+
+h1 {
+  font-size: 3.6rem;
+  /* line-height: 5.4rem; */
+}
+
+.thin-h1 {
+  font-weight: 200;
+  font-size: 0;
+  animation: popup 1s forwards;
+}
+
+.thick-h1 {
+  font-size: 0;
+  animation: popup 1s 1s forwards;
+}
+
+@keyframes popup {
+  0% {
+    font-size: 0;
+  }
+  100% {
+    font-size: 3.6rem;
+  }
+}
+
+.blurb {
+  font-size: 1.5rem;
+  width: 54rem;
+  margin: 0 auto;
+  color: var(--grayblue);
+  margin-bottom: 5.4rem;
+  opacity: 0;
+  animation: clear 1s 1.75s forwards;
+}
+
+@keyframes clear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.cards {
+  position: relative;
+  margin: 0 auto;
+  /* text-align: center; */
+  /* border: 2px dotted red; */
+  height: 55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-item {
+  width: 35rem;
+  height: 25rem;
+  position: absolute;
+  /* border: 2px dotted black; */
+  padding: 2rem;
+  text-align: start;
+  border-radius: 8px;
+  transition: 1s ease;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  background: white;
+  box-shadow: 0px 15px 30px -11px rgba(131, 166, 210, 0.5);
+}
+
+.card-item:hover {
+  transform: scale(1.03);
+  transition: 0.4s ease;
+  box-shadow: 4px 5px 15px var(--color);
+}
+
+.card-item:hover .card-content {
+  transform: scale(1.03);
+}
+
+.card-content {
+  position: relative;
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+.card-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.card-name {
+  font-size: 2rem;
+}
+
+.card-blurb {
+  font-size: 1.3rem;
+  color: var(--darkblue);
+}
+
+.slideLeft {
+  animation: slideLeft 0.5s 1s forwards;
+}
+
+@keyframes slideLeft {
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+.slideRight {
+  animation: slideRight 1s 1s forwards;
+}
+
+@keyframes slideRight {
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+.slideUp {
+  animation: slideUp 1.5s 1s forwards;
+}
+
+@keyframes slideUp {
+  100% {
+    transform: translateY(-55%);
+  }
+}
+
+.slideDown {
+  animation: slideDown 2s 1s forwards;
+}
+
+@keyframes slideDown {
+  100% {
+    transform: translateY(55%);
+  }
+}
+
+.orange::after {
+  content: "";
+  width: 150%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  background: var(--orange);
+}
+
+.red::after {
+  content: "";
+  width: 150%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  background: var(--red);
+}
+
+.blue::after {
+  content: "";
+  width: 150%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  background: var(--blue);
+}
+
+.green::after {
+  content: "";
+  width: 150%;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  background: var(--cyan);
+}
+
+.attribution {
+  font-size: 1.6rem;
+}
+
+.site {
+  font-size: 1.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 5rem;
+  }
+  .cards {
+    height: 55rem;
+  }
+
+  .blurb {
+    margin-bottom: 3.2rem;
+  }
+  @keyframes slideLeft {
+    100% {
+      transform: translateX(-55%) translateY(-55%);
+    }
+  }
+
+  @keyframes slideRight {
+    100% {
+      transform: translateX(55%) translateY(55%);
+    }
+  }
+
+  @keyframes slideUp {
+    100% {
+      transform: translateX(-55%) translateY(55%);
+    }
+  }
+
+  @keyframes slideDown {
+    100% {
+      transform: translateX(55%) translateY(-55%);
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    padding-top: 3rem;
+    height: 136rem;
+    overflow: auto;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  .card-item {
+    height: 22.2rem;
+    width: 31.1rem;
+  }
+  .cards {
+    height: 100rem;
+  }
+  .blurb {
+    width: auto;
+  }
+
+  .attribution {
+    font-size: 1.1rem;
+  }
+  @keyframes slideRight {
+    100% {
+      transform: translateY(-55%);
+    }
+  }
+
+  @keyframes slideUp {
+    100% {
+      transform: translateY(-160%);
+    }
+  }
+
+  @keyframes slideDown {
+    100% {
+      transform: translateY(55%);
+    }
+  }
+
+  @keyframes slideLeft {
+    100% {
+      transform: translateY(160%);
+    }
+  }
+}

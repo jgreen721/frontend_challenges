@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Four card feature section</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <h1 class="thin-h1">Reliable, efficient delivery</h1>
+    <h1 class="thick-h1">Powered by Technology</h1>
+    <p class="blurb">
+      Our Artificial Intelligence powered tools use millions of project data
+      points to ensure that your project is successful
+    </p>
+    <ul class="cards"></ul>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a class="site" href="https://jgreen721dev.com">Justin G</a>.
+      </p>
+    </footer>
+
+    <script>
+      var cardsEl = document.querySelector(".cards");
+
+      var cards = [
+        {
+          id: 1,
+          title: "Team Builder",
+          blurb:
+            "Scans our talent network to create the optimal team for your project",
+          color: "red",
+          icon: "./images/icon-team-builder.svg",
+          animate: "slideUp",
+          varColor: "#ea5353",
+        },
+        {
+          id: 2,
+          title: "Supervisor",
+          blurb: "Monitors activity to identify project roadblocks",
+          color: "green",
+          icon: "./images/icon-karma.svg",
+          animate: "slideLeft",
+          varColor: "#45d3d3",
+        },
+        {
+          id: 3,
+          title: "Karma",
+          blurb: "Regularly evaluates our talent to ensure quality",
+          color: "orange",
+          icon: "./images/icon-calculator.svg",
+          animate: "slideDown",
+          varColor: "#fcaf4a",
+        },
+        {
+          id: 4,
+          title: "Calculator",
+          blurb:
+            "Uses data from past projects to provide better delivery estimates",
+          color: "blue",
+          icon: "./images/icon-supervisor.svg",
+          animate: "slideRight",
+          varColor: "#549ef2",
+        },
+      ];
+
+      cards.forEach((c) => {
+        var cardItem = document.createElement("div");
+        cardItem.className = "card-item";
+        cardItem.classList.add(c.color);
+        cardItem.classList.add(c.animate);
+        cardItem.style.setProperty("--color", c.varColor);
+        // cardItem.style.transform = c.trans;
+        cardItem.innerHTML = `<div style="--color:'${c.dataColor}'" class="card-content">
+            <h3 class="card-name">${c.title}</h3>
+            <p class="card-blurb">${c.blurb}</p>
+            <img class="card-icon" src=${c.icon} alt="icon"/>
+            </div>`;
+
+        cardsEl.append(cardItem);
+      });
+    </script>
+  </body>
+</html>
