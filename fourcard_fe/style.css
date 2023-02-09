@@ -259,6 +259,7 @@ h1 {
 @media screen and (max-width: 815px) {
   body {
     padding-top: 5rem;
+    overflow: auto;
   }
   .cards {
     height: 55rem;
