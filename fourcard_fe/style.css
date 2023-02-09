@@ -256,7 +256,7 @@ h1 {
   font-size: 1.8rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 815px) {
   body {
     padding-top: 5rem;
   }
@@ -292,7 +292,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 415px) {
   body {
     padding-top: 3rem;
     height: 136rem;
