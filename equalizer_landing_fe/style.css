@@ -1,0 +1,432 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;600;700&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --bluegreen: #66e2dc;
+  --tomatored: #fa7453;
+  --white: #fcfaf9;
+  --black: #191826;
+  --orange: #ffb964;
+  --mainFont: "IBM Plex Sans", sans-serif;
+  --tablet: 768px;
+  --mobile: 375px;
+}
+
+.btn {
+  width: 33.3rem;
+  height: 6.1rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.18px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border: none;
+  border-radius: 1.2rem;
+  margin: 0.8rem 0;
+}
+
+.ios {
+  background: var(--black);
+  color: var(--white);
+}
+
+.ios:hover {
+  background: var(--bluegreen);
+}
+
+.android {
+  background: var(--white);
+  color: var(--black);
+}
+
+.android:hover {
+  background: var(--orange);
+}
+
+h1 {
+  font-size: 8.8rem;
+  line-height: 8.8rem;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 5.2rem;
+}
+
+.p1 {
+  font-size: 2rem;
+  line-height: 3.4rem;
+}
+
+.p2 {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.app {
+  max-width: 144rem;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  min-height: 100vh;
+  position: relative;
+  padding: 0 16.5rem;
+  padding-top: 6.1rem;
+  font-family: var(--mainFont);
+}
+
+.top-corner-icon {
+  position: absolute;
+  right: 0;
+  top: -4rem;
+  animation: drops 1.5s ease;
+}
+
+.bg-img {
+  height: 175.8rem;
+  width: 161.3rem;
+  position: absolute;
+  top: -11.2rem;
+  left: -14.6rem;
+}
+
+@keyframes drops {
+  0% {
+    transform: translateY(-50rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+.app-content {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.top-logo {
+  margin-top: 6.1rem;
+}
+
+header {
+  padding: 12.7rem 0;
+  padding-bottom: calc((12.7 + 21.3) * 1rem);
+  max-width: 88rem;
+  animation: scaleheader 1.5s forwards;
+}
+
+@keyframes scaleheader {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Main Section */
+
+.main-section {
+  position: relative;
+  background: var(--black);
+  height: 60rem;
+  border-radius: 1.2rem;
+}
+
+.phone-img {
+  position: absolute;
+  left: 10.2rem;
+  top: -21.3rem;
+  height: 64.2rem;
+  width: 31.2rem;
+  z-index: 5;
+}
+
+.card-design {
+  position: absolute;
+  top: -4rem;
+  left: 33.6rem;
+}
+
+.ad-card {
+  height: 62.5rem;
+  width: 44.6rem;
+  background: var(--tomatored);
+  border-radius: 1.2rem;
+  padding: 5.8rem 5.4rem;
+  color: var(--white);
+  position: absolute;
+  right: 9.5rem;
+  bottom: -11.5rem;
+  margin-top: 32.1rem;
+  overflow: hidden;
+}
+
+.card-blurb {
+  padding: 2.2rem 0;
+}
+
+.price {
+  font-size: 5.2rem;
+  /* margin-bottom: 4.6rem; */
+  margin-bottom: 4.6rem;
+}
+
+.month {
+  position: relative;
+  top: -1rem;
+  font-weight: 200;
+}
+
+/*Footer */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* margin-bottom: 9.1rem;
+  margin-top: 20.2rem; */
+  padding-bottom: 9.1rem;
+  padding-top: 20.2rem;
+}
+
+.footer-blurb {
+  max-width: 36rem;
+  display: inline-block;
+  margin-left: 13.7rem;
+  transform: translateY(3rem);
+}
+
+.svg-icon {
+  cursor: pointer;
+}
+
+.svg-icon:hover path {
+  fill: var(--tomatored);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transition: 1s ease;
+}
+
+.slide {
+  transform: translateX(-100vw);
+  transition: 0.5s ease;
+}
+
+.slide-enter {
+  transform: translateX(0vw);
+  transition: 1.5s ease;
+}
+
+.grow {
+  transform: scale(1);
+  transition: 0.4s ease;
+}
+
+.shrink {
+  transform: scale(0);
+}
+
+@media screen and (max-width: 1150px) {
+  .footer-blurb {
+    display: block;
+    margin-left: 0rem;
+    transform: translateY(0rem);
+    /* border: 2px solid red; */
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .app {
+    padding: 6.1rem 3.9rem;
+    overflow: hidden;
+  }
+  .top-corner-icon {
+    top: -3rem;
+    right: -3.57rem;
+  }
+  .bg-img {
+    height: 80.8rem;
+    width: 98.3rem;
+    left: -29.3rem;
+    top: -30.1rem;
+  }
+
+  .top-logo {
+    margin-top: 0;
+  }
+
+  header {
+    padding: 9.5rem 0;
+    padding-bottom: calc((9.5 + 13.8) * 1rem);
+    /* padding-bottom: */
+    max-width: 52rem;
+  }
+
+  h1 {
+    font-size: 6.4rem;
+    line-height: 6.4rem;
+  }
+
+  .p1 {
+    font-size: 1.8rem;
+  }
+
+  .ad-card {
+    height: 54.6rem;
+    width: 39.9rem;
+    right: 5.8rem;
+    bottom: -9.6rem;
+    z-index: 10;
+    padding: 3.6rem 4.8rem;
+  }
+
+  .phone-img {
+    right: 6.4rem;
+    top: -13.8rem;
+    width: 27rem;
+    height: 55.6rem;
+  }
+
+  .card-design {
+    left: 16.5rem;
+    /* height: 42rem;
+    width: 28rem; */
+  }
+
+  .price {
+    margin-bottom: 0;
+  }
+
+  .btn {
+    width: 29.6rem;
+  }
+
+  .footer {
+    /* border: 2px solid red; */
+    padding-bottom: 2rem;
+    padding-top: 16rem;
+  }
+
+  .footer-col {
+    text-align: start;
+  }
+}
+@media screen and (max-width: 425px) {
+  .app {
+    padding: 0;
+  }
+  .bg-img {
+    height: 48rem;
+    width: 28.1rem;
+    left: 15.9rem;
+    top: -10.4rem;
+  }
+
+  .top-corner-icon {
+    display: none;
+  }
+
+  .top-logo {
+    padding: 2.4rem 3.9rem;
+  }
+
+  header {
+    width: 100%;
+    /* border: 3px solid purple; */
+    padding: 4rem 2.4rem;
+    padding-bottom: calc((4 + 13.8) * 1rem);
+  }
+
+  h1 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  .header-h1 {
+    margin-bottom: 2rem;
+  }
+
+  .p1 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .main-section {
+    height: 98rem;
+  }
+
+  .phone-img-container {
+    width: 100%;
+    text-align: center;
+    height: 43rem;
+  }
+
+  .phone-img {
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    top: -9.8rem;
+    width: 20.8rem;
+    height: 43rem;
+  }
+
+  .card-design {
+    top: 0;
+    left: 4.8rem;
+  }
+
+  .ad-card {
+    width: 100%;
+    /* position: relative; */
+    right: 0;
+    bottom: 0;
+    height: calc((54.4) * 1rem);
+    /* bottom: 4.8rem; */
+  }
+
+  .footer-col {
+    /* padding-top: 6.4rem; */
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 6rem 2.4rem;
+  }
+
+  .footer-blurb {
+    padding-bottom: 6.4rem;
+  }
+}
