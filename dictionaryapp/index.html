@@ -11,7 +11,7 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Frontend Mentor | Dictionary web app</title>
+    <title>Dictionary Web App</title>
   </head>
   <body>
     <div class="app" data-theme="dark" data-font="mono">
@@ -50,13 +50,14 @@
                   alt="arrow-icon"
                 />
               </div>
-              <div class="select-modal hide-modal">
+              <ul class="select-modal hide-modal">
                 <li data-text="sans-serif" class="modal-item">Sans Serif</li>
                 <li data-text="serif" class="modal-item">Serif</li>
                 <li data-text="mono" class="modal-item">Mono</li>
-              </div>
+              </ul>
             </div>
             <div class="theme-toggle-div">
+              <label for="theme-toggle"></label>
               <input class="theme-toggle" type="checkbox" name="theme-toggle" />
               <svg
                 class="theme-icon"
@@ -80,7 +81,7 @@
 
         <!-- FORM SEARCH -->
 
-        <div class="form-div">
+        <form class="form-div">
           <input
             type="text"
             class="form-control"
@@ -89,15 +90,15 @@
             autofocus="true"
             name="query"
           />
-          <button class="search-btn">
+          <button type="submit" class="search-btn">
             <img
               class="search-icon"
               src="./assets/images/icon-search.svg"
-              alt=""
+              alt="search-icon"
             />
           </button>
           <h3 class="error-h3">Whoops, can't be empty! 🙁</h3>
-        </div>
+        </form>
 
         <!-- Results Card -->
         <section class="results-card">
@@ -155,7 +156,8 @@
         };
       });
 
-      searchBtn.onclick = async () => {
+      searchBtn.onclick = async (e) => {
+        // e.preventDefault();
         let queryTerm = searchForm.value;
 
         if (!queryTerm) return toggleError();
@@ -187,11 +189,11 @@
 
       function printData(arr) {
         if (arr.title) {
-          let errorHTML = `<div class='error-card'>
+          let errorHTML = `<html lang="en"><div class='error-card'>
             <div class="emoji-div"><span class="emoji">🙁</span</div>
               <div class="h2-msg-div"><h2 class="error-header">${arr.title}</h2></div>
               <h5 class="error-blurb">${arr.message}${arr.resolution} </h5>
-              </div>`;
+              </div></html>`;
           resultsBody.innerHTML = errorHTML;
           return;
         } else {
@@ -201,7 +203,7 @@
               arr[0].word[i]
             }</span>`;
           }
-          var html = `<div class='results-content'>
+          var html = `<html lang="en"><div class='results-content'>
             <div class="${
               arr[0].word.length < 8 ? "between" : "mobile-column"
             }">
@@ -247,7 +249,7 @@
             }
             html += `</div></ul>`;
           });
-          html += `<div class="source-row"><h5 class="source-text">Source <a class="link" target="_blank" href="${arr[0].sourceUrls[0]}">${arr[0].sourceUrls[0]}</a></h5> <img class='window-icon' src="./assets/images/icon-new-window.svg" alt="icon"/></div>`;
+          html += `<div class="source-row"><h5 class="source-text">Source <a class="link" target="_blank" href="${arr[0].sourceUrls[0]}">${arr[0].sourceUrls[0]}</a></h5> <img class='window-icon' src="./assets/images/icon-new-window.svg" alt="icon"/></div></html>`;
           resultsBody.innerHTML = html;
           findAudio(arr);
 
@@ -261,6 +263,8 @@
 
       onkeydown = (e) => {
         if (e.key == "Enter") {
+          e.preventDefault();
+
           let queryTerm = searchForm.value;
 
           if (!queryTerm) return toggleError();
