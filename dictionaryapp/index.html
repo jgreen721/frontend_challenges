@@ -168,7 +168,6 @@
         let res = await fetch(`${API_URL}/${query}`);
         let data = await res.json();
         console.log(data);
-        if (!data.title) findAudio(data);
         printData(data);
       }
 
@@ -212,9 +211,12 @@
                   arr[0]?.phonetic ? arr[0].phonetic : ""
                 }</h5>
               </div>
+              <div>
               <button onclick="sayWord()" class="play-btn">
                 <img src="./assets/images/icon-play.svg" class="play-icon" alt="play-icon"/>
               </button>
+              <h5 class="audio-error"></h5>
+              </div>
             </div>`;
 
           arr[0].meanings.forEach((meaning) => {
@@ -247,6 +249,7 @@
           });
           html += `<div class="source-row"><h5 class="source-text">Source <a class="link" target="_blank" href="${arr[0].sourceUrls[0]}">${arr[0].sourceUrls[0]}</a></h5> <img class='window-icon' src="./assets/images/icon-new-window.svg" alt="icon"/></div>`;
           resultsBody.innerHTML = html;
+          findAudio(arr);
 
           // var itemObserver = new IntersectionObserver(showItem);
 
@@ -284,6 +287,9 @@
             }
           }
         });
+        if (audioFile == "") {
+          document.querySelector(".audio-error").innerHTML = "No audio 😖";
+        }
       }
 
       function sayWord() {
