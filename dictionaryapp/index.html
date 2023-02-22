@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Dictionary web app</title>
+  </head>
+  <body>
+    <div class="app" data-theme="dark" data-font="mono">
+      <div class="app-content">
+        <!-- Navbar -->
+        <nav class="nav">
+          <svg
+            id="book"
+            xmlns="http://www.w3.org/2000/svg"
+            width="34"
+            height="38"
+            viewBox="0 0 34 38"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="#838383"
+              stroke-linecap="round"
+              stroke-width="1.5"
+            >
+              <path
+                d="M1 33V5a4 4 0 0 1 4-4h26.8A1.2 1.2 0 0 1 33 2.2v26.228M5 29h28M5 37h28"
+              />
+              <path stroke-linejoin="round" d="M5 37a4 4 0 1 1 0-8" />
+              <path d="M11 9h12" />
+            </g>
+          </svg>
+
+          <div class="nav-flex">
+            <div class="custom-select">
+              <div class="current-select">
+                <h5 class="font">Sans Serif</h5>
+                <img
+                  class="arrow close"
+                  src="./assets/images/icon-arrow-down.svg"
+                  alt="arrow-icon"
+                />
+              </div>
+              <div class="select-modal hide-modal">
+                <li data-text="sans-serif" class="modal-item">Sans Serif</li>
+                <li data-text="serif" class="modal-item">Serif</li>
+                <li data-text="mono" class="modal-item">Mono</li>
+              </div>
+            </div>
+            <div class="theme-toggle-div">
+              <input class="theme-toggle" type="checkbox" name="theme-toggle" />
+              <svg
+                class="theme-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+              >
+                <path
+                  fill="none"
+                  stroke="#838383"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </nav>
+
+        <!-- FORM SEARCH -->
+
+        <div class="form-div">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search for any word..."
+            autocomplete="off"
+            autofocus="true"
+            name="query"
+          />
+          <button class="search-btn">
+            <img
+              class="search-icon"
+              src="./assets/images/icon-search.svg"
+              alt=""
+            />
+          </button>
+          <h3 class="error-h3">Whoops, can't be empty! 🙁</h3>
+        </div>
+
+        <!-- Results Card -->
+        <section class="results-card">
+          <div class="results-body"></div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var API_URL = `https://api.dictionaryapi.dev/api/v2/entries/en`;
+      var app = document.querySelector(".app");
+
+      //Theme Toggle
+      var themeToggle = document.querySelector(".theme-toggle");
+
+      //Font Select
+      var fontSelect = document.querySelector(".current-select");
+      var arrowIcon = document.querySelector(".arrow");
+      var selectModal = document.querySelector(".select-modal");
+      var fontItems = document.querySelectorAll(".modal-item");
+
+      //Search Form
+      var searchForm = document.querySelector(".form-control");
+      var errorEl = document.querySelector(".error-h3");
+      var searchBtn = document.querySelector(".search-btn");
+
+      //  Results Card
+
+      var playBtn = document.querySelector(".play-btn");
+      var resultsBody = document.querySelector(".results-body");
+      var audioFile = "";
+
+      themeToggle.onclick = () => {
+        let theme = document.querySelector(".app").getAttribute("data-theme");
+        theme = theme === "light" ? "dark" : "light";
+
+        document.querySelector(".app").setAttribute("data-theme", theme);
+      };
+
+      fontSelect.onclick = () => {
+        arrowIcon.classList.toggle("close");
+        toggleFontModal();
+      };
+
+      function toggleFontModal() {
+        console.log("show modal");
+        selectModal.classList.toggle("hide-modal");
+      }
+
+      fontItems.forEach((item, idx) => {
+        item.onclick = (e) => {
+          let newFont = e.target.getAttribute("data-text");
+          document.querySelector(".font").innerHTML = e.target.innerHTML;
+          app.style.fontFamily = newFont;
+        };
+      });
+
+      searchBtn.onclick = async () => {
+        let queryTerm = searchForm.value;
+
+        if (!queryTerm) return toggleError();
+        searchForm.value = "";
+        search(queryTerm);
+      };
+
+      async function search(query) {
+        console.log("SearchQuery", query);
+        let res = await fetch(`${API_URL}/${query}`);
+        let data = await res.json();
+        console.log(data);
+        if (!data.title) findAudio(data);
+        printData(data);
+      }
+
+      function toggleError() {
+        searchForm.classList.add("error");
+        console.log("ERROR!");
+        errorEl.classList.add("flash-error");
+
+        setTimeout(() => clearError(), 2000);
+      }
+
+      function clearError() {
+        // if (searchForm.classList.contains("error")) {
+        searchForm.classList.remove("error");
+        errorEl.classList.remove("flash-error");
+      }
+
+      function printData(arr) {
+        if (arr.title) {
+          let errorHTML = `<div class='error-card'>
+            <div class="emoji-div"><span class="emoji">🙁</span</div>
+              <div class="h2-msg-div"><h2 class="error-header">${arr.title}</h2></div>
+              <h5 class="error-blurb">${arr.message}${arr.resolution} </h5>
+              </div>`;
+          resultsBody.innerHTML = errorHTML;
+          return;
+        } else {
+          let wordHtml = "";
+          for (let i = 0; i < arr[0].word.length; i++) {
+            wordHtml += `<span class='fadein' style="--i:${i * 0.05}s">${
+              arr[0].word[i]
+            }</span>`;
+          }
+          var html = `<div class='results-content'>
+            <div class="${
+              arr[0].word.length < 8 ? "between" : "mobile-column"
+            }">
+              <div>
+                <h1 class="word">${wordHtml}</h1>
+                <h5 class="purple">${
+                  arr[0]?.phonetic ? arr[0].phonetic : ""
+                }</h5>
+              </div>
+              <button onclick="sayWord()" class="play-btn">
+                <img src="./assets/images/icon-play.svg" class="play-icon" alt="play-icon"/>
+              </button>
+            </div>`;
+
+          arr[0].meanings.forEach((meaning) => {
+            html += `
+            <div class="meaning-div">
+            <div class="wordtype-div">
+              <h2 class="wordtype">${meaning.partOfSpeech}</h2>
+              <div class="line"></div>
+            </div>
+            <h5 class="meaning-header">Meaning</h5>
+            `;
+            html += "<ul class='definitions-list'>";
+            meaning.definitions.forEach((definition, idx) => {
+              html += `<li style="--i:${
+                idx * 0.25
+              }s" class="definition-item"><h5 class="def-text"> ${
+                definition.definition
+              }</h5></li>`;
+            });
+
+            html += `</ul><ul class="syn-list"><span class="syn-header meaning-header"><h3>Synonyms</h3></span>`;
+            if (meaning.synonyms.length) {
+              meaning.synonyms.forEach((syn) => {
+                html += `<li class="syn-item"><h5> ${syn}</h5></li>`;
+              });
+            } else {
+              html += `<li class="syn-item"><h5>No listed synonyms 🥺</h5></li>`;
+            }
+            html += `</div></ul>`;
+          });
+          html += `<div class="source-row"><h5 class="source-text">Source <a class="link" target="_blank" href="${arr[0].sourceUrls[0]}">${arr[0].sourceUrls[0]}</a></h5> <img class='window-icon' src="./assets/images/icon-new-window.svg" alt="icon"/></div>`;
+          resultsBody.innerHTML = html;
+
+          // var itemObserver = new IntersectionObserver(showItem);
+
+          // document.querySelectorAll(".definition-item").forEach((item) => {
+          //   itemObserver.observe(item);
+          // });
+        }
+      }
+
+      onkeydown = (e) => {
+        if (e.key == "Enter") {
+          let queryTerm = searchForm.value;
+
+          if (!queryTerm) return toggleError();
+          searchForm.value = "";
+          search(queryTerm);
+        }
+      };
+
+      onclick = (e) => {
+        if (!e.target.closest(".custom-select")) {
+          selectModal.classList.add("hide-modal");
+        }
+      };
+
+      function findAudio(data) {
+        let phonetics = data[0].phonetics;
+        phonetics.forEach((obj) => {
+          for (let i in obj) {
+            if (i == "audio") {
+              console.log("you got something!");
+              if (obj[i] != "") {
+                audioFile = obj[i];
+              }
+            }
+          }
+        });
+      }
+
+      function sayWord() {
+        console.log("Hello", audioFile);
+        if (!audioFile.length) {
+          console.log("no audio for this word");
+          return;
+        }
+        const ctx = new AudioContext();
+
+        fetch(audioFile)
+          .then((res) => res.arrayBuffer())
+          .then((arrBuffer) => ctx.decodeAudioData(arrBuffer))
+          .then((decodedAudio) => {
+            const playSound = ctx.createBufferSource();
+            playSound.buffer = decodedAudio;
+            playSound.connect(ctx.destination);
+            playSound.start(ctx.currentTime);
+          });
+      }
+
+      // function showItem(entries) {
+      //   console.log(entries);
+      //   entries.forEach((entry) => {
+      //     console.log(entry.target);
+      //     if (entry.isIntersecting) {
+      //       entry.target.querySelector(".def-text").classList.add("fadein");
+      //     } else {
+      //       entry.target.querySelector(".def-text").classList.remove("fadein");
+      //     }
+      //   });
+      // }
+    </script>
+  </body>
+</html>
