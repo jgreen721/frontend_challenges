@@ -157,7 +157,7 @@
       });
 
       searchBtn.onclick = async (e) => {
-        // e.preventDefault();
+         e.preventDefault();
         let queryTerm = searchForm.value;
 
         if (!queryTerm) return toggleError();
