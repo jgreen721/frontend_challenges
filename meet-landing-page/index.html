@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Meet landing page</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="logo-container">
+        <img class="logo" src="./assets/logo.svg" alt="" />
+      </div>
+
+      <!-- HERO  -->
+
+      <header class="hero">
+        <div class="mobile-overlay">
+          <img class="mobile-img" src="./assets/tablet/image-hero.png" alt="" />
+        </div>
+        <div class="hero-col dsktop-col">
+          <picture>
+            <source
+              media="(min-width:768px)"
+              srcset="./assets/desktop/image-hero-left.png"
+            />
+            <source
+              media="(min-width:375px)"
+              srcset="./assets/desktop/image-hero-left.png"
+            />
+            <img
+              style="--i: -4rem"
+              class="hero-img"
+              src="./assets/desktop/image-hero-left.png"
+              alt="img"
+              style="width: auto"
+            />
+          </picture>
+        </div>
+
+        <div class="hero-col hero-content">
+          <h1 class="hero-h1">Group Chat for Everyone</h1>
+          <p class="hero-blurb">
+            Meet makes it easy to connect with others face-to-face virtually and
+            collaborate across any device.
+          </p>
+          <div class="btn-row">
+            <button class="btn blue-btn">
+              Download <span class="span-version">v1.3</span>
+            </button>
+            <button class="btn purple-btn ml-2">What is it?</button>
+          </div>
+        </div>
+
+        <div class="hero-col dsktop-col">
+          <picture>
+            <source
+              media="(min-width:768px)"
+              srcset="./assets/desktop/image-hero-right.png"
+            />
+            <source
+              media="(min-width:375px)"
+              srcset="./assets/desktop/image-hero-right.png"
+            />
+            <img
+              style="--i: 4rem"
+              class="hero-img"
+              src="./assets/desktop/image-hero-right.png"
+              alt="img"
+              style="width: auto"
+            />
+          </picture>
+        </div>
+      </header>
+
+      <!-- Icon Row  -->
+      <div class="icon-div">
+        <div class="circle">
+          <p>01</p>
+        </div>
+      </div>
+
+      <!-- Image gallery-->
+
+      <ul class="images-list">
+        <li style="--i: 0.5s" class="gallery-item">
+          <img
+            class="img-item"
+            src="./assets/desktop/image-woman-in-videocall.jpg"
+            alt="gallery-img"
+          />
+        </li>
+        <li style="--i: 1s" class="gallery-item">
+          <img
+            class="img-item"
+            src="./assets/desktop/image-women-videochatting.jpg"
+            alt="gallery-img"
+          />
+        </li>
+        <li style="--i: 1.25s" class="gallery-item">
+          <img
+            class="img-item"
+            src="./assets/desktop/image-men-in-meeting.jpg"
+            alt="gallery-img"
+          />
+        </li>
+        <li style="--i: 1.75s" class="gallery-item">
+          <img
+            class="img-item"
+            src="./assets/desktop/image-man-texting.jpg"
+            alt="gallery-img"
+          />
+        </li>
+      </ul>
+
+      <!-- BottomSection -->
+
+      <div class="bottom-section">
+        <h2 class="green-header">Built for Modern Use</h2>
+        <h1 class="section-h1">Smarter meeting, all in on place</h1>
+        <p class="section-blurb">
+          Send messages, share files, show your screen, and record your meetings
+          — all in one workspace. Control who can join with invite-only team
+          access, data encryption, and data export.
+        </p>
+      </div>
+
+      <!-- Icon Row  -->
+      <div class="bottom-icon-div">
+        <div class="circle">
+          <p>02</p>
+        </div>
+      </div>
+
+      <!--FOOTER-->
+
+      <footer>
+        <div class="footer-wrapper">
+        <div class="footer-overlay">
+          <picture>
+            <source
+              media="(min-width:768px)"
+              srcset="./assets/desktop/image-footer.jpg"
+            />
+            <source
+              media="(min-width:375px)"
+              srcset="./assets/tablet/image-footer.jpg"
+            />
+            <img
+              class="footer-img"
+              src="./assets/mobile/image-footer.jpg"
+              alt="img"
+            />
+          </picture>
+        </div>
+        <div class="footer-content">
+          <h1 class="footer-header">Experience more together</h1>
+          <p class="footer-blurb">
+            Stay connected with reliable HD meetings and unlimited one-on-one
+            and group video sessions.
+          </p>
+          <button class="btn purple-btn">Download v1.3</button>
+        </div>
+      </footer>
+      </div>
+    </div>
+
+    <script>
+      var gallery = document.querySelector(".images-list");
+      var bottomSection = document.querySelector(".bottom-section");
+      var footer = document.querySelector("footer");
+
+      var galleryObserver = new IntersectionObserver(showGallery);
+      var bottomObserver = new IntersectionObserver(showBottom);
+      var footerObserver = new IntersectionObserver(growFooter);
+
+      galleryObserver.observe(gallery);
+      bottomObserver.observe(bottomSection);
+      footerObserver.observe(footer);
+
+      function showGallery(entry) {
+        if (entry[0].isIntersecting) {
+          entry[0].target.querySelectorAll(".gallery-item").forEach((c) => {
+            c.classList.add("slideup");
+          });
+        } else {
+          entry[0].target.querySelectorAll(".gallery-item").forEach((c) => {
+            c.classList.remove("slideup");
+          });
+        }
+      }
+
+      function showBottom(entry) {
+        if (entry[0].isIntersecting) {
+          entry[0].target.style.opacity = 1;
+        } else {
+          entry[0].target.style.opacity = 0;
+          console.log("remove bottom");
+        }
+      }
+
+      function growFooter(entry) {
+        console.log("growFooter firing", entry[0]);
+        if (entry[0].isIntersecting) {
+          entry[0].target.querySelector(".footer-wrapper").style.transform = "translateY(0vh)";
+        } else {
+          entry[0].target.querySelector(".footer-wrapper").style.transform = "translateY(50vh)";
+        }
+      }
+    </script>
+  </body>
+</html>
