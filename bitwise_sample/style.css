@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Gajraj+One&family=Karla:wght@200;400&family=Phudu:wght@300&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --climate_crisis: "Climate Crisis", cursive;
+  --gajraj: "Gajraj One", cursive;
+  --karla: "Karla", sans-serif;
+  --phudu: "Phudu", cursive;
+  --mintgreen: mediumspringgreen;
+}
+
+body {
+  background: radial-gradient(gray, black);
+  height: 100vh;
+}
+
+header,
+.header-flex {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  flex-direction: column;
+}
+
+.thick-h1 {
+  font-family: var(--climate_crisis);
+  font-size: 7rem;
+  text-shadow: 1px 1px 10px white;
+}
+
+.thin-h1 {
+  font-family: var(--karla);
+  font-size: 3rem;
+  margin-left: 1rem;
+  text-shadow: 0px 0px 1px white;
+  text-shadow: 0px 0px 1px var(--mintgreen);
+}
+
+.dark {
+  background: black;
+  color: white;
+  padding: 0.5rem;
+  text-shadow: 1px 1px 10px whitesmoke;
+  clip-path: polygon(95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%, 5% 0);
+}
+
+.header-item {
+  font-size: 2rem;
+  margin: 0rem 2rem;
+  font-family: var(--phudu);
+}
+
+.num-input {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.form-control {
+  padding: 0.5rem;
+  width: clamp(30%, 250px, 45%);
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  outline: none;
+  border-bottom: 1px solid white;
+}
+
+.form-control:focus {
+  border-bottom: 1px solid var(--mintgreen);
+}
+
+.form-control::placeholder {
+  color: white;
+}
+
+.num-btn {
+  width: 6rem;
+  padding: 0.5rem;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  margin-left: 2rem;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.num-btn:hover {
+  opacity: 75%;
+}
+
+.binary-row {
+  margin: 5rem 0;
+}
+
+.binary-row,
+.binary-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-shift-btn {
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+}
+
+.right-shift-btn {
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+.shift-btn {
+  margin: 0 1rem;
+  /* padding: 0.5rem; */
+  width: 7rem;
+  height: 5rem;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-underside {
+  background: var(--mintgreen);
+  height: 80%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-underside {
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+}
+
+.shift-btn:hover {
+  opacity: 75%;
+  transform: scale(1.1);
+}
+
+.right-underside {
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+.btn-row {
+  display: flex;
+  margin-top: 3rem;
+  /* border: 3px solid red; */
+}
+
+.bit-div {
+  border: 1px solid white;
+  color: white;
+  padding: 1rem;
+  height: 200px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: var(--gajraj);
+}
+
+.bit-register {
+  color: var(--mintgreen);
+  font-size: 1.4rem;
+  text-shadow: none;
+  font-family: var(--karla);
+}
+
+.mint-green {
+  color: var(--mintgreen);
+  text-shadow: 1px 1px 1px white;
+}
+
+.total {
+  text-align: center;
+  font-size: 8rem;
+  font-family: var(--gajraj);
+  text-shadow: 2px 3px 15px var(--mintgreen), 2px 3px 35px white;
+  letter-spacing: 0.35rem;
+}
+
+@media screen and (max-width: 425px) {
+  .thick-h1 {
+    font-size: 4rem;
+  }
+
+  .thin-h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-item {
+    margin: 0 1rem;
+  }
+
+  .binary-row {
+    flex-direction: column;
+  }
+}
+
+.h5-blurb {
+  font-size: 1.7rem;
+  color: white;
+  text-align: center;
+  font-family: var(--karla);
+  line-height: 1.9rem;
+  text-shadow: 1px 0px 1px black;
+  padding: 1rem;
+}
