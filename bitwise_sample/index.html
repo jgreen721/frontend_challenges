@@ -68,15 +68,20 @@
       var number = (Math.random() * 255) | 0;
       numBtn.onclick = (e) => {
         e.preventDefault();
-
-        number = document.querySelector("input[name='choice-number']").value;
+        if (document.querySelector("input[name='choice-number']").value) {
+          number = document.querySelector("input[name='choice-number']").value;
+        } else {
+          number = (Math.random() * 256) | 0;
+        }
 
         console.log("Number", number);
 
         if (number < 0 || number > 256) {
           console.log("Invalid number entry");
-          return;
+          number = (Math.random() * 256) | 0;
+          // return;
         }
+
         formatNumber(number);
         printNumber(number);
       };
