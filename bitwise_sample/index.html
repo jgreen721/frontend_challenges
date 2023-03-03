@@ -27,15 +27,23 @@
     </header>
 
     <form class="num-input">
-      <input
-        class="form-control"
-        autofocus
-        placeholder="Pick a number 1-256"
-        name="choice-number"
-        id="choice-number"
-        autocomplete="off"
-      />
-      <button type="submit" class="btn num-btn">Enter</button>
+      <div>
+        <input
+          class="form-control"
+          autofocus
+          placeholder="Pick a number 1-256"
+          name="choice-number"
+          id="choice-number"
+          autocomplete="off"
+        />
+        <br />
+        <small style="font-size: 1.2rem; color: white"
+          >Or just click to generate random number!</small
+        >
+      </div>
+      <div>
+        <button type="submit" class="btn num-btn">Enter</button>
+      </div>
     </form>
 
     <div class="binary-row">
@@ -68,20 +76,19 @@
       var number = (Math.random() * 255) | 0;
       numBtn.onclick = (e) => {
         e.preventDefault();
-        if (document.querySelector("input[name='choice-number']").value) {
-          number = document.querySelector("input[name='choice-number']").value;
-        } else {
-          number = (Math.random() * 256) | 0;
-        }
+
+        number = document.querySelector("input[name='choice-number']").value;
 
         console.log("Number", number);
+        if (!number) {
+          number = (Math.random() * 256) | 0;
+        }
 
         if (number < 0 || number > 256) {
           console.log("Invalid number entry");
           number = (Math.random() * 256) | 0;
-          // return;
+          return;
         }
-
         formatNumber(number);
         printNumber(number);
       };
@@ -114,28 +121,53 @@
       leftShiftBtn.onclick = (e) => {
         let bitDivs = document.querySelectorAll(".bit-div");
         // binaryRow.innerHTML = "";
-        if (bitDivs[0].getAttribute("data-val") == 1) {
-          number -= 128;
-        }
-        number *= 2;
+        // if (bitDivs[0].getAttribute("data-val") == 1) {
+        //   number -= 128;
+        // }
 
-        formatNumber(number);
-        console.log("shift left!");
-        printNumber(number);
+        // formatNumber(number);
+        // console.log("shift left!");
+        // printNumber(number);
+        let prev;
+        for (let i = 7; i >= 0; i--) {
+          console.log("Prev", prev);
+          let temp = bitDivs[i].getAttribute("data-val");
+          bitDivs[i].setAttribute("data-val", prev ? prev : 0);
+          prev = temp;
+          bitDivs[i].querySelector(".bit-h1").innerHTML =
+            bitDivs[i].getAttribute("data-val");
+        }
+        calcNewTotal();
       };
 
       rightShiftBtn.onclick = (e) => {
         let bitDivs = document.querySelectorAll(".bit-div");
         // binaryRow.innerHTML = "";
-        if (bitDivs[bitDivs.length - 1].getAttribute("data-val") == 1) {
-          number -= 1;
+        let prev;
+        for (let i = 0; i < 8; i++) {
+          console.log("Prev", prev);
+          let temp = bitDivs[i].getAttribute("data-val");
+          bitDivs[i].setAttribute("data-val", prev ? prev : 0);
+          prev = temp;
+          bitDivs[i].querySelector(".bit-h1").innerHTML =
+            bitDivs[i].getAttribute("data-val");
         }
-        number /= 2;
-
-        formatNumber(number);
-        console.log("shift left!");
-        printNumber(number);
+        calcNewTotal();
       };
+
+      function calcNewTotal() {
+        let bitDivs = document.querySelectorAll(".bit-div");
+        var vals = [128, 64, 32, 16, 8, 4, 2, 1];
+        let total = 0;
+
+        for (let i = 0; i < 8; i++) {
+          if (bitDivs[i].getAttribute("data-val") == 1) {
+            total += vals[i];
+          }
+        }
+
+        printNumber(total);
+      }
 
       function printNumber(number) {
         console.log("NUMBER", number);

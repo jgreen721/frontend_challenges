@@ -66,11 +66,17 @@ header,
 .num-input {
   margin: 2.5rem 0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: clamp(35%, 350px, 45%); */
+  margin: 0 auto;
+  margin-top: 2.5rem;
 }
 
 .form-control {
   padding: 0.5rem;
-  width: clamp(30%, 250px, 45%);
+  width: 100%;
   background: transparent;
   color: white;
   border: none;
@@ -86,6 +92,7 @@ header,
 
 .form-control::placeholder {
   color: white;
+  opacity: 55%;
 }
 
 .num-btn {
