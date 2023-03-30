@@ -346,4 +346,26 @@ h5 {
   .attribution {
     position: relative;
   }
+
+  .btn:hover {
+    opacity: 100%;
+    background: white;
+    color: var(--violet);
+  }
+
+  .btn:hover::after {
+    position: absolute;
+    bottom: -4rem;
+    left: 7rem;
+    transition: 0.5s ease;
+    width: 12rem;
+    border-radius: 50%;
+    height: 2rem;
+    filter: blur(5px);
+    background: white;
+    animation: growshadow 0.2s;
+    transform: scale(0);
+    box-shadow: 2px 4px 50px white, 2px 4px 35px var(--violet);
+    content: "";
+  }
 }
