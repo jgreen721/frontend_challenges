@@ -537,7 +537,7 @@ footer {
   }
 
   .attributes-list {
-    padding: 0 2.5rem;
+    padding: 0;
     flex-direction: column;
     padding-top: 18rem;
   }
