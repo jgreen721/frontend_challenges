@@ -367,37 +367,37 @@
       }
 
       onscroll = (e) => {
-        // console.log("user is scrolling");
-        // console.log(document.querySelector(".about").getBoundingClientRect());
         let aboutY = document.querySelector(".about").getBoundingClientRect().y;
         let userY = window.pageYOffset;
         // let difference = 1485 - userY;
 
         //about Y-Offset = 1838px;
 
-        let newDifference = 1838 - userY;
+        let difference = 1838 - userY - 275;
 
-        console.log(newDifference);
+        console.log(difference);
         console.log(aboutY, userY);
         // if (difference > 200)
-        if (newDifference < 0) newDifference = 0;
+        if (difference < 0) difference = 0;
         document
           .querySelector(".about")
           .querySelector(
             ".profile-img-div"
-          ).style.transform = `translateX(-${newDifference}px)`;
+          ).style.transform = `translateX(-${difference}px)`;
         document
           .querySelector(".about")
           .querySelector(
             ".content-card"
-          ).style.transform = `translateX(${newDifference}px)`;
+          ).style.transform = `translateX(${difference}px)`;
         document.querySelector(
           ".profile-img"
-        ).style.filter = `grayscale(${newDifference}%) blur(${
-          newDifference < 5 ? newDifference : 5
+        ).style.filter = `grayscale(${difference}%) blur(${
+          difference < 5 ? difference : 5
         }px)`;
         console.log(userY, aboutY);
       };
+
+      console.log(window.innerWidth);
     </script>
   </body>
 </html>
