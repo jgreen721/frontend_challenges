@@ -537,7 +537,7 @@ footer {
   }
 
   .attributes-list {
-    padding: 0;
+    padding: 0 2rem;
     flex-direction: column;
     padding-top: 18rem;
   }
@@ -550,6 +550,7 @@ footer {
 
   .attribute-content {
     text-align: center;
+    margin-left:0rem;
   }
 
   .attribute-title {
