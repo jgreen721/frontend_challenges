@@ -369,11 +369,10 @@
       onscroll = (e) => {
         let aboutY = document.querySelector(".about").getBoundingClientRect().y;
         let userY = window.pageYOffset;
-        // let difference = 1485 - userY;
 
         //about Y-Offset = 1838px;
 
-        let difference = 1838 - userY - 275;
+        let difference = 1838 - userY - 275; // 275 to adjust for desktop experience, bit of 'magic number'
 
         console.log(difference);
         console.log(aboutY, userY);
