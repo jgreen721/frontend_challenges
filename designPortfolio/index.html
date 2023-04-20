@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Single-page design portfolio</title>
+  </head>
+  <body>
+    <main class="app">
+      <!-- NAV -->
+
+      <nav class="nav">
+        <!-- <img src="./assets/logo.svg" alt="" /> -->
+        <div class="logo">
+          <svg
+            class="logo-svg"
+            width="64"
+            height="64"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path class="logo-path" fill="#030303" d="M0 0h64v64H0z" />
+              <circle
+                stroke="#FFF7F0"
+                stroke-width="4"
+                cx="32"
+                cy="32"
+                r="14"
+              />
+            </g>
+          </svg>
+        </div>
+        <button class="btn dark-btn free-btn">Free Consultation</button>
+      </nav>
+
+      <!-- HERO -->
+      <header>
+        <div class="header-text-container">
+          <h1 class="header-h1">Design solutions made easy</h1>
+        </div>
+        <p class="header-p">
+          With over ten years of experience in various design disciplines, I’m
+          <em><strong> your </strong></em> one-stop shop for
+          <span class="underline"> your </span> design needs.
+        </p>
+      </header>
+
+      <!-- GRID -->
+      <section class="skills-grid">
+        <div style="--i: 0s" class="skill-col full-size-col purple slide-right">
+          <div class="skill-content-padding-wrapper">
+            <div class="skill-content">
+              <h4 class="skill-header">Graphic Designer</h4>
+              <div class="skill-img-container">
+                <img
+                  class="skill-img"
+                  src="./assets/pattern-graphic-design.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col flex-col">
+          <div class="skill-row">
+            <div style="--i: 2.5s" class="skill-small-col orange slide-down">
+              <div class="skill-content-padding-wrapper">
+                <div class="skill-content">
+                  <h4 class="skill-header">UI/UX</h4>
+                  <div class="skill-img-container">
+                    <img
+                      class="skill-img"
+                      src="./assets/pattern-ui-ux.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="--i: 1.5s" class="skill-small-col pink slide-down">
+              <div class="skill-content-padding-wrapper">
+                <div class="skill-content">
+                  <h4 class="skill-header">Apps</h4>
+                  <div class="skill-img-container">
+                    <img
+                      class="skill-img"
+                      src="./assets/pattern-apps.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div style="--i: 1s" class="skill-small-col red slide-up">
+              <div class="skill-content-padding-wrapper">
+                <div class="skill-content">
+                  <h4 class="skill-header">Illustrations</h4>
+                  <div class="skill-img-container">
+                    <img
+                      class="skill-img"
+                      src="./assets/pattern-illustrations.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col mobile-col slide-left">
+          <div class="skill-row">
+            <div class="skill-small-col green">
+              <div class="skill-content-padding-wrapper">
+                <div class="skill-content">
+                  <h4 class="skill-header">Photography</h4>
+                  <div class="skill-img-container">
+                    <img
+                      class="skill-img"
+                      src="./assets/pattern-photography.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-small-col crimson">
+              <div class="skill-content-padding-wrapper">
+                <div class="skill-content">
+                  <h4 class="skill-header">Motion Graphics</h4>
+                  <div class="skill-img-container">
+                    <img
+                      class="skill-img"
+                      src="./assets/pattern-motion-graphics.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section">
+        <div class="about-img-col">
+          <div class="about-img-circle-container">
+            <img class="profile-img" src="./assets/image-amy.webp" alt="" />
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 style="--i: 0.5s" class="about-h2">
+            I’m Amy, and I’d love to work on your next project
+          </h2>
+          <p style="--i: 1s" class="about-blurb">
+            I love working with others to create beautiful design solutions.
+            I’ve designed everything from brand illustrations to complete mobile
+            apps. I’m also handy with a camera!
+          </p>
+          <button style="--i: 1.25s" class="btn primary-btn about-btn">
+            Free Consultation
+          </button>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <article class="gallery">
+        <div class="gallery-content">
+          <div class="gallery-header">
+            <h3 class="gallery-h3-header">My Work</h3>
+          </div>
+          <ul class="gallery-items"></ul>
+          <div class="btns-row">
+            <button class="arrow-btn dark-btn prev">
+              <img
+                class="arrow-img"
+                src="./assets/icon-arrow-left.svg"
+                alt="arrow-icon"
+              />
+            </button>
+            <button class="arrow-btn dark-btn next">
+              <img
+                class="arrow-img"
+                src="./assets/icon-arrow-right.svg"
+                alt="arrow-icon"
+              />
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- BOTTOM -->
+      <section class="bottom-section">
+        <div class="bottom-section-content">
+          <div class="bottom-section-col start">
+            <h2>Book a call with me</h2>
+            <p class="bottom-blurb">
+              I’d love to have a chat to see how I can help you. The best first
+              step is for us to discuss your project during a free consultation.
+              Then we can move forward from there.
+            </p>
+          </div>
+          <div class="bottom-section-col end">
+            <button class="btn primary-btn mr-3">Free Consultation</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <img src="./assets/logo.svg" alt="" />
+        <button class="btn dark-btn free-btn">Free Consultation</button>
+      </footer>
+    </main>
+    <!-- Graphic Design UI/UX Apps Photography Illustrations Motion Graphics My Work
+    Book a call with me I’d love to have a chat to see how I can help you. The
+    best first step is for us to discuss your project during a free
+    consultation. Then we can move forward from there. Free Consultation Free
+    Consultation -->
+
+    <script>
+      let counter = -1.15;
+      let transValues = [];
+      function generateGallery() {
+        for (let i = 0; i < 5; i++) {
+          var li = document.createElement("li");
+          li.innerHTML = `<img class="gallery-img" src="./assets/image-slide-${
+            i + 1
+          }.jpg" alt="gallery-img"/>`;
+          li.className = "gallery-item";
+          li.style.transform = `translateX(${Math.floor(54 * counter)}rem)`;
+          // li.setAttribute("data-translate", `${Math.floor(54 * counter)}`);
+          li.setAttribute("data-translate", i);
+          transValues.push(Math.floor(54 * counter));
+          // li.setAttribute("data-img-num", `${i + 1}`);
+          counter++;
+          document.querySelector(".gallery-items").append(li);
+        }
+      }
+
+      generateGallery();
+
+      let prevBtn = document.querySelector(".prev");
+      let nextBtn = document.querySelector(".next");
+
+      prevBtn.onclick = () => changeGallery(0, 4, -1);
+      nextBtn.onclick = () => changeGallery(4, 0, 1);
+
+      function changeGallery(rotateFrom, rotateTo, dir) {
+        let galleryItems = document.querySelectorAll(".gallery-item");
+
+        for (let i = 0; i < 5; i++) {
+          //find the respective element;
+          let dataVal = parseInt(
+            galleryItems[i].getAttribute("data-translate")
+          );
+
+          console.log(dataVal, transValues);
+
+          // on prev 1st element  needs to go to back of arr
+          // on next last element needs to go to the first
+          if (dataVal == rotateFrom) {
+            galleryItems[i].setAttribute("data-translate", rotateTo);
+            galleryItems[
+              i
+            ].style.transform = `translateX(${transValues[rotateTo]}rem)`;
+
+            //standard move everthing else up/down by 1
+          } else {
+            galleryItems[i].setAttribute("data-translate", dataVal + dir);
+            galleryItems[i].style.transform = `translateX(${
+              transValues[dataVal + dir]
+            }rem)`;
+          }
+        }
+      }
+
+      var h1Header = document.querySelector(".header-h1");
+      var h1Text = h1Header.textContent;
+
+      h1Header.innerHTML = "";
+
+      h1Text = h1Text.split(" ");
+
+      for (let i = 0; i < h1Text.length; i++) {
+        var span = document.createElement("div");
+        span.innerHTML = h1Text[i] + " ";
+        span.className = "header-animated-span";
+        span.style.opacity = 0;
+        span.style.transition = "5s ease";
+        span.style.animation = `animate-header 4s ${
+          i / 2
+        }s forwards, dropshadow 4s 4s forwards`;
+        h1Header.append(span);
+      }
+
+      var aboutMeEl = document.querySelector(".about-section");
+      var aboutMeObserver = new IntersectionObserver(showAbout);
+      var aboutImgDiv = document.querySelector(".about-img-circle-container");
+      var aboutBlurb = document.querySelector(".about-blurb");
+      var aboutBtn = document.querySelector(".about-btn");
+      var aboutHeader = document.querySelector(".about-h2");
+      aboutMeObserver.observe(aboutMeEl);
+
+      function showAbout(entry) {
+        if (entry[0].isIntersecting) {
+          console.log("show About");
+          aboutImgDiv.classList.add("roll-in");
+          aboutBlurb.classList.add("slide-right");
+          aboutBtn.classList.add("slide-right");
+          aboutHeader.classList.add("slide-right");
+        } else {
+          console.log("hide about");
+          aboutImgDiv.classList.remove("roll-in");
+          aboutBlurb.classList.remove("slide-right");
+          aboutBtn.classList.remove("slide-right");
+          aboutHeader.classList.remove("slide-right");
+        }
+      }
+
+      var gallery = document.querySelector(".gallery");
+      var galleryObserver = new IntersectionObserver(showGallery);
+      galleryObserver.observe(gallery);
+
+      function showGallery(e) {
+        if (e[0].isIntersecting) {
+          gallery.querySelector(".gallery-content").classList.add("scale-up");
+        } else {
+          gallery
+            .querySelector(".gallery-content")
+            .classList.remove("scale-up");
+        }
+      }
+
+      var bottom = document.querySelector(".bottom-section");
+      var bottomObserver = new IntersectionObserver(showBottom);
+      bottomObserver.observe(bottom);
+
+      function showBottom(e) {
+        if (e[0].isIntersecting) {
+          bottom
+            .querySelector(".bottom-section-content")
+            .classList.add("move-up");
+        } else {
+          bottom
+            .querySelector(".bottom-section-content")
+            .classList.remove("move-up");
+        }
+      }
+    </script>
+  </body>
+</html>
