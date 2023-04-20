@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>0 - BitWise - 1</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-flex">
+        <h1 class="thick-h1">
+          <span style="--i: 0.25s" class="thick-span">B</span>
+          <span style="--i: 0.5s" class="thick-span">I</span>
+          <span style="--i: 0.75s" class="thick-span">T</span>
+        </h1>
+        <h1 class="thin-h1">WISE</h1>
+      </div>
+      <div class="header-flex dark">
+        <h5 class="header-item"><<</h5>
+        <h5 class="header-item">>></h5>
+        <h5 class="header-item">&</h5>
+        <h5 class="header-item">xor</h5>
+        <h5 class="header-item">or</h5>
+      </div>
+    </header>
+
+    <form class="num-input">
+      <div>
+        <input
+          class="form-control"
+          autofocus
+          placeholder="Pick a number 1-256"
+          name="choice-number"
+          id="choice-number"
+          autocomplete="off"
+        />
+        <br />
+        <small style="font-size: 1.2rem; color: white"
+          >Or just click to generate random number!</small
+        >
+      </div>
+      <div>
+        <button type="submit" class="btn num-btn">Enter</button>
+      </div>
+    </form>
+
+    <div class="binary-row">
+      <div class="binary-flex"></div>
+      <div class="btn-row">
+        <button class="left-shift-btn shift-btn">
+          <div class="btn-underside left-underside"><<</div>
+        </button>
+        <button class="right-shift-btn shift-btn">
+          <div class="btn-underside right-underside">>></div>
+        </button>
+      </div>
+    </div>
+
+    <h1 class="total"></h1>
+    <h5 class="h5-blurb">
+      With this trick we can allow 8 argument/settings to be fitted into a
+      single byte (8 bits) of memory. The computer will simply parse each bit as
+      its own yes/no response to available settings. The << or >> shifting is
+      just a cool trick that allows one to make powerful changes with basic
+      manipulations. With great power though...😎
+    </h5>
+
+    <script>
+      var numBtn = document.querySelector(".num-btn");
+      var binaryRow = document.querySelector(".binary-flex");
+      var totalEl = document.querySelector(".total");
+      var leftShiftBtn = document.querySelector(".left-shift-btn");
+      var rightShiftBtn = document.querySelector(".right-shift-btn");
+      var number = (Math.random() * 255) | 0;
+      numBtn.onclick = (e) => {
+        e.preventDefault();
+
+        number = document.querySelector("input[name='choice-number']").value;
+
+        console.log("Number", number);
+        if (!number) {
+          number = (Math.random() * 256) | 0;
+        }
+
+        if (number < 0 || number > 256) {
+          console.log("Invalid number entry");
+          number = (Math.random() * 256) | 0;
+          return;
+        }
+        formatNumber(number);
+        printNumber(number);
+      };
+
+      formatNumber(number);
+      printNumber(number);
+
+      function formatNumber(number) {
+        var vals = [128, 64, 32, 16, 8, 4, 2, 1];
+        binaryRow.innerHTML = "";
+
+        for (let i = 0; i < 8; i++) {
+          let bitDiv = document.createElement("div");
+          bitDiv.className = "bit-div";
+          if (number >= vals[i]) {
+            bitDiv.setAttribute("data-val", 1);
+            bitDiv.classList.add("mint-green");
+
+            number -= vals[i];
+          } else {
+            bitDiv.setAttribute("data-val", 0);
+          }
+          bitDiv.innerHTML = `<h1 class='bit-h1'>${bitDiv.getAttribute(
+            "data-val"
+          )}</h1><h3 class='bit-register'>${vals[i]}</h3>`;
+          binaryRow.append(bitDiv);
+        }
+      }
+
+      leftShiftBtn.onclick = (e) => {
+        let bitDivs = document.querySelectorAll(".bit-div");
+        // binaryRow.innerHTML = "";
+        // if (bitDivs[0].getAttribute("data-val") == 1) {
+        //   number -= 128;
+        // }
+
+        // formatNumber(number);
+        // console.log("shift left!");
+        // printNumber(number);
+        let prev;
+        for (let i = 7; i >= 0; i--) {
+          console.log("Prev", prev);
+          let temp = bitDivs[i].getAttribute("data-val");
+          bitDivs[i].setAttribute("data-val", prev ? prev : 0);
+          prev = temp;
+          bitDivs[i].querySelector(".bit-h1").innerHTML =
+            bitDivs[i].getAttribute("data-val");
+        }
+        calcNewTotal();
+      };
+
+      rightShiftBtn.onclick = (e) => {
+        let bitDivs = document.querySelectorAll(".bit-div");
+        // binaryRow.innerHTML = "";
+        let prev;
+        for (let i = 0; i < 8; i++) {
+          console.log("Prev", prev);
+          let temp = bitDivs[i].getAttribute("data-val");
+          bitDivs[i].setAttribute("data-val", prev ? prev : 0);
+          prev = temp;
+          bitDivs[i].querySelector(".bit-h1").innerHTML =
+            bitDivs[i].getAttribute("data-val");
+        }
+        calcNewTotal();
+      };
+
+      function calcNewTotal() {
+        let bitDivs = document.querySelectorAll(".bit-div");
+        var vals = [128, 64, 32, 16, 8, 4, 2, 1];
+        let total = 0;
+
+        for (let i = 0; i < 8; i++) {
+          if (bitDivs[i].getAttribute("data-val") == 1) {
+            total += vals[i];
+          }
+        }
+
+        printNumber(total);
+      }
+
+      function printNumber(number) {
+        console.log("NUMBER", number);
+        number = Math.floor(number);
+        totalEl.innerHTML = number;
+      }
+    </script>
+  </body>
+</html>

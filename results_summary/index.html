@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>~~ Summary Card ~~</title>
+  </head>
+  <body>
+    <div data-theme="light" class="app animation-app">
+      <div class="menu-row">
+        <div class="theme-divs">
+          <div class="theme-div toggle-div">
+            <div class="theme-icon">☀️</div>
+            <input type="checkbox" class="input-checkbox" name="theme-toggle" />
+            <div class="theme-icon">🌙</div>
+          </div>
+          <div class="animations-div toggle-div">
+            <div class="theme-icon secondary">Animate</div>
+            <div class="input-checkbox-div-and-label">
+              <input
+                type="checkbox"
+                class="input-checkbox"
+                name="animations-toggle"
+              />
+            </div>
+            <div class="theme-icon secondary">Static</div>
+          </div>
+        </div>
+        <button onclick="resetStats()" class="stats-btn">Reset Stats</button>
+      </div>
+
+      <div class="main-card">
+        <div class="card-col left-col">
+          <canvas class="confetti-canvas"></canvas>
+          <div class="left-overlay"></div>
+          <div class="left-col-content">
+            <h3 class="left-col-header card-text-color">Your Results</h3>
+            <div class="circle-div">
+              <div class="circle"></div>
+              <div class="circle-content">
+                <h1 class="grade-h1">76</h1>
+                <p class="circle-caption card-text-color">of 100</p>
+              </div>
+            </div>
+            <h3 class="bold accolade">Great</h3>
+            <p class="summary card-text-color">
+              You scored higher than 65% of the people who have taken these
+              tests!
+            </p>
+          </div>
+        </div>
+        <div class="card-col right-col">
+          <h3 class="right-col-header">Summary</h3>
+          <ul class="skills-list"></ul>
+          <button class="btn continue-btn">
+            <p class="btn-text">Continue</p>
+          </button>
+        </div>
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://www.frontendmentor.io/profile/jgreen721"
+          target="_blank"
+          >Justin Green 👨‍💻</a
+        >.
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <script>
+      let themeToggle = document.querySelector("input[name='theme-toggle']");
+      let animationsToggle = document.querySelector(
+        "input[name='animations-toggle']"
+      );
+
+      // toggle between light/dark mode -- update local_storage
+
+      themeToggle.oninput = () => {
+        let newTheme =
+          document.querySelector(".app").getAttribute("data-theme") == "light"
+            ? "dark"
+            : "light";
+        document.querySelector(".app").setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme-mode", newTheme);
+      };
+
+      // toggle animations on/off(will only notice change on page refresh) -- update local_storage
+
+      animationsToggle.oninput = () => {
+        console.log("toggle animations");
+
+        let status = localStorage.getItem("animations") || "true";
+        console.log("status", status);
+        localStorage.setItem("animations", status == "true" ? "false" : "true");
+      };
+
+      //check for and curate previous saved user-settings, adjust toggle-states accordingly
+
+      function onInit() {
+        if (localStorage["animations"] == "false") {
+          document.querySelector(".app").classList.remove("animation-app");
+          console.log("animations removed");
+          document.querySelector(
+            "input[name='animations-toggle']"
+          ).checked = true;
+        }
+
+        let themeMode = localStorage.getItem("theme-mode") || "light";
+
+        document.querySelector(".app").setAttribute("data-theme", themeMode);
+        if (themeMode == "dark") {
+          console.log("CHECK THEME INPUT");
+          document.querySelector("input[name='theme-toggle']").checked = true;
+        }
+      }
+
+      //initial actions
+      onInit();
+      setTimeout(() => fireConfetti(), 3000);
+
+      //fetching skills, mapping colors into objects to 'personify' created elements
+
+      let colors = ["--red", "--orange_yellow", "--green_teal", "--cobaltblue"];
+
+      fetch("data.json")
+        .then((res) => res.json())
+        .then((res) => {
+          res
+            .map((r, idx) => ({ ...r, color: colors[idx] }))
+            .map((r, idx) => printSkill(r, idx));
+        });
+
+      function printSkill(item, idx) {
+        console.log("ITEM", item);
+        // create main item element, bg-overlay, 2 content columns
+
+        var li = document.createElement("li");
+        var itemOverlay = document.createElement("div");
+        itemOverlay.className = "item-overlay";
+        itemOverlay.style.backgroundColor = `var(${item.color})`;
+        li.appendChild(itemOverlay);
+        li.setAttribute("data-color", item.color);
+
+        var skillCol = document.createElement("div");
+        skillCol.className = "item-flex";
+        skillCol.style.color = `var(${item.color})`;
+        skillCol.innerHTML = `<div class='icon-div'><img src=${item.icon} alt="skill-icon" class="icon"/></div><p class="category-p">${item.category}</p>`;
+        var scoreCol = document.createElement("div");
+        scoreCol.classList.add("item-flex");
+        scoreCol.innerHTML = `<p class="score">${item.score} </p> <p class="muted-text"> / 100</p>`;
+        li.className = "skill-item";
+        li.appendChild(skillCol);
+        li.appendChild(scoreCol);
+
+        document.querySelector(".skills-list").append(li);
+        li.style.setProperty("--i", `${idx * 0.25}s`);
+        li.onmouseenter = (e) => addBoxShadow(e);
+        li.onmouseleave = (e) => removeBoxShadow(e);
+      }
+
+      function addBoxShadow(e) {
+        let color = e.target.getAttribute("data-color");
+        console.log("color", color);
+        document.querySelector(".main-card").style.boxShadow = `10px ${
+          (Math.random() * 25) | 0
+        }px ${((Math.random() * 55) | 0) + 5}px var(${color})`;
+      }
+
+      function removeBoxShadow(e) {
+        document.querySelector(".main-card").style.boxShadow = "";
+      }
+
+      // confetti library
+
+      const jsConfetti = new JSConfetti({
+        canvas: document.querySelector(".confetti-canvas"),
+      });
+
+      function fireConfetti() {
+        jsConfetti.addConfetti({
+          confettiRadius: 6,
+          confettiNumber: 500,
+          confettiColors: [
+            "hsl(166, 100%, 37%)",
+            "hsl(234, 85%, 45%)",
+            "hsl(39, 100%, 56%)",
+            "hsl(0, 100%, 67%)",
+            "hsl(221, 100%, 96%)",
+            "#f9bec7",
+          ],
+          //   emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
+        });
+      }
+
+      let accolades = [
+        {
+          min_score: 85,
+          accolade: "Master",
+          caption:
+            "You scored higher than 80% of the people who have taken these tests!",
+        },
+        {
+          min_score: 75,
+          accolade: "Great",
+          caption:
+            "You scored higher than 65% of the people who have taken these tests!",
+        },
+        {
+          min_score: 65,
+          accolade: "Good",
+          caption:
+            "You scored higher than 55% of the people who have taken these tests!",
+        },
+        {
+          min_score: 55,
+          accolade: "Average",
+          caption:
+            "Uh-oh, you only scored higher than 50% of the people who have taken these tests.",
+        },
+        {
+          min_score: 45,
+          accolade: "Subpar",
+          caption: "Uh-oh, it looks like you may need some work in this area!",
+        },
+        {
+          min_score: 35,
+          accolade: "Poor",
+          caption: "This might not be the best fit for you",
+        },
+      ];
+
+      function resetStats() {
+        if (document.querySelector(".left-col").classList.contains("flash"))
+          return;
+        let newScore = (Math.random() * 100) | 0;
+        // newScore = 27;
+        let accolade = "";
+        console.log(newScore);
+        document.querySelector(".left-col").classList.add("flash");
+        setTimeout(() => {
+          document.querySelector(".left-col").classList.remove("flash");
+          if (newScore > 75) fireConfetti();
+        }, 2500);
+
+        accolades.forEach((acc, idx) => {
+          if (newScore >= 85) {
+            accolade = "Master";
+            document.querySelector(".summary").innerHTML = accolades[0].caption;
+
+            return;
+          }
+          if (newScore < 35) {
+            accolade = "Poor";
+            document.querySelector(".summary").innerHTML =
+              accolades[accolades.length - 1].caption;
+
+            return;
+          } else if (
+            newScore <= acc.min_score &&
+            newScore >= accolades[idx + 1].min_score
+          ) {
+            accolade = acc.accolade;
+            document.querySelector(".summary").innerHTML = acc.caption;
+
+            return;
+          }
+        });
+        resetScores(accolade);
+
+        document.querySelector(".grade-h1").innerHTML = newScore;
+        document.querySelector(".accolade").innerHTML = accolade;
+      }
+
+      function resetScores(accolade) {
+        let ranges = {
+          Master: {
+            max: 100,
+            min: 65,
+          },
+          Great: {
+            max: 95,
+            min: 60,
+          },
+          Good: {
+            max: 85,
+            min: 55,
+          },
+          Average: {
+            max: 80,
+            min: 45,
+          },
+          Subpar: {
+            max: 75,
+            min: 45,
+          },
+          Poor: {
+            max: 65,
+            min: 0,
+          },
+        };
+        let properRange = ranges[accolade];
+        console.log(accolade, properRange);
+        document.querySelectorAll(".score").forEach((s) => {
+          let diff = properRange.max - properRange.min;
+          let score = ((Math.random() * diff) | 0) + properRange.min;
+          s.innerHTML = score;
+        });
+      }
+    </script>
+  </body>
+</html>
