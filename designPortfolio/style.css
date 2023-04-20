@@ -19,7 +19,8 @@ html {
   --crimson: #552049;
   --black: #030303;
   --gray: #7a746e;
-  --white: #fff7f0;
+  --mainBg: #fff7f0;
+  --white: #ffffff;
   --mainFont: "Plus Jakarta Sans", sans-serif;
   --xPadding: 16.5rem;
 }
@@ -54,6 +55,7 @@ html {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  background: #fff7f0;
 }
 
 h1 {
