@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Skilled e-learning landing page</title>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="nav">
+        <img class="nav-logo" src="./assets/logo-dark.svg" alt="" />
+        <canvas></canvas>
+
+        <button class="btn btn-primary">Get Started</button>
+      </nav>
+      <div class="header-row">
+        <section class="main">
+          <h1>Maximize skill, minimize budget</h1>
+          <h5 class="py-3">
+            Our modern courses across a range of in-demand skills will give you
+            the knowledge you need to live the life you want.
+          </h5>
+          <button class="btn light-gradient">Get Started</button>
+        </section>
+        <picture>
+          <source
+            media="(min-width:950px)"
+            srcset="./assets/image-hero-desktop.png"
+          />
+          <source
+            media="(min-width:450px)"
+            srcset="./assets/image-hero-tablet.png"
+          />
+          <img
+            class="hero-img"
+            src="./assets/image-hero-mobile.png"
+            alt="img"
+            style="width: auto"
+          />
+        </picture>
+      </div>
+      <ul class="cards">
+        <li class="card bg-light-gradient text-white">
+          <h4 class="card-h4">Check out our most popular courses!</h4>
+        </li>
+      </ul>
+
+      <svg
+        class="bottom-bg"
+        width="100%"
+        height="100%"
+        id="svg"
+        viewBox="0 0 1440 590"
+        xmlns="http://www.w3.org/2000/svg"
+        class="transition duration-300 ease-in-out delay-150"
+      >
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="5%" stop-color="#f02aa6"></stop>
+            <stop offset="95%" stop-color="#ff6f48"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0,600 C 0,600 0,200 0,200 C 39.819397816489996,215.2640831108409 79.63879563297999,230.5281662216818 137,232 C 194.36120436702,233.4718337783182 269.26421528457,221.15141822411377 313,220 C 356.73578471543,218.84858177588623 369.30434322873987,228.8661608818631 410,233 C 450.69565677126013,237.1338391181369 519.5184118004705,235.38393824843376 574,250 C 628.4815881995295,264.61606175156624 668.6220095693781,295.5980861244019 720,260 C 771.3779904306219,224.4019138755981 833.9935499220175,122.2237172539586 887,129 C 940.0064500779825,135.7762827460414 983.403790742552,251.5070448597637 1022,259 C 1060.596209257448,266.4929551402363 1094.3912871077746,165.7481033069867 1140,140 C 1185.6087128922254,114.25189669301331 1243.03106082635,163.50054191228952 1295,186 C 1346.96893917365,208.49945808771048 1393.484469586825,204.24972904385524 1440,200 C 1440,200 1440,600 1440,600 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="url(#gradient)"
+          fill-opacity="0.53"
+          class="transition-all duration-300 ease-in-out delay-150 path-0"
+        ></path>
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="5%" stop-color="#f02aa6"></stop>
+            <stop offset="95%" stop-color="#ff6f48"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0,600 C 0,600 0,400 0,400 C 36.03774881704511,372.0466441090169 72.07549763409023,344.09328821803376 128,338 C 183.92450236590977,331.90671178196624 259.73575828068414,347.6734912368817 314,378 C 368.26424171931586,408.3265087631183 400.98146924317325,453.2127468344392 437,457 C 473.01853075682675,460.7872531655608 512.338364746623,423.4755214253615 555,410 C 597.661635253377,396.5244785746385 643.6650717703351,406.88516746411483 699,388 C 754.3349282296649,369.11483253588517 819.0013481720372,320.9838087181792 870,345 C 920.9986518279628,369.0161912818208 958.3295355415157,465.17959766316847 1004,472 C 1049.6704644584843,478.82040233683153 1103.6805096618996,396.29780062914693 1156,360 C 1208.3194903381004,323.70219937085307 1258.948425810886,333.62919982024374 1306,348 C 1353.051574189114,362.37080017975626 1396.525787094557,381.18540008987816 1440,400 C 1440,400 1440,600 1440,600 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="url(#gradient)"
+          fill-opacity="1"
+          class="transition-all duration-300 ease-in-out delay-150 path-1"
+        ></path>
+      </svg>
+
+      <footer class="footer">
+        <img class="footer-logo" src="./assets/logo-light.svg" alt="" />
+        <button class="btn dark-gradient">Get Started</button>
+      </footer>
+    </div>
+
+    <!-- Get Started Maximize skill, minimize budget Our modern courses across a
+    range of in-demand skills will give you the knowledge you need to live the
+    life you want. Get Started Check out our most popular courses! Animation
+    Learn the latest animation techniques to create stunning motion design and
+    captivate your audience. Get Started Design Create beautiful, usable
+    interfaces to help shape the future of how the web looks. Get Started
+    Photography Explore critical fundamentals like lighting, composition, and
+    focus to capture exceptional photos. Get Started Crypto All you need to know
+    to get started investing in crypto. Go from beginner to advanced with this
+    54 hour course. Get Started Business A step-by-step playbook to help you
+    start, scale, and sustain your business without outside investment. Get
+    Started Get Started -->
+
+    <script>
+      var data = [
+        {
+          id: 1,
+          title: "Animation",
+          icon: "./assets/icon-animation.svg",
+          blurb:
+            "Learn the latest animation techniques to create stunning motion design and captivate your audience.",
+        },
+        {
+          id: 2,
+          title: "Design",
+          icon: "./assets/icon-design.svg",
+          blurb:
+            "Create beautiful, usable interfaces to help shape the future of how the web looks.",
+        },
+        {
+          id: 3,
+          title: "Photography",
+          icon: "./assets/icon-photography.svg",
+          blurb:
+            "Explore critical fundamentals like lighting, composition, and focus to capture exceptional photos.",
+        },
+        {
+          id: 4,
+          title: "Crypto",
+          icon: "./assets/icon-crypto.svg",
+          blurb:
+            "All you need to know to get started investing in crypto. Go from beginner to advanced with this 54 hour course.",
+        },
+        {
+          id: 5,
+          title: "Business",
+          icon: "./assets/icon-business.svg",
+          blurb:
+            "A step-by-step playbook to help you start, scale, and sustain your business without outside investment.",
+        },
+      ];
+
+      data.forEach((d) => {
+        var li = document.createElement("li");
+        li.className = "card bg-white";
+
+        li.innerHTML = `<img class="card-icon" src="${d.icon}" alt="" />
+          <h4>${d.title}</h4>
+          <h5 class="py-2">
+        ${d.blurb}
+          </h5>
+          <button class="btn-transparent pink">Get Started</button>`;
+
+        document.querySelector(".cards").append(li);
+      });
+
+      var canvas = document.querySelector("canvas");
+      var ctx = canvas.getContext("2d");
+      // canvas.width = innerWidth;
+      // canvas.height = innerHeight;
+
+      // ctx.fillStyle = "blue";
+      // ctx.fillRect(0, 0, 300, 150);
+      // ctx.stroke();
+
+      ctx.fillStyle = "black";
+      ctx.font = "30px Verdana";
+      ctx.fillText("Strike", 20, 70);
+      // ctx.fillStyle = "red";
+      // ctx.fillRect(120, 120, 100, 100);
+      // ctx.strokeStyle = "red";
+      // ctx.strokeRect(20, 40, 100, 40);
+      // ctx.stroke();
+      let imageData = ctx.getImageData(20, 40, 100, 40);
+      // console.log("imgdata", imageData);
+
+      ctx.clearRect(0, 0, 300, 150);
+
+      let particles = [];
+      let mouse = { x: 550, y: 55, size: 165 };
+
+      onmousemove = (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+
+        console.log("Mouse", mouse);
+      };
+
+      onmouseleave = () => {
+        mouse.x = -50000;
+        mouse.y = -50000;
+      };
+
+      class Particle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.size = 2;
+          this.baseX = x;
+          this.baseY = y;
+          this.color = "black";
+          this.density = Math.random() * 2;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.closePath();
+        }
+
+        update(mouse) {
+          let distX = mouse.x - this.x;
+          let distY = mouse.y - this.y;
+
+          let distance = Math.sqrt(distX * distX + distY * distY);
+          let maxDistance = mouse.size;
+
+          let dirX = distX / distance;
+          let dirY = distY / distance;
+
+          let force = (maxDistance - distance) / maxDistance;
+
+          dirX *= force;
+          dirY *= force;
+
+          if (distance < maxDistance) {
+            this.x -= dirX;
+            this.y -= dirY;
+          } else {
+            if (this.x != this.baseX) {
+              let dx = this.baseX - this.x;
+              this.x += dx / 100;
+            }
+            if (this.y != this.baseY) {
+              let dy = this.baseY - this.y;
+              this.y += dy / 100;
+            }
+          }
+        }
+      }
+
+      function init() {
+        for (let y = 0, y2 = imageData.height; y < y2; y++) {
+          for (let x = 0, x2 = imageData.width; x < x2; x++) {
+            if (imageData.data[y * 4 * imageData.width + x * 4 + 3] > 128) {
+              let posX = x + 25;
+              let posY = y + 70;
+              particles.push(new Particle(posX, posY));
+            }
+          }
+        }
+        console.log(particles);
+      }
+
+      init();
+
+      function animate() {
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, 300, 150);
+        particles.forEach((p) => {
+          p.draw();
+          p.update(mouse);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      // for (let i = 0; i < 250; i++) {
+      //   setTimeout(() => {
+      //     mouse.x--;
+      //     console.log("MouseX", mouse.x);
+      //     if (i == 249) {
+      //       mouse.x = -50000;
+      //     }
+      //   }, i * 50);
+      // }
+    </script>
+  </body>
+</html>
