@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Creative single page site</title>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="nav">
+        <div class="nav-col">
+          <div class="nav-logo-div">
+            <img class="nav-logo" src="./assets/desktop/logo.svg" alt="logo" />
+          </div>
+        </div>
+
+        <div class="nav-col">
+          <div class="bg-overlay-red"></div>
+          <div class="nav-col-content">
+            <ul class="nav-links">
+              <li class="nav-item">
+                <a href="#" class="nav-link text-white"><p>About</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-white"><p>Services</p></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-white"><p>Projects</p></a>
+              </li>
+            </ul>
+            <button class="nav-btn btn bg-dark text-white">
+              <p>Schedule a Call</p>
+            </button>
+          </div>
+        </div>
+        <div class="nav-mobile-menu">
+          <div class="burger-div">
+            <img
+              class="burger-icon"
+              src="./assets/mobile/icon-hamburger.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </nav>
+
+      <div class="header">
+        <div class="mobile-hero-img-div">
+          <picture>
+            <source
+              media="(min-width:1050px)"
+              srcset="./assets/desktop/image-hero.jpg"
+            />
+            <source
+              media="(min-width:550px)"
+              srcset="./assets/tablet/image-hero.jpg"
+            />
+            <img
+              class="mobile-hero-img"
+              src="./assets/mobile/image-hero.jpg"
+              alt="img"
+            />
+          </picture>
+        </div>
+        <div class="header-card-content">
+          <h1 class="header-h1">Branding & website design agency</h1>
+          <p class="header-p py-4">
+            We specialize in visual storytelling by creating cohesive brand and
+            website design solutions for small businesses, giving lasting
+            impressions to audiences in a digital world.
+          </p>
+          <button class="btn bg-red text-white primary-btn">Learn More</button>
+        </div>
+        <div class="header-hero-img">
+          <picture>
+            <source
+              media="(min-width:1050px)"
+              srcset="./assets/desktop/image-hero.jpg"
+            />
+            <source
+              media="(min-width:550px)"
+              srcset="./assets/tablet/image-hero.jpg"
+            />
+            <img src="./assets/mobile/image-hero.jpg" alt="img" />
+          </picture>
+        </div>
+      </div>
+
+      <section class="top-section">
+        <div class="top-section-hero-img-div"></div>
+        <div class="mobile-strategic-hero-img-div">
+          <img
+            class="mobile-strategic-hero-img"
+            src="./assets/mobile/image-strategic.jpg"
+            alt=""
+          />
+        </div>
+        <div class="design-content-parent">
+          <div class="design-content-row">
+            <div class="design-logo-column">
+              <img
+                class="design-content-logo"
+                src="./assets/desktop/bg-pattern-wave-red.svg"
+                alt=""
+              />
+            </div>
+            <div class="design-content-card text-white">
+              <h2 class="design-h2">
+                <span class="text-red">Design</span> is strategic.
+              </h2>
+              <p class="design-content-blurb">
+                A well-crafted design strategy consistently produces desired
+                outcomes and brand awareness. We are firm believers that success
+                lies in creative collaboration with our clients.
+              </p>
+              <button class="btn btn-transparent-cube text-red text-start">
+                Schedule a Call
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-section">
+        <!-- <div class="bottom-section-column"> -->
+        <h2 class="bottom-section-header desktop-bottom-header">
+          Our approach for creating a winning brand
+        </h2>
+        <!-- </div> -->
+        <!-- <div class="bottom-section-column"></div> -->
+        <div class="features-list-card bg-red text-white">
+          <h2 class="mobile-bottom-header">
+            Our approach for creating a winning brand
+          </h2>
+          <ul class="features">
+            <li class="feature-item">
+              <div class="feature-item-header">
+                <h1 class="faded">01</h1>
+                <h3 class="feature-h4">Brand Strategy</h3>
+              </div>
+              <p class="feature-item-blurb">
+                Brand strategy is critical for long-term success. Outshining
+                competitors and capturing the target audience is key.
+              </p>
+            </li>
+            <li class="feature-item">
+              <div class="feature-item-header">
+                <h1 class="faded">02</h1>
+                <h3 class="feature-h4">Brand Design</h3>
+              </div>
+              <p class="feature-item-blurb">
+                Keeping the brand design unique and meaningful helps in
+                communicating the brand's timeless value effectively.
+              </p>
+            </li>
+            <li class="feature-item">
+              <div class="feature-item-header">
+                <h1 class="faded">03</h1>
+                <h3 class="feature-h4">Web Strategy</h3>
+              </div>
+              <p class="feature-item-blurb">
+                A beautifully crafted website is the best tool for brand
+                awareness, and ultimately results in increased revenues.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="sliders-section">
+        <!-- <div class="slider-content-column"> -->
+        <div class="mobile-slider-div">
+          <img
+            class="mobile-slider-img"
+            src="./assets/mobile/image-slide-1.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slider-content-card text-white bg-dark">
+          <h1 class="slider-header">
+            Brand <span class="feature-1">identity</span> &
+            <span class="feature-2">merchandise</span>
+          </h1>
+          <div class="btns-row">
+            <button onclick="prevItem()" class="arrow-btn btn-transparent">
+              <img
+                class="arrow-icon"
+                src="./assets/desktop/icon-arrow-previous.svg"
+                alt=""
+              />
+            </button>
+            <button onclick="nextItem()" class="arrow-btn btn-transparent">
+              <img
+                class="arrow-icon"
+                src="./assets/desktop/icon-arrow-next.svg"
+                alt=""
+              />
+            </button>
+          </div>
+          <img
+            class="slider-icon"
+            src="./assets/desktop/bg-pattern-wavy-white.svg"
+            alt=""
+          />
+        </div>
+        <!-- </div> -->
+        <div class="slider-img-div">
+          <picture class="slider-img">
+            <source
+              media="(min-width:1050px)"
+              srcset="./assets/desktop/image-slide-1.jpg"
+            />
+            <source
+              media="(min-width:550px)"
+              srcset="./assets/tablet/image-slide-1.jpg"
+            />
+            <img src="./assets/mobile/image-slide-1.jpg" alt="img" />
+          </picture>
+
+          <div class="slider-img-label-div text-white">
+            <h3 class="bold slider-label-header slider-title">
+              Lean Product Roadmap
+            </h3>
+            <h4 class="thin text-end">
+              <span class="date">2019</span> Project
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img
+          class="footer-bg-pattern"
+          src="./assets/desktop/bg-pattern-wave-red.svg"
+          alt=""
+        />
+        <div class="footer-col">
+          <h2>Lets build something great together</h2>
+        </div>
+        <div class="footer-col">
+          <button class="btn bg-red text-white footer-btn">
+            Schedule a Call
+          </button>
+        </div>
+      </footer>
+    </div>
+    <!-- Learn more Design is strategic. A well-crafted
+    design strategy consistently produces desired outcomes and brand awareness.
+    We are firm believers that success lies in creative collaboration with our
+    clients. Schedule a call Our approach for creating a winning brand 01 Brand
+    strategy Brand strategy is critical for long-term success. Outshining
+    competitors and capturing the target audience are key. 02 Brand design
+    Keeping the brand design unique and meaningful helps in communicating the
+    brand’s timeless value effectively. 03 Web design A beautifully crafted
+    website is the best tool for brand awareness, and ultimately results in
+    increased revenues. Brand naming & guidelines Lean Product Roadmap 2019
+    project Brand identity & merchandise New Majestic Hotel 2018 Project Brand
+    identity & web design Crypto Dashboard 2016 Project Let's build something
+    great together. Schedule a Call -->
+
+    <script>
+      console.log(document.querySelector(".nav").getBoundingClientRect());
+
+      let sliderData = [
+        {
+          id: 1,
+          desktop: "./assets/desktop/image-slide-1.jpg",
+          tablet: "./assets/tablet/image-slide-1.jpg",
+          mobile: "./assets/mobile/image-slide-1.jpg",
+          features: ["naming", "guidelines"],
+          date: 2019,
+          title: "Lean Product Roadmap",
+        },
+        {
+          id: 2,
+          desktop: "./assets/desktop/image-slide-2.jpg",
+          tablet: "./assets/tablet/image-slide-2.jpg",
+          mobile: "./assets/mobile/image-slide-2.jpg",
+          features: ["identity", "merchandise"],
+          date: 2019,
+          title: "New Majestic Hotel",
+        },
+        {
+          id: 3,
+          desktop: "./assets/desktop/image-slide-3.jpg",
+          tablet: "./assets/tablet/image-slide-3.jpg",
+          mobile: "./assets/mobile/image-slide-3.jpg",
+          features: ["identity", "web design"],
+          date: 2016,
+          title: "Crypto Dashboard",
+        },
+      ];
+
+      let counter = 0;
+
+      function prevItem() {
+        console.log("prevItem fired");
+        counter--;
+        if (counter == -1) counter = 2;
+        document.querySelector(".slider-title").innerHTML =
+          sliderData[counter].title;
+        document.querySelector(".date").innerHTML = sliderData[counter].date;
+        document.querySelector(".feature-1").innerHTML =
+          sliderData[counter].features[0];
+        document.querySelector(".feature-2").innerHTML =
+          sliderData[counter].features[1];
+
+        document.querySelector(".feature-1").classList.remove("flash-feature");
+        document.querySelector(".feature-2").classList.remove("flash-feature");
+        document
+          .querySelector(".slider-img")
+          .querySelector("img")
+          .classList.remove("flash-img");
+        document.querySelector(".slider-img").innerHTML = `<source
+              media="(min-width:1050px)"
+              srcset=${sliderData[counter].desktop}
+            />
+            <source
+              media="(min-width:550px)"
+              srcset=${sliderData[counter].tablet}
+            />
+            <img src=${sliderData[counter].mobile} alt="img" />
+            `;
+
+        document
+          .querySelector(".slider-img")
+          .querySelector("img")
+          .classList.add("flash-img");
+
+        document.querySelector(".feature-1").classList.add("flash-feature");
+        document.querySelector(".feature-2").classList.add("flash-feature");
+        document
+          .querySelector(".mobile-slider-img")
+          .setAttribute("src", sliderData[counter].mobile);
+      }
+
+      function nextItem() {
+        console.log("nextItem fired");
+        counter++;
+        if (counter == 3) counter = 0;
+        document.querySelector(".slider-title").innerHTML =
+          sliderData[counter].title;
+        document.querySelector(".date").innerHTML = sliderData[counter].date;
+        document.querySelector(".feature-1").innerHTML =
+          sliderData[counter].features[0];
+        document.querySelector(".feature-2").innerHTML =
+          sliderData[counter].features[1];
+
+        document
+          .querySelector(".slider-img")
+          .querySelector("img")
+          .classList.remove("flash-img");
+        document.querySelector(".slider-img").innerHTML = `<source
+              media="(min-width:1050px)"
+              srcset=${sliderData[counter].desktop}
+            />
+            <source
+              media="(min-width:550px)"
+              srcset=${sliderData[counter].tablet}
+            />
+            <img src=${sliderData[counter].mobile} alt="img" />
+            `;
+        document
+          .querySelector(".slider-img")
+          .querySelector("img")
+          .classList.add("flash-img");
+
+        document
+          .querySelector(".mobile-slider-img")
+          .setAttribute("src", sliderData[counter].mobile);
+      }
+    </script>
+  </body>
+</html>
