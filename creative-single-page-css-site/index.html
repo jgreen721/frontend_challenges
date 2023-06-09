@@ -51,6 +51,29 @@
             />
           </div>
         </div>
+
+        <div class="hide-mobile-menu mobile-menu bg-dark text-white">
+          <ul class="mobile-links">
+            <li class="mobile-item">
+              <a href="#" class="mobile-link">
+                <h3 class="thin">About</h3>
+              </a>
+            </li>
+            <li class="mobile-item">
+              <a href="#" class="mobile-link">
+                <h3 class="thin">Services</h3>
+              </a>
+            </li>
+            <li class="mobile-item">
+              <a href="#" class="mobile-link">
+                <h3 class="thin">Projects</h3>
+              </a>
+            </li>
+            <button class="btn text-white bg-red mobile-btn">
+              Schedule a Call
+            </button>
+          </ul>
+        </div>
       </nav>
 
       <div class="header">
@@ -378,6 +401,22 @@
           .querySelector(".mobile-slider-img")
           .setAttribute("src", sliderData[counter].mobile);
       }
+
+      let mobileMenu = document.querySelector(".mobile-menu");
+      let burgerDivBtn = document.querySelector(".burger-div");
+      let menuCounter = 0;
+      let burgerIcons = [
+        "./assets/mobile/icon-hamburger.svg",
+        "./assets/mobile/icon-cross.svg",
+      ];
+      burgerDivBtn.onclick = (e) => {
+        console.log("toggle menu!!", e.target.querySelector(".burger-icon"));
+        menuCounter = menuCounter === 0 ? 1 : 0;
+        mobileMenu.classList.toggle("hide-mobile-menu");
+        e.target
+          .querySelector(".burger-icon")
+          .setAttribute("src", burgerIcons[menuCounter]);
+      };
     </script>
   </body>
 </html>
