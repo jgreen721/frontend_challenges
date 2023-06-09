@@ -12,6 +12,7 @@
 
 .nav {
   display: flex;
+  position: relative;
 }
 
 .nav-col {
