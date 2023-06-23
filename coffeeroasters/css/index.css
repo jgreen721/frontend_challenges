@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;600;800&family=Fraunces:wght@100;300;400;700;900&display=swap");
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --teal: #0e8784;
+  --darkgray: #333d48;
+  --whitecream: #fefcf7;
+  --lightgray: #83888f;
+  --carditemgray: #f4f1eb;
+  --paleorange: #fdd6ba;
+  --barlow: "Barlow", sans-serif;
+  --fraunces: "Fraunces", serif;
+  --paddingX: 0 8rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.h1-large {
+  font-size: 15rem;
+  line-height: 7.2rem;
+  text-align: center;
+  background-image: linear-gradient(var(--lightgray), white);
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+h1 {
+  font-size: 7.2rem;
+  line-height: 7.2rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+  line-height: 4.8rem;
+}
+
+h3 {
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+h5 {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.btn {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  font-family: var(--fraunces);
+  cursor: pointer;
+  border: none;
+  color: var(--whitecream);
+  padding: 1.5rem 3.1rem;
+  transition: 0.5s ease;
+  border-radius: 0.8rem;
+}
+
+.btn:hover {
+  opacity: 75%;
+}
+
+.btn-teal {
+  background: var(--teal);
+}
+
+.fancy-font {
+  font-family: var(--fraunces);
+}
+
+.primary-font {
+  font-family: var(--barlow);
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-gray {
+  color: var(--lightgray);
+}
+
+.text-orange {
+  color: var(--paleorange);
+}
+
+.text-white {
+  color: var(--whitecream);
+}
+
+.text-teal {
+  color: var(--teal);
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+.bg-dark {
+  background: var(--darkgray);
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+/* utilities */
+
+@media screen and (max-width: 1050px) {
+  * {
+    --paddingX: 0 4rem;
+  }
+
+  .h1-large {
+    font-size: 9.6rem;
+    line-height: 7.2rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    line-height: 4.8rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 3.4rem;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  * {
+    --paddingX: 0 2.4rem;
+  }
+
+  .h1-large {
+    font-size: 4rem;
+    line-height: 7.2rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}

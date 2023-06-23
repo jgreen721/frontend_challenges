@@ -1,0 +1,562 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/plan.css">
+  <title>Frontend Mentor | Coffeeroasters subscription site</title>
+</head>
+
+<body>
+  <div class="app">
+    <nav class="nav">
+      <div class="nav-logo-div">
+        <img class="nav-logo" src="./assets/shared/desktop/logo.svg" alt="" />
+      </div>
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <p>Home</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">
+            <p>About Us</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="plan.html" class="nav-link">
+            <p>Create your plan</p>
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-nav-links">
+        <!-- <div class="mobile-nav">
+          <ul class="mobile-links">
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="#">
+                <h3 class="fancy-font">Home</h3>
+              </a>
+            </li>
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="#">
+                <h3 class="fancy-font">About Us</h3>
+              </a>
+            </li>
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="#">
+                <h3 class="fancy-font">Create Your Plan</h3>
+              </a>
+            </li>
+          </ul>
+        </div> -->
+        <img
+          class="burger-icon"
+          src="./assets/shared/mobile/icon-hamburger.svg"
+          alt=""
+        />
+      </div>
+    </nav>
+
+    <header class="plan-hero">
+      <div class="plan-hero-content text-white">
+        <h1 class="fancy-font">
+          Create Plan
+        </h1>
+        <h5 class="primary-font plan-hero-blurb thin">
+          Build a subscription plan that best fits your needs. We offer an assortment of the best 
+          artisan coffees from around the globe delivered fresh to your door.
+        </h5>
+      </div>
+      <picture>
+        <source media="(min-width:650px)" srcset="assets/plan/desktop/image-hero-blackcup.jpg">
+        <source media="(min-width:465px)" srcset="assets/plan/tablet/image-hero-blackcup.jpg">
+        <img class="plan-hero-img" src="assets/plan/mobile/image-hero-blackcup.jpg" alt="img">
+      </picture>
+    </header>
+
+
+
+
+
+    <section class="plan-steps-section">
+      <!-- <h3 class="fancy-font text-white">How it workssssss</h3> -->
+        <div class="steps-bar">
+          <div class="circle bg-dark"></div>
+          <div class="circle bg-transparent"></div>
+          <div class="circle bg-dark"></div>
+        </div>
+        <ul class="steps-list text-white">
+          <li class="step-item plan-step-item">
+            <h1 class="text-orange fancy-font">01</h1>
+            <h3 class="fancy-font steps-header text-white">Pick your coffee</h3>
+            <h5 class="step-blurb plan-step-blurb-transparent primary-font">
+              We ship your package within 48 hours, freshly roasted. Sit back
+              and enjoy award-winning world-class coffees curated to provide a
+              distinct tasting experience.
+            </h5>
+            <h5 class="step-blurb plan-step-blurb primary-font">
+              Select from our evolving range of artisan coffees. Our beans are
+              ethically sourced and we pay fair prices for them. There are new
+              coffees in all profiles every month for you to try out.
+            </h5>
+          </li>
+          <li class="step-item plan-step-item">
+            <h1 class="text-orange fancy-font">02</h1>
+            <h3 class="fancy-font steps-header text-white">
+              Choose the frequency
+            </h3>
+            <h5 class="step-blurb plan-step-blurb-transparent primary-font">
+              We ship your package within 48 hours, freshly roasted. Sit back
+              and enjoy award-winning world-class coffees curated to provide a
+              distinct tasting experience.
+            </h5>
+            <h5 class="step-blurb plan-step-blurb primary-font">
+              Customize your order frequency, quantity, even your roast style
+              and grind type. Pause, skip or cancel your subscription with no
+              commitment through our online portal.
+            </h5>
+          </li>
+          <li class="step-item plan-step-item">
+            <h1 class="text-orange fancy-font">03</h1>
+            <h3 class="fancy-font steps-header text-white">
+              Receive and enjoy!
+            </h3>
+            <h5 class="step-blurb plan-step-blurb-transparent primary-font">
+              We ship your package within 48 hours, freshly roasted. Sit back
+              and enjoy award-winning world-class coffees curated to provide a
+              distinct tasting experience.
+            </h5>
+            <h5 class="step-blurb plan-step-blurb primary-font">
+              We ship your package within 48 hours, freshly roasted. Sit back
+              and enjoy award-winning world-class coffees curated to provide a
+              distinct tasting experience.
+            </h5>
+          </li>
+        </ul>
+      </section>
+
+      <section class="users-selection-section">
+        <ul class="users-selection-column">
+          <li class="selection-item fancy-font">
+
+            <h4>01</h4>
+            <h4>Preferences</h4>
+          </li>
+          <li class="selection-item fancy-font">
+            <h4>02</h4>
+            <h4>Bean Type</h4>
+          </li>
+          <li class="selection-item fancy-font">
+            <a class="selection-link" href="#quantity">
+            <h4>03</h4>
+            <h4>Quantity</h4>
+            </a>
+          </li>
+          <li class="selection-item fancy-font">
+            <a class="selection-link" href="#options">
+            <h4>04</h4>
+            <h4>Grand Options</h4>
+            </a>
+          </li>
+          <li class="selection-item fancy-font">
+            <a class="selection-link" href="#deliveries">
+            <h4>05</h4>
+            <h4>Deliveries</h4>
+            </a>
+          </li>
+        </ul>
+        <div class="users-selection-options-column">
+          <div class="options-row-container">
+          <div class="option-row-header">
+          <h3 class="text-gray fancy-font">How do you drink your coffee?</h3>
+  <div class="arrow-div">
+    <div class="line left-line"></div>
+    <div class="line right-line"></div>
+  </div>
+          </div>
+          <div class="options">
+            <ul class="options-list">
+              <li data-category="filter" data-value="Capsule" class="option-item">
+                <h4 class="fancy-font">Capsule</h4>
+                <h5 class="primary-font thin">Compatible with Nespresso systems and similar brewers</h5>
+              </li>
+              <li data-category="filter" data-value="Filter" class="option-item">
+                <h4 class="fancy-font">Filter</h4>
+                <h5 class="primary-font thin">Compatible with Nespresso systems and similar brewers</h5>
+              </li>
+              <li data-category="filter" data-value="Espresso" class="option-item">
+                <h4 class="fancy-font">Espresso</h4>
+                <h5 class="primary-font thin">Compatible with Nespresso systems and similar brewers</h5>
+              </li>
+            </ul>
+          </div>
+          </div>
+
+
+          <div class="options-row-container">
+            <div class="option-row-header">
+              <h3 class="text-gray fancy-font">What type of coffee?</h3>
+      <div class="arrow-div">
+        <div class="line left-line"></div>
+        <div class="line right-line"></div>
+      </div>
+              </div>            
+              <div class="options">
+              <ul class="options-list">
+                <li data-category="coffeeType"  data-value="Single Origin" class="option-item">
+                  <h4 class="fancy-font">Single Origin</h4>
+                  <h5 class="primary-font thin">
+                    Distinct, high quality coffee from a specific family-owned farm
+
+                  </h5>
+                </li>
+                <li data-category="coffeeType" data-value="Decaf" class="option-item">
+                  <h4 class="fancy-font">Decaf</h4>
+                  <h5 class="primary-font thin">Just like regular coffee, except the caffeine has been removed
+                  </h5>
+                </li>
+                <li data-category="coffeeType" data-value="Blended" class="option-item">
+                  <h4 class="fancy-font">Blended</h4>
+                  <h5 class="primary-font thin">Combination of two or three dark roasted beans of organic coffees
+                  </h5>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+
+
+          <div class="options-row-container">
+            <div class="option-row-header">
+              <h3 class="text-gray fancy-font">How much would you like?</h3>
+      <div class="arrow-div">
+        <div class="line left-line"></div>
+        <div class="line right-line"></div>
+      </div>
+              </div>           
+               <div id="quantity" class="options">
+              <ul class="options-list">
+                <li data-category="quantity" data-value="250g" class="option-item">
+                  <h4 class="fancy-font">250g</h4>
+                  <h5 class="primary-font thin">
+                    Perfect for the solo drinker. Yields about 12 delicious cups.
+                  </h5>
+                </li>
+                <li data-category="quantity" data-value="500g" class="option-item">
+                  <h4 class="fancy-font">500g</h4>
+                  <h5 class="primary-font thin">Perfect option for a couple. Yields about 40 delectable cups.
+                  </h5>
+                </li>
+                <li data-category="quantity" data-value="1000g" class="option-item">
+                  <h4 class="fancy-font">1000g</h4>
+                  <h5 class="primary-font thin">Perfect for offices and events. Yields about 90 delightful cups.
+                  </h5>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="options-row-container">
+            <div class="option-row-header">
+              <h3 class="text-gray fancy-font">Want us to grind them?</h3>
+      <div class="arrow-div">
+        <div class="line left-line"></div>
+        <div class="line right-line"></div>
+      </div>
+              </div>            
+              <div id="options" class="options">
+              <ul class="options-list">
+                <li data-category="selection" data-value="Wholebean" class="option-item">
+                  <h4 class="fancy-font">Wholebean</h4>
+                  <h5 class="primary-font thin">
+                    Best choice if you cherish the full sensory experience                 
+                  </h5>
+                </li>
+                <li data-category="selection" data-value="Filter" class="option-item">
+                  <h4 class="fancy-font">Filter</h4>
+                  <h5 class="primary-font thin">For drip or pour-over coffee methods such as V60 or Aeropress
+                  </h5>
+                </li>
+                <li data-category="selection" data-value="Cafetiere" class="option-item">
+                  <h4 class="fancy-font">Cafetiere</h4>
+                  <h5 class="primary-font thin">Course ground beans specially suited for french press coffee
+                  </h5>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="options-row-container">
+            <div class="option-row-header">
+              <h3 class="text-gray fancy-font">How often should we deliver?</h3>
+      <div class="arrow-div">
+        <div class="line left-line"></div>
+        <div class="line right-line"></div>
+      </div>
+              </div>             <div id="deliveries" class="options">
+              <ul class="options-list">
+                <li data-category="interval" data-value="Every Week" class="option-item">
+                  <h4 class="fancy-font">Every week</h4>
+                  <h5 class="primary-font thin">
+                    $14.00 per shipment. Includes free first-class shipping.                 </h5>
+                </li>
+                <li data-category="interval" data-value="Every 2 Weeks" class="option-item">
+                  <h4 class="fancy-font">Every 2 weeks</h4>
+                  <h5 class="primary-font thin">$17.25 per shipment. Includes free priority shipping.
+                  </h5>
+                </li>
+                <li data-category="interval" data-value="Every Month" class="option-item">
+                  <h4  class="fancy-font">Every month</h4>
+                  <h5 class="primary-font thin"> $22.50 per shipment. Includes free priority shipping.
+                  </h5>
+                </li>
+              </ul>
+            </div>
+            <div class="order-summary bg-dark">
+              <h4 class="text-gray primary-font thin uppercase mb-2">Order Summary</h4>
+              <h5 class="fancy-font text-white summary-blurb">"I drink my coffee as <span class="text-teal" id="filter">Filter</span>, with a <span class="text-teal" id="coffee-type">Decaf</span> type of bean. <span class="text-teal" id="quantity">250g</span> ground ala <span class="text-teal" id="selection">Cafetiare</span>, sent to me <span class="text-teal" id="interval">Every Week</span>."</h5>
+              <h4 class="empty-output fancy-font text-white"></h4>
+            </div>
+          </div>
+        <!-- </div> -->
+      </section>
+
+
+
+
+    <footer class="footer primary-font">
+      <div class="footer-column">
+        <div class="footer-logo-div">
+          <img
+            class="footer-logo"
+            src="./assets/shared/desktop/logo-light.svg"
+            alt=""
+          />
+        </div>
+        <ul class="footer-links">
+          <li class="footer-item">
+            <a href="" class="footer-link">
+              <p>Home</p>
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="" class="footer-link">
+              <p>About Us</p>
+            </a>
+          </li>
+          <li class="footer-item">
+            <a href="" class="footer-link">
+              <p>Create your Plan</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="footer-media-links">
+        <li class="footer-media-item">
+          <a class="footer-media-link" href="#">
+            <img src="./assets/shared/desktop/icon-facebook.svg" alt="" />
+          </a>
+        </li>
+        <li class="footer-media-item">
+          <a class="footer-media-link" href="#">
+            <img src="./assets/shared/desktop/icon-twitter.svg" alt="" />
+          </a>
+        </li>
+        <li class="footer-media-item">
+          <a class="footer-media-link" href="#">
+            <img src="./assets/shared/desktop/icon-instagram.svg" alt="" />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+  <!-- Home
+  About us
+  Create your plan
+
+  Create a plan
+  Build a subscription plan that best fits your needs. We offer an assortment of the best 
+  artisan coffees from around the globe delivered fresh to your door.
+
+  01
+  Pick your coffee
+  Select from our evolving range of artisan coffees. Our beans are ethically
+  sourced and we pay fair prices for them. There's new coffees in all profiles
+  every month for you to try out.
+  
+  02
+  Choose the frequency
+  Customize your order frequency, quantity, even your roast style and grind type.
+  Pause, skip or cancel your subscription with no commitment through our online portal.
+  
+  03
+  Receive and enjoy!
+  We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning
+  world-class coffees curated to provide a distinct tasting experience.
+
+  01 Preferences
+  02 Bean type
+  03 Quantity
+  04 Grind option
+  05 Deliveries
+
+  How do you drink your coffee?
+
+  Capsule
+  Compatible with Nespresso systems and similar brewers
+
+  Filter
+  For pour over or drip methods like Aeropress, Chemex, and V60
+
+  Espresso
+  Dense and finely ground beans for an intense, flavorful experience
+
+  What type of coffee?
+
+  Single origin
+  Distinct, high quality coffee from a specific family-owned farm
+
+  Decaf
+  Just like regular coffee, except the caffeine has been removed
+
+  Blended
+  Combination of two or three dark roasted beans of organic coffees
+
+  How much would you like?
+  250g
+  Perfect for the solo drinker. Yields about 12 delicious cups.
+  
+  500g
+  Perfect option for a couple. Yields about 40 delectable cups.
+
+  1000g
+  Perfect for offices and events. Yields about 90 delightful cups.
+
+  Want us to grind them?
+
+  Wholebean
+  Best choice if you cherish the full sensory experience
+
+  Filter
+  For drip or pour-over coffee methods such as V60 or Aeropress
+
+  Cafetiére
+  Course ground beans specially suited for french press coffee
+
+  How often should we deliver?
+
+  Every week
+  $14.00 per shipment. Includes free first-class shipping.
+
+  Every 2 weeks
+  $17.25 per shipment. Includes free priority shipping.
+
+  Every month
+  $22.50 per shipment. Includes free priority shipping.
+
+  Order Summary
+  “I drink coffee _____, with a _____ type of bean. _____ ground ala _____, 
+  sent to me _____.”
+
+  Create my plan! -->
+
+  <!-- Modal -->
+  <!-- Order Summary
+
+  “I drink coffee _____, with a _____ type of bean. _____ ground ala _____,
+  sent to me _____.”
+
+  Is this correct? You can proceed to checkout or go back to plan selection if something 
+  is off. Subscription discount codes can also be redeemed at the checkout.
+
+  $_____/month
+
+  Checkout -->
+  <!-- End modal -->
+
+  <!-- Home
+  About us
+  Create your plan -->
+
+  <script>
+
+    var arrowBtns = document.querySelectorAll(".arrow-div")
+
+
+    arrowBtns.forEach(arrowBtn=>{
+      arrowBtn.onclick=(e)=>{
+        console.log(e.target.closest(".options-row-container").querySelector(".options"))
+
+        e.target.closest(".options-row-container").querySelector(".options").classList.toggle("hide-options")
+        e.target.querySelector(".left-line").classList.toggle("switch-left")
+        e.target.querySelector(".right-line").classList.toggle("switch-right")
+      }
+    })
+
+
+    var optionsLists = document.querySelectorAll(".options-list");
+    let userInfo={
+       filter:"",
+       coffeeType:"",
+       quantity:"",
+       selection:"",
+       interval:"",
+    }
+
+    optionsLists.forEach(list=>{
+      list.querySelectorAll(".option-item").forEach(item=>{
+        item.onclick=(e)=>{
+        list.querySelectorAll(".option-item").forEach(el=>el.classList.remove("selected-item"));
+        e.target.classList.add("selected-item")
+        userInfo[e.target.getAttribute('data-category')] = e.target.getAttribute('data-value');
+        checkUserSelection();
+
+      }
+      })
+
+
+    })
+
+
+function checkUserSelection(){
+    let summaryBlurb = document.querySelector(".summary-blurb");
+    let emptyOutput = document.querySelector(".empty-output");
+    let stateCounter = 0;
+    optionsLists.forEach(list=>{
+      list.querySelectorAll(".option-item").forEach(item=>{
+        if(item.classList.contains("selected-item")) stateCounter++;
+      
+    })
+})
+
+    if(stateCounter != 5){
+      summaryBlurb.style.display='none'
+      emptyOutput.innerHTML = `Please curate your preferences! ☕️`
+    }
+    else{
+      emptyOutput.style.display="none"
+      summaryBlurb.style.display = "block"
+      document.querySelector("#filter").innerHTML = userInfo.filter
+      document.querySelector("#coffee-type").innerHTML = userInfo.coffeeType
+      document.querySelector("#quantity").innerHTML = userInfo.quantity
+      document.querySelector("#selection").innerHTML = userInfo.selection
+      document.querySelector("#interval").innerHTML = userInfo.interval;
+console.log(userInfo)
+    }
+
+
+}
+
+ checkUserSelection();
+
+  </script>
+</body>
+
+</html>

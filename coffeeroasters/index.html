@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Frontend Mentor | Coffeeroasters subscription site</title>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="nav">
+        <div class="nav-logo-div">
+          <img class="nav-logo" src="./assets/shared/desktop/logo.svg" alt="" />
+        </div>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <p>Home</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">
+              <p>About Us</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="plan.html" class="nav-link">
+              <p>Create your plan</p>
+            </a>
+          </li>
+        </ul>
+        <div class="mobile-nav-links">
+          <!-- <div class="mobile-nav">
+            <ul class="mobile-links">
+              <li class="mobile-link-item">
+                <a class="mobile-link" href="#">
+                  <h3 class="fancy-font">Home</h3>
+                </a>
+              </li>
+              <li class="mobile-link-item">
+                <a class="mobile-link" href="#">
+                  <h3 class="fancy-font">About Us</h3>
+                </a>
+              </li>
+              <li class="mobile-link-item">
+                <a class="mobile-link" href="#">
+                  <h3 class="fancy-font">Create Your Plan</h3>
+                </a>
+              </li>
+            </ul>
+          </div> -->
+          <img
+            onclick="toggleNav()"
+            class="burger-icon"
+            src="./assets/shared/mobile/icon-hamburger.svg"
+            alt=""
+          />
+        </div>
+      </nav>
+      <div class="hero">
+        <div class="mobile-nav hide-mobile-nav">
+          <ul class="mobile-links">
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="/">
+                <h3 class="fancy-font">Home</h3>
+              </a>
+            </li>
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="about.html">
+                <h3 class="fancy-font">About Us</h3>
+              </a>
+            </li>
+            <li class="mobile-link-item">
+              <a class="mobile-link" href="plan.html">
+                <h3 class="fancy-font">Create Your Plan</h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-content">
+          <h1 class="fancy-font">Great coffee made simple</h1>
+          <h5 class="primary-font thin header-blurb">
+            Start your morning with the worlds best offers. Try our expertly
+            curated artisan coffees from our best roasters delivered directly to
+            your door, at your schedules.
+          </h5>
+          <button class="btn btn-teal header-btn">Create your plan</button>
+        </div>
+        <picture>
+          <source
+            media="(min-width:1050px)"
+            srcset="./assets/home/desktop/image-hero-coffeepress.jpg"
+          />
+          <source
+            media="(min-width:550px)"
+            srcset="./assets/home/tablet/image-hero-coffeepress.jpg"
+          />
+          <img
+            src="./assets/home/mobile/image-hero-coffeepress.jpg"
+            alt="img"
+            class="bg-hero-img"
+          />
+        </picture>
+      </div>
+
+      <div class="section collections-section">
+        <h1 class="fancy-font h1-large">our collection</h1>
+        <ul class="collections-list">
+          <li class="collection-item">
+            <img
+              class="collection-img"
+              src="./assets/home/desktop/image-gran-espresso.png"
+              alt=""
+            />
+            <div class="collection-item-content">
+              <h3 class="fancy-font">Gran Espresso</h3>
+              <h5 class="collection-blurb thin primary-font">
+                Light and flavorful blend with cocoa and black pepper for an
+                intense experience.
+              </h5>
+            </div>
+          </li>
+          <li class="collection-item">
+            <img
+              class="collection-img"
+              src="./assets/home/desktop/image-planalto.png"
+              alt=""
+            />
+            <div class="collection-item-content">
+              <h3 class="fancy-font">Planalto</h3>
+              <h5 class="collection-blurb thin primary-font">
+                Brazillian dark roast with rich and velvety body, and hints of
+                fruits and nuts
+              </h5>
+            </div>
+          </li>
+          <li class="collection-item">
+            <img
+              class="collection-img"
+              src="./assets/home/desktop/image-piccollo.png"
+              alt=""
+            />
+            <div class="collection-item-content">
+              <h3 class="fancy-font">Picollo</h3>
+              <h5 class="collection-blurb thin primary-font">
+                Mild and smooth blend featuring notes of toasted almond and
+                dried cherry.
+              </h5>
+            </div>
+          </li>
+          <li class="collection-item">
+            <img
+              class="collection-img"
+              src="./assets/home/desktop/image-danche.png"
+              alt=""
+            />
+            <div class="collection-item-content">
+              <h3 class="fancy-font">Danche</h3>
+              <h5 class="collection-blurb thin primary-font">
+                Ethiopian hand-harvested blend densely packaged with vibrant
+                fruit notes.
+              </h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <section class="middle-section">
+        <div class="middle-header-content">
+          <h3 class="fancy-font">Why choose us?</h3>
+          <h5 class="primary-font middle-content-blurb">
+            A large part of our role is choosing which particular coffees will
+            be featured in our range. This means working closely with the best
+            coffee growers to give you a more impactful experience on every
+            level.
+          </h5>
+        </div>
+        <ul class="services-list">
+          <li class="service-item">
+            <img
+              class="service-icon"
+              src="./assets/home/desktop/icon-coffee-bean.svg"
+              alt=""
+            />
+            <h4 class="fancy-font service-header">Best quality</h4>
+            <h5 class="primary-font thin">
+              Discover an endless variety of the world’s best artisan coffee
+              from each of our roasters.
+            </h5>
+          </li>
+          <li class="service-item">
+            <img
+              class="service-icon"
+              src="./assets/home/desktop/icon-gift.svg"
+              alt=""
+            />
+            <h4 class="fancy-font service-header">Exclusive Benefits</h4>
+            <h5 class="primary-font thin">
+              Special offers and swag when you subscribe, including 30% off your
+              first shipment.
+            </h5>
+          </li>
+          <li class="service-item">
+            <img
+              class="service-icon"
+              src="./assets/home/desktop/icon-truck.svg"
+              alt=""
+            />
+            <h4 class="fancy-font service-header">Free shipping</h4>
+            <h5 class="primary-font thin">
+              We cover the cost and coffee is delivered fast. Peak freshness:
+              guaranteed.
+            </h5>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bottom-section">
+        <h3 class="fancy-font text-gray bottom-section-header">How it works</h3>
+        <div class="steps-bar">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <ul class="steps-list">
+          <li class="step-item">
+            <h1 class="text-orange">01</h1>
+            <h3 class="fancy-font steps-header text-gray">Pick your coffee</h3>
+            <h5 class="step-blurb primary-font">
+              Select from our evolving range of artisan coffees. Our beans are
+              ethically sourced and we pay fair prices for them. There are new
+              coffees in all profiles every month for you to try out.
+            </h5>
+          </li>
+          <li class="step-item">
+            <h1 class="text-orange">02</h1>
+            <h3 class="fancy-font steps-header text-gray">
+              Choose the frequency
+            </h3>
+            <h5 class="step-blurb primary-font">
+              Customize your order frequency, quantity, even your roast style
+              and grind type. Pause, skip or cancel your subscription with no
+              commitment through our online portal.
+            </h5>
+          </li>
+          <li class="step-item">
+            <h1 class="text-orange">03</h1>
+            <h3 class="fancy-font steps-header text-gray">
+              Receive and enjoy!
+            </h3>
+            <h5 class="step-blurb primary-font">
+              We ship your package within 48 hours, freshly roasted. Sit back
+              and enjoy award-winning world-class coffees curated to provide a
+              distinct tasting experience.
+            </h5>
+          </li>
+        </ul>
+        <button class="btn btn-teal fancy-font">Create your plan</button>
+      </section>
+
+      <footer class="footer primary-font">
+        <div class="footer-column">
+          <div class="footer-logo-div">
+            <img
+              class="footer-logo"
+              src="./assets/shared/desktop/logo-light.svg"
+              alt=""
+            />
+          </div>
+          <ul class="footer-links">
+            <li class="footer-item">
+              <a href="" class="footer-link">
+                <p>Home</p>
+              </a>
+            </li>
+            <li class="footer-item">
+              <a href="" class="footer-link">
+                <p>About Us</p>
+              </a>
+            </li>
+            <li class="footer-item">
+              <a href="" class="footer-link">
+                <p>Create your Plan</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-media-links">
+          <li class="footer-media-item">
+            <a class="footer-media-link" href="#">
+              <img src="./assets/shared/desktop/icon-facebook.svg" alt="" />
+            </a>
+          </li>
+          <li class="footer-media-item">
+            <a class="footer-media-link" href="#">
+              <img src="./assets/shared/desktop/icon-twitter.svg" alt="" />
+            </a>
+          </li>
+          <li class="footer-media-item">
+            <a class="footer-media-link" href="#">
+              <img src="./assets/shared/desktop/icon-instagram.svg" alt="" />
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <script>
+      function toggleNav() {
+        document
+          .querySelector(".burger-icon")
+          .setAttribute("src", "./assets/shared/mobile/icon-hamburger.svg");
+        document
+          .querySelector(".mobile-nav")
+          .classList.toggle("hide-mobile-nav");
+
+        if (
+          !document
+            .querySelector(".mobile-nav")
+            .classList.contains("hide-mobile-nav")
+        ) {
+          document
+            .querySelector(".burger-icon")
+            .setAttribute("src", "./assets/shared/mobile/icon-close.svg");
+        }
+      }
+    </script>
+  </body>
+</html>
