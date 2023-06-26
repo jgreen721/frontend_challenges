@@ -109,6 +109,11 @@
   width: 100%;
   height: 100%;
   border-radius: 0.8rem;
+  transition: 0.5s ease;
+}
+
+.hero:hover img {
+  transform: scale(1.3);
 }
 
 @media screen and (max-width: 1050px) {
@@ -147,12 +152,22 @@
 
 .collection-item {
   text-align: center;
+  transition: 0.5s ease;
+}
+
+.collection-item:hover {
+  transform: translateY(-2rem);
+}
+
+.collection-item:hover img {
+  transform: scale(1.2);
 }
 
 .collection-img {
   width: 25rem;
   height: 19.5rem;
   margin-bottom: 5rem;
+  transition: 0.5s ease;
 }
 
 .collection-blurb {
@@ -242,6 +257,15 @@
   justify-content: space-between;
   align-items: center;
   height: 30rem;
+  transition: 0.5s ease;
+}
+
+.service-item:hover {
+  text-shadow: 1px 1px 15px black;
+}
+
+.service-item:hover img {
+  filter: hue-rotate(45deg);
 }
 
 .service-header {
