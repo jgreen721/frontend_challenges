@@ -250,7 +250,16 @@ h4 {
   padding: 0.5rem 0;
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 875px) {
+  .app {
+    padding: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .app {
+    padding: 3rem 2rem;
+  }
   .top-grid-row,
   .bottom-grid-row,
   .parent-container {
