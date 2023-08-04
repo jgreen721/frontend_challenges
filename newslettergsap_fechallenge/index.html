@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+       <main class="newsletter-card bounce">
+        <div class="front-side">
+        <div class="newsletter-column mobile-column">
+          <img
+            class="mobile-img app-img bounce"
+            src="assets/images/illustration-sign-up-mobile.svg"
+            alt=""
+          />
+        </div>
+        <div class="newsletter-column content-column">
+          <div class="header">
+          <h1 class="header-h1 slide">Stay Updated<span class="exclamation">!</span></h1>
+          <p class="header-blurb slide">Join +60,000 product managers receiving monthly updates on:</p>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <img class="scale" src="assets/images/icon-list.svg" alt="" />
+              <p class="feature-blurb slide">Product discovery and building what matters</p>
+            </li>
+            <li class="feature-item">
+              <img class="scale" src="assets/images/icon-list.svg" alt="" />
+              <p class="feature-blurb slide">Measuring to ensure updates are a success</p>
+            </li>
+            <li class="feature-item">
+              <img class="scale" src="assets/images/icon-list.svg" alt="" />
+              <p class="feature-blurb slide">And much more!</p>
+            </li>
+          </ul>
+
+          <div class="form-div scale">
+           <h5> <label for="email">Email Address</label></h5>
+            <input class="form-control" placeholder="email@yourcompany.com" name="email" id="email" autocomplete="off"></input>
+          </div>
+          <div class="form-div scale">
+            <button class="form-btn btn">Subscribe to monthly newsletter</button>
+          </div>
+        </div>
+        <div class="newsletter-column">
+          <img
+            class="desktop-img app-img bounce"
+            src="assets/images/illustration-sign-up-desktop.svg"
+            alt=""
+          />
+        </div>
+        </div> 
+      <div class="back-side">
+        <div>
+        <img src="assets/images/icon-success.svg" alt="" />
+        <h1 class="mt-2">Thanks for subscribing</h1>
+        <p class="my-2">
+          A confirmation email has been sent to <span class="bold">ash@loremcompany.com</span>. Please
+          open it and click the button inside to confirm your subscription.
+        </p>
+        </div>
+        <div>
+        <button class="btn dismiss-btn">Dismiss message</button>
+        </div>
+      </div>
+      </main>
+    </div>
+    <!-- Sign-up form start -->
+
+    <!-- Stay updated! Join 60,000+ product managers receiving monthly updates on:
+    Product discovery and building what matters Measuring to ensure updates are
+    a success And much more! Email address email@company.com Subscribe to
+    monthly newsletter -->
+
+    <!-- Sign-up form end -->
+
+    <!-- Success message start -->
+
+    <!-- Thanks for subscribing! A confirmation email has been sent to
+    ash@loremcompany.com. Please open it and click the button inside to confirm
+    your subscription. Dismiss message -->
+
+    <!-- Success message end -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a target="_blank" href="https://jgreen721dev.com">JGDev</a>.
+    </div>
+
+    <script>
+      console.log(gsap);
+
+      gsap.from(".bounce", {
+        y: -1000,
+        duration: 2,
+        stagger: 0.5,
+        ease: "bounce.out",
+      });
+      gsap.from(".slide", { x: -1000, duration: 1, delay: 1.5, stagger: 0.3 });
+      gsap.from(".scale", { scale: 0, duration: 1, stagger: 0.3, delay: 3 });
+
+      let frontSide = document.querySelector(".front-side");
+      let backSide = document.querySelector(".back-side");
+
+      document.querySelector(".btn").onclick = (e) => {
+        gsap.to(frontSide, { opacity: 0, duration: 0.25 });
+        setTimeout(() => {
+          frontSide.style.display = "none";
+          backSide.style.display = "flex";
+        }, 500);
+        gsap.from(backSide, { opacity: 0, duration: 0.5, delay: 1 });
+      };
+    </script>
+  </body>
+</html>
