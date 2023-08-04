@@ -58,7 +58,7 @@ li {
 }
 
 .app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -71,7 +71,6 @@ li {
   /* position: relative; */
   border-radius: 1rem;
   box-shadow: 2px 3px 25px var(--grey);
-  /* border: 5px solid red; */
   background: var(--white);
   overflow: hidden;
   padding: 2rem;
@@ -168,53 +167,32 @@ li {
   color: var(--white);
 }
 
-@media screen and (max-width: 625px) {
-  .app {
-    align-items: center;
-  }
-
+@media screen and (max-width: 385px) {
   .newsletter-card {
     width: 100%;
-    height: 100%;
-  }
-  .newsletter-card {
-    /* flex-direction: column; */
     display: block;
     padding: 0rem;
   }
+
   .mobile-img {
     display: block;
-    width: 100%;
-    /* border: 2px solid green;
-    width: auto;
-    height: 100%; */
+  }
+
+  .main-content-column {
+    padding: 4rem 2rem;
   }
 
   .desktop-img {
     display: none;
   }
-
-  .content-column {
-    padding: 2rem;
-  }
-
-  .back-side-content {
-    width: 100%;
-    height: 100vh;
-    padding-top: 15rem;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    /* border: 2px solid red; */
-  }
 }
 
 @media screen and (max-width: 475px) {
   .thanks-card {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     padding: 4rem 2rem;
-    padding-top: 20rem;
+    padding-top: 15rem;
   }
 
   .thanks-card-content {

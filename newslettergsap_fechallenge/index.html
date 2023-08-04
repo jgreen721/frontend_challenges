@@ -76,7 +76,7 @@
         <img class="success-check" src="assets/images/icon-success.svg" alt="" />
         <h1 class="mt-2">Thanks for subscribing!</h1>
         <p class="my-2">
-          A confirmation email has been sent to <span class="bold">ash@loremcompany.com</span>. Please
+          A confirmation email has been sent to <span class="bold user-email">ash@loremcompany.com</span>. Please
           open it and click the button inside to confirm your subscription.
         </p>
         </div>
@@ -113,9 +113,10 @@
     </div>
 
     <script>
-      console.log(gsap);
       let formInput = document.querySelector(".form-control");
       let errorh5 = document.querySelector(".error-h5");
+      let newsLetterCard = document.querySelector(".newsletter-card");
+      let thanksCard = document.querySelector(".thanks-card");
 
       gsap.from(".bounce", {
         y: -1000,
@@ -126,16 +127,17 @@
       gsap.from(".slide", { x: -1000, duration: 1, delay: 1.5, stagger: 0.3 });
       gsap.from(".scale", { scale: 0, duration: 1, stagger: 0.3, delay: 3 });
 
-      let newsLetterCard = document.querySelector(".newsletter-card");
-      let thanksCard = document.querySelector(".thanks-card");
+    
 
       document.querySelector(".btn").onclick = (e) => {
         let emailInput = document.querySelector("#email").value;
         if(validEmail(emailInput)){
+        document.querySelector(".user-email").innerHTML = emailInput
         gsap.to(newsLetterCard, { opacity: 0, duration: 0.25 });
         setTimeout(() => {
           newsLetterCard.style.display = "none";
           thanksCard.style.display = "flex";
+          newsLetterCard.style.opacity = 1;
         }, 500);
         gsap.from(thanksCard, { scale:0,rotate:720, duration: 0.5, delay: 1 });
       }
@@ -167,10 +169,26 @@
         gsap.to(thanksCard, { opacity: 0, duration: 0.25 });
         setTimeout(() => {
           thanksCard.style.display = "none";
-          newsLetterCard.style.display = "flex";
+          if(innerWidth < 385){
+          newsLetterCard.style.display="block"
+          }
+          else{
+            newsLetterCard.style.display="flex"
+
+          }
           thanksCard.style.opacity = 1;
         }, 500);
         gsap.to(newsLetterCard, { opacity:1,  duration: 0.5, delay: 1 });
+      }
+
+      onresize=(e)=>{
+        if(innerWidth < 385){
+          newsLetterCard.style.display="block"
+          }
+          else{
+            newsLetterCard.style.display="flex"
+
+          }
       }
 
     </script>
