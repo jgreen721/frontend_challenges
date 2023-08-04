@@ -19,6 +19,24 @@ html {
   --mainFont: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -50,35 +68,19 @@ li {
 }
 
 .newsletter-card {
-  position: relative;
+  /* position: relative; */
   border-radius: 1rem;
   box-shadow: 2px 3px 25px var(--grey);
   /* border: 5px solid red; */
   background: var(--white);
   overflow: hidden;
-}
-
-.front-side {
   padding: 2rem;
   display: flex;
-  overflow: hidden;
-  /* background: var(--white); */
-  /* display: none; */
+  margin: 0 auto;
 }
 
-.back-side {
-  display: none;
-  background: "";
-  padding: 4rem;
-  max-width: 500px;
-}
-
-.content-column {
+.main-content-column {
   padding: 10rem 3rem;
-}
-
-.header {
-  /* border: 2px solid red; */
 }
 
 .header-blurb {
@@ -103,6 +105,25 @@ li {
   border-radius: 0.8rem;
   margin: 0.5rem 0;
   border: 1px solid var(--grey);
+  outline: none;
+  position: relative;
+}
+
+.error-form {
+  border: 2px solid var(--tomato);
+  background: rgb(243, 172, 172);
+  color: red;
+}
+
+.error-form::placeholder {
+  color: red;
+}
+
+.error-h5 {
+  color: red;
+  position: absolute;
+  right: 1rem;
+  top: 3.2rem;
 }
 
 .btn {
@@ -115,7 +136,6 @@ li {
 
 .btn:hover {
   background: var(--tomato);
-
   box-shadow: 2px 4px 10px var(--tomato);
   text-shadow: 1px 1px 1px black;
 }
@@ -124,12 +144,21 @@ li {
   display: none;
 }
 
-.mt-2 {
-  margin-top: 2rem;
+.thanks-card {
+  display: none;
+  background: var(--white);
+  width: clamp(45%, 400px, 100%);
+  padding: 3rem 4.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 2px 3px 25px var(--grey);
 }
 
-.my-2 {
-  margin: 2rem 0;
+.success-check {
+  transition: 0.5s ease;
+}
+
+.success-check:hover {
+  filter: hue-rotate(30deg);
 }
 
 .attribution {
@@ -139,21 +168,16 @@ li {
   color: var(--white);
 }
 
-a {
-  text-decoration: none;
-  color: var(--white);
-  font-weight: 600;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 625px) {
   .app {
-    align-items: flex-start;
+    align-items: center;
   }
-  .front-side {
+
+  .newsletter-card {
+    width: 100%;
+    height: 100%;
+  }
+  .newsletter-card {
     /* flex-direction: column; */
     display: block;
     padding: 0rem;
@@ -174,7 +198,7 @@ a {
     padding: 2rem;
   }
 
-  .back-side {
+  .back-side-content {
     width: 100%;
     height: 100vh;
     padding-top: 15rem;
@@ -182,5 +206,20 @@ a {
     justify-content: space-between;
     flex-direction: column;
     /* border: 2px solid red; */
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .thanks-card {
+    height: 100%;
+    width: 100%;
+    padding: 4rem 2rem;
+    padding-top: 20rem;
+  }
+
+  .thanks-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

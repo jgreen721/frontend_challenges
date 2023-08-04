@@ -22,7 +22,6 @@
   <body>
     <div class="app">
        <main class="newsletter-card bounce">
-        <div class="front-side">
         <div class="newsletter-column mobile-column">
           <img
             class="mobile-img app-img bounce"
@@ -30,7 +29,7 @@
             alt=""
           />
         </div>
-        <div class="newsletter-column content-column">
+        <div class="newsletter-column main-content-column">
           <div class="header">
           <h1 class="header-h1 slide">Stay Updated<span class="exclamation">!</span></h1>
           <p class="header-blurb slide">Join +60,000 product managers receiving monthly updates on:</p>
@@ -52,6 +51,7 @@
 
           <div class="form-div scale">
            <h5> <label for="email">Email Address</label></h5>
+           <h5 class="error-h5">Valid Email Required</h5>
             <input class="form-control" placeholder="email@yourcompany.com" name="email" id="email" autocomplete="off"></input>
           </div>
           <div class="form-div scale">
@@ -65,11 +65,16 @@
             alt=""
           />
         </div>
-        </div> 
-      <div class="back-side">
+       
+  </main>
+
+
+
+       <section class="thanks-card">
+        <div class="thanks-card-content">
         <div>
-        <img src="assets/images/icon-success.svg" alt="" />
-        <h1 class="mt-2">Thanks for subscribing</h1>
+        <img class="success-check" src="assets/images/icon-success.svg" alt="" />
+        <h1 class="mt-2">Thanks for subscribing!</h1>
         <p class="my-2">
           A confirmation email has been sent to <span class="bold">ash@loremcompany.com</span>. Please
           open it and click the button inside to confirm your subscription.
@@ -78,8 +83,10 @@
         <div>
         <button class="btn dismiss-btn">Dismiss message</button>
         </div>
-      </div>
-      </main>
+        </div>
+      </section> 
+
+
     </div>
     <!-- Sign-up form start -->
 
@@ -107,6 +114,8 @@
 
     <script>
       console.log(gsap);
+      let formInput = document.querySelector(".form-control");
+      let errorh5 = document.querySelector(".error-h5");
 
       gsap.from(".bounce", {
         y: -1000,
@@ -117,17 +126,53 @@
       gsap.from(".slide", { x: -1000, duration: 1, delay: 1.5, stagger: 0.3 });
       gsap.from(".scale", { scale: 0, duration: 1, stagger: 0.3, delay: 3 });
 
-      let frontSide = document.querySelector(".front-side");
-      let backSide = document.querySelector(".back-side");
+      let newsLetterCard = document.querySelector(".newsletter-card");
+      let thanksCard = document.querySelector(".thanks-card");
 
       document.querySelector(".btn").onclick = (e) => {
-        gsap.to(frontSide, { opacity: 0, duration: 0.25 });
+        let emailInput = document.querySelector("#email").value;
+        if(validEmail(emailInput)){
+        gsap.to(newsLetterCard, { opacity: 0, duration: 0.25 });
         setTimeout(() => {
-          frontSide.style.display = "none";
-          backSide.style.display = "flex";
+          newsLetterCard.style.display = "none";
+          thanksCard.style.display = "flex";
         }, 500);
-        gsap.from(backSide, { opacity: 0, duration: 0.5, delay: 1 });
+        gsap.from(thanksCard, { scale:0,rotate:720, duration: 0.5, delay: 1 });
+      }
+      else{
+          formInput.classList.add("error-form");
+          gsap.to(errorh5,{duration:.2,top:'1.2rem'})
+      }
       };
+
+
+      function validEmail(email){
+        let isValid = false;
+        if(!email.length)return false;
+        if(email.indexOf("@") == -1)return false;
+        return true;
+      }
+
+
+      formInput.onkeydown=(e)=>{
+        formInput.classList.remove("error-form");
+          gsap.to(errorh5,{duration:.2,top:'3rem'})
+      }
+
+
+
+
+
+      document.querySelector(".dismiss-btn").onclick = (e) => {
+        gsap.to(thanksCard, { opacity: 0, duration: 0.25 });
+        setTimeout(() => {
+          thanksCard.style.display = "none";
+          newsLetterCard.style.display = "flex";
+          thanksCard.style.opacity = 1;
+        }, 500);
+        gsap.to(newsLetterCard, { opacity:1,  duration: 0.5, delay: 1 });
+      }
+
     </script>
   </body>
 </html>
