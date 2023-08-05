@@ -73,9 +73,14 @@ li {
   box-shadow: 2px 3px 25px var(--grey);
   background: var(--white);
   overflow: hidden;
+  /* padding: 2rem;
+  display: flex; */
+  margin: 0 auto;
+}
+
+.newsletter-card-content {
   padding: 2rem;
   display: flex;
-  margin: 0 auto;
 }
 
 .main-content-column {
@@ -170,6 +175,11 @@ li {
 @media screen and (max-width: 450px) {
   .newsletter-card {
     width: 100%;
+    min-height: 100vh;
+    /* display: block; */
+  }
+
+  .newsletter-card-content {
     display: block;
     padding: 0rem;
   }
@@ -181,14 +191,16 @@ li {
 
   .main-content-column {
     padding: 4rem 2rem;
+    padding-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .desktop-img {
     display: none;
   }
-}
 
-@media screen and (max-width: 475px) {
   .thanks-card {
     min-height: 100vh;
     width: 100%;

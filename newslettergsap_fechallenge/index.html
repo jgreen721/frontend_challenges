@@ -22,6 +22,7 @@
   <body>
     <div class="app">
        <main class="newsletter-card bounce">
+         <div class="newsletter-card-content">
         <div class="newsletter-column mobile-column">
           <img
             class="mobile-img app-img bounce"
@@ -65,7 +66,7 @@
             alt=""
           />
         </div>
-       
+       </div>
   </main>
 
 
@@ -169,28 +170,24 @@
         gsap.to(thanksCard, { opacity: 0, duration: 0.25 });
         setTimeout(() => {
           thanksCard.style.display = "none";
-          if(innerWidth < 450){
           newsLetterCard.style.display="block"
-          }
-          else{
-            newsLetterCard.style.display="flex"
-
-          }
+          document.querySelector("#email").value = ""
+     
           thanksCard.style.opacity = 1;
         }, 500);
-        gsap.to(newsLetterCard, { opacity:1,  duration: 0.5, delay: 1 });
+        // gsap.to(newsLetterCard, { opacity:1,  duration: 0.5, delay: 1 });
       }
 
-      onresize=(e)=>{
-        if(newsLetterCard.style.display == "none")return;
-        if(innerWidth < 450){
-          newsLetterCard.style.display="block"
-          }
-          else{
-            newsLetterCard.style.display="flex"
+      // onresize=(e)=>{
+      //   if(newsLetterCard.style.display == "none")return;
+      //   if(innerWidth < 450){
+      //     newsLetterCard.style.display="block"
+      //     }
+      //     else{
+      //       newsLetterCard.style.display="flex"
 
-          }
-      }
+      //     }
+      // }
 
     </script>
   </body>
