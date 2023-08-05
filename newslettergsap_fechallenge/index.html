@@ -169,7 +169,7 @@
         gsap.to(thanksCard, { opacity: 0, duration: 0.25 });
         setTimeout(() => {
           thanksCard.style.display = "none";
-          if(innerWidth < 385){
+          if(innerWidth < 450){
           newsLetterCard.style.display="block"
           }
           else{
@@ -182,7 +182,8 @@
       }
 
       onresize=(e)=>{
-        if(innerWidth < 385){
+        if(newsLetterCard.style.display == "none")return;
+        if(innerWidth < 450){
           newsLetterCard.style.display="block"
           }
           else{

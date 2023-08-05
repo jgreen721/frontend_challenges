@@ -167,7 +167,7 @@ li {
   color: var(--white);
 }
 
-@media screen and (max-width: 385px) {
+@media screen and (max-width: 450px) {
   .newsletter-card {
     width: 100%;
     display: block;
@@ -176,6 +176,7 @@ li {
 
   .mobile-img {
     display: block;
+    min-width: 100%;
   }
 
   .main-content-column {
