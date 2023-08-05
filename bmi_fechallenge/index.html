@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Body Mass Index Calculator</title>
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="header-bg-overlay"></div>
+        <div class="header-content">
+          <img class="header-logo" src="./assets/images/logo.svg" alt="" />
+          <div class="header-h1-div">
+            <h1 class="header-h1">Body Mass</h1>
+            <h1 class="header-h1">Index Calculator</h1>
+          </div>
+          <p class="header-blurb">
+            Better understand your weight in relation to your height using our
+            body mass index (BM) calculator. While BMI is not the sole
+            determinant of a healthy weight, it offers a valuable starting point
+            to evaluate your overall health and well-being.
+          </p>
+        </div>
+        <div class="user-info-card">
+          <h4 class="user-info-header">Enter your details below</h4>
+          <form action="">
+            <div class="form-row">
+              <!-- <div class="radio-form-div"> -->
+              <div class="form-div radio-row">
+                <input type="radio" name="unit" checked value="metric" />
+                <h5 class="radio-h5">Metric</h5>
+              </div>
+              <div class="form-div radio-row">
+                <input type="radio" name="unit" value="imperial" />
+                <h5 class="radio-h5">Imperial</h5>
+              </div>
+              <!-- </div> -->
+            </div>
+            <div class="metric-options">
+              <div class="form-row">
+                <!-- <div class="radio-form-div"> -->
+                <div class="form-div">
+                  <h5>
+                    <label for="height">Height</label>
+                  </h5>
+                  <h5 class="input-unit-label">cm</h5>
+
+                  <input
+                    class="form-input metric-input"
+                    type="number"
+                    min="90"
+                    max="240"
+                    step="1"
+                    value="145"
+                    name="height"
+                  />
+                </div>
+                <div class="form-div">
+                  <h5>
+                    <label for="weight">Weight</label>
+                  </h5>
+                  <h5 class="input-unit-label">kg</h5>
+
+                  <input
+                    class="form-input metric-input"
+                    type="number"
+                    name="weight"
+                    placeholder="0"
+                    min="30"
+                    step="1"
+                    max="185"
+                    value="65"
+                  />
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+
+            <div class="imperial-options" hidden>
+              <div class="form-row imperial-row">
+                <!-- <div class="radio-form-div"> -->
+                <div class="form-div">
+                  <h5>
+                    <label for="height">Height</label>
+                  </h5>
+                  <h5 class="input-unit-label">ft</h5>
+
+                  <input
+                    class="form-input imperial-input"
+                    type="number"
+                    name="feet"
+                    min="3"
+                    max="8"
+                    step="1"
+                    value="5"
+                  />
+                </div>
+                <div class="form-div">
+                  <h5 class="no-opacity">Placeholder</h5>
+                  <h5 class="input-unit-label">in</h5>
+
+                  <input
+                    class="form-input imperial-input"
+                    type="number"
+                    min="0"
+                    max="12"
+                    name="inches"
+                    value="0"
+                  />
+                </div>
+                <!-- </div> -->
+              </div>
+              <div class="form-row imperial-row">
+                <!-- <div class="radio-form-div"> -->
+                <div class="form-div">
+                  <h5>
+                    <label for="height">Weight</label>
+                  </h5>
+                  <h5 class="input-unit-label">st</h5>
+
+                  <input
+                    class="form-input imperial-input"
+                    type="number"
+                    name="stones"
+                    placeholder="0"
+                    min="2"
+                    max="30"
+                    step="1"
+                  />
+                </div>
+                <div class="form-div">
+                  <h5 class="no-opacity">Placeholder</h5>
+                  <h5 class="input-unit-label">lbs</h5>
+
+                  <input
+                    class="form-input imperial-input"
+                    type="number"
+                    name="pounds"
+                    placeholder="0"
+                    min="1"
+                    max="150"
+                    step="1"
+                  />
+                </div>
+                <!-- </div> -->
+              </div>
+            </div>
+            <div class="form-div">
+              <div class="form-output">
+                <div class="before-input-content">
+                  <h4 class="mb-sm">Welcome!</h4>
+                  <p class="thin">
+                    Enter your height and weight and you'll see your BMI result
+                    here.
+                  </p>
+                </div>
+                <div class="after-input-content" hidden>
+                  <div class="after-column">
+                    <h5>Your BMI is...</h5>
+                    <h1 id="bmi">22.0</h1>
+                  </div>
+
+                  <p class="bmi-summary-blurb summary">
+                    Your BMI suggests you're at
+                    <span id="result"></span>. Your ideal weight is between
+                    <strong class="bold" id="min"></strong> -
+
+                    <strong class="bold" id="max"></strong> .
+                  </p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </header>
+
+      <section class="about-section">
+        <div class="about-column">
+          <img
+            class="about-img"
+            src="./assets/images/image-man-eating.webp"
+            alt=""
+          />
+        </div>
+        <div class="about-column">
+          <div class="about-content">
+            <h2 class="about-header">What your BMI result means</h2>
+            <p class="about-blurb">
+              A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
+              Maintaining a healthy weight may lower your chances of
+              experiencing health issues later on, such as obesity and type 2
+              diabetes. Aim for a nutritious diet with reduced fat and sugar
+              content, incorporating ample fruits and vegetables. Additionally,
+              strive for regular physical activity, ideally about 30 minutes
+              daily for five days a week.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="categories-section">
+        <ul class="categories">
+          <li class="category-item">
+            <img
+              class="category-icon"
+              src="./assets/images/icon-eating.svg"
+              alt=""
+            />
+            <div class="category-item-content">
+              <h3 class="categories-title-h3">Healthy eating</h3>
+              <p class="category-blurb">
+                Healthy eating promotes weight control, disease prevention,
+                better digestion, immunity, mental clarity, and mood.
+              </p>
+            </div>
+          </li>
+          <li class="category-item">
+            <img
+              class="category-icon"
+              src="./assets/images/icon-exercise.svg"
+              alt=""
+            />
+            <div class="category-item-content">
+              <h3 class="categories-title-h3">Regular exercise</h3>
+              <p class="category-blurb">
+                Exercise improves fitness, aids weight control, elevates mood,
+                and reduces disease risk, fostering wellness and longevity.
+              </p>
+            </div>
+          </li>
+          <li class="category-item">
+            <img
+              class="category-icon"
+              src="./assets/images/icon-sleep.svg"
+              alt=""
+            />
+            <div class="category-item-content">
+              <h3 class="categories-title-h3">Adequate sleep</h3>
+              <p class="category-blurb">
+                Sleep enhances mental clarity, emotional stability, and physical
+                wellness, promoting overall restoration and rejuvenation.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <section class="bottom-section">
+        <div class="desktop-bottom-design">
+          <div class="top-desktop-row">
+            <div class="bottom-desktop-content">
+              <h2>Limitations of BMI</h2>
+              <p>
+                Although BMI is often a practical indicator of healthy weight,
+                it is not suited for every person. Specific groups should
+                carefully consider their BMI outcomes, and in certain cases, the
+                measurement may not be beneficial to use.
+              </p>
+              <img
+                class="desktop-bottom-bg-img"
+                src="assets/images/pattern-curved-line-right.svg"
+                alt=""
+              />
+            </div>
+            <li style="--i: 0s" class="bottom-item first-bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-gender.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Gender</h4>
+              </div>
+              <p class="bottom-blurb">
+                The development and body fat composition of girls and boys vary
+                with age. Consequently, a child's age and gender are considered
+                when evaluating their BMI.
+              </p>
+            </li>
+          </div>
+          <div class="middle-desktop-row">
+            <li style="--i: 0.2s" class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-age.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Age</h4>
+              </div>
+              <p class="bottom-blurb">
+                In aging individuals, increased body fat and muscle loss may
+                cause BMI to underestimate body fat content.
+              </p>
+            </li>
+            <li style="--i: 0.4s" class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-muscle.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Muscle</h4>
+              </div>
+              <p class="bottom-blurb">
+                BMI may misclassify muscular individuals as overweight or obese,
+                as it doesn't differentiate muscle from fat.
+              </p>
+            </li>
+          </div>
+          <div class="bottom-desktop-row">
+            <li style="--i: 0.6s" class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-pregnancy.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Pregnancy</h4>
+              </div>
+              <p class="bottom-blurb">
+                Expectant mothers experience weight gain due to their growing
+                baby. Maintaining a healthy pre-pregnancy BMI is advisable to
+                minimise health risks for both mother and child.
+              </p>
+            </li>
+            <li style="--i: 0.8s" class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-race.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Race</h4>
+              </div>
+              <p class="bottom-blurb">
+                Certain health concerns may affect individuals of some Black and
+                Asian origins at lower BMIs than others. To learn more, it is
+                advised to discuss this with your GP or practice nurse.
+              </p>
+            </li>
+          </div>
+        </div>
+
+        <div class="mobile-bottom-section">
+          <div class="bottom-mobile-content">
+            <h2>Limitations of BMI</h2>
+            <p class="bottom-content-mobile-blurb">
+              Although BMI is often a practical indicator of healthy weight, it
+              is not suited for every person. Specific groups should carefully
+              consider their BMI outcomes, and in certain cases, the measurement
+              may not be beneficial to use.
+            </p>
+          </div>
+          <ul class="bottom-mobile-items-grid">
+            <li class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-gender.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Gender</h4>
+              </div>
+              <p class="bottom-blurb">
+                Certain health concerns may affect individuals of some Black and
+                Asian origins at lower BMIs than others. To learn more, it is
+                advised to discuss this with your GP or practice nurse.
+              </p>
+            </li>
+            <li class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-age.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Age</h4>
+              </div>
+              <p class="bottom-blurb">
+                In aging individuals, increased body fat and muscle loss may
+                cause BMI to underestimate body fat content.
+              </p>
+            </li>
+            <li class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-muscle.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Muscle</h4>
+              </div>
+              <p class="bottom-blurb">
+                BMI may misclassify muscular individuals as overweight or obese,
+                as it doesn't differentiate muscle from fat.
+              </p>
+            </li>
+            <li class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-pregnancy.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Pregnancy</h4>
+              </div>
+              <p class="bottom-blurb">
+                Expectant mothers experience weight gain due to their growing
+                baby. Maintaining a healthy pre-pregnancy BMI is advisable to
+                minimise health risks for both mother and child.
+              </p>
+            </li>
+            <li class="bottom-item">
+              <div class="bottom-item-row">
+                <img
+                  class="bottom-item-icon"
+                  src="./assets/images/icon-race.svg"
+                  alt=""
+                />
+                <h4 class="bottom-item-title">Race</h4>
+              </div>
+              <p class="bottom-blurb">
+                Certain health concerns may affect individuals of some Black and
+                Asian origins at lower BMIs than others. To learn more, it is
+                advised to discuss this with your GP or practice nurse.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <!-- Body Mass Index Calculator Better understand your weight in relation to your
+    height using our body mass index (BM) calculator. While BMI is not the sole
+    determinant of a healthy weight, it offers a valuable starting point to
+    evaluate your overall health and well-being. Enter your details below Metric
+    Imperial Height Weight Your BMI is... -->
+
+    <!-- add score -->
+
+    <!-- Your BMI suggests you're -->
+    <!-- . Your ideal weight is between
+ . What your BMI result means A BMI range of 18.5 to 24.9 -->
+    <!-- is considered a 'healthy weight.' Maintaining a healthy weight may lower
+    your chances of experiencing health issues later on, such as obesity and
+    type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar
+    content, incorporating ample fruits and vegetables. Additionally, strive for
+    regular physical activity, ideally about 30 minutes daily for five days a
+    week. Healthy eating Healthy eating promotes weight control, disease
+    prevention, better digestion, immunity, mental clarity, and mood. Regular
+    exercise Exercise improves fitness, aids weight control, elevates mood, and
+    reduces disease risk, fostering wellness and longevity. Adequate sleep Sleep
+    enhances mental clarity, emotional stability, and physical wellness,
+    promoting overall restoration and rejuvenation. Limitations of BMI Although
+    BMI is often a practical indicator of healthy weight, it is not suited for
+    every person. Specific groups should carefully consider their BMI outcomes,
+    and in certain cases, the measurement may not be beneficial to use. Gender
+    The development and body fat composition of girls and boys vary with age.
+    Consequently, a child's age and gender are considered when evaluating their
+    BMI. Age In aging individuals, increased body fat and muscle loss may cause
+    BMI to underestimate body fat content. Muscle BMI may misclassify muscular
+    individuals as overweight or obese, as it doesn't differentiate muscle from
+    fat. Pregnancy Expectant mothers experience weight gain due to their growing
+    baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise
+    health risks for both mother and child. Race Certain health concerns may
+    affect individuals of some Black and Asian origins at lower BMIs than
+    others. To learn more, it is advised to discuss this with your GP or
+    practice nurse. -->
+
+    <script>
+      var imperialOptions = document.querySelector(".imperial-options");
+      var metricOptions = document.querySelector(".metric-options");
+      var beforeInput = document.querySelector(".before-input-content");
+      var afterInput = document.querySelector(".after-input-content");
+      var resultsEl = document.querySelector("#result");
+      var bmiEl = document.querySelector("#bmi");
+      var minEl = document.querySelector("#min");
+      var maxEl = document.querySelector("#max");
+
+      // Toggles between 2 systems -- CLEAN
+      document.querySelectorAll("input[type='radio']").forEach((radio) => {
+        radio.onclick = (e) => {
+          if (e.target.value == "imperial") {
+            toggleOptions("imperial");
+          } else {
+            toggleOptions("metric");
+          }
+        };
+      });
+
+      // ToggleFunction CLEAN
+      function toggleOptions(unit) {
+        if (unit == "imperial") {
+          imperialOptions.style.display = "block";
+          metricOptions.style.display = "none";
+        } else {
+          imperialOptions.style.display = "none";
+          metricOptions.style.display = "block";
+        }
+      }
+
+      let metricInputs = document.querySelectorAll(".metric-input");
+      let imperialInputs = document.querySelectorAll(".imperial-input");
+      let userStats = {};
+      let imperialUserStats = {
+        height: {
+          feet: 5,
+          inches: null,
+        },
+        weight: {
+          stones: null,
+          pounds: null,
+        },
+        totalHeight: null,
+        totalWeight: null,
+      };
+
+      metricInputs.forEach((input) => {
+        let statsTimer;
+        input.oninput = (e) => {
+          if (statsTimer) clearTimeout(statsTimer);
+          if (e.target.name == "height") {
+            userStats.height = parseInt(e.target.value);
+          } else {
+            userStats.weight = parseInt(e.target.value);
+          }
+
+          if (userStats.weight && userStats.height) {
+            // console.log(userStats);
+            statsTimer = setTimeout(() => {
+              let status = findBMI(userStats);
+              toggleContent("after");
+              findIdealRange(status, userStats, "metric");
+            }, 1500);
+          }
+        };
+      });
+
+      imperialInputs.forEach((input) => {
+        let statsTimer;
+
+        input.oninput = (e) => {
+          if (statsTimer) clearTimeout(statsTimer);
+
+          if (e.target.name == "feet") {
+            imperialUserStats.height.feet = parseInt(e.target.value);
+          }
+          if (e.target.name == "inches") {
+            console.log("Inches", e.target.value);
+            imperialUserStats.height.inches = parseInt(e.target.value);
+          }
+          if (e.target.name == "stones") {
+            imperialUserStats.weight.stones = parseInt(e.target.value);
+          }
+          if (e.target.name == "pounds") {
+            imperialUserStats.weight.pounds = parseInt(e.target.value);
+          }
+
+          //check for null instead of 0 since JS sees 0 as falsey/prevent code from running
+          if (
+            imperialUserStats.height.feet &&
+            imperialUserStats.height.inches != null &&
+            imperialUserStats.weight.stones &&
+            imperialUserStats.weight.pounds != null
+          ) {
+            let totalPounds =
+              imperialUserStats.weight.stones * 14 +
+              imperialUserStats.weight.pounds;
+            let poundsToKilos = totalPounds * (0.45).toFixed(2);
+            let totalInchesHeight =
+              imperialUserStats.height.feet * 12 +
+              imperialUserStats.height.inches;
+            let inchesToCentimeters = totalInchesHeight * 2.54;
+
+            let usersImperialToMetricStats = {
+              totalPounds,
+              poundsToKilos,
+              totalInchesHeight,
+              inchesToCentimeters,
+            };
+
+            console.log(
+              "USERSIMPERIALPOUNDS: ",
+              usersImperialToMetricStats.totalPounds
+            );
+            statsTimer = setTimeout(() => {
+              let userStatsInMetric = {
+                weight: usersImperialToMetricStats.poundsToKilos,
+                height: usersImperialToMetricStats.inchesToCentimeters,
+              };
+
+              let status = findBMI({
+                weight: usersImperialToMetricStats.poundsToKilos,
+                height: usersImperialToMetricStats.inchesToCentimeters,
+              });
+              findIdealRange(status, userStatsInMetric, "imperial");
+              // console.log("Status", status);
+              toggleContent("after");
+            }, 1000);
+          }
+        };
+      });
+
+      function findBMI(stats) {
+        let bmi = (stats.weight / Math.pow(stats.height / 100, 2)).toFixed(1);
+        let status;
+        console.log(bmi);
+
+        bmiEl.innerHTML = bmi;
+
+        let map = {
+          underweight: {
+            value: 18.5,
+            label: "an underweight size",
+            color: "blue",
+          },
+
+          healthy: {
+            value: 24.9,
+            label: "a healthy weight",
+            color: "green",
+          },
+
+          overweight: {
+            value: 29.9,
+            label: "an overweight size",
+            color: "orange",
+          },
+          obese: {
+            value: 30,
+            label: "an obese weight",
+            color: "red",
+          },
+        };
+
+        // find users weight status
+        for (let i in map) {
+          if (map[i].value > bmi) {
+            status = i;
+            break;
+          }
+
+          status = i;
+        }
+        resultsEl.innerHTML = map[status].label;
+        resultsEl.style.color = map[status].color;
+        return status;
+      }
+
+      async function findIdealRange(status, stats, unit) {
+        console.log("users status:", status, "Stats", stats);
+        let maxIdeal, minIdeal;
+
+        if (status == "underweight") {
+          console.log("underWeight rangeUtilityFiring! Status: ", status);
+
+          maxIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            25,
+            0.1
+          );
+
+          minIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            18.5,
+            0.1
+          );
+        }
+        if (status == "healthy") {
+          console.log("Healthy rangeUtilityFiring! Status: ", status);
+
+          maxIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            25,
+            0.1
+          );
+          minIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            18.5,
+            -0.1
+          );
+        }
+        if (status == "overweight" || status == "obese") {
+          console.log("Overweight/Obese rangeUtilityFiring! Status: ", status);
+          maxIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            25,
+            -0.1
+          );
+          minIdeal = await findRangeUtilityHelper(
+            stats.weight,
+            stats.height,
+            18.5,
+            -0.1
+          );
+        }
+
+        if (unit == "metric") {
+          minEl.innerHTML = minIdeal + "kgs";
+          maxEl.innerHTML = maxIdeal + "kgs";
+        } else {
+          console.log("Convert back to imperial!");
+          let minPounds = (minIdeal * 2.205).toFixed(2);
+          let maxPounds = (maxIdeal * 2.205).toFixed(2);
+          minEl.innerHTML = minPounds + "lbs";
+          maxEl.innerHTML = maxPounds + "lbs";
+        }
+      }
+
+      async function findRangeUtilityHelper(weight, height, range, delta) {
+        let hasRange = false;
+        let safetyCounter = 0;
+        return new Promise((resolve) => {
+          while (!hasRange) {
+            safetyCounter++;
+            let currBMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
+            if (Math.abs(currBMI - range) < 0.2) {
+              console.log("healthy weight for user", weight.toFixed(1));
+              resolve(weight.toFixed(1));
+              hasRange = true;
+            }
+            if (safetyCounter > 5000) {
+              hasRange = true;
+              console.log("[utilityHelper] That method didnt work! :(");
+            }
+            weight += delta;
+          }
+        });
+      }
+
+      function toggleContent(status) {
+        if (status == "after") {
+          afterInput.style.display = "block";
+          beforeInput.style.display = "none";
+        } else {
+          afterInput.style.display = "none";
+          beforeInput.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
