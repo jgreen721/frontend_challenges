@@ -8,7 +8,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Body Mass Index Calculator</title>
@@ -18,7 +18,7 @@
       <header class="header">
         <div class="header-bg-overlay"></div>
         <div class="header-content">
-          <img class="header-logo" src="./assets/images/logo.svg" alt="" />
+          <img class="header-logo" src="./images/logo.svg" alt="" />
           <div class="header-h1-div">
             <h1 class="header-h1">Body Mass</h1>
             <h1 class="header-h1">Index Calculator</h1>
@@ -185,11 +185,7 @@
 
       <section class="about-section">
         <div class="about-column">
-          <img
-            class="about-img"
-            src="./assets/images/image-man-eating.webp"
-            alt=""
-          />
+          <img class="about-img" src="./images/image-man-eating.webp" alt="" />
         </div>
         <div class="about-column">
           <div class="about-content">
@@ -208,46 +204,49 @@
       </section>
       <div class="categories-section">
         <ul class="categories">
-          <li class="category-item">
-            <img
-              class="category-icon"
-              src="./assets/images/icon-eating.svg"
-              alt=""
-            />
-            <div class="category-item-content">
-              <h3 class="categories-title-h3">Healthy eating</h3>
-              <p class="category-blurb">
-                Healthy eating promotes weight control, disease prevention,
-                better digestion, immunity, mental clarity, and mood.
-              </p>
+          <li style="--i: 3s" class="category-item">
+            <div class="category-item-card-content">
+              <img
+                class="category-icon"
+                src="./images/icon-eating.svg"
+                alt=""
+              />
+              <div class="category-item-content">
+                <h3 class="categories-title-h3">Healthy eating</h3>
+                <p class="category-blurb">
+                  Healthy eating promotes weight control, disease prevention,
+                  better digestion, immunity, mental clarity, and mood.
+                </p>
+              </div>
             </div>
           </li>
-          <li class="category-item">
-            <img
-              class="category-icon"
-              src="./assets/images/icon-exercise.svg"
-              alt=""
-            />
-            <div class="category-item-content">
-              <h3 class="categories-title-h3">Regular exercise</h3>
-              <p class="category-blurb">
-                Exercise improves fitness, aids weight control, elevates mood,
-                and reduces disease risk, fostering wellness and longevity.
-              </p>
+          <li style="--i: 2.25s" class="category-item">
+            <div class="category-item-card-content">
+              <img
+                class="category-icon"
+                src="./images/icon-exercise.svg"
+                alt=""
+              />
+              <div class="category-item-content">
+                <h3 class="categories-title-h3">Regular exercise</h3>
+                <p class="category-blurb">
+                  Exercise improves fitness, aids weight control, elevates mood,
+                  and reduces disease risk, fostering wellness and longevity.
+                </p>
+              </div>
             </div>
           </li>
-          <li class="category-item">
-            <img
-              class="category-icon"
-              src="./assets/images/icon-sleep.svg"
-              alt=""
-            />
-            <div class="category-item-content">
-              <h3 class="categories-title-h3">Adequate sleep</h3>
-              <p class="category-blurb">
-                Sleep enhances mental clarity, emotional stability, and physical
-                wellness, promoting overall restoration and rejuvenation.
-              </p>
+          <li style="--i: 1.5s" class="category-item">
+            <div class="category-item-card-content">
+              <img class="category-icon" src="./images/icon-sleep.svg" alt="" />
+              <div class="category-item-content">
+                <h3 class="categories-title-h3">Adequate sleep</h3>
+                <p class="category-blurb">
+                  Sleep enhances mental clarity, emotional stability, and
+                  physical wellness, promoting overall restoration and
+                  rejuvenation.
+                </p>
+              </div>
             </div>
           </li>
         </ul>
@@ -266,15 +265,15 @@
               </p>
               <img
                 class="desktop-bottom-bg-img"
-                src="assets/images/pattern-curved-line-right.svg"
+                src="./images/pattern-curved-line-right.svg"
                 alt=""
               />
             </div>
-            <li style="--i: 0s" class="bottom-item first-bottom-item">
+            <li class="bottom-item first-bottom-item">
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-gender.svg"
+                  src="./images/icon-gender.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Gender</h4>
@@ -287,11 +286,11 @@
             </li>
           </div>
           <div class="middle-desktop-row">
-            <li style="--i: 0.2s" class="bottom-item">
+            <li class="bottom-item">
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-age.svg"
+                  src="./images/icon-age.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Age</h4>
@@ -301,11 +300,11 @@
                 cause BMI to underestimate body fat content.
               </p>
             </li>
-            <li style="--i: 0.4s" class="bottom-item">
+            <li class="bottom-item">
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-muscle.svg"
+                  src="./images/icon-muscle.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Muscle</h4>
@@ -317,11 +316,11 @@
             </li>
           </div>
           <div class="bottom-desktop-row">
-            <li style="--i: 0.6s" class="bottom-item">
+            <li class="bottom-item">
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-pregnancy.svg"
+                  src="./images/icon-pregnancy.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Pregnancy</h4>
@@ -332,11 +331,11 @@
                 minimise health risks for both mother and child.
               </p>
             </li>
-            <li style="--i: 0.8s" class="bottom-item">
+            <li class="bottom-item">
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-race.svg"
+                  src="./images/icon-race.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Race</h4>
@@ -365,7 +364,7 @@
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-gender.svg"
+                  src="./images/icon-gender.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Gender</h4>
@@ -380,7 +379,7 @@
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-age.svg"
+                  src="./images/icon-age.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Age</h4>
@@ -394,7 +393,7 @@
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-muscle.svg"
+                  src="./images/icon-muscle.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Muscle</h4>
@@ -408,7 +407,7 @@
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-pregnancy.svg"
+                  src="./images/icon-pregnancy.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Pregnancy</h4>
@@ -423,7 +422,7 @@
               <div class="bottom-item-row">
                 <img
                   class="bottom-item-icon"
-                  src="./assets/images/icon-race.svg"
+                  src="./images/icon-race.svg"
                   alt=""
                 />
                 <h4 class="bottom-item-title">Race</h4>
@@ -749,6 +748,42 @@
           afterInput.style.display = "none";
           beforeInput.style.display = "block";
         }
+      }
+
+      let bottomCardsObserver = new IntersectionObserver(showCards);
+      let categoryCardsObserver = new IntersectionObserver(slideCards);
+      let bottomCards = document.querySelectorAll(".bottom-item");
+      let categoryCards = document.querySelectorAll(".category-item");
+
+      categoryCards.forEach((card) => {
+        categoryCardsObserver.observe(card);
+      });
+
+      function slideCards(entries) {
+        console.log(entries);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target
+              .querySelector(".category-item-card-content")
+              .classList.add("slide-card");
+
+            // console.log(entry.target);
+            // .classList.add("slide-card");
+          }
+        });
+      }
+
+      bottomCards.forEach((card) => {
+        bottomCardsObserver.observe(card);
+      });
+
+      function showCards(entries) {
+        console.log(entries);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show-card");
+          }
+        });
       }
     </script>
   </body>

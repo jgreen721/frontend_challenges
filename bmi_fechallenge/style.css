@@ -323,6 +323,20 @@ p {
   padding: 3rem 11.6rem;
 }
 
+.category-item-card-content {
+  transform: translateX(-100vw);
+}
+
+.slide-card {
+  animation: slidecard 2s var(--i) forwards;
+}
+
+@keyframes slidecard {
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .categories {
   display: flex;
   gap: 1.5rem;
@@ -400,6 +414,17 @@ p {
   position: relative;
   background: var(--white);
   z-index: 15;
+  transform: scale(0);
+}
+
+.show-card {
+  animation: scalecard 2s forwards;
+}
+
+@keyframes scalecard {
+  100% {
+    transform: scale(1);
+  }
 }
 
 .bottom-item-row {
