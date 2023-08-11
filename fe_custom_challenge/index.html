@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Custom Challenge</title>
+  </head>
+  <body>
+    <div class="columns">
+      <div class="column red">
+        <div class="img-overlay">
+          <img class="overlay-img" src="alaska.jpg" alt="" />
+
+          <img class="main-img" src="alaska.jpg" alt="" />
+        </div>
+        <div class="column-content">
+          <div class="column-top-text">
+            <h2>Hope</h2>
+          </div>
+          <h1>You</h1>
+          <div class="column-bottom-text">
+            <h2>Like</h2>
+          </div>
+        </div>
+      </div>
+      <div class="column blue">
+        <div class="img-overlay">
+          <img
+            class="overlay-img"
+            src="https://unsplash.com/photos/qec1QeE_SaY"
+            alt=""
+          />
+          <img
+            class="main-img"
+            src="https://unsplash.com/photos/qec1QeE_SaY"
+            alt=""
+          />
+        </div>
+        <div class="column-content">
+          <div class="column-top-text">
+            <h2>What One</h2>
+          </div>
+          <h1>Can</h1>
+          <div class="column-bottom-text">
+            <h2>Do</h2>
+          </div>
+        </div>
+      </div>
+      <div class="column green">
+        <div class="img-overlay">
+          <img class="overlay-img" src="sky.jpg" alt="" />
+          <img class="main-img" src="sky.jpg" alt="" />
+        </div>
+        <div class="column-content">
+          <div class="column-top-text">
+            <h2>Always</h2>
+          </div>
+          <h1>Always</h1>
+          <div class="column-bottom-text">
+            <h2>Try Hard</h2>
+          </div>
+        </div>
+      </div>
+      <div class="column yellow">
+        <div class="img-overlay">
+          <img class="overlay-img" src="wolf.jpg" alt="" />
+          <img class="main-img" src="wolf.jpg" alt="" />
+        </div>
+        <div class="column-content">
+          <div class="column-top-text">
+            <h2>Justs</h2>
+          </div>
+          <h1>Do</h1>
+          <div class="column-bottom-text">
+            <h2>Your Best</h2>
+          </div>
+        </div>
+      </div>
+      <div class="column orange">
+        <div class="img-overlay">
+          <img class="overlay-img" src="ocean.jpg" alt="" />
+          <img class="main-img" src="ocean.jpg" alt="" />
+        </div>
+        <div class="column-content">
+          <div class="column-top-text">
+            <h2>Practice</h2>
+          </div>
+          <h1>Better</h1>
+          <div class="column-bottom-text">
+            <h2>Habits</h2>
+          </div>
+        </div>
+      </div>
+      <div class="author-div">
+        <h3>Made by JGDev 💻</h3>
+      </div>
+    </div>
+
+    <script>
+      var columns = document.querySelectorAll(".column");
+
+      columns.forEach((column, idx) => {
+        column.onclick = (e) => {
+          let flexVals = window
+            .getComputedStyle(e.target)
+            .getPropertyValue("flex");
+          let flexVal = flexVals.split(" ")[0];
+          console.log(flexVal);
+          console.log(flexVals);
+          if (flexVal == 1) {
+            e.target.style.flex = `2 1 0%`;
+          } else {
+            e.target.style.flex = `1 1 0%`;
+          }
+
+          if (
+            e.target
+              .querySelector(".column-top-text")
+              .classList.contains("lower-section")
+          ) {
+            e.target
+              .querySelector(".column-top-text")
+              .classList.remove("lower-section");
+            e.target
+              .querySelector(".column-bottom-text")
+              .classList.remove("lower-section");
+          } else {
+            e.target
+              .querySelector(".column-top-text")
+              .classList.add("lower-section");
+            e.target
+              .querySelector(".column-bottom-text")
+              .classList.add("lower-section");
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.columns {
+  display: flex;
+  height: 100vh;
+  /* overflow: hidden; */
+  transform: scale(0) blur(10px);
+  animation: showcolumns 2s 1s forwards;
+}
+
+@keyframes showcolumns {
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1) blur(0px);
+  }
+}
+
+.column {
+  flex: 1;
+  /* border: 2px solid black; */
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.column-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+  transform: scale(1.4);
+}
+
+.column-top-text,
+.column-bottom-text {
+  position: absolute;
+  padding: 2rem 0;
+  font-family: "Caveat", cursive;
+  color: white;
+  text-shadow: 1px 1px 15px black;
+}
+
+.column-top-text {
+  top: 0;
+  transform: translateY(-50rem);
+}
+
+.column-bottom-text {
+  bottom: 0;
+  transform: translateY(50rem);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.overlay-img {
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 50%;
+  /* display: none; */
+}
+
+.main-img {
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  padding: 0.25rem;
+  /* width: 100%; */
+  /* width: 100%; */
+}
+
+/* .red {
+  background: red;
+}
+
+.blue {
+  background: blue;
+}
+
+.green {
+  background: green;
+}
+
+.yellow {
+  background: yellow;
+}
+
+.orange {
+  background: orange;
+} */
+
+.lower-section {
+  animation: dropsection 0.5s forwards;
+}
+
+.author-div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0.5rem;
+}
+
+.author-div h3 {
+  position: relative;
+  font-family: "Caveat", cursive;
+}
+
+.author-div::before {
+  content: "";
+  background: white;
+  border-top-right-radius: 20px;
+  position: absolute;
+  inset: 0;
+  opacity: 25%;
+}
+
+@keyframes dropsection {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .overlay-img,
+  .main-img {
+    height: auto;
+    width: 100%;
+  }
+}
