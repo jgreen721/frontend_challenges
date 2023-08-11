@@ -27,16 +27,8 @@
       </div>
       <div class="column blue">
         <div class="img-overlay">
-          <img
-            class="overlay-img"
-            src="https://unsplash.com/photos/qec1QeE_SaY"
-            alt=""
-          />
-          <img
-            class="main-img"
-            src="https://unsplash.com/photos/qec1QeE_SaY"
-            alt=""
-          />
+          <img class="overlay-img" src="hiking.jpg" alt="" />
+          <img class="main-img" src="hiking.jpg" alt="" />
         </div>
         <div class="column-content">
           <div class="column-top-text">
@@ -110,7 +102,11 @@
           console.log(flexVal);
           console.log(flexVals);
           if (flexVal == 1) {
-            e.target.style.flex = `2 1 0%`;
+            if (innerWidth < 750) {
+              e.target.style.flex = `1.5 1 0%`;
+            } else {
+              e.target.style.flex = `2 1 0%`;
+            }
           } else {
             e.target.style.flex = `1 1 0%`;
           }
