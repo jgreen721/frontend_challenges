@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --teal: #3ee9e5;
+  --darkblue: #093f68;
+  --white: #ffffff;
+  --offblack: #080c20;
+  --gray: #777f98;
+  --red: #ff2965;
+  --manrope: "Manrope", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 4.8rem;
+  line-height: 5.6rem;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 5.5rem;
+}
+
+h3 {
+  font-size: 3.2rem;
+  line-height: 4.4rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.form-control {
+  border-radius: 100px;
+  padding: 1.1rem 1.8rem;
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  outline: none;
+}
+
+.btn {
+  padding: 1.2rem 1.4rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.5s ease;
+}
+
+.primary-btn {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.primary-btn:hover {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--teal);
+}
+
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 3.2rem;
+    line-height: 4rem;
+  }
+  h2 {
+    font-size: 3.2rem;
+    line-height: 4rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+  }
+}
