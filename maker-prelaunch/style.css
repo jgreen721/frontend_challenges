@@ -434,6 +434,26 @@
   transform: translateX(100vw);
 }
 
+.form-div {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.error-p {
+  position: absolute;
+  color: var(--red);
+  font-size: 1rem;
+  font-weight: 600;
+  left: 1.5rem;
+  bottom: -5rem;
+  transition: 0.5s ease-in;
+}
+
+.show-error {
+  bottom: 0rem;
+}
+
 .form-row {
   display: flex;
   gap: 2rem;

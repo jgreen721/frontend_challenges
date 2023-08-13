@@ -58,6 +58,11 @@ p {
   font-size: 1.5rem;
   border: 2px solid transparent;
   outline: none;
+  min-width: 300px;
+}
+
+.error-form {
+  border: 2px solid var(--red);
 }
 
 .btn {

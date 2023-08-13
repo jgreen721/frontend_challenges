@@ -245,6 +245,7 @@
           <div class="form-row">
           <div class="form-div">
             <input class="form-control footer-input" placeholder="Email address" name="email" id="email" autocomplete="off"></input>
+            <p class="error-p">Ooops! That doesn't look like an email address </p>
           </div>
           <div class="form-div">
             <button class="btn primary-btn footer-btn">Get notified</button>
@@ -336,6 +337,22 @@
         else{
           console.log("hide items!")
         }
+      }
+
+
+
+
+      document.querySelector(".footer-btn").onclick=(e)=>{
+        if(!document.querySelector("input[name='email']").value || document.querySelector("input[name='email']").value.indexOf("@") == -1){
+          document.querySelector(".form-control").classList.add("error-form")
+          document.querySelector(".error-p").classList.add("show-error")
+        }
+      }
+
+
+      document.querySelector("input[name='email']").onkeydown=(e)=>{
+        document.querySelector(".form-control").className = "form-control"
+          document.querySelector(".error-p").className = "error-p"
       }
 
 
