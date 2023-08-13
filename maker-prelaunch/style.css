@@ -243,13 +243,13 @@
   }
 }
 
-/* .slide-left-item {
+.slide-left-item {
   transform: translateX(-100vw);
 }
 
 .slide-right-item {
   transform: translateX(100vw);
-} */
+}
 /* 
 .benefit-item:nth-child(even) {
   transform: translateY(5rem);
