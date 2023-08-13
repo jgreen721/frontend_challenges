@@ -198,6 +198,9 @@
 
 /*Benefits Section */
 
+.benefits-section {
+}
+
 .benefits-list {
   display: flex;
   color: var(--white);
@@ -207,6 +210,10 @@
 }
 
 .benefit-item {
+  transition: var(--transition);
+}
+
+.benefit-item-content {
   animation: float 10s var(--i) infinite;
 }
 
@@ -234,6 +241,14 @@
   100% {
     transform: translateY(0rem);
   }
+}
+
+.slide-left-item {
+  transform: translateX(-100vw);
+}
+
+.slide-right-item {
+  transform: translateX(100vw);
 }
 /* 
 .benefit-item:nth-child(even) {
@@ -308,6 +323,7 @@
   max-width: 54rem;
   margin: 0 auto;
   padding: 7rem 0;
+  transform: scale(0);
 }
 
 .pricing-plans {
@@ -322,10 +338,14 @@
 .pricing-plan-icon {
   position: absolute;
   top: -2.5rem;
+  transition: 0.5s ease;
+  transform: scale(0);
 }
 
 .plan-header {
   padding-top: 3rem;
+  transition: 0.5s ease;
+  transform: scale(0);
 }
 
 .free-plan-item {
@@ -334,6 +354,8 @@
   text-align: start;
   padding: 2rem;
   border-radius: 1rem;
+  transition: 1s ease;
+  transform: scale(0.25) translateX(-100vw);
 }
 
 .premium-plan-item {
@@ -342,11 +364,20 @@
   text-align: start;
   padding: 2rem;
   border-radius: 1rem;
+  transition: 1.5s ease;
+  transform: scale(0.25) translateX(100vw);
 }
 
 .pricing-blurb {
   font-weight: 100;
   padding: 1rem 0;
+  transition: 1s ease;
+  filter: blur(10px);
+}
+
+.plan-title {
+  transform: translateX(100vw);
+  transition: 0.5s ease;
 }
 
 .plan-feature-item {
@@ -354,6 +385,7 @@
   gap: 1rem;
   align-items: center;
   padding: 0.5rem 0;
+  transform: scale(0);
 }
 
 @media screen and (max-width: 950px) {
@@ -379,6 +411,8 @@
 .footer-overlay {
   position: absolute;
   inset: 0;
+  transition: 1.25s ease;
+  transform: scale(0);
 }
 
 .footer-img {
@@ -396,6 +430,8 @@
   z-index: 5;
   /* border: 2px solid green; */
   position: relative;
+  transition: 0.5s ease;
+  transform: translateX(100vw);
 }
 
 .form-row {

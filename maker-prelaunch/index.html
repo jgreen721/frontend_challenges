@@ -74,7 +74,8 @@
 
       <section class="benefits-section">
         <ul class="benefits-list">
-          <li style="--i:0s" class="benefit-item">
+          <li style="--i:0s;--transition:1.3s" class="benefit-item slide-left-item">
+            <div class="benefit-item-content">
             <div class="benefit-img-div">
               <img
                 class="benefits-img"
@@ -89,8 +90,10 @@
                 doing what you love.
               </p>
             </div>
+            </div>
           </li>
-          <li style="--i:1.2s" class="benefit-item">
+          <li style="--i:1.2s;--transition:.9s" class="benefit-item slide-left-item">
+            <div class="benefit-item-content">
             <div class="benefit-img-div">
               <img
                 class="benefits-img"
@@ -105,8 +108,10 @@
                 earning while you sleep.
               </p>
             </div>
+            </div>
           </li>
-          <li style="--i:1.8s" class="benefit-item">
+          <li style="--i:1.8s;--transition:.8s" class="benefit-item slide-right-item">
+            <div class="benefit-item-content">
             <div class="benefit-img-div">
               <img
                 class="benefits-img"
@@ -121,8 +126,10 @@
                 of your week.
               </p>
             </div>
+            </div>
           </li>
-          <li style="--i:.7s" class="benefit-item">
+          <li style="--i:.7s;--transition:1.2s" class="benefit-item slide-right-item">
+            <div class="benefit-item-content">
             <div class="benefit-img-div">
               <img
                 class="benefits-img"
@@ -136,6 +143,7 @@
                 Selling online means not being pinned down. Want to work AND
                 travel? Go for it!
               </p>
+            </div>
             </div>
           </li>
         </ul>
@@ -254,7 +262,83 @@
       );
 
 
-      // let observer = new IntersectionObserver(slideEls);
+      let benefitsSection = document.querySelector(".benefits-section");
+      let benefitsObserver = new IntersectionObserver(slideEls);
+
+      benefitsObserver.observe(benefitsSection);
+
+      function slideEls(entries){
+        if(entries[0].isIntersecting){
+          console.log('show items')
+          entries[0].target.querySelectorAll(".benefit-item").forEach((item,idx)=>{
+            if(idx < 2){
+            item.classList.remove("slide-left-item")
+            }
+            else{
+              item.classList.remove("slide-right-item")
+
+            }
+          })
+        }
+        else{
+          console.log("hide items!")
+        }
+      }
+
+
+      let pricingObserver = new IntersectionObserver(showPricing);
+      let pricingSection = document.querySelector(".pricing-plan-section");
+
+      pricingObserver.observe(pricingSection)
+
+      function showPricing(entries){
+        if(entries[0].isIntersecting){
+          console.log('show items', entries[0].target.querySelector(".pricing-section-header"))
+          entries[0].target.querySelector(".pricing-section-header").style.animation = "scaleup 1s forwards"
+          entries[0].target.querySelector(".free-plan-item").style.transform = "scale(1)translateX(0)"
+          entries[0].target.querySelector(".premium-plan-item").style.transform = "scale(1)translateX(0)"
+          setTimeout(()=>{
+            showPlanContent(entries[0].target.querySelector(".free-plan-item"))
+            showPlanContent(entries[0].target.querySelector(".premium-plan-item"))
+          },1000)
+
+        }
+        else{
+          console.log("hide items!")
+        }
+      }
+
+
+
+      function showPlanContent(card){
+
+        card.querySelector(".pricing-plan-icon").style.transform = `scale(1)`
+        card.querySelector(".plan-header").style.transform = `scale(1)`
+        card.querySelector(".pricing-blurb").style.filter = `blur(0px)`
+        card.querySelector(".plan-title").style.transform = `translateX(0)`
+        card.querySelectorAll(".plan-feature-item").forEach((item,idx)=>{
+          item.style.animation = `scaleup 1s ${idx/2}s forwards`
+        })
+}
+
+
+      let footerObserver = new IntersectionObserver(showFooter);
+      let footerSection = document.querySelector(".footer");
+
+      footerObserver.observe(footerSection)
+
+      function showFooter(entries){
+        if(entries[0].isIntersecting){
+          entries[0].target.querySelector(".footer-overlay").style.transform = "scale(1)"
+          entries[0].target.querySelector(".footer-content").style.transform = "translateX(0)"
+        
+        }
+        else{
+          console.log("hide items!")
+        }
+      }
+
+
     </script>
   </body>
 </html>
