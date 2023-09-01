@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+    <title>Frontend Mentor | Sunnyside agency landing page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div data-theme="light" class="app">
+      <header class="header">
+        <nav class="nav">
+          <div class="nav-logo-div">
+            <img class="nav-logo" src="./images/logo.svg" alt="" />
+          </div>
+          <ul class="nav-links">
+            <li class="nav-link-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-link-item">
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav-link-item">
+              <a href="#projects" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-link-item">
+              <a href="#contact" class="nav-link contact-link">Contact</a>
+            </li>
+          </ul>
+          <div class="mobile-nav-div">
+            <div class="mobile-burger">
+              <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="mobile-menu"></div>
+          </div>
+        </nav>
+        <div class="header-content">
+          <h1 class="header-h1">We are creatives</h1>
+          <img
+            class="header-arrow-icon"
+            src="./images/icon-arrow-down.svg"
+            alt="arrow-img"
+          />
+        </div>
+        <div class="header-img-overlay">
+          <img
+            class="header-img"
+            src="./images/desktop/image-header.jpg"
+            alt=""
+          />
+        </div>
+      </header>
+      <main class="section">
+        <div class="desktop-section-content">
+          <ul class="articles-list">
+            <li class="article-item">
+              <div class="article-item-content">
+                <h2 class="article-item-header">Transform your brand</h2>
+                <p class="article-item-blurb">
+                  We are a full service creative agency specializing in helping
+                  brands grow fast. Engage your clients through compelling
+                  visuals that do most of the marketing for you.
+                </p>
+                <button class="article-btn btn">
+                  <p class="article-btn-text yellow-underline">Learn More</p>
+                </button>
+              </div>
+            </li>
+            <li class="article-item article-item-img article-item-img-one">
+              <img
+                data-animate="translateY"
+                class="article-img"
+                src="./images/desktop/image-transform.jpg"
+                alt=""
+              />
+            </li>
+            <li class="article-item article-item-img article-item-img-two">
+              <img
+                data-animate="translateX"
+                class="article-img"
+                src="./images/desktop/image-stand-out.jpg"
+                alt=""
+              />
+            </li>
+            <li class="article-item">
+              <div class="article-item-content">
+                <h2 class="article-item-header">
+                  Stand out to the right brand
+                </h2>
+                <p class="article-item-blurb">
+                  Using a collaborative formula of designers, researchers,
+                  photographers, videographers, and copywriters, we’ll build and
+                  extend your brand in digital places.
+                </p>
+                <button class="article-btn btn">
+                  <p class="article-btn-text red-underline">Learn More</p>
+                </button>
+              </div>
+            </li>
+            <li class="article-item article-item-img-three">
+              <div
+                style="--animation: swing; --duration: 10s; --delay: 1.2s"
+                class="article-item-fx"
+              >
+                <img
+                  class="article-img"
+                  src="./images/desktop/image-graphic-design.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="article-item-content-bottom text-darkcyan">
+                <h2 class="article-item-header">Graphic Design</h2>
+                <p class="article-item-blurb">
+                  Great design makes you memorable. We deliver artwork that
+                  underscores your brand message and captures potential clients’
+                  attention.
+                </p>
+              </div>
+              <!-- </div> -->
+            </li>
+            <li class="article-item article-item-img-four">
+              <div
+                style="--animation: float; --duration: 8s; --delay: 1.2s"
+                class="article-item-fx"
+              >
+                <!-- <div class="article-item-overlay article-item-overlay-two"> -->
+                <img
+                  class="parallax-img article-img"
+                  src="./images/desktop/image-photography.jpg"
+                  alt=""
+                />
+                <!-- </div> -->
+                <div class="article-item-content-bottom text-darksatblue">
+                  <h2 class="article-item-header">Photography</h2>
+                  <p class="article-item-blurb">
+                    Increase your credibility by getting the most stunning,
+                    high-quality photos that improve your business image.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile-article-items">
+          <ul>
+            <li class="article-item article-item-img article-item-img-one">
+              <img
+                class="article-img"
+                data-animate="translateY"
+                src="./images/desktop/image-transform.jpg"
+                alt=""
+              />
+            </li>
+            <li class="article-item">
+              <div class="article-item-content">
+                <h2 class="article-item-header">Transform your brand</h2>
+                <p class="article-item-blurb">
+                  We are a full service creative agency specializing in helping
+                  brands grow fast. Engage your clients through compelling
+                  visuals that do most of the marketing for you.
+                </p>
+                <button class="article-btn btn">
+                  <p class="article-btn-text yellow-underline">Learn More</p>
+                </button>
+              </div>
+            </li>
+            <li class="article-item article-item-img article-item-img-two">
+              <img
+                data-animate="translateX"
+                class="article-img"
+                src="./images/desktop/image-stand-out.jpg"
+                alt=""
+              />
+            </li>
+            <li class="article-item">
+              <div class="article-item-content">
+                <h2 class="article-item-header">
+                  Stand out to the right brand
+                </h2>
+                <p class="article-item-blurb">
+                  Using a collaborative formula of designers, researchers,
+                  photographers, videographers, and copywriters, we’ll build and
+                  extend your brand in digital places.
+                </p>
+                <button class="article-btn btn">
+                  <p class="article-btn-text red-underline">Learn More</p>
+                </button>
+              </div>
+            </li>
+
+            <li class="article-item article-item-img-three">
+              <div
+                style="--animation: swing; --duration: 10s; --delay: 1.2s"
+                class="article-item-fx"
+              >
+                <img
+                  class="article-img"
+                  src="./images/desktop/image-graphic-design.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="article-item-content-bottom text-darkcyan">
+                <h2 class="article-item-header">Graphic Design</h2>
+                <p class="article-item-blurb">
+                  Great design makes you memorable. We deliver artwork that
+                  underscores your brand message and captures potential clients’
+                  attention.
+                </p>
+              </div>
+              <!-- </div> -->
+            </li>
+            <li class="article-item article-item-img-four">
+              <div
+                style="--animation: float; --duration: 8s; --delay: 1.2s"
+                class="article-item-fx"
+              >
+                <!-- <div class="article-item-overlay article-item-overlay-two"> -->
+                <img
+                  class="parallax-img article-img"
+                  src="./images/desktop/image-photography.jpg"
+                  alt=""
+                />
+                <!-- </div> -->
+                <div class="article-item-content-bottom text-darkcyan">
+                  <h2 class="article-item-header">Photography</h2>
+                  <p class="article-item-blurb">
+                    Increase your credibility by getting the most stunning,
+                    high-quality photos that improve your business image.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <section class="testimonials-section">
+        <div class="testimonials-content">
+          <h3 class="testimonial-header fancy-font">Client Testimonials</h3>
+          <ul class="testimonials">
+            <li class="testimonial-item">
+              <div class="testimonial-img-div">
+                <img
+                  class="testimonial-img"
+                  src="./images/image-emily.jpg"
+                  alt=""
+                />
+              </div>
+              <p class="testimonial-blurb">
+                We put our trust in Sunnyside and they delivered, making sure
+                our needs were met and deadlines were always hit.
+              </p>
+              <h4 class="testimonial-name fancy-font">Emily R.</h4>
+              <h5 class="testimonial-job thin">Marketing Director</h5>
+            </li>
+            <li class="testimonial-item">
+              <div class="testimonial-img-div">
+                <img
+                  class="testimonial-img"
+                  src="./images/image-thomas.jpg"
+                  alt=""
+                />
+              </div>
+              <p class="testimonial-blurb">
+                We put our trust in Sunnyside and they delivered, making sure
+                our needs were met and deadlines were always hit.
+              </p>
+              <h4 class="testimonial-name fancy-font">Thomas S.</h4>
+              <h5 class="testimonial-job thin">Chief Operating Officer</h5>
+            </li>
+            <li class="testimonial-item">
+              <div class="testimonial-img-div">
+                <img
+                  class="testimonial-img"
+                  src="./images/image-jennie.jpg"
+                  alt=""
+                />
+              </div>
+              <p class="testimonial-blurb">
+                We put our trust in Sunnyside and they delivered, making sure
+                our needs were met and deadlines were always hit.
+              </p>
+              <h4 class="testimonial-name fancy-font">Jennie F.</h4>
+              <h5 class="testimonial-job thin">Business Owner</h5>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bottom-cards-section">
+        <ul class="cards">
+          <li style="--delay: 0.78s" class="card-item bg-blue">
+            <picture>
+              <source
+                media="(min-width:650px)"
+                srcset="./images/desktop/image-gallery-milkbottles.jpg"
+              />
+              <source
+                media="(min-width:465px)"
+                srcset="./images/desktop/image-gallery-milkbottles.jpg"
+              />
+              <img
+                class="gallery-img"
+                src="./images/mobile/image-gallery-milkbottles.jpg"
+                alt="img"
+              />
+            </picture>
+          </li>
+          <li style="--delay: 1.12s" class="card-item bg-orange">
+            <picture>
+              <source
+                media="(min-width:650px)"
+                srcset="./images/desktop/image-gallery-orange.jpg"
+              />
+              <source
+                media="(min-width:465px)"
+                srcset="./images/desktop/image-gallery-orange.jpg"
+              />
+              <img
+                class="gallery-img"
+                src="./images/mobile/image-gallery-orange.jpg"
+                alt="img"
+              />
+            </picture>
+          </li>
+          <li style="--delay: 0.35s" class="card-item bg-blue">
+            <picture>
+              <source
+                media="(min-width:650px)"
+                srcset="./images/desktop/image-gallery-cone.jpg"
+              />
+              <source
+                media="(min-width:465px)"
+                srcset="./images/desktop/image-gallery-cone.jpg"
+              />
+              <img
+                class="gallery-img"
+                src="./images/mobile/image-gallery-cone.jpg"
+                alt="img"
+              />
+            </picture>
+          </li>
+          <li style="--delay: 2s" class="card-item bg-red">
+            <picture>
+              <source
+                media="(min-width:650px)"
+                srcset="./images/desktop/image-gallery-sugarcubes.jpg"
+              />
+              <source
+                media="(min-width:465px)"
+                srcset="./images/desktop/image-gallery-sugarcubes.jpg"
+              />
+              <img
+                class="gallery-img"
+                src="./images/mobile/image-gallery-sugarcubes.jpg"
+                alt="img"
+              />
+            </picture>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <img class="footer-logo" src="./images/footerlogo.svg" alt="logo" />
+        <ul class="footer-nav-links">
+          <li class="nav-link-item">
+            <a href="" class="footer-nav-link">About</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="" class="footer-nav-link">Services</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="" class="footer-nav-link">Projects</a>
+          </li>
+        </ul>
+
+        <ul class="footer-links">
+          <li class="footer-social-media-item">
+            <a target="blank" href="https://facebook.com">
+              <img
+                class="footer-icon"
+                src="./images/icon-facebook.svg"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="footer-social-media-item">
+            <a target="blank" href="https://instagram.com">
+              <img
+                class="footer-icon"
+                src="./images/icon-instagram.svg"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="footer-social-media-item">
+            <a target="blank" href="https://twitter.com">
+              <img class="footer-icon" src="./images/icon-twitter.svg" alt="" />
+            </a>
+          </li>
+          <li class="footer-social-media-item">
+            <a target="blank" href="https://pinterest.com">
+              <img
+                class="footer-icon"
+                src="./images/icon-pinterest.svg"
+                alt=""
+              />
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- About Services Projects Contact We are creatives Transform your brand We are
+    a full-service creative agency specializing in helping brands grow fast.
+    Engage your clients through compelling visuals that do most of the marketing
+    for you. Learn more Stand out to the right audience Using a collaborative
+    formula of designers, researchers, photographers, videographers, and
+    copywriters, we’ll build and extend your brand in digital places. Learn more
+    Graphic design Great design makes you memorable. We deliver artwork that
+    underscores your brand message and captures potential clients’ attention.
+    Photography Increase your credibility by getting the most stunning,
+    high-quality photos that improve your business image. Client testimonials We
+    put our trust in Sunnyside and they delivered, making sure our needs were
+    met and deadlines were always hit. Emily R. Marketing Director Sunnyside’s
+    enthusiasm coupled with their keen interest in our brand’s success made it a
+    satisfying and enjoyable experience. Thomas S. Chief Operating Officer
+    Incredible end result! Our sales increased over 400% when we worked with
+    Sunnyside. Highly recommended! Jennie F. Business Owner About Services
+    Projects Contact -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script>
+      gsap.to(".nav-link-item", {
+        x: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "easeIn",
+      });
+
+      var headerImg = document.querySelector(".header-img");
+      var headerContent = document.querySelector(".header-content");
+
+      onscroll = (e) => {
+        let offsetY = window.pageYOffset;
+
+        headerImg.style.transform = `translateY(${offsetY * 0.5}px)`;
+        headerContent.style.transform = `translateY(${offsetY}px)`;
+
+        let offsetDecimal = 0.14;
+        if (innerWidth < 750) {
+          offsetDecimal = 0.03;
+        }
+        document.querySelectorAll(".article-img").forEach((img, idx) => {
+          let animation = img.getAttribute("data-animate");
+          // console.log("Animation", animation);
+          if (!animation) return;
+          if (animation == "translateY") {
+            // console.log("translatingY -- " + idx);
+            if (innerWidth < 750) {
+              img.style.transform = `translateY(${offsetY * 0.2 * -1}px)`;
+              console.log("speed er up!!");
+            } else {
+              img.style.transform = `translateY(${-offsetY * offsetDecimal}px)`;
+            }
+          } else {
+            img.style.transform = `translateX(${offsetY * offsetDecimal}px)`;
+          }
+          // offsetDecimal -= 0.08;
+        });
+      };
+
+      let testimonialSection = document.querySelector(".testimonials-section");
+      let cards = document.querySelector(".cards");
+
+      let observer = new IntersectionObserver(showTestimonials);
+      let cardsObserver = new IntersectionObserver(showCards);
+      observer.observe(testimonialSection);
+      cardsObserver.observe(cards);
+      let tl = gsap.timeline();
+      console.log("TL", tl);
+      let hasDropped = false;
+      let hasDroppedCards = false;
+
+      function showTestimonials(entries) {
+        // console.log(entries[0]);
+        if (entries[0].isIntersecting) {
+          console.log("show them");
+          if (!hasDropped) {
+            tl.to(entries[0].target.querySelector(".testimonial-header"), {
+              x: 0,
+            });
+            gsap.from(entries[0].target.querySelectorAll(".testimonial-item"), {
+              y: -1000,
+              duration: 3,
+              stagger: 0.2,
+              ease: "bounce.out",
+            });
+            hasDropped = true;
+          }
+        } else {
+          console.log("hide them");
+        }
+      }
+
+      function showCards(entries) {
+        // console.log(entries[0]);
+        if (entries[0].isIntersecting) {
+          console.log("show them");
+          if (!hasDroppedCards) {
+            gsap.from(entries[0].target.querySelectorAll(".card-item"), {
+              scale: 0,
+              duration: 1,
+              stagger: 0.2,
+              // ease: "bounce.out",
+            });
+            hasDroppedCards = true;
+          }
+        } else {
+          console.log("hide them");
+        }
+      }
+    </script>
+  </body>
+</html>

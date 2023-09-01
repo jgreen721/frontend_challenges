@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;500;600&family=Fraunces:opsz,wght@9..144,100;9..144,700;9..144,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --softred: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --darksatcyan: hsl(167, 40%, 24%);
+  --darkblue: hsl(198, 62%, 26%);
+  --darkmodcyan: hsl(168, 34%, 41%);
+  --darksatblue: hsl(212, 27%, 19%);
+  --darkgrayblue: hsl(213, 9%, 55%);
+  --grayblue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --mainFont: "Barlow", sans-serif;
+  --fancyFont: "Fraunces", serif;
+  --mainPaddingX: 5rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3.8rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+h5,
+p {
+  font-size: 1.8rem;
+}
+
+.fancy-font {
+  font-family: var(--fancyFont);
+}
+
+.thin {
+  font-weight: 200;
+}
+
+@media screen and (max-width: 850px) {
+  h2 {
+    font-size: 3rem;
+  }
+
+  h5,
+  p {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+}
