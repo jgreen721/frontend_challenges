@@ -58,13 +58,27 @@
           </ul>
           <div class="mobile-nav-div">
             <div class="mobile-burger">
-              <div class="burger">
+              <div onclick="toggleMobile()" class="burger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
               </div>
+              <div class="mobile-menu-parent">
+                <div class="mobile-menu">
+                  <ul class="mobile-links">
+                    <li class="mobile-item">
+                      <a class="mobile-link" href="#about">About</a>
+                    </li>
+                    <li class="mobile-item">
+                      <a class="mobile-link" href="#services">Services</a>
+                    </li>
+                    <li class="mobile-item">
+                      <a class="mobile-link" href="#projects">Projects</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="mobile-menu"></div>
           </div>
         </nav>
         <div class="header-content">
@@ -385,7 +399,7 @@
               />
               <img
                 class="gallery-img"
-                src="./images/mobile/image-gallery-sugarcubes.jpg"
+                src="./images/mobile/image-gallery-sugar-cubes.jpg"
                 alt="img"
               />
             </picture>
@@ -557,6 +571,12 @@
         } else {
           console.log("hide them");
         }
+      }
+
+      function toggleMobile() {
+        document
+          .querySelector(".mobile-menu-parent")
+          .classList.toggle("hide-mobile");
       }
     </script>
   </body>
