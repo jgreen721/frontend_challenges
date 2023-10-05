@@ -251,7 +251,8 @@
         let presentHour = currTime[0];
         let presentMinutes = currTime[1];
         let presentSeconds = currTime[2];
-        let currDaysLeft = 28 - presentDay;
+        let currDayDifference = 31 - presentDay;
+        let currDaysLeft = currDayDifference + 3;
         // currDaysLeft = 28 - 27;
         let currHoursLeft = 24 - presentHour;
         // currHoursLeft = 24 - 23;
