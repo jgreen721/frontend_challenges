@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon.ico"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <title>Frontend Mentor | Officelite coming soon site</title>
+  </head>
+  <body>
+    <div class="signup-app app">
+      <div class="mobile-header-signup-overlay"></div>
+      <div class="signup-overlay"></div>
+      <div class="home-logo-div">
+        <a href="index.html">
+          <img class="home-logo-img" src="./assets/shared/logo.svg" alt="" />
+        </a>
+      </div>
+      <div class="signup-body">
+        <div class="signup-header-column">
+          <h1 class="signup-header-h1">Work smarter. Save time.</h1>
+          <p class="header-blurb my-2 muted">
+            Save time. Easily manage your projects. Get on the list and receive
+            in-app perks available only to early subscribers. We are moving into
+            final development and getting ready for official launch soon.
+          </p>
+          <div class="bottom-section-column">
+            <h5 class="bottom-section-header">
+              <span class="text-dark">Coming</span>
+              <span class="text-blue">4 Nov 2023</span>
+            </h5>
+            <ul class="calender-list signup-calender-list">
+              <li class="calender-item text-blue bg-lightblue">
+                <h1 class="days">47</h1>
+                <p class="muted text-gray">days</p>
+              </li>
+              <li class="calender-item text-blue bg-lightblue">
+                <h1 class="hours">07</h1>
+                <p class="muted text-gray">hours</p>
+              </li>
+              <li class="calender-item text-blue bg-lightblue">
+                <h1 class="minutes">56</h1>
+                <p class="muted text-gray">min</p>
+              </li>
+              <li class="calender-item text-blue bg-lightblue">
+                <h1 class="seconds">14</h1>
+                <p class="muted text-gray">sec</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="signup-header-column signup-form-column">
+          <form class="signup-form" action="">
+            <div class="form-div">
+              <input
+                class="form-control"
+                placeholder="Name"
+                name="name"
+                aria-autocomplete="false"
+                id="name"
+                value="brat"
+                autocomplete="off"
+              />
+              <div class="error-div hide">
+                <img
+                  class="error-icon"
+                  src="./assets/sign-up/icon-cross.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="form-div">
+              <input
+                class="form-control"
+                placeholder="Email Address"
+                name="email"
+                aria-autocomplete="false"
+                id="email"
+                value="brat@g.com"
+                autocomplete="off"
+              />
+              <div class="error-div hide">
+                <img
+                  class="error-icon"
+                  src="./assets/sign-up/icon-cross.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="form-div custom-select-form-div">
+              <!-- <div class="custom-select"> -->
+              <input hidden name="plan" value="Basic Pack Free" id="plan" />
+              <div class="custom-select-input">
+                <div class="plans-list-item-column">
+                  <h5 class="current-plan bold">Basic Pack</h5>
+                  <h5 class="current-price muted">Free</h5>
+                </div>
+                <div class="arrow-div">
+                  <img src="./assets/sign-up/icon-arrow-down.svg" alt="" />
+                </div>
+              </div>
+              <ul class="select-plans-list">
+                <li
+                  data-plan="Basic Pack"
+                  data-price="Free"
+                  class="plans-list-item"
+                >
+                  <div class="plans-list-item-column">
+                    <h5 class="bold">Basic Pack</h5>
+                    <h5 class="muted">Free</h5>
+                  </div>
+                  <div class="check-div">
+                    <img src="./assets/sign-up/icon-check.svg" alt="" />
+                  </div>
+                </li>
+                <li
+                  data-plan="Pro Pack"
+                  data-price="$9.99"
+                  class="plans-list-item"
+                >
+                  <div class="plans-list-item-column">
+                    <h5 class="bold">Pro Pack</h5>
+                    <h5 class="muted">$9.99</h5>
+                  </div>
+                  <div class="check-div hide">
+                    <img src="./assets/sign-up/icon-check.svg" alt="" />
+                  </div>
+                </li>
+                <li
+                  data-plan="Ultimate Pack"
+                  data-price="$19.99"
+                  class="plans-list-item"
+                >
+                  <div class="plans-list-item-column">
+                    <h5 class="bold">Ultimate Pack</h5>
+                    <h5 class="muted">$19.99</h5>
+                  </div>
+                  <div class="check-div hide">
+                    <img src="./assets/sign-up/icon-check.svg" alt="" />
+                  </div>
+                </li>
+              </ul>
+              <!-- </div> -->
+            </div>
+            <div class="form-div">
+              <input
+                class="form-control"
+                placeholder="Phone Number"
+                name="phone"
+                aria-autocomplete="false"
+                id="phone"
+                value="123-456-7890"
+                autocomplete="off"
+              />
+              <div class="error-div hide">
+                <img
+                  class="error-icon"
+                  src="./assets/sign-up/icon-cross.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="form-div">
+              <input
+                class="form-control"
+                placeholder="Company"
+                name="company"
+                aria-autocomplete="false"
+                id="company"
+                value="cleaningcomp"
+                autocomplete="off"
+              />
+              <div class="error-div hide">
+                <img
+                  class="error-icon"
+                  src="./assets/sign-up/icon-cross.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="form-div">
+              <button class="btn primary-btn">Get on the list</button>
+            </div>
+          </form>
+          <div class="card-column-backside">
+            <h1>Congrats</h1>
+            <p>
+              You've successsfully signed up for a
+              <span class="selected-plan"></span> plan. We're excited!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- If you're choosing to make this date dynamic, set it to 30 days in the future from the moment the visitor views the page -->
+
+    <!-- If you're choosing to make this timer dynamic, have it countdown from the date you set above -->
+    <script>
+      var customSelect = document.querySelector(".custom-select-input");
+      const selectPlansList = document.querySelector(".select-plans-list");
+      const selectPlanItems = document.querySelectorAll(".plans-list-item");
+
+      customSelect.onclick = () => {
+        selectPlansList.classList.toggle("show-menu");
+      };
+
+      selectPlanItems.forEach((selectItem, idx) => {
+        selectItem.onclick = (e) => {
+          selectPlansList.classList.remove("show-menu");
+          document.querySelector(".current-plan").innerHTML =
+            e.target.getAttribute("data-plan");
+          document.querySelector(".current-price").innerHTML =
+            e.target.getAttribute("data-price");
+
+          document.querySelectorAll(".check-div").forEach((div) => {
+            div.classList.add("hide");
+          });
+
+          document.querySelector(
+            "input[name='plan']"
+          ).value = `${e.target.getAttribute(
+            "data-plan"
+          )} ${e.target.getAttribute("data-price")}`;
+          document.querySelectorAll(".check-div")[idx].classList.remove("hide");
+        };
+      });
+
+      let form = document.querySelector("form");
+
+      form.onsubmit = (e) => handleSubmit(e);
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        let formData = new FormData(form);
+
+        let userData = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          plan: formData.get("plan"),
+          phone: formData.get("phone"),
+          company: formData.get("company"),
+        };
+        if (validateInput(userData)) {
+          console.log("looks good!");
+          document.querySelector(".selected-plan").innerHTML = formData
+            .get("plan")
+            .split(" ")[0];
+          document
+            .querySelectorAll(".signup-header-column")[1]
+            .classList.add("spin-column");
+          fireConfetti();
+        }
+
+        // console.log(userData);
+      }
+
+      function validateInput(data) {
+        let isValid = true;
+        let phoneReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/g;
+        let emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g;
+        for (let i in data) {
+          if (i == "phone") {
+            if (!phoneReg.test(data[i])) {
+              isValid = false;
+              showError("phone");
+            }
+          }
+          if (i == "email") {
+            if (!emailReg.test(data[i])) {
+              console.log("invalid email!!!");
+              isValid = false;
+              showError(i);
+            }
+          } else if (data[i] == "" || data[i] == "null") {
+            showError(i);
+          }
+        }
+        return isValid;
+      }
+
+      function showError(field) {
+        console.log("Field: " + field);
+        document.querySelectorAll(".form-div").forEach((child) => {
+          if (child.querySelector("input")) {
+            if (child.querySelector("input").id == field) {
+              child.querySelector(".error-div").classList.remove("hide");
+              child.querySelector("input").classList.add("error-input");
+            }
+          }
+        });
+      }
+
+      form.querySelectorAll("input").forEach((input) => {
+        input.onkeydown = (e) => {
+          console.log("KEYDOWN");
+          if (e.target.classList.contains("error-input")) {
+            e.target.classList.remove("error-input");
+            e.target
+              .closest(".form-div")
+              .querySelector(".error-div")
+              .classList.add("hide");
+          }
+        };
+      });
+
+      const jsConfetti = new JSConfetti();
+
+      console.log(jsConfetti);
+
+      function fireConfetti() {
+        jsConfetti.addConfetti();
+      }
+
+      /* Time Logic */
+
+      const daysEl = document.querySelector(".days");
+      const hoursEl = document.querySelector(".hours");
+      const minutesEl = document.querySelector(".minutes");
+      const secondsEl = document.querySelector(".seconds");
+      function countDown() {
+        let clear = setTimeout(countDown, 1000);
+
+        // console.log("COUNTDOWN!!");
+        let days = daysEl.innerHTML;
+        let hours = hoursEl.innerHTML;
+        let minutes = minutesEl.innerHTML;
+        let seconds = secondsEl.innerHTML;
+
+        seconds--;
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+          if (minutes < 0) {
+            minutes = 59;
+            hours--;
+            if (hours < 0) {
+              hours = 23;
+              days--;
+              if (days < 0) {
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+                daysEl.innerHTML = days.toString().padStart(2, "0");
+                hoursEl.innerHTML = hours.toString().padStart(2, "0");
+                minutesEl.innerHTML = minutes.toString().padStart(2, "0");
+                secondsEl.innerHTML = seconds.toString().padStart(2, "0");
+                console.log("Yay!!!!");
+                clearTimeout(clear);
+              }
+            }
+          }
+        }
+        daysEl.innerHTML = days.toString().padStart(2, "0");
+        hoursEl.innerHTML = hours.toString().padStart(2, "0");
+        minutesEl.innerHTML = minutes.toString().padStart(2, "0");
+        secondsEl.innerHTML = seconds.toString().padStart(2, "0");
+      }
+
+      function setCurTime() {
+        let currDate = new Date(Date.now());
+
+        // let presentDay = myDate
+        let presentDay = parseInt(
+          JSON.stringify(currDate).split("-")[2].split("T")[0]
+        );
+
+        var currTime = new Date()
+          .toTimeString()
+          .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+        // console.log(currTime);
+        currTime = currTime.split(":");
+
+        let presentHour = currTime[0];
+        let presentMinutes = currTime[1];
+        let presentSeconds = currTime[2];
+        let currDaysLeft = 28 - presentDay;
+        // currDaysLeft = 28 - 27;
+        let currHoursLeft = 24 - presentHour;
+        // currHoursLeft = 24 - 23;
+        let currMinutesLeft = 60 - presentMinutes;
+        // currMinutesLeft = 60 - 58;
+        let currSecondsLeft = 60 - presentSeconds;
+        // console.log(presentDay, presentHour, presentMinutes, presentSeconds);
+
+        daysEl.innerHTML = currDaysLeft.toString().padStart(2, "0");
+        hoursEl.innerHTML = currHoursLeft.toString().padStart(2, "0");
+        minutesEl.innerHTML = currMinutesLeft.toString().padStart(2, "0");
+        secondsEl.innerHTML = currSecondsLeft.toString().padStart(2, "0");
+
+        countDown();
+      }
+
+      setCurTime();
+
+      /*animations */
+
+      const tl = gsap.timeline();
+
+      tl.from(document.querySelectorAll(".signup-header-h1"), {
+        y: -250,
+        duration: 1.5,
+        ease: "Bounce.easeOut",
+      }).from(document.querySelector(".header-blurb"), {
+        scale: 0,
+      });
+    </script>
+  </body>
+</html>

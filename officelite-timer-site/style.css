@@ -1,0 +1,568 @@
+.app {
+  max-width: 144rem;
+  min-height: 100vh;
+  /* border: 2px solid black; */
+  margin: 0 auto;
+  /* padding: 8rem var(--mainPaddingX); */
+  position: relative;
+  font-family: var(--mainFont);
+  overflow: hidden;
+  /* background-image: url("./assets/home/bg-pattern-header.svg");
+  background-repeat: no-repeat;
+  background-position-x: 60rem;
+  background-position-y: -50rem; */
+  background: var(--offwhite);
+}
+
+.app-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/home/bg-pattern-header.svg");
+  background-repeat: no-repeat;
+  background-position-x: 60rem;
+  background-position-y: -50rem;
+}
+
+.home-logo-div {
+  padding: 3rem var(--mainPaddingX);
+}
+
+.hero {
+  display: flex;
+  position: relative;
+  z-index: 50;
+  padding: 3rem var(--mainPaddingX);
+}
+
+.hero-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  /* border: 2px solid red; */
+}
+
+.mobile-hero-column {
+  display: none;
+}
+
+.hero-card {
+  padding: 3rem 0;
+  margin-right: 2.5rem;
+  overflow: hidden;
+}
+
+.hero-btn {
+  transform: translateX(100vw);
+  padding: 1.6rem 4rem;
+  border-radius: 100px;
+  border: none;
+  transition: 0.5s ease;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+  background: var(--blue);
+  color: white;
+}
+
+.hero-btn:hover {
+  background: var(--lightblue);
+}
+
+.mobile-charts-img {
+  height: 20rem;
+  width: 20rem;
+}
+
+.cards-row {
+  display: flex;
+  gap: 3rem;
+  padding: 0rem var(--mainPaddingX);
+  position: relative;
+  position: absolute;
+  width: 100%;
+  /* border: 2px solid blue; */
+  z-index: 100;
+  /* transform: translateY(-50%); */
+  /* display: none; */
+}
+
+.card-item {
+  flex: 1;
+  text-align: center;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  animation: float var(--i) infinite;
+  box-shadow: 1px 4px 1px black, 1px 5px 5px black, 1px 6px 15px black;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2rem);
+  }
+  /* 50% {
+    transform: translateY(0);
+  } */
+  75% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/home/bg-pattern-pricing.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: -15rem;
+  pointer-events: none;
+}
+
+.feature-item {
+  margin: 1.5rem;
+}
+
+.bottom-section {
+  /* background: var(--black);
+  padding: 0 var(--mainPaddingX);
+  padding-top: 33rem;
+  padding-bottom: 9rem; */
+  position: relative;
+  /* border: 3px solid red; */
+  height: 84rem;
+  /* margin-top: 25rem; */
+  /* margin-top: -25rem; */
+}
+
+.bottom-section-content {
+  background: var(--black);
+  padding: 0 var(--mainPaddingX);
+  padding-top: 33rem;
+  padding-bottom: 9rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* margin-top: 25rem; */
+}
+
+.bottom-section-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/home/bg-pattern-footer.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -30rem;
+  background-position-x: -40rem;
+  animation: rotateorbit 15s infinite;
+  filter: blur(5px);
+}
+
+@keyframes rotateorbit {
+  0% {
+    transform: scale(1);
+    filter: blur(5px);
+  }
+  50% {
+    transform: scale(1.4);
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(5px);
+  }
+}
+
+.bottom-section-content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+}
+
+.bottom-section-header {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+
+.calender-list {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.calender-item {
+  text-align: center;
+  /* background: var(--lightblack); */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.mobile-div {
+  display: none;
+}
+
+/*SignUp Page */
+
+.signup-overlay {
+  position: absolute;
+  height: 100%;
+  width: 42rem;
+  right: 0;
+  /* border: 4px solid red; */
+  background: var(--black);
+  background-image: url("./assets/sign-up/bg-pattern-side.svg");
+  /* background-size: cover; */
+  background-position-y: -75rem;
+  background-position-x: -80rem;
+  background-repeat: no-repeat;
+}
+
+.signup-body {
+  display: flex;
+  padding: 15rem var(--mainPaddingX);
+  position: relative;
+  z-index: 100;
+  gap: 3rem;
+}
+
+.mobile-header-signup-overlay {
+  position: absolute;
+  display: none;
+  background-image: url("./assets/home/bg-pattern-header.svg");
+  /* background-size: cover; */
+  /* background-position-y: -75rem;
+  background-position-x: -80rem; */
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 50rem;
+}
+
+.signup-header-h1 {
+}
+
+.signup-header-column {
+  flex: 1;
+  position: relative;
+  backface-visibility: hidden;
+  /* border: 2px solid blue; */
+}
+
+.signup-header-column:nth-child(2) {
+  /* transform: rotateY(180deg); */
+  /* backface-visibility: hidden; */
+}
+
+.spin-column {
+  transition: 1s ease-in;
+  transform: rotateY(180deg);
+}
+
+.card-column-backside {
+  position: absolute;
+  transform: rotateY(180deg);
+  height: fit-content;
+  inset: 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background: white;
+  box-shadow: 1px 1px 10px black;
+
+  /* inset:0;
+  background:red; */
+}
+
+.signup-form {
+  padding: 2rem;
+  background: white;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  z-index: 100;
+  position: relative;
+  box-shadow: 1px 1px 1px black, 1px 20px 45px black, 1px 15px 55px black;
+}
+
+.form-div {
+  margin: 1rem;
+  position: relative;
+  /* border-bottom: 2px solid rgba(0, 0, 0, 0.2); */
+}
+
+.form-control {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.error-input {
+  color: Red;
+  border-bottom: 2px solid red;
+}
+
+.form-control:focus {
+  border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+
+.error-input:focus {
+  border-bottom: 2px solid red;
+}
+
+.form-control::placeholder {
+  font-weight: 600;
+  opacity: 45%;
+}
+
+.error-div {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.custom-select-form-div {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.custom-select-input {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* border: 3px solid red; */
+  cursor: pointer;
+}
+
+.select-plans-list {
+  position: absolute;
+  transition: 0.5s ease-out;
+  height: fit-content;
+  z-index: 20;
+  background: white;
+  width: 100%;
+  border: 1px solid black;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.show-menu {
+  transform: scaleY(1);
+}
+
+.plans-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+/* .plans-list-item:hover .hide {
+  display: block;
+} */
+
+.plans-list-item:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--lightblue);
+  opacity: 20%;
+}
+
+.plans-list-item-column {
+  display: flex;
+  gap: 2rem;
+  pointer-events: none;
+}
+
+.arrow-div {
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1050px) {
+  .app-overlay {
+    background-position-x: 40rem;
+  }
+  .charts-img {
+    width: 38rem;
+    height: 36.5rem;
+  }
+
+  .cards-row {
+    flex-direction: column;
+    /* transform: translateY(0%); */
+  }
+
+  .card-item {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card-overlay {
+    background-size: cover;
+    background-position-x: -30rem;
+    background-position-y: -25rem;
+  }
+
+  .desktop-div {
+    display: none;
+  }
+
+  .mobile-div {
+    display: block;
+  }
+
+  .bottom-section {
+    /* margin-top: 50rem; */
+    height: 150rem;
+  }
+
+  .bottom-section-content {
+    padding-top: 60rem;
+  }
+
+  .bottom-section-content-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .bottom-section-overlay {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 0rem;
+    background-position-x: 0rem;
+  }
+
+  .signup-calender-list {
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+
+  .signup-overlay {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 38rem;
+    /* border: 4px solid yellow; */
+    background: var(--black);
+    background-image: url("./assets/sign-up/bg-pattern-side.svg");
+    /* background-size: cover; */
+    background-position-y: -75rem;
+    background-position-x: -80rem;
+    background-repeat: no-repeat;
+  }
+
+  .signup-body {
+    flex-direction: column;
+    text-align: center;
+    padding: 5rem var(--mainPaddingX);
+  }
+}
+@media screen and (max-width: 550px) {
+  /* .app {
+    padding: 3rem 0rem;
+  } */
+
+  .app-overlay {
+    background-position-x: -2rem;
+    background-position-y: -17.5rem;
+    background-size: 46rem;
+  }
+  .home-logo-div {
+    text-align: center;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .mobile-hero-column {
+    display: block;
+  }
+  .desktop-column {
+    display: none;
+  }
+
+  .cards-row {
+    flex-direction: column;
+  }
+
+  .card-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-section {
+    height: 200rem;
+  }
+
+  .bottom-section-content {
+    padding-top: 90rem;
+  }
+
+  .desktop-div {
+    display: block;
+  }
+
+  .mobile-div {
+    display: none;
+  }
+
+  .card-overlay {
+    background-position-x: 0rem;
+    background-position-y: -15rem;
+  }
+
+  .signup-body {
+    flex-direction: column;
+    text-align: center;
+    padding: 0rem var(--mainPaddingX);
+  }
+
+  .signup-header-column {
+    margin-bottom: 3rem;
+  }
+
+  .mobile-header-signup-overlay {
+    display: block;
+    /*border: 3px solid red; */
+    background-position-x: 0rem;
+    background-position-y: -17.5rem;
+    background-size: cover;
+  }
+}

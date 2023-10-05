@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;500;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --blue: #5175ff;
+  --lightblue: #829cff;
+  --black: #23293a;
+  --lightblack: #333950;
+  --gray: #747b95;
+  --red: #f05858;
+  --offwhite: rgb(250, 244, 244);
+  --mainFont: "Kumbh Sans", sans-serif;
+  --mainPaddingX: 16.5rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+}
+
+.my-2 {
+  margin: 3rem 0;
+}
+
+.my-4 {
+  margin: 4.5rem 0;
+}
+
+.bg-blue {
+  background: var(--blue);
+}
+
+.bg-white {
+  background: white;
+}
+
+.bg-lightblack {
+  background: var(--lightblack);
+}
+
+.bg-lightblue {
+  position: relative;
+}
+
+.bg-lightblue::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+  background: var(--lightblue);
+  opacity: 25%;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-dark {
+  color: var(--black);
+}
+
+.muted {
+  opacity: 50%;
+}
+
+.btn {
+  padding: 1.6rem 4rem;
+  border-radius: 100px;
+  border: none;
+  transition: 0.5s ease;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 10px black;
+}
+
+.primary-btn {
+  background: var(--blue);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: var(--lightblue);
+}
+
+@media screen and (max-width: 1150px) {
+  :root {
+    --mainPaddingX: 3.9rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  :root {
+    --mainPaddingX: 2.2rem;
+  }
+}

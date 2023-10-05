@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon.ico"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Frontend Mentor | Officelite coming soon site</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app-overlay"></div>
+      <div class="home-logo-div">
+        <img
+          class="home-logo-img hero-h1"
+          src="./assets/shared/logo.svg"
+          alt=""
+        />
+      </div>
+
+      <!-- <div class="home-header-img-div">
+        <img
+          class="home-header-img"
+          src="./assets/home/bg-pattern-header.svg"
+          alt=""
+        />
+      </div> -->
+      <header class="hero">
+        <div class="mobile-hero-column">
+          <img
+            class="mobile-charts-img"
+            src="./assets/home/illustration-charts.svg"
+            alt=""
+          />
+        </div>
+        <div class="hero-column">
+          <div class="hero-card">
+            <h1 class="hero-h1">
+              A simple solution to complex tasks is coming soon
+            </h1>
+            <p class="my-2 muted hero-blurb">
+              Say goodbye to inefficient juggling of multiple apps, teams, and
+              projects. Officelite is the new collaboration platform built with
+              an intuitive interface to improve productivity.
+            </p>
+            <a href="sign-up.html">
+              <button class="hero-btn">Get Started</button>
+            </a>
+          </div>
+        </div>
+        <div class="desktop-column hero-column">
+          <img
+            class="charts-img"
+            src="./assets/home/illustration-charts.svg"
+            alt=""
+          />
+        </div>
+      </header>
+      <section class="bottom-section">
+        <ul class="cards-row">
+          <li style="--i: 5s" class="card-item bg-white">
+            <div>
+              <h3>Basic</h3>
+              <div class="my-4">
+                <h1>Free</h1>
+                <p>Up to 5 users for free</p>
+              </div>
+              <div class="mobile-div">
+                <button class="btn text-blue">Try for Free</button>
+              </div>
+            </div>
+            <ul class="features-list">
+              <li class="feature-item">
+                <p class="muted">Basic documentation collaboration</p>
+              </li>
+              <li class="feature-item">
+                <p class="muted">2 GB storage</p>
+              </li>
+              <li class="feature-item">
+                <p class="muted">Great security and support</p>
+              </li>
+            </ul>
+            <div class="desktop-div">
+              <button class="btn text-blue">Try for Free</button>
+            </div>
+          </li>
+          <li style="--i: 3.7s" class="card-item text-white bg-blue">
+            <div class="card-overlay"></div>
+            <div>
+              <h3>Pro</h3>
+              <div class="my-4">
+                <h1>$9.99</h1>
+                <p>For user, billed monthly</p>
+              </div>
+              <div class="mobile-div">
+                <button class="btn text-blue">Try for Free</button>
+              </div>
+            </div>
+            <ul class="features-list">
+              <li class="feature-item">
+                <p>All essential integrations</p>
+              </li>
+              <li class="feature-item">
+                <p>50 GB storage</p>
+              </li>
+              <li class="feature-item">
+                <p>More control and insights</p>
+              </li>
+            </ul>
+            <div class="desktop-div">
+              <button class="btn text-blue">Try for Free</button>
+            </div>
+          </li>
+
+          <li style="--i: 4.2s" class="card-item bg-white">
+            <div>
+              <h3>Ultimate</h3>
+              <div class="my-4">
+                <h1>$19.99</h1>
+                <p>Per user, billed monthly</p>
+              </div>
+              <div class="mobile-div">
+                <button class="btn text-blue">Try for Free</button>
+              </div>
+            </div>
+            <ul class="features-list">
+              <li class="feature-item">
+                <p class="muted">Robust work management</p>
+              </li>
+              <li class="feature-item">
+                <p class="muted">100 GB storage</p>
+              </li>
+              <li class="feature-item">
+                <p class="muted">VIP support</p>
+              </li>
+            </ul>
+            <div class="desktop-div">
+              <button class="btn text-blue">Try for Free</button>
+            </div>
+          </li>
+        </ul>
+        <!-- <section class="bottom-section"> -->
+        <div class="bottom-section-content">
+          <div class="bottom-section-overlay">
+            <!-- <img src="./assets/home/bg-pattern-footer.svg" alt="" /> -->
+          </div>
+          <div class="bottom-section-content-row">
+            <div class="bottom-section-column">
+              <h5 class="bottom-section-header">
+                <span class="text-white">Coming</span>
+                <span class="text-blue">4 Nov 2023</span>
+              </h5>
+              <ul class="calender-list">
+                <li class="calender-item text-white bg-lightblack">
+                  <h1 class="days">30</h1>
+                  <p class="muted">days</p>
+                </li>
+                <li class="calender-item text-white bg-lightblack">
+                  <h1 class="hours">15</h1>
+                  <p class="muted">hours</p>
+                </li>
+                <li class="calender-item text-white bg-lightblack">
+                  <h1 class="minutes">56</h1>
+                  <p class="muted">min</p>
+                </li>
+                <li class="calender-item text-white bg-lightblack">
+                  <h1 class="seconds">14</h1>
+                  <p class="muted">sec</p>
+                </li>
+              </ul>
+            </div>
+            <a href="sign-up.html">
+              <button class="btn primary-btn">Get Started</button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const daysEl = document.querySelector(".days");
+      const hoursEl = document.querySelector(".hours");
+      const minutesEl = document.querySelector(".minutes");
+      const secondsEl = document.querySelector(".seconds");
+      function countDown() {
+        let clear = setTimeout(countDown, 1000);
+
+        // console.log("COUNTDOWN!!");
+        let days = daysEl.innerHTML;
+        let hours = hoursEl.innerHTML;
+        let minutes = minutesEl.innerHTML;
+        let seconds = secondsEl.innerHTML;
+
+        seconds--;
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+          if (minutes < 0) {
+            minutes = 59;
+            hours--;
+            if (hours < 0) {
+              hours = 23;
+              days--;
+              if (days < 0) {
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+                daysEl.innerHTML = days.toString().padStart(2, "0");
+                hoursEl.innerHTML = hours.toString().padStart(2, "0");
+                minutesEl.innerHTML = minutes.toString().padStart(2, "0");
+                secondsEl.innerHTML = seconds.toString().padStart(2, "0");
+                console.log("Yay!!!!");
+                clearTimeout(clear);
+              }
+            }
+          }
+        }
+        daysEl.innerHTML = days.toString().padStart(2, "0");
+        hoursEl.innerHTML = hours.toString().padStart(2, "0");
+        minutesEl.innerHTML = minutes.toString().padStart(2, "0");
+        secondsEl.innerHTML = seconds.toString().padStart(2, "0");
+      }
+
+      function setCurTime() {
+        let currDate = new Date(Date.now());
+
+        // let presentDay = myDate
+        let presentDay = parseInt(
+          JSON.stringify(currDate).split("-")[2].split("T")[0]
+        );
+
+        var currTime = new Date()
+          .toTimeString()
+          .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+        // console.log(currTime);
+        currTime = currTime.split(":");
+
+        let presentHour = currTime[0];
+        let presentMinutes = currTime[1];
+        let presentSeconds = currTime[2];
+        let currDaysLeft = 28 - presentDay;
+        // currDaysLeft = 28 - 27;
+        let currHoursLeft = 24 - presentHour;
+        // currHoursLeft = 24 - 23;
+        let currMinutesLeft = 60 - presentMinutes;
+        // currMinutesLeft = 60 - 58;
+        let currSecondsLeft = 60 - presentSeconds;
+        // console.log(presentDay, presentHour, presentMinutes, presentSeconds);
+
+        daysEl.innerHTML = currDaysLeft.toString().padStart(2, "0");
+        hoursEl.innerHTML = currHoursLeft.toString().padStart(2, "0");
+        minutesEl.innerHTML = currMinutesLeft.toString().padStart(2, "0");
+        secondsEl.innerHTML = currSecondsLeft.toString().padStart(2, "0");
+
+        countDown();
+      }
+
+      setCurTime();
+
+      const tl = gsap.timeline();
+
+      tl.from(document.querySelectorAll(".hero-h1"), {
+        y: -250,
+        duration: 1.5,
+        ease: "Bounce.easeOut",
+      })
+        .from(document.querySelector(".hero-blurb"), {
+          scale: 0,
+        })
+        .to(document.querySelector(".hero-btn"), {
+          x: "0rem",
+          ease: "Bounce.easeOut",
+        })
+        .from(document.querySelector(".charts-img"), { scale: 0 });
+    </script>
+  </body>
+</html>
