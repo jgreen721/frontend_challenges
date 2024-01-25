@@ -88,12 +88,13 @@
   }
 }
 
-.growfont {
-  animation: growfont 1s var(--delay) forwards;
+.slideleftpx {
+  left: 1000px;
+  animation: slideleftpx 1s var(--delay) forwards;
 }
 
-@keyframes growfont {
+@keyframes slideleftpx {
   100% {
-    font-size: 1.5rem;
+    left: 0px;
   }
 }
