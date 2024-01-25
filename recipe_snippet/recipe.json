@@ -1,0 +1,25 @@
+{
+    "recipes":[
+        {"id":1,"img":"./assets/images/image-omelette.jpeg","name":"Simple Omelette Recipe","description":"An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats.","prepTime":{"total":{"title":"Total","content":"Approximately 10 minutes","delay":0},"preparation":{"title":"Preparation","content":"5 minutes","delay":1},"cooking":{"title":"Cooking", "content":"5 minutes","delay":2}},"ingredients":["2-3 large eggs", "Salt, to taste", "Pepper, to taste", "1 tablespoon of butter or oil","Optional fillings: cheese, diced vegetables, cooked meats, herbs"],"instructions":[
+            {"id":1,"action":"Beat the eggs","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."},
+            {"id":2,"action":"Heat the pan","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."},
+            {"id":3,"action":"Cook the omelette","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."},
+            {"id":4,"action":"Add fillings(optional)","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."},
+            {"id":5,"action":"Fold and serve","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."},
+            {"id":6,"action":"Enjoy","description":"In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture."}
+        ],
+        "nutrition":{"calories":{"val":"277/kcal","delay":"delay-1"},"carbs":{"val":"0g","delay":"delay-2"},"protein":{"val":"20kg","delay":"delay-3"},"fat":{"val":"22kg","delay":"delay-4"}}
+    },
+    {"id":2,"img":"./assets/images/chickencobbler.jpeg","name":"Tiktok Chicken Cobbler","description":"An easy and delicious comfort food caserole to keep you warm though the winter months. This classic caserole combines chicken, veggies, a creamy soup and topped with biscuit batter, ideally from Red Lobster but any yummy batter will do! This is one you can make your own!","prepTime":{"total":{"title":"Total","content":"Approximately 85 minutes","delay":0},"preparation":{"title":"Preparation","content":"15 minutes","delay":1},"cooking":{"title":"Cooking", "content":"60 minutes","delay":2}},"ingredients":["1/2 cup unsalted butter, melted", "4 cups of shredded chicken", "1/2 teaspoon freshly ground black pepper", "16 oz bag of frozen vegetable medley","1 (11-ounce) box of Cheddar Bay Biscuit mix", "2 cups milk", "1 tablespoon Italian seasoning", "1 cup taco cheese blend or shredded cheddar cheese", "1(10.5 ounce) can cream of chicken soup", "2 cups of crispy fried onions", "1 tablespoon Old Bay seasoning"],"instructions":[
+        {"id":1,"action":"Gather the ingredients, preheat oven to 350 F","description":"Not to much to add here, just some set up."},
+        {"id":2,"action":"Pour melted butter into caserole, scatter chicken on top.","description":"Best to use a 9x13 size caserole but whatever works and is oven safe."},
+        {"id":3,"action":"Add vegetables","description":"Season with salt and pepper."},
+        {"id":4,"action":"Whisk together the biscuit mix, cheese and italian dressing","description":"Everything should be poured on top of the previous layer,no mixing yet."},
+        {"id":5,"action":"Whisk together the cream of chicken, chicken broth","description":"Pour ontop of the biscuit mix but still dont mix together."},
+        {"id":6,"action":"Put in oven, let sit for 10 minutes, enjoy!","description":"Control yourself as your home starts smelling delicious. The pay off will be worth it!"}
+    ],
+    "nutrition":{"calories":{"val":"737/kcal","delay":"delay-1"},"carbs":{"val":"23g","delay":"delay-2"},"protein":{"val":"43kg","delay":"delay-3"},"fat":{"val":"22kg","delay":"delay-4"},"fiber":{"val":"4g","delay":"delay-5"}}
+}
+
+    ]
+}
