@@ -47,8 +47,9 @@
     </div>
 
     <script>
-      let counter = 0;
       let recipes = [];
+
+      // used to prevent observer re-applies with recipe switch/re-render
       let prepObserved = false;
       let ingredientsObserved = false;
       let instructionsObserved = false;
@@ -73,8 +74,6 @@
       }
 
       function elementAnimation(dataDiv, el) {
-        // console.log("animate element!", dataDiv, el);
-
         switch (dataDiv) {
           case "ingredients":
             console.log("Animate " + dataDiv + " div.");
@@ -95,17 +94,13 @@
             el.querySelectorAll(".instruction-number").forEach((item) =>
               item.classList.add("scale")
             );
+
+            // going after 2 span classes nested in a h5
             el.querySelectorAll(".instruction-text").forEach((item) => {
-              // console.log(item.querySelector(".instruction-title"));
               item.querySelector(".instruction-title").classList.add("fade-in");
               item
                 .querySelector(".instruction-blurb")
                 .classList.add("slideleftpx");
-              setTimeout(() => {
-                item
-                  .querySelector(".instruction-blurb")
-                  .classList.remove("pre-animate-left");
-              }, 6500);
             });
             break;
 
@@ -115,7 +110,6 @@
               item.classList.add("slide-right")
             );
             el.querySelectorAll(".value").forEach((item) => {
-              console.log("adding slide-right");
               item.classList.add("slide-left");
             });
             break;
@@ -130,18 +124,18 @@
         .then((res) => {
           console.log("Res", res.recipes);
           recipes = res.recipes;
-          renderRecipe(res.recipes[counter], true);
+          renderRecipe(res.recipes[0], true);
         });
 
       function renderRecipe(recipe, fullRender) {
         console.log("Recipes", recipe);
         document.querySelector(".recipe-content").innerHTML = "";
 
-        let html = `<div class='recipe-parent'>`;
+        let html = `<div class='recipe-card'>`;
         html += `<div class='img-container'><img class='item-img rise-up-img' src=${recipe.img} alt="img"/></div>`;
         html += `<div class='recipe-text-content'>`;
         html += `<div class='my'>`;
-        html += `<h1 class='title-h1 fancy-font slide-right delay-0'>${recipe.name}</h1>`;
+        html += `<h1 class='mb-1 fancy-font slide-right delay-0'>${recipe.name}</h1>`;
         html += `<h5 class='description slide-left delay-1'>${recipe.description}</h5>`;
         html += `</div>`;
         html += `<div data-div='prep' class='prep-div'>`;
@@ -156,7 +150,7 @@
         }
         html += `</div>`;
         html += `<div data-div='ingredients' class='my ingredients-div'>`;
-        html += `<h2 class='title-h2 fancy-font text-sand'>Ingredients</h2>`;
+        html += `<h2 class='mb-1 fancy-font text-sand'>Ingredients</h2>`;
         recipe.ingredients.forEach((ingredient, idx) => {
           html += `
           <li class='ingredient-item list-item delay-${idx + 1}'>
@@ -167,7 +161,7 @@
         html += `</div>`;
         html += `<div data-div='instructions' class='my instructions-div'>`;
 
-        html += `<h2 class='title-h2 fancy-font text-sand'>Instructions</h2>`;
+        html += `<h2 class='mb-1 fancy-font text-sand'>Instructions</h2>`;
         recipe.instructions.forEach((instruction, idx) => {
           html += `
           <li class='instruction-item'>
@@ -183,7 +177,7 @@
 
         html += `<div data-div='nutrition' class='my nutrition-div'>`;
 
-        html += `<h2 class='title-h2 fancy-font text-sand'>Nutrition</h2>`;
+        html += `<h2 class='mb-1 fancy-font text-sand'>Nutrition</h2>`;
         html += `<p class='muted'>The table below shows nutritional values per serving without the additional fillings.</p>`;
         for (let i in recipe.nutrition) {
           html += `
@@ -200,6 +194,7 @@
         html += `</div>`;
         document.querySelector(".recipe-content").innerHTML = html;
 
+        //attach observer/ pre-animate stage classes -- applied only once.
         if (!prepObserved) {
           document
             .querySelector(".prep-div")
@@ -219,7 +214,7 @@
         if (!instructionsObserved) {
           document
             .querySelectorAll(".instruction-blurb")
-            .forEach((blurb) => blurb.classList.add("pre-animate-left"));
+            .forEach((blurb) => blurb.classList.add("pre-animate-left-px"));
           observer.observe(document.querySelector(".instructions-div"));
           instructionsObserved = true;
         }
@@ -239,7 +234,8 @@
 
       function changeRecipe(num) {
         console.log("Num", num);
-        //handle page-selects fx
+        //handle page-selects fx -- remove state-classes and re-apply accordingly
+
         document.querySelectorAll(".page-select-item").forEach((item) => {
           item.classList.remove("fill");
           item.classList.remove("page-select-pointer");
