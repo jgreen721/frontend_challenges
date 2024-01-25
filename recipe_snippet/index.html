@@ -213,8 +213,12 @@
         }
         if (!instructionsObserved) {
           document
-            .querySelectorAll(".instruction-blurb")
-            .forEach((blurb) => blurb.classList.add("pre-animate-left-px"));
+            .querySelectorAll(".instruction-number")
+            .forEach((el) => el.classList.add("pre-scale-animate"));
+          document.querySelectorAll(".instruction-text").forEach((item) => {
+            item.children[0].classList.add("pre-scale-animate");
+            item.children[1].classList.add("pre-animate-left-px");
+          });
           observer.observe(document.querySelector(".instructions-div"));
           instructionsObserved = true;
         }

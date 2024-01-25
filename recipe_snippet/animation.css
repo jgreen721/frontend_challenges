@@ -43,7 +43,7 @@
 }
 
 .slide-right {
-  /* transform: translateX(-100vw); */
+  transform: translateX(-100vw);
   animation: slideright 1s var(--delay) forwards;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .slide-left {
-  /* transform: translateX(100vw); */
+  transform: translateX(100vw);
   animation: slideleft 1s var(--delay) forwards;
 }
 
