@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
+    <!-- Fun design. I ended up creating a JSON object for the recipe and added one other to demonstrate a re-usable template added via Javascript. Put an observer onto the sections for some enhanced UI, alFeedback/suggestions welcomed!  -->
     <link
       rel="icon"
       type="image/png"
@@ -50,9 +50,13 @@
     <script>
       let counter = 0;
       let recipes = [];
+      let prepObserved = false;
+      let ingredientsObserved = false;
+      let instructionsObserved = false;
+      let nutritionObserved = false;
 
       let observer = new IntersectionObserver(animateEl, {
-        threshold: 0.5,
+        threshold: 0.25,
         root: null,
         rootMargin: "0px",
       });
@@ -98,6 +102,11 @@
               item
                 .querySelector(".instruction-blurb")
                 .classList.add("slideleftpx");
+              setTimeout(() => {
+                item
+                  .querySelector(".instruction-blurb")
+                  .classList.remove("pre-animate-left");
+              }, 6500);
             });
             break;
 
@@ -141,7 +150,7 @@
 
         for (let i in recipe.prepTime) {
           html += `
-          <li class='prep-item list-item delay-${recipe.prepTime[i].delay}'>
+          <li class='prep-item list-item pre-animate-scaleY delay-${recipe.prepTime[i].delay}'>
           <h5><span class='bold'>${recipe.prepTime[i].title}:</span> ${recipe.prepTime[i].content}</h5>
           </li>
           `;
@@ -192,10 +201,25 @@
         html += `</div>`;
         document.querySelector(".recipe-content").innerHTML = html;
 
-        observer.observe(document.querySelector(".prep-div"));
-        observer.observe(document.querySelector(".ingredients-div"));
-        observer.observe(document.querySelector(".instructions-div"));
-        observer.observe(document.querySelector(".nutrition-div"));
+        if (!prepObserved) {
+          observer.observe(document.querySelector(".prep-div"));
+          prepObserved = true;
+        }
+        if (!ingredientsObserved) {
+          observer.observe(document.querySelector(".ingredients-div"));
+          ingredientsObserved = true;
+        }
+        if (!instructionsObserved) {
+          document
+            .querySelectorAll(".instruction-blurb")
+            .forEach((blurb) => blurb.classList.add("pre-animate-left"));
+          observer.observe(document.querySelector(".instructions-div"));
+          instructionsObserved = true;
+        }
+        if (!nutritionObserved) {
+          observer.observe(document.querySelector(".nutrition-div"));
+          nutritionObserved = true;
+        }
       }
 
       function changeRecipe(num) {
