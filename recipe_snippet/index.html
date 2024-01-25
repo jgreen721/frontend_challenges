@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-    <!-- Fun design. I ended up creating a JSON object for the recipe and added one other to demonstrate a re-usable template added via Javascript. Put an observer onto the sections for some enhanced UI, alFeedback/suggestions welcomed!  -->
     <link
       rel="icon"
       type="image/png"
@@ -97,7 +96,7 @@
               item.classList.add("scale")
             );
             el.querySelectorAll(".instruction-text").forEach((item) => {
-              console.log(item.querySelector(".instruction-title"));
+              // console.log(item.querySelector(".instruction-title"));
               item.querySelector(".instruction-title").classList.add("fade-in");
               item
                 .querySelector(".instruction-blurb")
@@ -113,11 +112,11 @@
           case "nutrition":
             console.log("Animate " + dataDiv + " div.");
             el.querySelectorAll(".field").forEach((item) =>
-              item.classList.add("slide-left")
+              item.classList.add("slide-right")
             );
             el.querySelectorAll(".value").forEach((item) => {
               console.log("adding slide-right");
-              item.classList.add("slide-right");
+              item.classList.add("slide-left");
             });
             break;
 
@@ -202,10 +201,18 @@
         document.querySelector(".recipe-content").innerHTML = html;
 
         if (!prepObserved) {
+          document
+            .querySelector(".prep-div")
+            .querySelectorAll("li")
+            .forEach((item) => item.classList.add("pre-scale-animate"));
           observer.observe(document.querySelector(".prep-div"));
           prepObserved = true;
         }
         if (!ingredientsObserved) {
+          document
+            .querySelector(".ingredients-div")
+            .querySelectorAll("li")
+            .forEach((item) => item.classList.add("pre-slide-left-animate"));
           observer.observe(document.querySelector(".ingredients-div"));
           ingredientsObserved = true;
         }
@@ -217,6 +224,14 @@
           instructionsObserved = true;
         }
         if (!nutritionObserved) {
+          document
+            .querySelector(".nutrition-div")
+            .querySelectorAll("li")
+            .forEach((item) => {
+              console.log(item.children);
+              item.children[0].classList.add("pre-slide-right-animate");
+              item.children[1].classList.add("pre-slide-left-animate");
+            });
           observer.observe(document.querySelector(".nutrition-div"));
           nutritionObserved = true;
         }

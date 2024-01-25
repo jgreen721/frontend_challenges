@@ -38,8 +38,12 @@
   }
 }
 
+.pre-slide-right-animate {
+  transform: translateX(-100vw);
+}
+
 .slide-right {
-  transform: translateX(100vw);
+  transform: translateX(-100vw);
   animation: slideright 1s var(--delay) forwards;
 }
 
@@ -52,8 +56,12 @@
   }
 }
 
+.pre-slide-left-animate {
+  transform: translateX(100vw);
+}
+
 .slide-left {
-  transform: translateX(-100vw);
+  transform: translateX(100vw);
   animation: slideleft 1s var(--delay) forwards;
 }
 
@@ -75,6 +83,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.pre-scale-animate {
+  transform: scaleY(0);
 }
 
 .scale {

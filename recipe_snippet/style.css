@@ -296,14 +296,6 @@ p {
   /* margin-left: 3rem; */
   flex: 1;
 }
-/* 
-.field {
-  transform: translateX(-100vw);
-}
-
-.value {
-  transform: translateX(100vw);
-} */
 
 @media screen and (max-width: 850px) {
   .app {
