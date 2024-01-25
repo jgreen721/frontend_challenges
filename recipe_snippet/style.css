@@ -91,7 +91,12 @@ p {
   height: 100%;
   position: absolute;
   inset: 0;
-  background: var(--eggshell);
+  background: linear-gradient(
+    var(--darkcharcoal),
+    var(--eggshell),
+    var(--eggshell),
+    transparent
+  );
   opacity: 35%;
 }
 
