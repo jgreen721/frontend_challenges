@@ -1,0 +1,99 @@
+.delay-0 {
+  --delay: 0.5s;
+}
+.delay-1 {
+  --delay: 1s;
+}
+
+.delay-2 {
+  --delay: 1.5s;
+}
+
+.delay-3 {
+  --delay: 2s;
+}
+
+.delay-4 {
+  --delay: 2.5s;
+}
+
+.delay-5 {
+  --delay: 3s;
+}
+
+.rise-up-img {
+  transform: translateY(100%);
+  filter: blur(10px);
+  animation: riseupimg 1s forwards;
+}
+
+@keyframes riseupimg {
+  50% {
+    transform: translateY(-5rem);
+    filter: blur(5px);
+  }
+  100% {
+    transform: translateY(0rem);
+    filter: blur(0px);
+  }
+}
+
+.slide-right {
+  transform: translateX(100vw);
+  animation: slideright 1s var(--delay) forwards;
+}
+
+@keyframes slideright {
+  50% {
+    transform: translateX(-2rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+.slide-left {
+  transform: translateX(-100vw);
+  animation: slideleft 1s var(--delay) forwards;
+}
+
+@keyframes slideleft {
+  50% {
+    transform: translateX(2rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadein 1.5s var(--delay) forwards;
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+.scale {
+  transform: scaleY(0);
+  animation: scale 1s var(--delay) forwards;
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.growfont {
+  animation: growfont 1s var(--delay) forwards;
+}
+
+@keyframes growfont {
+  100% {
+    font-size: 1.5rem;
+  }
+}
