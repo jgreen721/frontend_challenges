@@ -74,6 +74,10 @@
   }
 }
 
+.pre-animate-fade {
+  opacity: 0;
+}
+
 .fade-in {
   opacity: 0;
   animation: fadein 1.5s var(--delay) forwards;
@@ -85,7 +89,7 @@
   }
 }
 
-.pre-scale-animate {
+.pre-animate-scale {
   transform: scaleY(0);
 }
 
