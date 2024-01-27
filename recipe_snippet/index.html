@@ -91,6 +91,8 @@
             el.querySelectorAll("li").forEach((item) =>
               item.classList.add("scale")
             );
+            document.querySelector(".prep-header").classList.add("fade-in");
+
             prepObserved = true;
 
             break;
@@ -147,7 +149,7 @@
         html += `<h5 class='description slide-left delay-1'>${recipe.description}</h5>`;
         html += `</div>`;
         html += `<div data-div='prep' class='prep-div'>`;
-        html += `<h3 class="text-red fade-in">Preparation time </h3>`;
+        html += `<h3 class="text-red prep-header delay-0">Preparation time </h3>`;
 
         for (let i in recipe.prepTime) {
           html += `
