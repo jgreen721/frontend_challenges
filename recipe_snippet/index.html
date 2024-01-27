@@ -153,20 +153,20 @@
 
         for (let i in recipe.prepTime) {
           html += `
-          <li class='prep-item list-item delay-${recipe.prepTime[i].delay}'>
-          <h5><span class='bold'>${recipe.prepTime[i].title}:</span> ${recipe.prepTime[i].content}</h5>
-          </li>
-          `;
+                <li class='prep-item list-item delay-${recipe.prepTime[i].delay}'>
+                <h5><span class='bold'>${recipe.prepTime[i].title}:</span> ${recipe.prepTime[i].content}</h5>
+                </li>
+                `;
         }
         html += `</div>`;
         html += `<div data-div='ingredients' class='my ingredients-div'>`;
         html += `<h2 class='mb-1 fancy-font text-sand'>Ingredients</h2>`;
         recipe.ingredients.forEach((ingredient, idx) => {
           html += `
-          <li class='ingredient-item list-item delay-${idx + 1}'>
-          <h5>${ingredient}</h5>
-          </li>
-          `;
+                <li class='ingredient-item list-item delay-${idx + 1}'>
+                <h5>${ingredient}</h5>
+                </li>
+                `;
         });
         html += `</div>`;
         html += `<div data-div='instructions' class='my instructions-div'>`;
@@ -174,14 +174,18 @@
         html += `<h2 class='mb-1 fancy-font text-sand'>Instructions</h2>`;
         recipe.instructions.forEach((instruction, idx) => {
           html += `
-          <li class='instruction-item'>
-          <h5 class='text-red instruction-number delay-${idx}'>${idx + 1}.</h5>
-          <h5 class='delay-${idx} instruction-text'><span class='bold instruction-title'>${
+                <li class='instruction-item'>
+                <h5 class='text-red instruction-number delay-${idx}'>${
+            idx + 1
+          }.</h5>
+                <h5 class='delay-${idx} instruction-text'><span class='bold instruction-title'>${
             instruction.action
           }:</span>
-          <span class='instruction-blurb'>${instruction.description}</span></h5>
-          </li>
-          `;
+                <span class='instruction-blurb'>${
+                  instruction.description
+                }</span></h5>
+                </li>
+                `;
         });
         html += `</div>`;
 
@@ -191,11 +195,11 @@
         html += `<p class='muted'>The table below shows nutritional values per serving without the additional fillings.</p>`;
         for (let i in recipe.nutrition) {
           html += `
-          <li class='nutrition-item'>
-          <h5 class='thin capitalize field ${recipe.nutrition[i].delay}'>${i}</h5>
-          <h5 class='text-sand bold value ${recipe.nutrition[i].delay}'>${recipe.nutrition[i].val}</h5>
-          </li>
-          `;
+                <li class='nutrition-item'>
+                <h5 class='thin capitalize field ${recipe.nutrition[i].delay}'>${i}</h5>
+                <h5 class='text-sand bold value ${recipe.nutrition[i].delay}'>${recipe.nutrition[i].val}</h5>
+                </li>
+                `;
         }
         html += `</div>`;
         html += `</div>`;
@@ -210,6 +214,9 @@
             .querySelector(".prep-div")
             .querySelectorAll("li")
             .forEach((item) => item.classList.add("pre-animate-scale"));
+          document
+            .querySelector(".prep-header")
+            .classList.add("pre-animate-fade");
           observer.observe(document.querySelector(".prep-div"));
         }
         if (!ingredientsObserved) {
