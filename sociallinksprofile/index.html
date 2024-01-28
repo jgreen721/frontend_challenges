@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
+
+    <title>Social Links Profile</title>
+  </head>
+  <body>
+    <div data-theme="dark" class="app">
+        <div class="app-content">
+      <!-- theme toggle -->
+<div class="theme-switch-row">
+      <div class="theme-switch">
+        <label>
+          <input type="checkbox" />
+          <span class="theme-styled-span"></span>
+          <div class="theme-icon-div">
+            <i class="fa-solid fa-sun theme-icon"></i>
+            <i class="fa-solid fa-moon hide theme-icon"></i>
+          </div>
+        </label>
+      </div>
+</div>
+      <section class="card">
+        <div class="card-outline">
+          <div class="card-content">
+            <div class="profile-shadow-parent">
+              <div class="profile-img-div display-img delay-3">
+                <img
+                  class="profile-img"
+                  src="./assets/images/avatar-jessica.jpeg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="user-bio my-2">
+              <div class="user-name-row mb-1">
+                <div id="firstname" class="h1-row mid-thin">
+                  <h1 class="rotate-focus delay-0">J</h1>
+                  <h1 class="thin rotate-focus delay-1">e</h1>
+                  <h1 class="thin rotate-focus delay-3">s</h1>
+                  <h1 class="thin rotate-focus delay-3">s</h1>
+                  <h1 class="thin rotate-focus delay-4">i</h1>
+                  <h1 class="thin rotate-focus delay-5">c</h1>
+                  <h1 class="thin rotate-focus delay-6">a</h1>
+                </div>
+                <div id="lastname" class="h1-row">
+                  <h1 class="rotate-focus delay-7">R</h1>
+                  <h1 class="thin rotate-focus delay-8">a</h1>
+                  <h1 class="thin rotate-focus delay-9">n</h1>
+                  <h1 class="thin rotate-focus delay-10">d</h1>
+                  <h1 class="thin rotate-focus delay-11">a</h1>
+                  <h1 class="thin rotate-focus delay-12">l</h1>
+                  <h1 class="thin rotate-focus delay-13">l</h1>
+                </div>
+              </div>
+              <div class="location-div">
+                <p class="secondary drop-down delay-4">
+                  London, United Kingdom
+                </p>
+              </div>
+            </div>
+            <div class="about-quote-div">
+                <p class="scale-middle"><span class="quote-1">"</span>Front-end developer and avid reader<span class="quote-2">"</span</p>
+            </div>
+            <div class="links-div">
+                <ul class="media-links rotate-focus delay-6">
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://github.com/jgreen721" target="_blank">
+                            <p>Github</p>
+                            <div class="link-icon-div">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://www.frontendmentor.io/profile/jgreen721" target="_blank">
+                            <p>Frontend Mentor</p>
+                            <div class="link-icon-div">
+                                <i class="fa-solid fa-laptop"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://www.linkedin.com/in/justin-green-2484513b/" target="_blank">
+                            <p>LinkedIn</p>
+                            <div class="link-icon-div">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://codepen.io/jgreen721" target="_blank">
+                            <p>Twitter</p>
+                            <div class="link-icon-div">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://www.instagram.com/justng2d1/" target="_blank">
+                            <p>Instagram</p>
+                            <div class="link-icon-div">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media-link-item">
+                        <a class="media-link" href="https://github.com/jgreen721" target="_blank">
+                            <p>Github</p>
+                            <div class="link-icon-div">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Justin Green</a>.
+      </div>
+      </div>
+    </div>
+
+    <script>
+
+        
+      let appTheme = localStorage.getItem("data-theme") || "dark"
+      function init(){
+      if (appTheme == "light") {
+        document.querySelector(".fa-moon").classList.remove("hide");
+
+          document.querySelector(".fa-sun").classList.remove("animate-rise");
+          document.querySelector(".fa-sun").classList.add("animate-lower");
+          document.querySelector(".fa-moon").classList.remove("animate-lower");
+          document.querySelector(".fa-moon").classList.add("animate-rise");
+        } else {
+
+          document.querySelector(".fa-moon").classList.remove("animate-rise");
+          document.querySelector(".fa-moon").classList.add("animate-lower");
+          document.querySelector(".fa-sun").classList.remove("animate-lower");
+          document.querySelector(".fa-sun").classList.add("animate-rise");
+        }
+        document.querySelector(".app").setAttribute("data-theme", appTheme);
+
+    }
+
+    init();
+
+
+
+      document.querySelector("input[type='checkbox']").onclick = () => {
+        console.log("clicked!!");
+        document.querySelector(".app").classList.remove("theme-fade-inout");
+        document.querySelector(".fa-moon").classList.remove("hide");
+
+        if (appTheme == "dark") {
+          document.querySelector(".fa-sun").classList.remove("animate-rise");
+          document.querySelector(".fa-sun").classList.add("animate-lower");
+          document.querySelector(".fa-moon").classList.remove("animate-lower");
+          document.querySelector(".fa-moon").classList.add("animate-rise");
+        } else {
+          document.querySelector(".fa-moon").classList.remove("animate-rise");
+          document.querySelector(".fa-moon").classList.add("animate-lower");
+          document.querySelector(".fa-sun").classList.remove("animate-lower");
+          document.querySelector(".fa-sun").classList.add("animate-rise");
+        }
+
+        appTheme = appTheme == "dark" ? "light" : "dark";
+        document.querySelector(".app").setAttribute("data-theme", appTheme);
+        localStorage.setItem("data-theme",appTheme);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+.delay-0 {
+  --delay: 0s;
+}
+
+.delay-1 {
+  --delay: 0.25s;
+}
+
+.delay-2 {
+  --delay: 0.5s;
+}
+
+.delay-3 {
+  --delay: 0.75s;
+}
+
+.delay-4 {
+  --delay: 1s;
+}
+.delay-5 {
+  --delay: 1.25s;
+}
+
+.delay-6 {
+  --delay: 1.5s;
+}
+
+.delay-7 {
+  --delay: 1.75s;
+}
+
+.delay-8 {
+  --delay: 2s;
+}
+
+.delay-9 {
+  --delay: 2.25s;
+}
+
+.delay-10 {
+  --delay: 2.5s;
+}
+
+.delay-11 {
+  --delay: 2.75s;
+}
+.delay-12 {
+  --delay: 3s;
+}
+
+.delay-13 {
+  --delay: 3.25s;
+}
+
+.theme-fade-inout {
+  animation: themefadeinout 0.25s; /*subtle transition effect on themes  */
+}
+
+@keyframes themefadeinout {
+  0% {
+    filter: blur(0px);
+  }
+  25% {
+    filter: blur(50px);
+  }
+  50% {
+    filter: blur(100px);
+  }
+  75% {
+    filter: blur(50px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.animate-lower {
+  animation: lower-theme-icon 0.5s forwards;
+}
+
+@keyframes lower-theme-icon {
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(10rem);
+  }
+}
+
+.animate-rise {
+  animation: rise-theme-icon 1s forwards;
+}
+
+@keyframes rise-theme-icon {
+  0% {
+    transform: translateY(10rem);
+  }
+  50% {
+    transform: translateY(-1.5rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+/* 
+@keyframes oscillateblur {
+  0% {
+    filter: blur(75px);
+  }
+
+  20% {
+    filter: blur(120px);
+    opacity: 85%;
+  }
+
+  50% {
+    filter: blur(85px);
+    opacity: 100%;
+  }
+
+  75% {
+    filter: blur(130px);
+    opacity: 73%;
+  }
+  100% {
+    filter: blur(75px);
+  }
+} */
+
+/*animation declared in profile-img-div::after */
+
+@keyframes displayimg {
+  100% {
+    transform: translateX(100%) translateY(45%);
+  }
+}
+
+.rotate-focus {
+  transform: rotateY(90deg);
+  animation: rotate-focus 1.5s var(--delay) forwards;
+}
+
+@keyframes rotate-focus {
+  0% {
+    filter: blur(50px);
+    transform: rotateY(90deg);
+  }
+  50% {
+    filter: blur(25px);
+    transform: rotateY(45deg);
+  }
+  100% {
+    filter: blur(0px);
+    transform: rotateY(0deg);
+  }
+}
+
+.drop-down {
+  transform: translateY(-10rem);
+  animation: dropdown 1s var(--delay) forwards;
+}
+
+@keyframes dropdown {
+  50% {
+    transform: translateY(1rem);
+  }
+  65% {
+    transform: translateY(-0.5rem);
+  }
+  85% {
+    transform: translateY(0.2rem);
+  }
+
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+.scale-middle {
+  transform: scaleX(0);
+  animation: scale-from-middle 0.75s 1.25s forwards;
+}
+
+@keyframes scale-from-middle {
+  100% {
+    transform: scaleX(1);
+  }
+}
