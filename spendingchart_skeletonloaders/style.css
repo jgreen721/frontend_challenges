@@ -9,6 +9,7 @@
   background: var(--cream);
   font-family: var(--mainFont);
   position: relative;
+  overflow: hidden;
 }
 
 .app::before {
