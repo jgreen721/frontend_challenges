@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --softred: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --darkbrown: hsl(25, 47%, 15%);
+  --medbrown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --paleorange: hsl(33, 100%, 98%);
+  --mainFont: "DM Sans", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.mid-thin {
+  font-weight: 400;
+}
+
+.brown-text {
+  color: var(--medbrown);
+}
+
+.no-opacity {
+  opacity: 0;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.end {
+  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.skeleton {
+  opacity: 85%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  min-width: 35px;
+  width: fit-content;
+}
+
+.skeleton-bar {
+  width: 50px;
+}
+
+.skeleton-day {
+  border-radius: 0.2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.skeleton::after {
+  content: "";
+  background: linear-gradient(to right, gray, lightgray);
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: skeleton 1s linear infinite alternate;
+}
+
+@keyframes skeleton {
+  0% {
+    opacity: 65%;
+    left: 0;
+  }
+  100% {
+    opacity: 1;
+    left: -50%;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  /* .chart {
+    gap: 0.5rem;
+  } */
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  .skeleton-bar {
+    width: 3rem;
+  }
+}

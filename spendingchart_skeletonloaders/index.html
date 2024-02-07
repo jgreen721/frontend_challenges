@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .img-div {
+        height: 200px;
+        width: 600px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .img2 {
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        left: 400px;
+        top: 0;
+      }
+    </style>
+    <title>Expense Chart</title>
+  </head>
+  <body>
+    <div class="app">
+      <section class="chart-card">
+        <!--Chart Header-->
+        <div class="chart-header">
+          <div class="chart-header-column">
+            <h2 class="thin my-1">My balance</h2>
+            <div data-balance class="balance-div mt-1">
+              <div class="skeleton">
+                <h1 class="no-opacity">12345</h1>
+              </div>
+            </div>
+          </div>
+          <div class="chart-header-column">
+            <div class="chart-logo-div">
+              <div class="circle outline-circle"></div>
+              <div class="circle filled-circle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-body">
+          <div class="chart-body-header">
+            <button class="btn refresh-btn active-btn"  onclick="setData()">Refresh</button>
+
+            <h1>Spending - Last</h1>
+            <div data-days-total>
+              <div class="skeleton">
+                <h1 class="no-opacity">5</h1>
+              </div>
+            </div>
+            <h1>days</h1>
+          </div>
+
+          <div class="chart"></div>
+
+          <div class="chart-body-bottom">
+            <div class="chart-bottom-column">
+              <h3 class="mid-thin brown-text">Total this week</h3>
+              <div data-total>
+                <div class="skeleton skeleton-h1">
+                  <h1 class="no-opacity">5232</h1>
+                </div>
+              </div>
+            </div>
+            <div class="chart-bottom-column">
+              <div data-interest class="end">
+                <div class="skeleton">
+                  <h4 class="no-opacity">5232</h4>
+                </div>
+              </div>
+              <h3 class="mid-thin brown-text">from last week</h3>
+                <div class="prev-div">
+                  <h5>Prev:</h5>
+                  <div data-prev>
+                    <div class="skeleton">
+                      <h5 class="no-opacity">2422.12</h5>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <template class="bar-template">
+      <div class="bar-column">
+        <div data-bar class="bar-container">
+          <div class="skeleton skeleton-bar"></div>
+        </div>
+        <div data-day class="day-div">
+          <div class="skeleton skeleton-day">
+            <h3 class="no-opacity">mon</h3>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="helpers.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

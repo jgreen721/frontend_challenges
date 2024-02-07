@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-family: sans-serif;
+      }
+
+      .section{
+        margin:3rem 2rem;
+      }
+
+      li{
+        list-style:none;
+      }
+
+      .links{
+     
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
       }
 
       body {
@@ -34,7 +49,7 @@
         text-decoration: none;
         font-size: 1.2rem;
         color: white;
-        text-shadow: 1px 1px 1px greenyellow;
+        text-shadow: 1px 1px 1px black;
         font-weight: 200;
         display: block;
         margin: 1rem;
@@ -47,23 +62,129 @@
     <title>FrontEnd Challenges</title>
   </head>
   <body>
-    <h1>~ <span class="underline">FrontEndMentor</span> Solutions ~</h1>
+    <div class="app">
+      <h1>~ <span class="underline">FrontEndMentor</span> Solutions ~</h1>
+
+      <p>
+        Welcome to a hub of solutions for FrontEndMentor. Some are early entries
+        that could be cleaned up/benefit from a re-do and some have been redone
+        and so will have multiple Solutions.
+      </p>
+
+      <section class="section">
+        <h3>Snippets</h3>
+        <ul class="snippet-links links">
+          <li class="link-item beginner-link-item">
+            <a href="./pumpkinspiceseason/index.html">Pumpkin Spice</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./bitwise_sample/index.html">Bitwise</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./snowyfire_css/index.html">CSS Winter Scene</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Category:Newbie</h3>
+        <ul class="beginner-links links">
+          <li class="link-item newbie-link-item">
+            <a href="./perfume_modal/index.html">Perfume Modal</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./designcard/index.html">Design Card</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./qrcode/">QRCode </a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./nftfigma/">NFT(Figma) </a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./perfume_figma/">Perfume(Figma) </a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./qrcode/">QRCode </a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./qrcode_figma/">QRCodeFigma </a>          
+          </li>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./stats-card/index.html">Stats Card</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./newapp/index.html">New App</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./recipe_snippet/">Recipe Snippet</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./sociallinksprofile/">Social Links</a>
+          </li>
+          <li class="link-item newbie-link-item">
+            <a href="./spendingchart_skeletonloaders/"
+            >Spending Chart with Skeleton Loaders</a>          
+        </li>
+        </ul>
+      </section>
+
+     
+
+
+      <section class="section">
+        <h3>Category:Beginner</h3>
+        <ul class="beginner-links links">
+          <li class="link-item beginner-link-item">
+            <a href="./project_tracker/index.html">Project Tracker</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./huddle-challenge/index.html">Huddle Challenge</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./project_tracker/index.html">Project Tracker</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./socialmedia_fechallenge/index.html">Social Media</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./css_phonechallenge/index.html">CSS Phone</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./tipcalc/index.html">Tip_Calc</a>
+          </li>
+          <li class="link-item beginner-link-item">
+            <a href="./carddetails/index.html">Card Details</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section"> 
+        <h3>Category:Junior</h3>
+        <ul class="junior-links links">
+          <li class="link-item beginner-link-item">
+            <a href="./tipcalc/index.html">Tip_Calc</a>
+          </li>
+        </ul>
+      </section>
+    </div>
     <div class="grid">
-      <a href="./perfume_modal/index.html">Perfume Modal</a>
-      <a href="./snowyfire_css/index.html">CSS Winter Scene</a>
-      <a href="./project_tracker/index.html">Project Tracker</a>
-      <a href="./designcard/index.html">Design Card</a>
-      <a href="./huddle-challenge/index.html">Huddle Challenge</a>
-      <a href="./stats-card/index.html">Stats Card</a>
-      <a href="./socialmedia_fechallenge/index.html">Social Media</a>
-      <a href="./css_phonechallenge/index.html">CSS Phone</a>
-      <a href="./tipcalc/index.html">Tip_Calc</a>
+      <!-- <a href="./perfume_modal/index.html">Perfume Modal</a> -->
+      <!-- <a href="./snowyfire_css/index.html">CSS Winter Scene</a> -->
+      <!-- <a href="./project_tracker/index.html">Project Tracker</a> -->
+      <!-- <a href="./designcard/index.html">Design Card</a> -->
+      <!-- <a href="./huddle-challenge/index.html">Huddle Challenge</a> -->
+      <!-- <a href="./stats-card/index.html">Stats Card</a> -->
+      <!-- <a href="./socialmedia_fechallenge/index.html">Social Media</a> -->
+      <!-- <a href="./css_phonechallenge/index.html">CSS Phone</a> -->
+      <!-- <a href="./tipcalc/index.html">Tip_Calc</a> -->
 
-      <a href="./carddetails/index.html">Card Details</a>
+      <!-- <a href="./carddetails/index.html">Card Details</a> -->
 
-      <a href="./newapp/index.html">New App</a>
+      <!-- <a href="./newapp/index.html">New App</a> -->
       <a href="./fyloapp/index.html">Fylo App</a>
-      <a href="./pumpkinspiceseason/index.html">Pumpkin Spice</a>
+      <!-- <a href="./pumpkinspiceseason/index.html">Pumpkin Spice</a> -->
       <a href="./insure_landing/index.html">Insure Landing </a>
       <a href="./order-summary/index.html">OrderSummary </a>
       <a href="./crowdfunding/index.html">Crowd Funding </a>
@@ -73,15 +194,15 @@
       <a href="./figma_landing_page/">Figma App </a>
       <a href="./ping_soon_challenge/">Ping Landing Page </a>
       <a href="./social_proof_fechallenge/">Social_proof Page </a>
-      <a href="./qrcode/">QRCode </a>
-      <a href="./qrcode_figma/">QRCodeFigma </a>
+      <!-- <a href="./qrcode/">QRCode </a>
+      <a href="./qrcode_figma/">QRCodeFigma </a> -->
       <a href="./signup_challenge/">Sign Up Challenge </a>
       <a href="./figma_landingpage">Figma 2 (Beginner Challenge) </a>
       <a href="./passwd_gen">Passwd Gen </a>
       <a href="./suite-landing-fe/">Suite Landing(Figma) </a>
       <a href="./podrequest_figma_fe/">Pod Ad Design(Figma) </a>
-      <a href="./perfume_figma/">Perfume(Figma) </a>
-      <a href="./nftfigma/">NFT(Figma) </a>
+      <!-- <a href="./perfume_figma/">Perfume(Figma) </a> -->
+      <!-- <a href="./nftfigma/">NFT(Figma) </a> -->
       <a href="./devfinder/">GithubDevFinder </a>
       <a href="./animategraph_fe/">Animate/Figma GraphFE Challenge </a>
       <a href="./ratingcard_figmaanimate_fec/">Figma Rating Card </a>
@@ -91,7 +212,7 @@
       <a href="./meet-landing-page/index.html">Meet Landing Page </a>
       <a href="./dictionaryapp/index.html">Dictionary App </a>
       <a href="./designPortfolio/">Design Portfolio </a>
-      <a href="./bitwise_sample/index.html">Bitwise</a>
+      <!-- <a href="./bitwise_sample/index.html">Bitwise</a> -->
       <a href="./results_summary/">Results Summary</a>
       <a href="./huddle_landing_fe_animatesvg/">Huddle Page</a>
       <a href="./workit_landing_fe/">WorkIt Landing</a>
@@ -113,8 +234,11 @@
       <a href="./maker-prelaunch/">Maker Prelaunch App</a>
       <a href="./improvedsunshine/">Improved Sunnyside App</a>
       <a href="./officelite-timer-site/">OfficeLite - Timer</a>
-      <a href="./recipe_snippet/">Recipe Snippet</a>
+      <!-- <a href="./recipe_snippet/">Recipe Snippet</a>
       <a href="./sociallinksprofile/">Social Links</a>
+      <a href="./spendingchart_skeletonloaders/"
+        >Spending Chart with Skeleton Loaders</a
+      > -->
     </div>
   </body>
 </html>
