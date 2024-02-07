@@ -57,12 +57,23 @@ async function setData() {
   }
   console.log("weeklyTotal", weeklyTotal);
 
-  setTimeout(() => {
+  if (!isReset) {
+    setTimeout(() => {
+      //allow for onload animations/replicate longer wait time for initial request
+      renderDOM();
+    }, 4000);
+  } else {
+    // connection established, lesser wait time from 'mock server'
+    renderDOM();
+  }
+
+  function renderDOM() {
     for (let i = 0; i < 3; i++) {
       setTimeout(() => {
         //simulate API calls -- populate skeletons accordingly
         if (i == 0) renderEl(weeklyTotal, "total", true, "h1");
         if (i == 1 && !isReset) renderEl(DAYS, "days-total", false, "h1");
+        if (i == 1) renderAllColumns(dailyTotals);
 
         if (i == 2 && !isReset) {
           //due to setTimeout/scope behavior, we need to update isReset within the delay block otherwise undesired behavior.
@@ -72,10 +83,9 @@ async function setData() {
 
         if (i == 2) renderEl(interest, "interest", false, "h3", interestSign);
         if (i == 2 && prevTotal) renderEl(prevTotal, "prev", false, "h5");
-        if (i == 2) renderAllColumns(dailyTotals);
-      }, i * 2000);
+      }, i * 1500);
     }
-  }, 2000);
+  }
 
   setTimeout(() => (prevTotal = weeklyTotal), 6500);
 }
@@ -99,10 +109,6 @@ function renderEl(val, category, showCounter, el, interestSign = "+") {
     `[data-${category}]`
   ).innerHTML = `<div class="fade-in"><${el}>${renderTemplate}</${el}></div>`;
 
-  // if (category != "interest")
-  console.log(
-    `Passing ${initialRenderVal} as initial value to increment up to ${val} for ${category} category.`
-  );
   incrementToBalance(initialRenderVal, val, category);
 }
 
@@ -163,7 +169,7 @@ function reapplyAllSkeletons() {
 }
 
 function toggleBtn() {
-  if (refreshBtn.textContent.toLowerCase() == "update") {
+  if (refreshBtn.textContent.toLowerCase() == "refresh") {
     refreshBtn.textContent = "LOADING";
     refreshBtn.classList.remove("active-btn");
     refreshBtn.classList.add("disabled");
