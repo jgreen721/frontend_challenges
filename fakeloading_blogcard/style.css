@@ -47,7 +47,7 @@ p {
   height: 100vh;
   max-width: 144rem;
   margin: 0 auto;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   font-family: mainFont;
   background: var(--mainBg);
   display: flex;
