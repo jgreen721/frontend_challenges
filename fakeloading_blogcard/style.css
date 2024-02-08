@@ -1,0 +1,281 @@
+@font-face {
+  font-family: mainFont;
+  src: url("./assets/fonts/Figtree-VariableFont_wght.ttf");
+}
+
+html {
+  font-size: 62.5%;
+  /*convert so 1rem = 10px */
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h5 {
+  font-size: 1.7rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --grey: hsl(0, 0%, 50%);
+  --black: hsl(0, 0%, 7%);
+  --mainPadding: 2.4rem;
+}
+
+.app[data-theme="main"] {
+  --mainBg: var(--yellow);
+  --cardBg: var(--white);
+}
+
+.app {
+  height: 100vh;
+  max-width: 144rem;
+  margin: 0 auto;
+  border: 2px solid black;
+  font-family: mainFont;
+  background: var(--mainBg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--mainPadding);
+}
+
+.online-icon-div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 4rem;
+}
+
+.signal-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.offline {
+  position: relative;
+  opacity: 25%;
+}
+
+.offline::after {
+  width: 100%;
+  height: 2px;
+  background: black;
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: 0%;
+  transform: rotate(45deg);
+}
+
+.skeleton {
+  /* background: grey; */
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: grey;
+  animation: flash 2s infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 35%;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeleton-label {
+  padding: 0.5rem 1.5rem;
+}
+
+.skeleton-line {
+  margin: 0.5rem 0;
+  height: 10px;
+}
+
+.skeleton-line:last-child {
+  width: 80%;
+}
+
+.skeleton-username,
+.skeleton-title {
+  width: fit-content;
+}
+
+.placeholder {
+  opacity: 0;
+}
+
+.blog-card-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38.5rem;
+}
+
+.blog-card {
+  background: var(--cardBg);
+  padding: var(--mainPadding);
+  border-radius: 2rem;
+  width: 100%;
+  box-shadow: 0px 0px 2px black, 15px 10px 1px black,
+    2px -2px 10px rgba(0, 0, 0, 0.5) inset;
+}
+
+.blog-hero {
+  height: 20rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero-img {
+  animation: focusimg 1s forwards;
+}
+
+@keyframes focusimg {
+  0% {
+    filter: blur(100px);
+  }
+
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.blog-card-body {
+  margin: var(--mainPadding) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title-h1 {
+  font-weight: 800;
+}
+
+.label-div {
+  width: fit-content;
+  /* border: 2px solid red; */
+  background: var(--yellow);
+  border-radius: 0.5rem;
+}
+
+.label-h3 {
+  padding: 0.5rem 1rem;
+  animation: fadein 1s forwards;
+}
+
+.published-div-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.publish-date-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.blurb-div {
+  width: 100%;
+  margin-right: 1.5rem;
+  overflow: hidden;
+}
+
+.blurb {
+  line-height: 2rem;
+  opacity: 50%;
+  animation: slideblurb 1s forwards;
+}
+
+@keyframes slideblurb {
+  0% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.user-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.user-avatar-row::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: var(--black);
+  position: absolute;
+  bottom: -2.5rem;
+  border-radius: 5rem;
+  opacity: 25%;
+}
+
+.user-img-div {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  animation: focusimg 2s forwards;
+}
+
+.avatar-img {
+  height: 100%;
+  width: 100%;
+}
+
+.fadein {
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .blog-card-wrapper {
+    width: 100%;
+  }
+}
