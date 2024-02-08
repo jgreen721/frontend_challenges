@@ -253,12 +253,12 @@ p {
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  animation: focusimg 2s forwards;
 }
 
 .avatar-img {
   height: 100%;
   width: 100%;
+  animation: focusimg 2s forwards;
 }
 
 .fadein {
