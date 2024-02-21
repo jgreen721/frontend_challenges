@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Frontend Mentor | Notifications page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        /* position: absolute; */
+        left:0;
+        width: 100%;
+        padding: 0.5rem;
+        font-size:1.5rem;
+        font-family:mainFont;
+        bottom:2rem;
+        z-index:50;
+
+      }
+      .attribution a {
+        color:var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- APP CONTAINER -->
+    <div class="app">
+
+      <!-- SOCIAL MEDIA CONTAINER-->
+      <div class="social-media-container">
+
+        <!-- MEDIA HEADER -->
+        <header class="main-header">
+          <div class="main-header-col">
+            <div class="app-title-row">
+              <div class="header-icon-div">
+              <i class="fa-regular fa-chess-queen header-icon"></i>
+              <i class="fa-regular fa-chess-queen header-icon shadow-icon"></i>
+              <i class="fa-regular fa-chess-queen header-icon shadow-2-icon"></i>
+              </div>
+              <h4 class="thin desktop">medi</h4>
+              <h4 class="bold styled-letter desktop">A</h4>
+              <h4 class="thin desktop">gram</h4>
+            </div>
+            <div class="form-div">
+              <input
+                class="form-control"
+                placeholder="Search"
+                name="search"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="main-header-col">
+           
+            <ul class="nav-icons">
+              <li class="nav-item">
+                <i class="fa-regular fa-message nav-icon"></i>
+                
+              </li>
+              <li onclick=toggleNotificationsCard() class="nav-item">
+                <i class="fa-regular fa-bell nav-icon"></i>
+                <div class="navbar-alert-bubble"></div>
+              </li>
+              <li class="nav-item">
+                <i class="fa-regular fa-user nav-icon"></i>
+                
+              </li>
+            </ul>
+          </div>
+        </header>
+
+        <!-- END MEDIA HEADER-->
+
+        <div class="app-body">
+        <div class="notifications-parent notifications">
+          <!-- HEADER -->
+           <header class="header-row">
+            <div class="notifications-col-div">
+              <div class="notifications-header-row">
+                <h3>Notifications</h3>
+                <div class="notification-count-div">
+                  <div class="notification-count skeleton" id="notification-total"></div>
+                </div>
+              </div>
+             
+            </div>
+            <div>
+              <button onclick="markAllAsRead()" class="mark-as-read-btn disabled">Mark all as read</button>
+            </div>
+          </header> 
+
+          <ul class="notifications-list">
+           
+        </div>
+      </div>
+    </div>
+    
+    <!-- ATTRIBUTION-->
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a target="_blank" href="https://frontendshowcase.com">Justin Green</a>.
+      </div>
+
+      <!-- END <APP> -->
+    </div>
+
+
+
+
+
+
+    <script>
+        let notificationsCard = document.querySelector(".notifications-parent")
+        let notificationsList = document.querySelector(".notifications-list");
+        let alertBubble = document.querySelector(".navbar-alert-bubble");
+        let markAsReadBtn = document.querySelector(".mark-as-read-btn");
+
+        let data = [];
+        let notificationCount = 0;
+   
+        /* tracks item/load times to know when last item has rendered and to enable mark-as-read btn -- there's probably a better way!  */
+      let renderTracking = {longestLoadingTime:null,itemCounter:0} 
+
+        
+   
+
+      async function init(){
+
+          let data = await fetch("data.json")
+          data = await data.json();
+          console.log("Data",data);
+          notificationCount = data.notifications.filter(d=>!d.isRead).length
+          console.log("notificationCount",notificationCount)
+
+          renderNotificationCount(notificationCount);
+
+          data.notifications.forEach(notification=>{
+            renderItem(notification)
+          })
+      }
+
+       init();
+
+
+    
+
+
+    
+
+
+      function renderItem(item){
+            renderTracking.itemCounter++;
+        let li = document.createElement("li");
+            li.className="notification-item";
+        let  notificationContentCard = document.createElement("div");     //created to allow for unread border effects
+             notificationContentCard.className = "notification-card-content"
+        let leftSideColumn = document.createElement("div");    //allows for justify-between flex setting for shared-img element, otherwise has non-impact
+            leftSideColumn.className="notification-item-left-column"
+        let avatarDiv = document.createElement("div");
+            avatarDiv.className="avatar-column";
+            avatarDiv.innerHTML = `<div class='avatar-div'><div class="skeleton skeleton-avatar"></div><img src=${item.img} alt="avatar-img" class="avatar-img"/></div>`
+        let notificationBody = document.createElement("div");
+
+        let html = `<div class="notification-body"><div class="skeleton skeleton-body"></div><div class="body-column"><h5 class="name-h5"><span class="bold">${item.name}</span> <span class="mid-thin">${item.activity.text}</span>`
+      
+      if(item.activity.isLink){
+                   html += `<a href="#" class="link"> ${item.activity.payload}</a>`
+                                }
+
+      if(!item.isRead){
+          html += `<a href="#" class="alert-dot unread-alert-dot"></a>`
+          }
+        html += "</h5>"
+        
+       html += `<h5 class="muted my-1">${item.postedAt}</h5>`
+
+      if(item.activity.isMsg){
+html += `<div class='notification-msg-div'><h5 class="mid-thin">${item.activity.payload}</h5></div>`
+      }
+
+      html += `</div>`
+    
+    
+
+
+      notificationBody.innerHTML = html;
+      leftSideColumn.appendChild(avatarDiv)
+      leftSideColumn.appendChild(notificationBody)
+      notificationContentCard.appendChild(leftSideColumn)
+      if(item.hasPicture){
+
+let sharedImgDiv = document.createElement("div");
+    sharedImgDiv.innerHTML = `<div class='shared-img-div'><div class='skeleton skeleton-shared-img'></div><img src=${item.picture} class="shared-img"/></div>`
+    notificationContentCard.appendChild(sharedImgDiv);
+}
+     
+      li.appendChild(notificationContentCard)
+      notificationsList.appendChild(li)
+
+
+      //remove skeleton loaders with FAKE loading time logic;
+let time = Math.random() * 4500 | 0 + 1500
+if(time > renderTracking.longestLoadingTime)renderTracking.longestLoadingTime = time;
+// console.log("longestLoadingTime: " + renderTracking.longestLoadingTime +  " Time: " + time + ".")
+      setTimeout(()=>{
+         li.querySelector(".avatar-div").innerHTML = `<img src=${item.img} alt="avatar-img" class="avatar-img"/>`
+         li.querySelector(".avatar-div").style.overflow = "visible"    /*allow for blur shadow fx*/
+         li.querySelector(".notification-body").querySelector(".skeleton").style.display="none"
+         if(li.querySelector(".shared-img-div"))li.querySelector(".shared-img-div").innerHTML = `<div><img src=${item.picture} class="shared-img"/></div>`
+         if(item.id == 2){
+           document.querySelector(".notification-count").classList.remove("skeleton")
+         }
+         if(!item.isRead){
+           /*set unread border fx, assign event listener */
+          let overlayItem = document.createElement("div");
+              overlayItem.className = "unread-overlay notification-overlay"
+              li.appendChild(overlayItem)
+              li.onclick=(e)=>markItemAsRead(e)
+
+         }
+         li.querySelector(".notification-body").style.overflow="visible"
+         if(time == renderTracking.longestLoadingTime && renderTracking.itemCounter == 7){
+           console.log('freed button!')
+           markAsReadBtn.classList.remove("disabled")
+         }
+      },time);
+    }
+
+
+    const renderNotificationCount=(count)=>{
+         document.getElementById("notification-total").innerHTML = `<h3 class="animate-count">${count}</h3>`
+       }
+
+
+
+       function toggleNotificationsCard(){
+        if(notificationsCard.classList.contains('hide-notifications')){
+        notificationsCard.classList.remove("hide-notifications")
+        notificationsCard.classList.add("show-notifications")
+        }
+        else{
+          notificationsCard.classList.add("hide-notifications")
+          notificationsCard.classList.remove("show-notifications")
+        }
+
+      }
+
+
+    function markAllAsRead(){
+
+      if(notificationCount == 0){
+        return;
+      }
+      let alertItems = document.querySelectorAll(".alert-dot");
+      let overlays = document.querySelectorAll(".notification-overlay")
+      alertItems.forEach((alertItem,idx)=>{
+        alertItem.classList.add("dissolve-alert")
+        notificationCount = 0;
+        renderNotificationCount(notificationCount)
+        overlays[idx].classList.remove("unread-overlay")
+        
+      })
+      alertBubble.classList.add("dissolve-alert")
+
+
+    }
+
+
+    function markItemAsRead(e){
+      if(notificationCount == 0)return;
+
+      //logic to avoid clicking on element(s) children bugs 
+      if(!e.target.classList.contains("notification-item")){
+       e.target.closest(".notification-item").querySelector(".alert-dot").classList.add("dissolve-alert")
+       e.target.closest(".notification-item").querySelector(".notification-overlay").classList.remove("unread-overlay");
+      }
+      else{
+        e.target.closest(".notification-item").querySelector(".notification-overlay").classList.remove("unread-overlay");
+        e.target.querySelector(".alert-dot").classList.add("dissolve-alert")
+      }
+   
+        notificationCount--;
+        if(notificationCount == 0)alertBubble.classList.add("dissolve-alert")
+           renderNotificationCount(notificationCount)
+
+    }
+    </script>
+  </body>
+</html>

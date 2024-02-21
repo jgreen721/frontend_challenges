@@ -1,0 +1,11 @@
+{
+    "notifications":[
+        {"id":1,"name":"Mark Webber","postedAt":"1m ago","isRead":false,"img":"./assets/images/avatar-mark-webber.webp","activity":{"text":"reacted to your recent post","payload":"My first tournament","isLink":true, "isMsg":false},"hasPicture":false},
+        {"id":2,"name":"Angela Gray","postedAt":"5m ago","isRead":false,"img":"./assets/images/avatar-angela-gray.webp","activity":{"text":"followed you","payload":"","isLink":false},"hasPicture":false},
+        {"id":3,"name":"Jacob Thompson","postedAt":"1 day ago","isRead":false,"img":"./assets/images/avatar-jacob-thompson.webp","activity":{"text":"has joined your group","payload":"Chess Club","isLink":true,"isMsg":false},"hasPicture":false},
+        {"id":4,"name":"Rizky Hasanuddin","postedAt":"5 days ago","isRead":true,"img":"./assets/images/avatar-rizky-hasanuddin.webp","activity":{"text":"sent your a private message","payload":"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.","isLink":false,"isMsg":true}},
+        {"id":5,"name":"Kimberly Smith","postedAt":"1 week ago","isRead":true,"img":"./assets/images/avatar-kimberly-smith.webp","activity":{"text":"commented on your picture","payload":"","isLink":false,"isMsg":false},"hasPicture":true,"picture":"./assets/images/image-chess.webp"},
+        {"id":6,"name":"Nathan Peterson","postedAt":"2 weeks ago","isRead":true,"img":"./assets/images/avatar-nathan-peterson.webp","activity":{"text":"reacted to your recent post","payload":"5 end-game strategies to increase your win rate","isLink":false,"isMsg":false},"hasPicture":false},
+        {"id":7,"name":"Anna Kim","postedAt":"2 weeks ago","isRead":true,"img":"./assets/images/avatar-anna-kim.webp","activity":{"text":"left the group","payload":"Chess Club","isLink":true,"isMsg":false},"hasPicture":false}
+    ]
+}

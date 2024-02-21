@@ -1,0 +1,140 @@
+@font-face {
+  font-family: mainFont;
+  src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+  --white: hsl(0, 0%, 100%);
+  --lightgrayblue: hsl(210, 60%, 98%);
+  --lightgrayblue2: hsl(211, 68%, 94%);
+  --lightgrayblue3: hsl(205, 33%, 90%);
+  --grayblue: hsl(219, 14%, 63%);
+  --darkgrayblue: hsl(219, 12%, 42%);
+  --verydarkblue: hsl(224, 21%, 14%);
+  --secondaryColor: rgb(16, 216, 116);
+  --hotpink: rgb(218, 14, 190);
+  --mainRadialGradient: radial-gradient(rgb(34, 32, 32), rgb(27, 20, 20));
+  --mainPaddingX: 12.5rem;
+  --secondRadialGradient: radial-gradient(rgb(61, 60, 60), rgb(36, 34, 34));
+  --unreadRadialGradient: radial-gradient(
+    var(--secondaryColor),
+    rgb(34, 32, 32)
+  );
+  --mainColor: var(--white);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.form-div {
+  width: 100%;
+  min-width: 200px;
+  /* border: 3px solid red; */
+}
+
+.form-control {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--secondaryColor);
+  box-shadow: 0px 3px 10px var(--secondaryColor);
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+.thin {
+  font-weight: 200;
+}
+
+.mid-thin {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.muted {
+  opacity: 65%;
+}
+
+.link {
+  color: var(--secondaryColor);
+  transition: 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+  display: inline-block;
+  position: inline-block;
+  margin: 0 0.5rem;
+}
+
+.link:hover {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.my-1 {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 1050px) {
+  :root {
+    --mainPaddingX: 5.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  :root {
+    --mainPaddingX: 3.5rem;
+  }
+  .desktop {
+    display: none;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .form-div {
+    display: none;
+  }
+}
