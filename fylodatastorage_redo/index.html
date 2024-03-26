@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div data-theme="dark" class="app">
+      <div class="stars-overlay">
+        <div style="--i: 0.5s; --x: 10%" class="stars stars1"></div>
+        <div style="--i: 2.5s; --x: 30%" class="stars stars2"></div>
+        <div style="--i: 4.5s; --x: 70%" class="stars stars3"></div>
+        <div style="--i: 5.5s; --x: 40%" class="stars stars4"></div>
+        <div style="--i: 1.2s" class="stars stars5"></div>
+        <div style="--i: 8.5s; --x: 90%" class="stars stars6"></div>
+        <div style="--i: 5.2s" class="stars stars7"></div>
+        <div style="--i: 7.5s; --x: 20%" class="stars stars8"></div>
+        <div style="--i: 8.5s; --x: 80%" class="stars stars9"></div>
+        <!-- <div style="--i: 3.5s; --x: 35%" class="stars stars10"></div>
+        <div style="--i: 1.5s; --x: 40%" class="stars stars11"></div>
+        <div style="--i: 6.5s; --x: 80%" class="stars stars12"></div>
+        <div style="--i: 8.5s; --x: 10%" class="stars stars13"></div>
+        <div style="--i: 2.5s; --x: 90%" class="stars stars14"></div>
+        <div style="--i: 3.5s; --x: 10%" class="stars stars15"></div>
+        <div style="--i: 9.5s; --x: 10%" class="stars stars16"></div> -->
+      </div>
+      <div class="app-content">
+        <section class="ad-card">
+          <div class="logo-icons-column">
+            <div class="logo-icons-column-content">
+              <div class="icon-div">
+                <img class="logo" src="./images/logo.svg" alt="" />
+              </div>
+              <ul class="actions">
+                <li class="action-item">
+                  <button class="btn action-btn">
+                    <img
+                      class="action-icon"
+                      src="./images/icon-document.svg"
+                      alt=""
+                    />
+                  </button>
+                </li>
+                <li class="action-item">
+                  <button class="btn action-btn">
+                    <img
+                      class="action-icon"
+                      src="./images/icon-folder.svg"
+                      alt=""
+                    />
+                  </button>
+                </li>
+                <li class="action-item">
+                  <button class="btn action-btn">
+                    <img
+                      class="action-icon"
+                      src="./images/icon-upload.svg"
+                      alt=""
+                    />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="progress-column">
+            <div class="caption-row">
+              <p>You’ve used</p>
+              <p id="users-storage" class="bold">
+                <span class="skeleton-loader flash-loaders"></span>
+                <span
+                  data-name="bytes"
+                  id="users-bytes"
+                  class="users-bytes server-data"
+                  >815</span
+                >
+              </p>
+              <p class="bold">GB</p>
+              <p>of your storage</p>
+            </div>
+            <!-- <div class="data-alert">
+            <h1 data-name="memoryleft" class="alert-h1 server-data">185</h1>
+            <h4 class="muted thin">GB Left</h4>
+          </div> -->
+            <div class="progress-bar-content">
+              <!-- <div class="progress-div"> -->
+              <div class="progress-bar">
+                <div class="skeleton-loader flash-loaders"></div>
+                <div
+                  data-name="progress"
+                  id="progress"
+                  class="progress server-data"
+                >
+                  <div draggable="true" class="progress-circle"></div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="progress-label-row">
+                <p>0 GB</p>
+                <p>1000 GB</p>
+              </div>
+            </div>
+            <div class="data-alert">
+              <div data-name="memoryleft" class="memory-left server-data">
+                <div class="skeleton-loader"></div>
+                <h1 class="alert-h1"></h1>
+              </div>
+              <h4 class="muted thin">GB Left</h4>
+            </div>
+          </div>
+        </section>
+
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Justin G</a>.
+        </div>
+
+        <svg height="350" width="1540" viewBox="0 0 1540 350">
+          <path
+            id="wave-1"
+            d="M-20 150, 
+       C220,50,420,50,635,150
+       C850,250,1185,190,1540,50
+       L1540,435
+       L-20,435
+       Z"
+          />
+          <path
+            id="wave-2"
+            d="M-20 150, 
+     C220,50,420,50,635,150
+     C850,250,1185,190,1540,50
+     L1540,435
+     L-20,435
+     Z"
+          />
+          <path
+            id="wave-3"
+            d="M-20 150, 
+   C220,50,420,50,635,150
+   C850,250,1185,190,1540,50
+   L1540,435
+   L-20,435
+   Z"
+          />
+          <path
+            id="wave-4"
+            d="M-20 150, 
+ C220,50,420,50,635,150
+ C850,250,1185,190,1540,50
+ L1540,435
+ L-20,435
+ Z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      let skeletonLoaders = document.querySelectorAll(".skeleton-loader");
+      let serverData = document.querySelectorAll(".server-data");
+      let btns = document.querySelectorAll(".btn");
+
+      function renderLoaders() {
+        if (serverData[0].classList.contains("render-bytes")) {
+          serverData[0].classList.remove("render-bytes");
+        }
+        if (serverData[1].classList.contains("growprogress")) {
+          serverData[1].classList.remove("growprogress");
+        }
+        if (serverData[2].classList.contains("render")) {
+          serverData[2].classList.remove("render");
+          serverData[2].querySelector("h1").innerHTML = "";
+        }
+        skeletonLoaders.forEach((loader) => {
+          loader.classList.remove("remove-loader");
+          loader.classList.add("flash-loaders");
+        });
+      }
+
+      setTimeout(() => {
+        renderData();
+        console.log("render!!");
+      }, 500);
+
+      let data = {
+        bytes: 815,
+        memoryleft: 185,
+      };
+
+      function renderData() {
+        console.log(data);
+        serverData.forEach((item, idx) => {
+          let dataName = item.getAttribute("data-name");
+          // console.log("Dataname", dataName);
+          switch (dataName) {
+            case "bytes":
+              skeletonLoaders[0].classList.add("remove-loader");
+              item.classList.add("render-bytes");
+              item.innerHTML = data[dataName];
+              // console.log("setting dataname", data[dataName]);
+              break;
+
+            case "progress":
+              skeletonLoaders[1].classList.add("remove-loader");
+              item.classList.add("growprogress");
+              break;
+
+            case "memoryleft":
+              item.classList.add("render");
+              setTimeout(() => {
+                skeletonLoaders[2].classList.add("remove-loader");
+                item.querySelector("h1").innerHTML = data[dataName];
+              }, 4250);
+              break;
+
+            default:
+              console.log("unknown action");
+          }
+        });
+      }
+      let isRender = false;
+
+      function toggleState() {
+        if (isRender) {
+          renderData();
+          isRender = false;
+        } else {
+          renderLoaders();
+          isRender = true;
+        }
+        console.log("isRender:", isRender);
+      }
+
+      const dragCircle = document.querySelector(".progress-circle");
+      let progress = document.querySelector(".progress");
+      // console.log(dragCircle);
+      let progressBarWidth =
+        document.querySelector(".progress-bar").clientWidth;
+      let startPOS;
+      let width;
+
+      dragCircle.ondragstart = (e) => {
+        // console.log("drag start!");
+        // console.log(progress.clientWidth);
+        width = progress.clientWidth;
+        startPOS = e.clientX;
+        // console.log(startPOS);
+      };
+
+      dragCircle.ondragend = (e) => {
+        console.log("drag endt!");
+
+        renderLoaders();
+
+        let endPOS = e.clientX;
+        console.log(
+          "Start",
+          startPOS,
+          "endPOS",
+          endPOS,
+          "Difference",
+          Math.abs(startPOS - endPOS)
+        );
+        width -= startPOS - endPOS;
+        progress.style.width = `${width}px`;
+        let usersPercent = (width / progressBarWidth).toFixed(2);
+        // console.log(usersPercent);
+        data.bytes = usersPercent * 1000;
+        data.memoryleft = 1000 - data.bytes;
+        console.log(data);
+        // document.querySelector("#users-bytes").innerText = data.bytes;
+        setTimeout(() => {
+          renderData();
+        }, 1500);
+      };
+
+      btns.forEach((btn) => {
+        btn.onclick = (e) => {
+          btns.forEach((btn) => {
+            btn.classList.remove("active-btn");
+          });
+          e.target.classList.add("active-btn");
+          renderLoaders();
+          data.bytes = (Math.random() * 1000) | 0;
+          data.memoryleft = 1000 - data.bytes;
+          let percent = (data.bytes / 1000).toFixed(2) * 100;
+          document.querySelector(".progress").style.width = `${percent}%`;
+          setTimeout(() => {
+            renderData();
+          }, 2000);
+        };
+      });
+    </script>
+  </body>
+</html>
