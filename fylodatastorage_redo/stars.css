@@ -1,0 +1,155 @@
+.stars-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 5rem;
+  display: flex;
+  transform: rotate(-35deg);
+}
+
+.stars {
+  height: 2px;
+  width: 70px;
+  background: linear-gradient(blue, white);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 35%;
+  filter: drop-shadow(0px 2px 6px white);
+  animation: tail 3000ms ease-in-out infinite,
+    shootstars var(--duration) var(--delay) linear infinite;
+}
+
+.stars:nth-child(1) {
+  top: 0%;
+  --delay: 0.2s;
+  --duration: 8.5s;
+}
+
+.stars:nth-child(2) {
+  top: 30%;
+  --delay: 4.7s;
+  --duration: 9.6s;
+}
+
+.stars:nth-child(3) {
+  top: 60%;
+  --delay: 2.5s;
+  --duration: 8.8s;
+}
+
+.stars:nth-child(4) {
+  top: 70%;
+  --delay: 0.5s;
+  --duration: 9.3s;
+}
+
+.stars:nth-child(5) {
+  top: 80%;
+  --delay: 1s;
+  --duration: 10.4s;
+}
+
+.stars:nth-child(6) {
+  top: 35%;
+  --delay: 2s;
+  --duration: 9s;
+}
+
+.stars:nth-child(7) {
+  top: 7%;
+  --delay: 4s;
+  --duration: 8.5s;
+}
+
+.stars:nth-child(8) {
+  top: 5%;
+  --delay: 0s;
+  --duration: 12s;
+}
+
+.stars:nth-child(9) {
+  top: 20%;
+  --delay: 1s;
+  --duration: 8s;
+}
+
+@keyframes tail {
+  0% {
+    width: 70px;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+@keyframes shootstars {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+svg {
+  position: absolute;
+  bottom: 0;
+}
+
+#wave-1 {
+  fill: var(--darkblue);
+  animation: animatewave 8s linear infinite;
+}
+
+#wave-2 {
+  fill: var(--verydarkblue);
+  opacity: 65%;
+  animation: animatewave 8s 1.5s linear infinite;
+}
+
+#wave-3 {
+  fill: var(--darkblue);
+  opacity: 50%;
+}
+
+#wave-4 {
+  fill: var(--verydarkblue);
+  opacity: 45%;
+  animation: animatewave 8s 3s linear infinite;
+}
+
+@keyframes animatewave {
+  0% {
+    d: path(
+      "M50 150, C220,50,420,50,635,150 C850,250,1185,190,1540,50 L1540,435 L50,435 Z"
+    );
+  }
+  25% {
+    d: path(
+      "M50 50, C220,150,420,50,635,150 C850,250,1185,-20,1540,150 L1540,435 L50,435 Z"
+    );
+  }
+  50% {
+    d: path(
+      "M50 150, C220,250,420,50,635,180 C850,280,1185,50,1540,200 L1540,435 L50,435 Z"
+    );
+  }
+  75% {
+    d: path(
+      "M50 180, C220,150,420,50,635,180 C850,280,1185,-20,1540,150 L1540,435 L50,435 Z"
+    );
+  }
+  100% {
+    d: path(
+      "M50 150, C220,50,420,50,635,150 C850,250,1185,190,1540,50 L1540,435 L50,435 Z"
+    );
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .stars-overlay {
+    display: none;
+  }
+}
