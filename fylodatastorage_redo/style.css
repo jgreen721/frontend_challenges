@@ -50,7 +50,7 @@ html {
   align-items: center;
   justify-content: center; */
   width: 100vw;
-  /* animation: render 1s forwards; */
+  animation: render 1s forwards;
 }
 
 .app-content {
@@ -210,8 +210,8 @@ li {
   border-top-right-radius: 10rem;
 
   position: relative;
-  /* transform: scale(0);
-  animation: render 0.5s 1s forwards; */
+  transform: scale(0);
+  animation: render 0.5s 1s forwards;
 }
 
 .logo-icons-column-content {
@@ -283,8 +283,8 @@ li {
   position: relative;
   box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5),
     -3px -5px 5px var(--mainBg) inset, -5px -5px 15px var(--mainBg) inset;
-  /* transform: scale(0, 1);
-  animation: render-width 1s 1.5s forwards; */
+  transform: scale(0, 1);
+  animation: render-width 1s 1.5s forwards;
 }
 
 .data-alert {
@@ -580,12 +580,12 @@ svg {
 }
 
 @media screen and (max-width: 850px) {
+  .stars-overlay {
+    display: none;
+  }
   .ad-card {
     flex-direction: column;
     align-items: flex-start;
-  }
-  .logo-icons-column {
-    /* width: 100%; */
   }
 
   .progress-column {
