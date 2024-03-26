@@ -21,26 +21,21 @@ html {
   --mainFont: "Raleway", sans-serif;
 }
 
-.app[data-theme="dark"] {
+.app {
   --mainBg: var(--verydarkblue);
   --cardBg: var(--darkblue);
   --mainColor: var(--white);
-}
-
-.app[data-theme="light"] {
-  --mainBg: var(--white);
-  --cardBg: var(--lightgray);
 }
 
 .app {
   max-width: 144rem;
   margin: 0 auto;
   min-height: 100vh;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   position: relative;
   overflow: hidden;
   background: var(--mainBg);
-  width: 100vw;
+
   animation: render 1s forwards;
 }
 
