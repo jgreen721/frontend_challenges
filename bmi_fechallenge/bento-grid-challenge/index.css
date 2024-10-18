@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --lightpurple: hsl(254, 88%, 90%);
+  --darkpurple: hsl(256, 67%, 59%);
+  --lightyellow: hsl(31, 66%, 93%);
+  --yellow: hsl(39, 100%, 71%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 7%);
+  --bgGray: rgb(230, 225, 235);
+  --mainFont: "DM Sans", sans-serif;
+  --mainPaddingX: 12.5rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bg-lightyellow {
+  background: var(--lightyellow);
+}
+
+.bg-yellow {
+  background: var(--yellow);
+}
+
+.bg-purple {
+  background: var(--darkpurple);
+}
+
+.bg-lightpurple {
+  background: var(--lightpurple);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.purple-text {
+  color: var(--darkpurple);
+}
+
+.yellow-text {
+  color: var(--yellow);
+}
+
+.white-text {
+  color: var(--white);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.h1-title {
+  font-size: 5.2rem;
+  line-height: 4.8rem;
+  font-weight: 300;
+}
+
+.h2-title {
+  font-size: 4.2rem;
+  line-height: 4rem;
+  font-weight: 300;
+}
+
+.h3-title {
+  font-size: 3.2rem;
+  line-height: 3rem;
+  font-weight: 300;
+}
+
+.giant-h1 {
+  font-size: 6rem;
+  line-height: 6rem;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.attribution {
+  text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+  :root {
+    --mainPaddingX: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  :root {
+    --mainPaddingX: 1.5rem;
+  }
+}

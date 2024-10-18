@@ -1,0 +1,266 @@
+.app {
+  max-width: 144rem;
+  margin: 0 auto;
+  /* border: 2px solid black; */
+  font-family: var(--mainFont);
+  padding: 8rem var(--mainPaddingX);
+  background: var(--bgGray);
+}
+
+.bento-grid-parent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  /* border: 2px solid red; */
+  /* height: 125vh; */
+  overflow: hidden;
+  /* display: none; */
+}
+
+.left-column {
+  flex: 1;
+  /* min-width: 400px; */
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* overflow: hidden; */
+  /* flex-shrink: 0; */
+}
+
+.content-card {
+  padding: 2.5rem;
+  border-radius: 1rem;
+  /* border: 2px solid red; */
+  flex-grow: 1;
+  overflow: hidden;
+  /* box-shadow: 10px 10px 12.5px rgba(5, 10, 10, 0.15) inset; */
+}
+
+.top-shadow {
+  box-shadow: 10px 10px 12.5px rgba(5, 10, 10, 0.15) inset;
+}
+
+.bottom-shadow {
+  box-shadow: -10px -10px 12.5px rgba(5, 10, 10, 0.15) inset;
+}
+
+.content-card * {
+  transition: 0.25s ease;
+}
+
+.content-card:hover * {
+  transform: scale(1.035);
+}
+
+.consistent-schedule-div {
+  position: relative;
+  transform: translateY(10rem);
+}
+
+.consistent-schedule-img {
+  height: 100%;
+  width: 100%;
+}
+
+.content-img {
+  height: 100%;
+  width: 100%;
+  /* display: none; */
+}
+
+.ai-content-img {
+  height: 300px;
+  width: 300px;
+}
+
+.stars-img {
+  height: 50%;
+  width: 50%;
+}
+
+.ai-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 2rem;
+  /* border: 2px solid red; */
+}
+
+.grow-followers-content {
+  display: flex;
+  align-items: center;
+  /* height: 100%; */
+  /* border: 2px solid red; */
+}
+
+.fastest-growth-content {
+  flex-direction: column;
+  display: flex;
+  gap: 3rem;
+}
+
+.social-media-content {
+  flex-direction: column;
+  display: flex;
+  gap: 3rem;
+  padding: 4rem 0;
+}
+
+.right-column {
+  /* flex: 2; */
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.top-right-row {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+
+.long-content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.long-column-bottom-row {
+  display: flex;
+  /* border: 2px solid orange; */
+  flex-grow: 1;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.social-media-img-div {
+  position: relative;
+  margin: 2rem 0;
+  transform: translateX(50px);
+  height: 400px;
+  width: 400px;
+}
+
+.social-media-img {
+  height: 100%;
+  width: 100%;
+}
+
+.multiple-accounts-content {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+}
+
+.multiple-accounts-img-div {
+  /* position: absolute;
+  height: 50%; */
+  /* width: 100%; */
+  /* width: 100%; */
+  transform: translateX(7.55rem);
+}
+
+.bottom-right-row {
+  display: flex;
+  /* align-items: center */
+  /* border: 3px solid blue; */
+  gap: 2rem;
+}
+
+.small-column {
+  flex: 1;
+  position: relative;
+}
+
+.long-column {
+  flex: 2.25;
+  position: relative;
+}
+
+.attribution {
+  padding: 2rem 0;
+}
+
+.slide-right {
+  transform: translateX(-125%);
+  animation: slideright 1s var(--i) forwards;
+}
+
+@keyframes slideright {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-left {
+  transform: translateX(125%);
+  animation: slideleft 1s var(--i) forwards;
+}
+
+@keyframes slideleft {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-up {
+  transform: translateY(125%);
+  animation: slideup 1s var(--i) forwards;
+}
+
+@keyframes slideup {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  transform: translateY(-125%);
+  animation: slidedown 1s var(--i) forwards;
+}
+
+@keyframes slidedown {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .bento-grid-parent {
+    flex-direction: column;
+  }
+
+  .left-column {
+    flex-direction: row;
+  }
+
+  .top-right-row {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .left-column {
+    flex-direction: column;
+  }
+
+  .long-column-bottom-row,
+  .bottom-right-row {
+    flex-direction: column;
+  }
+
+  .social-media-content {
+    text-align: center;
+  }
+  .social-media-img-div {
+    transform: translateX(0);
+    margin: 0 auto;
+  }
+}
