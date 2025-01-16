@@ -7,6 +7,7 @@ let userTicketSection = document.querySelector(".user-ticket-section");
 document.querySelector("form").onsubmit = (e) => handleFormSubmit(e);
 
 let userFile;
+let wrongCounter = 0;
 let input_errors = {
   fullname: false,
   email: false,
@@ -15,6 +16,9 @@ let input_errors = {
 
 function handleFormSubmit(e) {
   e.preventDefault();
+  if (wrongCounter == 1 && !userFile) {
+    userFile = "./assets/images/image-avatar.jpg";
+  }
   console.log("handleSubmit!");
   formData = new FormData(document.querySelector(".user-form"));
   let userData = {
@@ -33,6 +37,7 @@ function handleFormSubmit(e) {
   if (userFile == undefined) {
     isError = true;
     renderFileUploadError();
+    wrongCounter++;
   }
 
   if (!isError) {
