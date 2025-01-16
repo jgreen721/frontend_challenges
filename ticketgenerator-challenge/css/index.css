@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neutral: hsl(0, 0%, 100%);
+  --neutral300: hsl(252, 6%, 83%);
+  --neutral500: hsl(245, 15%, 58%);
+  --neutral700: hsl(245, 19%, 35%);
+  --neutral900: hsl(248, 70%, 10%);
+  --orange500: hsl(7, 88%, 67%);
+  --orange700: hsl(7, 71%, 60%);
+  --gradient: linear-gradient(hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  --mainFont: "Inconsolata", serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--neutral);
+}
+
+body {
+  background: var(--neutral900);
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+small {
+  font-size: 1.2rem;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.mid-thin {
+  font-weight: 400;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.muted {
+  opacity: 65%;
+}
+
+.red-text {
+  color: var(--orange500);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 650px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 1.2;
+  }
+}

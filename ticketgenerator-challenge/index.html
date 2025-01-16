@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/overlay.css" />
+    <title>Ticket Generator</title>
+  </head>
+  <body>
+    <div class="app">
+      <picture>
+        <source
+          media="(min-width:650px)"
+          srcset="./assets/images/background-desktop.png"
+        />
+        <source
+          media="(min-width:465px)"
+          srcset="./assets/images/background-tablet.png"
+        />
+        <img
+          id="purple-shadow"
+          src="./assets/images/background-mobile.png"
+          alt=""
+        />
+      </picture>
+      <img id="pattern-lines" src="./assets/images/pattern-lines.svg" alt="" />
+      <img
+        id="pattern-circle"
+        src="./assets/images/pattern-circle.svg"
+        alt=""
+      />
+      <img
+        id="pattern-circle-2"
+        src="./assets/images/pattern-circle.svg"
+        alt=""
+      />
+      <img
+        id="bottom-squiggle"
+        src="./assets/images/pattern-squiggly-line-bottom.svg"
+        alt=""
+      />
+      <img
+        id="top-squiggle"
+        src="./assets/images/pattern-squiggly-line-top.svg"
+        alt=""
+      />
+
+      <div class="app-content">
+        <div class="display"></div>
+        <div class="logo-img-div">
+          <img src="./assets/images/logo-full.svg" alt="" />
+        </div>
+        <div class="sign-up-section">
+          <header>
+            <h1>
+              Your Journey to Coding Conf 2025
+              <span class="red-text">Starts</span> <em>Here</em>!
+            </h1>
+            <p class="header-caption muted">
+              Secure your spot at next year's
+              <span class="bold">biggest</span> coding conference.
+            </p>
+          </header>
+          <form class="user-form">
+            <div class="form-div">
+              <label for="upload">
+                <p>Upload Avatar</p>
+                <div id="user_img" class="input-upload-div">
+                  <input
+                    draggable="true"
+                    type="file"
+                    class="file-upload-input"
+                    name="upload"
+                    value="./assets/images/image-avatar.jpg"
+                  />
+
+                  <div class="upload-icon-div">
+                    <img
+                      class="upload-icon"
+                      src="./assets/images/icon-upload.svg"
+                      alt=""
+                    />
+                  </div>
+                  <p class="upload-input-caption">
+                    Drag and drop or click to upload
+                  </p>
+                </div>
+                <div class="fileinput-caption-card">
+                  <small class="upload-caption upload-caption-default">
+                    <img src="./assets/images/icon-info.svg" alt="" />
+                    Upload your photo (JPG or PNG, max size: 5000KB).
+                  </small>
+                  <small
+                    class="upload-caption upload-caption-error error-caption-text blur-caption"
+                  >
+                    <img src="./assets/images/error-icon.svg" alt="" />
+                    Upload your photo (JPG or PNG, max size: 5000KB).
+                  </small>
+                </div>
+              </label>
+            </div>
+            <div class="form-div">
+              <label for="fullname">
+                <p>Full Name</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="full name"
+                  name="fullname"
+                  id="fullname"
+                  value="justin green"
+                  autocomplete="off"
+                />
+              </label>
+              <small
+                id="fullname-error"
+                class="input-error-caption error-caption-text"
+              >
+                <img src="./assets/images/error-icon.svg" alt="" />
+                Please enter your fullname
+              </small>
+            </div>
+            <div class="form-div">
+              <label for="email">
+                <p>Email Address</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="example@email.com"
+                  name="email"
+                  id="email"
+                  value="justngreen721@g.com"
+                  autocomplete="off"
+                />
+              </label>
+              <small
+                id="email-error"
+                class="input-error-caption error-caption-text"
+              >
+                <img src="./assets/images/error-icon.svg" alt="" />
+                Please enter a valid email address
+              </small>
+            </div>
+            <div class="form-div">
+              <label for="github">
+                <p>Github Username</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="@yourusername"
+                  name="github"
+                  id="github"
+                  value="jgreen721"
+                  autocomplete="off"
+                />
+              </label>
+              <small
+                id="github-error"
+                class="input-error-caption error-caption-text"
+              >
+                <img src="./assets/images/error-icon.svg" alt="" />
+                Please enter a valid github username
+              </small>
+            </div>
+            <button class="generate-ticket-btn">Generate My Ticket</button>
+          </form>
+        </div>
+
+        <div class="user-ticket-section">
+          <header class="user-ticket-header">
+            <h1>
+              Congrats,<span id="username-display">Cindy Green</span>! Your
+              ticket is ready.
+            </h1>
+            <p class="success-header-caption">
+              We've emailed your ticket to
+              <span class="red-text capitalize" id="email-display"
+                >Cindy Green!</span
+              >
+              and will send updates in the run up to the event.
+            </p>
+          </header>
+          <!-- USER TICKET CONTENT -->
+
+          <div class="user-ticket-area">
+            <img
+              class="ticket-img"
+              src="./assets/images/pattern-ticket.svg"
+              alt=""
+            />
+            <img
+              class="shadow-ticket"
+              src="./assets/images/pattern-ticket.svg"
+              alt=""
+            />
+            <div class="user-ticket-content">
+              <div class="large-ticket-content-column">
+                <div class="large-ticket-content-row">
+                  <div class="ticket-logo-date-column">
+                    <div class="ticket-logo-div">
+                      <img src="./assets/images/logo-full.svg" alt="" />
+                    </div>
+                    <p class="muted ticket-date-text">
+                      Jan 31, 2025/ Austin, TX
+                    </p>
+                  </div>
+                </div>
+                <div class="large-ticket-content-row thumbnail-username-div">
+                  <div class="ticket-thumbnail-div">
+                    <img
+                      id="ticket-img"
+                      class="ticket-thumbnail-img"
+                      src="./assets/images/image-avatar.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="ticket-username-email-div">
+                    <h4 class="mid-thin capitalize" id="ticket-username">
+                      Jonatan Kristof
+                    </h4>
+                    <div class="email-icon-row">
+                      <div class="github-icon-div">
+                        <img src="./assets/images/icon-github.svg" alt="" />
+                      </div>
+                      <a href="#" id="github-link" target="_blank">
+                        <p class="thin muted" id="ticket-github">
+                          @jonatankristof0101
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="small-ticket-content-column">
+                <h3 class="ticket-number-text muted">#01609</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- END TICKET CONTENT -->
+        </div>
+      </div>
+    </div>
+
+    <script src="js/drag.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

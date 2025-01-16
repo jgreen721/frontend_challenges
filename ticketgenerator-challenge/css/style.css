@@ -1,0 +1,469 @@
+.app {
+  max-width: 144rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--mainFont);
+  color: var(--neutral);
+  filter: grayscale(100);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: addcolor 1s 0.5s forwards;
+  /* border: 3px solid green; */
+}
+
+@keyframes addcolor {
+  100% {
+    filter: grayscale(0);
+    transform: scaleY(1);
+  }
+}
+
+.app-content {
+  position: relative;
+  height: 100%;
+  width: clamp(62.5%, 650px, 100%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 2rem;
+  /* border: 3px solid red; */
+}
+
+.logo-img-div {
+  transform: scale(0);
+  animation: inflatelogo 1s 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+}
+
+@keyframes inflatelogo {
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sign-up-section,
+.user-ticket-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 5rem;
+  /* text-align: center; */
+  /* border: 2px solid red; */
+}
+/* 
+.sign-up-section {
+  display: none;
+} */
+
+.user-ticket-section {
+  display: none;
+  position: relative;
+  /* height: 100%; */
+  /* opacity: 0; */
+  /* filter: blur(100px); */
+  /* border: 2px solid blue; */
+}
+
+.hide-page-view {
+  animation: hide-pageview 2s forwards;
+}
+
+.show-user-ticket-view {
+  display: flex;
+  filter: blur(100px);
+  transform: scaleY(0);
+  animation: show-pageview 2s 2s forwards;
+  /* border: 5px solid red; */
+  /* display: none; */
+}
+
+@keyframes hide-pageview {
+  50% {
+    filter: hue-rotate(90deg);
+  }
+  95% {
+    filter: hue-rotate(90deg) blur(15px);
+    transform: scaleY(0);
+  }
+  100% {
+    filter: hue-rotate(90deg) blur(15px);
+    transform: scaleY(0);
+    display: none;
+  }
+}
+
+@keyframes show-pageview {
+  100% {
+    filter: blur(0px);
+    transform: scaleY(1);
+  }
+}
+
+.header-caption {
+  /* opacity: 50%; */
+  margin: 2rem;
+}
+
+.user-form {
+  width: clamp(50%, 400px, 100%);
+  margin: 2.5rem 0;
+  /* border: 2px solid red; */
+}
+
+.form-div {
+  text-align: start;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1.5rem;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 2px solid var(--neutral);
+  background: rgba(255, 255, 255, 0.1);
+  font-family: var(--mainFont);
+  font-size: 2rem;
+  margin: 1rem 0;
+  position: relative;
+  color: var(--neutral);
+}
+
+.form-control:focus {
+  border: 4px solid var(--neutral);
+}
+
+.input-upload-div {
+  border: 2px dotted var(--neutral);
+  padding: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.file-upload-input {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+  /* border: 2px solid red; */
+}
+
+.error-border {
+  border: 2px solid var(--orange500);
+}
+
+.error-border:focus {
+  border: 4px solid var(--orange500);
+}
+
+.fileinput-caption-card {
+  position: relative;
+  /* border: 3px solid purple; */
+  /* height: 300px; */
+}
+
+.upload-caption-error {
+  position: absolute;
+  inset: 0;
+}
+
+.blur-caption {
+  animation: blurtext 1s forwards;
+}
+
+@keyframes blurtext {
+  100% {
+    filter: blur(50px);
+  }
+}
+
+.input-upload-div:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: 10;
+  border-radius: 1rem;
+  opacity: 35%;
+  /* border: 5px solid red; */
+}
+
+.darken-input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 85%;
+}
+
+.upload-icon {
+  transition: 0.25s ease;
+}
+
+.upload-icon-div {
+  position: relative;
+  /* border: 2px solid red; */
+  height: 45px;
+  width: 45px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  z-index: 100;
+}
+
+.upload-img-thumbnail {
+  border-radius: 0.5rem;
+  position: absolute;
+  inset: 0;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  filter: blur(75px);
+  animation: clearblurimg 1s forwards;
+}
+
+@keyframes clearblurimg {
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.input-upload-div:hover .upload-input-caption {
+  text-shadow: 0px 0px 1px black, 1px 1px 3px white;
+}
+
+.input-upload-div:hover .upload-icon {
+  transform: scale(1.2);
+}
+
+.upload-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 65%;
+  margin: 1rem 0;
+}
+
+.input-upload-div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 15%;
+}
+
+.input-error-caption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error-caption-text {
+  color: var(--orange700);
+}
+
+.input-error-caption {
+  display: block;
+  transition: 0.5s ease;
+  transform: translateY(10rem);
+}
+
+.show-error {
+  transform: translateY(0rem);
+}
+
+.generate-ticket-btn {
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--orange500);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.5s ease;
+  box-shadow: 5px -5px 15px rgba(10, 5, 10, 0.5) inset;
+}
+
+.generate-ticket-btn:hover {
+  transform: scale(0.9, 1.2);
+}
+
+/*User-Ticket-Section Elements */
+
+.user-ticket-header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+#username-display {
+  display: inline-block;
+  background-image: var(--gradient);
+  background-clip: text;
+  color: transparent;
+  text-transform: capitalize;
+}
+
+#email-display {
+  /* color: var(--orange500); */
+}
+
+.success-header-caption {
+  max-width: 500px;
+  margin: 2rem;
+  line-height: 2.5rem;
+  /* border: 2px solid yellow; */
+}
+
+.user-ticket-area {
+  position: relative;
+  z-index: 5;
+  transform-style: preserve-3d;
+  transform: translateX(-200rem);
+  animation: ticketslidein 2s 2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+}
+
+@keyframes ticketslidein {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shadow-ticket {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  transform-origin: left;
+  opacity: 0;
+  transform: translate(0.5rem) translateY(0.5rem);
+  filter: blur(5px) hue-rotate(90deg);
+  animation: shadowticketfadein 1s 1s forwards;
+}
+
+@keyframes shadowticketfadein {
+  100% {
+    opacity: 1;
+    filter: blur(15px) hue-rotate(90deg);
+  }
+}
+
+.user-ticket-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 5;
+  padding: 2.5rem;
+  /* border: 5px solid red; */
+}
+
+.large-ticket-content-column {
+  width: 75%;
+  /* border: 2px solid green; */
+}
+
+.small-ticket-content-column {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid blue; */
+}
+
+.ticket-number-text {
+  transform: rotate(90deg) translateY(-2rem);
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+}
+
+.large-ticket-content-row {
+  height: 50%;
+  /* border: 3px solid yellow; */
+}
+
+.ticket-logo-date-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  height: 100%;
+  position: relative;
+  /* border: 3px solid green; */
+}
+.ticket-date-text {
+  transform: translateX(4rem);
+  /* border: 2px solid green; */
+}
+
+.ticket-thumbnail-div {
+  height: 65px;
+  width: 65px;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-username-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.ticket-username-email-div {
+  /* border: 2px solid green; */
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ticket-thumbnail-div {
+  min-width: 5rem;
+  min-height: 5rem;
+  /* border: 3px solid red; */
+}
+.ticket-thumbnail-img {
+  height: 100%;
+  width: 100%;
+}
+
+.email-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  /* border: 2px solid red; */
+}
+
+@media screen and (max-width: 650px) {
+  .app-content {
+    padding: 4rem 1rem;
+  }
+
+  .user-ticket-content {
+    padding: 1rem;
+  }
+
+  .ticket-logo-date-column {
+    gap: 0.25rem;
+  }
+
+  .thumbnail-username-div {
+    gap: 0.5rem;
+  }
+
+  .ticket-img {
+    width: 100%;
+    min-width: 325px;
+  }
+}
